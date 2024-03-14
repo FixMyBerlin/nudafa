@@ -7,12 +7,14 @@ import Section from "../components/layouts/Section.astro";
 import H2 from "../components/Text/H2.astro";
 import PersonCardWrapper from "../components/PersonCardWrapper.astro";
 import PersonCard from "../components/PersonCard.astro";
+import CommuneCard from "../components/CommuneCard.astro";
 
 const page = await getEntry("projectpartnerpage", "index");
 const { title, subTitle, mediaLinks } = page.data;
 const { Content } = await page.render();
 
 const persons = await getCollection("persons");
+const communes = await getCollection("communes");
 ---
 
 <Layout title={title}>
@@ -30,6 +32,21 @@ const persons = await getCollection("persons");
               image={p.data.personImage}
               name={p.data.firstName + " " + p.data.name}
               institution={p.data.institution}
+            />
+          ))
+      }
+    </PersonCardWrapper>
+  </Section>
+  <Section className="bg-[#FEF3C7]">
+    <H2>Das Unsere Partnerkommunen</H2>
+    <PersonCardWrapper>
+      {
+        communes?.length!! &&
+          communes.map((p) => (
+            <CommuneCard
+              image={p.data.image}
+              name={p.data.name}
+              website={p.data.website}
             />
           ))
       }

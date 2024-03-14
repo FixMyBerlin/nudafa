@@ -34,8 +34,17 @@ const subprojectsCollection = defineCollection({
       funding: z.string().optional(),
     }),
 });
+const communesCollection = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      image: image(),
+      name: z.string(),
+      website: z.string().optional(),
+    }),
+});
 
 export const collections = {
+  communes: communesCollection,
   news: newsCollection,
   persons: personsCollection,
   subprojects: subprojectsCollection,

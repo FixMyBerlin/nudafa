@@ -16,8 +16,16 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { title, subTitle, topics, commune, start, end, partners, funding } =
-  entry.data;
+const {
+  title,
+  subTitle,
+  topics,
+  projectCommunes,
+  start,
+  end,
+  partners,
+  funding,
+} = entry.data;
 const { Content } = await entry.render();
 ---
 
@@ -27,7 +35,7 @@ const { Content } = await entry.render();
     <SubProjectTable
       start={start}
       end={end}
-      commune={commune}
+      commune={projectCommunes}
       partners={partners}
       funding={funding}
       topics={topics}

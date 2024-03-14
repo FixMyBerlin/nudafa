@@ -52,8 +52,8 @@ export default config({
     },
     navigation: {
       Home: ["homepage"],
-      Projektpartner: ["projectpartnerpage", "persons"],
-      Teilprojekte: ["subProjects", "subprojectstopics"],
+      "Über uns": ["projectpartnerpage", "persons"],
+      Teilprojekte: ["subProjects", "subprojectstopics", "communes"],
       Maßnahmen: ["measures", "measureoperators", "subprojectstopics"],
       "Weitere Seiten": ["presspage", "imprintpage", "privacypage"],
     },
@@ -392,7 +392,7 @@ export default config({
       },
     }),
     projectpartnerpage: singleton({
-      label: "Projektpartner-Seite",
+      label: "Über uns-Seite",
       format: { contentField: "content" },
       path: "src/content/projectpartnerpage/",
       schema: {
@@ -505,16 +505,16 @@ export default config({
           ],
           defaultValue: ["th"],
         }),
-        commune: fields.multiselect({
-          label: "Projektkommune(n)",
-          options: [
-            { label: "Gemeinde Eichwalde", value: "eichwalde" },
-            { label: "Gemeinde Zeuthen", value: "zeuthen" },
-            { label: "Gemeinde Schulzendorf", value: "schulzendorf" },
-            { label: "Gemeinde Wildau", value: "wildau" },
-          ],
-          defaultValue: ["eichwalde"],
-        }),
+        commune: fields.array(
+          fields.relationship({
+            label: "Projektkommune(n)",
+            collection: "communes",
+          }),
+          {
+            label: "Projektkommune",
+            itemLabel: (props) => props.value || "Kommune",
+          }
+        ),
         start: fields.date({
           label: "Projektstart",
           validation: { isRequired: true },
@@ -713,6 +713,28 @@ export default config({
         }),
         email: fields.text({ label: "Email" }),
         fakeDocument: fields.emptyDocument(),
+      },
+    }),
+    communes: collection({
+      label: "Kommunen",
+      path: "src/content/communes/*",
+      slugField: "name",
+      schema: {
+        name: fields.slug({
+          name: {
+            label: "Name",
+            validation: { length: { min: 1, max: 500 } },
+          },
+        }),
+        image: fields.image({
+          label: "Bild",
+          directory: "src/assets/communes",
+          publicPath: "../../assets/communes",
+          validation: { isRequired: true },
+        }),
+        website: fields.url({
+          label: "Website",
+        }),
       },
     }),
     // posts: collection({
