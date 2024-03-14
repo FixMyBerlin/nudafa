@@ -32,6 +32,7 @@ const subprojectsCollection = defineCollection({
       start: z.date(),
       end: z.date().optional(),
       funding: z.string().optional(),
+      projectCommunes: z.array(z.string()).optional(),
     }),
 });
 const communesCollection = defineCollection({

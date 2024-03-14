@@ -37,12 +37,12 @@ const contentViewImageDefaultDouble = (props: any) => (
 
 export default config({
   storage: {
-    // kind: "local",
-    kind: "github",
-    repo: {
-      owner: "FixMyBerlin",
-      name: "nudafa",
-    },
+    kind: "local",
+    // kind: "github",
+    // repo: {
+    //   owner: "FixMyBerlin",
+    //   name: "nudafa",
+    // },
     // https://keystatic.com/docs/github-mode
   },
   ui: {
@@ -505,7 +505,7 @@ export default config({
           ],
           defaultValue: ["th"],
         }),
-        commune: fields.array(
+        projectCommunes: fields.array(
           fields.relationship({
             label: "Projektkommune(n)",
             collection: "communes",
@@ -718,6 +718,9 @@ export default config({
     communes: collection({
       label: "Kommunen",
       path: "src/content/communes/*",
+      format: {
+        contentField: "fakeDocument",
+      },
       slugField: "name",
       schema: {
         name: fields.slug({
@@ -735,6 +738,7 @@ export default config({
         website: fields.url({
           label: "Website",
         }),
+        fakeDocument: fields.emptyDocument(),
       },
     }),
     // posts: collection({

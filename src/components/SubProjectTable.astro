@@ -5,9 +5,9 @@ import { isPast } from "date-fns";
 interface Props {
   start: Date;
   end?: Date;
-  commune: string[];
+  commune?: string[];
   partners: string[];
-  funding: string;
+  funding?: string;
   topics: string[];
 }
 const subTopics = await getCollection("subprojectstopics");
