@@ -45,15 +45,19 @@ export const partnersTableData = {
     <p class="min-w-[200px] flex-shrink-0">Themen</p>
     <ul class="flex flex-wrap gap-2">
       {
-        topics.map((topic) => (
-          <li
-            class:list={[
-              "border text-black rounded-md border-black px-2 py-[1px]",
-            ]}
-          >
-            {getFullTopicTitle(topic)}
-          </li>
-        ))
+        !!topics?.length ? (
+          topics.map((topic) => (
+            <li
+              class:list={[
+                "border text-black rounded-md border-black px-2 py-[1px]",
+              ]}
+            >
+              {getFullTopicTitle(topic)}
+            </li>
+          ))
+        ) : (
+          <span>-</span>
+        )
       }
     </ul>
   </div>
@@ -63,16 +67,20 @@ export const partnersTableData = {
     <p class="min-w-[200px] flex-shrink-0">Beteiligte Projektpartner</p>
     <ul class="flex flex-wrap gap-2">
       {
-        partners.map((partner) => (
-          <li
-            class:list={[
-              "text-black rounded-md px-2 py-[1px]",
-              partnersTableData[partner].color,
-            ]}
-          >
-            {partnersTableData[partner].title}
-          </li>
-        ))
+        !!partners?.length ? (
+          partners.map((partner) => (
+            <li
+              class:list={[
+                "text-black rounded-md px-2 py-[1px]",
+                partnersTableData[partner].color,
+              ]}
+            >
+              {partnersTableData[partner].title}
+            </li>
+          ))
+        ) : (
+          <span>-</span>
+        )
       }
     </ul>
   </div>
@@ -81,7 +89,13 @@ export const partnersTableData = {
   >
     <p class="min-w-[200px] flex-shrink-0">Projektkommune</p>
     <p class="text-black font-bold flex gap-2">
-      {commune.map((c) => <span>{communeTableData[c]} </span>)}
+      {
+        !!commune?.length ? (
+          commune.map((c) => <span>{communeTableData[c]} </span>)
+        ) : (
+          <span>-</span>
+        )
+      }
     </p>
   </div>
   <div
