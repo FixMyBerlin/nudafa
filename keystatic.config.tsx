@@ -93,11 +93,29 @@ export default config({
             TextLinkArrow: inline({
               label: "Textlink mit Pfeil",
               schema: {
-                href: fields.text({
+                href: fields.url({
                   label: "Link",
                   validation: { isRequired: true },
                 }),
+                display: fields.text({
+                  label: "Link",
+                  validation: { isRequired: true },
+                }),
+                external: fields.checkbox({
+                  label: "Externer Link",
+                  defaultValue: false,
+                }),
               },
+              // todo
+              // ContentView: (props) => (
+              //   <a
+              //     href={props.value.href}
+              //     rel="noopener noreferrer"
+              //     target="_blank"
+              //   >
+              //     {props.value.display}
+              //   </a>
+              // ),
             }),
             ImageSingleVertical: block({
               label: "Bild: einzeln, Hochformat",
