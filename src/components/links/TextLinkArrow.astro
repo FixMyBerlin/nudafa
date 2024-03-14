@@ -1,0 +1,30 @@
+---
+import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import { linkStyles } from "./styles";
+
+interface Props {
+  value: { href: string };
+  // external?: boolean;
+  // display?: string;
+}
+
+const { value } = Astro.props as Props;
+---
+
+<span>
+  <ArrowUpRightIcon className="h-4 w-4 inline" />
+  <a
+    href={value.href}
+    class={linkStyles}
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    {value.href} hallo
+  </a>
+</span>
+
+<!-- <span>
+  <a href={href} class={linkStyles}>
+    {href}
+  </a>
+</span> -->

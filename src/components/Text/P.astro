@@ -1,0 +1,20 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+}
+
+const leadingClassName = "leading-[1.8] md:leading-[1.8]";
+const { id, className } = Astro.props;
+---
+
+<p
+  id={id}
+  class:list={[
+    "mb-4 mt-4 text-sm text-gray-700 md:mb-6 md:mt-6 md:text-base",
+    leadingClassName,
+    className,
+  ]}
+>
+  <slot />
+</p>

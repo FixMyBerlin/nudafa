@@ -1,11 +1,42 @@
 // @ts-ignore
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
-const posts = defineCollection({
-  // Type-check frontmatter using a schema
-  schema: z.object({
-    title: z.string(),
-  }),
+const newsCollection = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      teaserImage: image(),
+    }),
+});
+const personsCollection = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      personImage: image(),
+      name: z.string(),
+      firstName: z.string(),
+      position: z.string(),
+      email: z.string().optional(),
+      institution: z.string().optional(),
+    }),
+});
+const subprojectsCollection = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      teaserImage: image(),
+      title: z.string(),
+      subTitle: z.string().optional(),
+      teaser: z.string().optional(),
+      showBig: z.boolean(),
+      topics: z.array(z.string()),
+      partners: z.array(z.string()),
+      start: z.date(),
+      end: z.date().optional(),
+      funding: z.string().optional(),
+    }),
 });
 
-export const collections = { posts };
+export const collections = {
+  news: newsCollection,
+  persons: personsCollection,
+  subprojects: subprojectsCollection,
+};

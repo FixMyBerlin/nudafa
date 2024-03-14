@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import { cardStylesForLinkElements, linkStyles } from "./links/styles";
+import { partnersTableData } from "./SubProjectTable.astro";
+
+interface Props {
+  image: any;
+  name: string;
+  position: string;
+  institution?: string;
+}
+const { name, image, position, institution } = Astro.props;
+---
+
+<li
+  class:list={[
+    "min-h-[192px] rounded-sm py-8 sm:flex grid grid-cols-2 sm:flex-col bg-white shadow-lg items-center sm:gap-6 w-full justify-between text-sm",
+  ]}
+>
+  <figure class:list={["w-full"]}>
+    <Image
+      class="sm:w-[128px] sm:h-[128px] w-[100px] h-[100px] mx-auto rounded-full overflow-hidden object-cover"
+      src={image}
+      alt={""}
+      loading="lazy"
+    />
+    <figcaption></figcaption>
+  </figure>
+  <div
+    class="flex flex-col items-center gap-2 sm:px-4 text-center pr-6 sm:pb-4"
+  >
+    <p class="font-bold text-center">{name}</p>
+    <p class="text-center text-gray-500">{position}</p>
+    {
+      institution && (
+        <p
+          class:list={[
+            "text-black rounded-sm px-2 py-[1px]",
+            partnersTableData[institution].color,
+          ]}
+        >
+          {partnersTableData[institution].title}
+        </p>
+      )
+    }
+  </div>
+</li>

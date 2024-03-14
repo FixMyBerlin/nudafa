@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content";
+import Footer from "./../Footer.astro";
+import { Navbar, type TMainNavigation } from "../navbar/Navbar.tsx";
+import "@fontsource-variable/open-sans";
+
+interface Props {
+  title?: string;
+}
+const subprojects = await getCollection("subprojects");
+const measures = await getCollection("measures");
+const { title = "Nudafa" } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
+
+const subprojectsNavigation = {};
+if (subprojects?.length) {
+  subprojects.forEach((p) => {
+    subprojectsNavigation[p.data.title] = `/teilprojekte/${p.slug}`;
+  });
+}
+const measuresNavigation = {};
+if (measures?.length) {
+  measures.forEach((p) => {
+    measuresNavigation[p.data.title] = `/teilprojekte/${p.slug}`;
+  });
+}
+
+const mainNavigation: TMainNavigation = {
+  first: {
+    "Das Reallabor": {
+      Presse: "/presse",
+      Projektpartner: "/projektpartner",
+    },
+    Teilprojekte: {
+      ...subprojectsNavigation,
+    },
+  },
+  second: {
+    "Zum Radnetz": {
+      todo: "/todo",
+      todo2: "/todo",
+    },
+    "Zu den Maßnahmen": {
+      ...measuresNavigation,
+    },
+  },
+  //   Veranstaltungen: {
+  //     "Aktuelle Veranstaltungen": "/veranstaltungen/aktuelle-veranstaltungen",
+  //     Veranstaltungsarchiv: "/veranstaltungen/archiv",
+  //   },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-32x32.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white font-sans">
+    <Navbar path={pathname} mainNavigation={mainNavigation} client:load />
+    <main>
+      <slot />
+    </main>
+    <Footer mainNavigation={mainNavigation} />
+  </body>
+</html>

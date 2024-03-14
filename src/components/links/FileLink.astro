@@ -1,0 +1,16 @@
+---
+import Link from "./Link.astro";
+
+interface Props {
+  upload: string;
+  caption: string;
+}
+
+const { upload, caption } = Astro.props;
+---
+
+<div
+  class="flex justify-center prose-a:no-underline my-8 hover:prose-a:text-black"
+>
+  <Link button blank href={upload}>{caption} </Link>
+</div>

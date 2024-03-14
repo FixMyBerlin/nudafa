@@ -1,0 +1,107 @@
+---
+import { getCollection } from "astro:content";
+import { isPast } from "date-fns";
+
+interface Props {
+  start: Date;
+  end?: Date;
+  commune: string[];
+  partners: string[];
+  funding: string;
+  topics: string[];
+}
+const subTopics = await getCollection("subprojectstopics");
+
+const getFullTopicTitle = (topic: string) => {
+  const subTopic = subTopics.find((subTopic) => subTopic.id === topic);
+  return subTopic ? subTopic.data.title : topic;
+};
+
+const { start, end, commune, partners, funding, topics } = Astro.props;
+const isProjectPast = end && isPast(end);
+const communeTableData = {
+  eichwalde: "Gemeinde Eichwalde",
+  zeuthen: "Gemeinde Zeuthen",
+  schulzendorf: "Gemeinde Schulzendorf",
+  wildau: "Gemeinde Wildau",
+};
+export const partnersTableData = {
+  th: { color: "bg-[#FEE2E2]", title: "TH Wildau" },
+  eichwalde: { color: "bg-[#FED7AA]", title: "Gemeinde Eichwalde" },
+  zeuthen: { color: "bg-[#FEF3C7]", title: "Gemeinde Zeuthen" },
+  schulzendorf: { color: "bg-[#A5F3FC]", title: "Gemeinde Schulzendorf" },
+  wildau: { color: "bg-[#C7D2FE]", title: "Gemeinde Wildau" },
+  tu: { color: "bg-[#99F6E4]", title: "TU Berlin" },
+  fmc: { color: "bg-[#F9A8D4]", title: "FixMyCity" },
+};
+---
+
+<div
+  class="flex flex-col divide-y divide-gray-200 text-gray-500 border border-gray-200 rounded-sm shadow-lg"
+>
+  <div
+    class="flex flex-col md:flex-row gap-2 p-3 min-w-[200px] flex-shrink-0 md:items-center"
+  >
+    <p class="min-w-[200px] flex-shrink-0">Themen</p>
+    <ul class="flex flex-wrap gap-2">
+      {
+        topics.map((topic) => (
+          <li
+            class:list={[
+              "border text-black rounded-md border-black px-2 py-[1px]",
+            ]}
+          >
+            {getFullTopicTitle(topic)}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div
+    class="flex flex-col md:flex-row gap-2 p-3 min-w-[200px] flex-shrink-0 md:items-center"
+  >
+    <p class="min-w-[200px] flex-shrink-0">Beteiligte Projektpartner</p>
+    <ul class="flex flex-wrap gap-2">
+      {
+        partners.map((partner) => (
+          <li
+            class:list={[
+              "text-black rounded-md px-2 py-[1px]",
+              partnersTableData[partner].color,
+            ]}
+          >
+            {partnersTableData[partner].title}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div
+    class="flex flex-col md:flex-row gap-2 p-3 min-w-[200px] flex-shrink-0 md:items-center"
+  >
+    <p class="min-w-[200px] flex-shrink-0">Projektkommune</p>
+    <p class="text-black font-bold flex gap-2">
+      {commune.map((c) => <span>{communeTableData[c]} </span>)}
+    </p>
+  </div>
+  <div
+    class="flex flex-col md:flex-row gap-2 p-3 min-w-[200px] flex-shrink-0 md:items-center"
+  >
+    <p class="min-w-[200px] flex-shrink-0">Projektlaufzeit</p>
+    <p class="text-black font-bold">
+      {
+        isProjectPast
+          ? `Laufzeit: ${start.toLocaleDateString()} bis ${start.toLocaleDateString()}`
+          : "Seit " + start.toLocaleDateString()
+      }
+    </p>
+  </div>
+  <div
+    class="flex flex-col md:flex-row gap-2 p-3 min-w-[200px] flex-shrink-0 md:items-center"
+  >
+    <p class="min-w-[200px] flex-shrink-0">Finanzierung</p>
+    <p class="text-black font-bold">
+      {funding || "-"}
+    </p>
+  </div>
+</div>

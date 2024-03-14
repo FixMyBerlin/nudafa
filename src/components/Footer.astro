@@ -1,0 +1,63 @@
+---
+import type { TMainNavigation } from "./navbar/Navbar";
+import Link from "./links/Link.astro";
+
+interface Props {
+  mainNavigation: TMainNavigation;
+}
+
+const { mainNavigation } = Astro.props;
+console.log({ mainNavigation });
+---
+
+<div
+  class="bg-beige-700 text-white p-4 py-6 flex flex-col divide-y divide-white gap-8 justify-center"
+>
+  <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-7">
+    {
+      Object.entries(mainNavigation.first).map(([title, menuChildrenItems]) => (
+        <div>
+          <p class="font-bold pb-2">{title}</p>
+          <ul class="text-sm flex flex-col gap-2">
+            {Object.entries(menuChildrenItems).map(([item, href]) => (
+              <li>
+                <a class="no-underline  hover:text-beige-500" href={href}>
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+    {
+      Object.entries(mainNavigation.second).map(
+        ([title, menuChildrenItems]) => (
+          <div>
+            <p class="font-bold pb-2">{title}</p>
+            <ul class="text-sm flex flex-col gap-2">
+              {Object.entries(menuChildrenItems).map(([item, v]) => (
+                <li>
+                  <a class="no-underline  hover:text-beige-500" href={v}>
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      )
+    }
+  </div>
+  <div class="flex flex-col md:flex-row-reverse gap-2 pt-6 md:justify-between">
+    <div class="flex gap-8">
+      <a class="no-underline hover:text-beige-500" href="/impressum"
+        >Impressum</a
+      >
+      <a class="no-underline hover:text-beige-500" href="/datenschutz"
+        >Datenschutz</a
+      >
+    </div>
+    <p>© Gemeinde Eichwalde</p>
+  </div>
+</div>

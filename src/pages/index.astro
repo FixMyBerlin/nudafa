@@ -1,29 +1,69 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
+import { getCollection, getEntry } from "astro:content";
+import BigSubCard from "../components/BigSubCard.astro";
+import BigSubCardWrapper from "../components/BigSubCardWrapper.astro";
+import ImageDouble from "../components/ImageDouble.astro";
+import ImageSingleHorizontal from "../components/ImageSingleHorizontal.astro";
+import ImageSingleSquare from "../components/ImageSingleSquare.astro";
+import ImageSingleVertical from "../components/ImageSingleVertical.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SubCard from "../components/SubCard.astro";
+import SubCardWrapper from "../components/SubCardWrapper.astro";
+import H2 from "../components/Text/H2.astro";
+import Layout from "../components/layouts/Layout.astro";
+import Section from "../components/layouts/Section.astro";
+import TextLinkArrow from "../components/links/TextLinkArrow.astro";
 
-const posts = await getCollection('posts');
+const subProjects = await getCollection("subprojects");
+const homepage = await getEntry("homepage", "index");
+const { title, subTitle } = homepage.data;
+const { Content } = await homepage.render();
+
+const subProjectsBig = subProjects.filter((p) => p.data.showBig);
+const subProjectsSmall = subProjects.filter((p) => !p.data.showBig);
 ---
 
-<Layout title="Keystatic & Astro's Content Collections">
-  <div>
-    <h1>Keystatic ⚡️ + Astro 🚀</h1>
-    <p>
-      This homepage shows how to load data from Astro's content collections.
-    </p>
-    <p>
-      <a href="/keystatic">Click here to visit the Admin UI</a>, or the link
-      below to view a post in the collection.
-    </p>
-    <h2>Posts</h2>
-    <ul>
-      {
-        posts.map(post => (
-          <li>
-            <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+<Layout>
+  <PageHeader title={title} subTitle={subTitle}>
+    <Content
+      components={{
+        ImageSingleHorizontal,
+        ImageSingleSquare,
+        ImageSingleVertical,
+        ImageDouble,
+        TextLinkArrow,
+      }}
+    />
+  </PageHeader>
+  <Section className="bg-[#FEF3C7]">
+    <H2>Teilprojekte</H2>
+    {
+      Boolean(subProjectsBig?.length) && (
+        <BigSubCardWrapper>
+          {subProjectsBig.map((project) => (
+            <BigSubCard
+              image={project.data.teaserImage}
+              href={`/teilprojekte/${project.slug}`}
+              title={project.data.title}
+              teaser={project.data.teaser}
+            />
+          ))}
+        </BigSubCardWrapper>
+      )
+    }
+    {
+      Boolean(subProjectsSmall?.length) && (
+        <SubCardWrapper>
+          {subProjectsSmall.map((project) => (
+            <SubCard
+              image={project.data.teaserImage}
+              href={`/teilprojekte/${project.slug}`}
+              title={project.data.title}
+              teaser={project.data.teaser}
+            />
+          ))}
+        </SubCardWrapper>
+      )
+    }
+  </Section>
 </Layout>
