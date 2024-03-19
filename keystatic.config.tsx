@@ -37,12 +37,12 @@ const contentViewImageDefaultDouble = (props: any) => (
 
 export default config({
   storage: {
-    kind: "local",
-    // kind: "github",
-    // repo: {
-    //   owner: "FixMyBerlin",
-    //   name: "nudafa",
-    // },
+    // kind: "local",
+    kind: "github",
+    repo: {
+      owner: "FixMyBerlin",
+      name: "nudafa",
+    },
     // https://keystatic.com/docs/github-mode
   },
   ui: {
