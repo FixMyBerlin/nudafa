@@ -13,7 +13,7 @@ const { display, external, href } = Astro.props as Props;
 
 {
   external ? (
-    <span>
+    <span class="not-prose">
       <a
         href={href}
         class={linkStyles}
@@ -25,7 +25,7 @@ const { display, external, href } = Astro.props as Props;
       </a>
     </span>
   ) : (
-    <span>
+    <span class="not-prose">
       <a href={href} class={linkStyles}>
         <ArrowRightIcon className="h-4 w-4 inline pr-1" />
         {display}

@@ -35,7 +35,9 @@ const position = imageConfig.value?.value;
     "w-full flex",
   ]}
 >
-  <figure class:list={[width === "half" ? "w-full md:w-1/2" : "w-full"]}>
+  <figure
+    class:list={[width === "half" ? "w-full md:w-1/2" : "w-full", "not-prose"]}
+  >
     <div
       class:list={[
         ratio === "3/2" && "aspect-[3/2]",
