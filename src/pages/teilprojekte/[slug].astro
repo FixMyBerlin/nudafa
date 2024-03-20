@@ -1,10 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import PageHeader from "../../components/PageHeader.astro";
-import Layout from "../../components/layouts/Layout.astro";
-import ImageWithCaption from "../../components/ImageWithCaption.astro";
-import SubProjectTable from "../../components/SubProjectTable.astro";
 import ProseMarkdown from "../../components/ProseMarkdown.astro";
+import SubProjectTable from "../../components/SubProjectTable.astro";
+import Layout from "../../components/layouts/Layout.astro";
 import Section from "../../components/layouts/Section.astro";
 
 export async function getStaticPaths() {
@@ -43,7 +42,7 @@ const { Content } = await entry.render();
   </Section>
   <Section>
     <ProseMarkdown>
-      <Content components={{ ImageWithCaption }} />
+      <Content components={{}} />
     </ProseMarkdown>
   </Section>
 </Layout>

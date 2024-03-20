@@ -544,37 +544,7 @@ export default config({
         funding: fields.text({ label: "Finanzierung" }),
         content: fields.mdx({
           label: "Content",
-          components: {
-            ImageWithCaption: block({
-              label: "Bild mit Unterschrift",
-              schema: {
-                src: fields.image({
-                  label: "Bild",
-                  directory: "src/assets/subprojects",
-                  publicPath: "/src/assets/subprojects",
-                  validation: { isRequired: true },
-                }),
-                caption: fields.text({
-                  label: "Bildunterschrift",
-                  validation: { length: { min: 1, max: 80 } },
-                }),
-                alt: fields.text({ label: "Alt-Text" }),
-                position: fields.select({
-                  label: "Position",
-                  options: [
-                    { label: "links", value: "left" },
-                    { label: "zentriert", value: "center" },
-                    { label: "rechts", value: "right" },
-                  ],
-                  defaultValue: "left",
-                }),
-              },
-              // as we are using atsro we have to copy paste the whole component and have to keep it in sync manually
-              // talwind does not work in the keysatic ui YET
-              // Image Preview is not working yet so we have a default image here for now
-              ContentView: contentViewImageDefault,
-            }),
-          },
+          components: {},
           options: {
             image: {
               directory: "src/assets/images/subprojects",
