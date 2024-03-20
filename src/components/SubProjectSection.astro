@@ -1,0 +1,46 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BigSubCard from "../components/BigSubCard.astro";
+import BigSubCardWrapper from "../components/BigSubCardWrapper.astro";
+import SubCard from "../components/SubCard.astro";
+import SubCardWrapper from "../components/SubCardWrapper.astro";
+import H2 from "../components/Text/H2.astro";
+import Section from "../components/layouts/Section.astro";
+
+const subProjects = await getCollection("subprojects");
+
+const subProjectsBig = subProjects.filter((p) => p.data.showBig);
+const subProjectsSmall = subProjects.filter((p) => !p.data.showBig);
+---
+
+<Section className="bg-[#FEF3C7] not-prose">
+  <H2>Teilprojekte</H2>
+  {
+    Boolean(subProjectsBig?.length) && (
+      <BigSubCardWrapper>
+        {subProjectsBig.map((project) => (
+          <BigSubCard
+            image={project.data.teaserImage}
+            href={`/teilprojekte/${project.slug}`}
+            title={project.data.title}
+            teaser={project.data.teaser}
+          />
+        ))}
+      </BigSubCardWrapper>
+    )
+  }
+  {
+    Boolean(subProjectsSmall?.length) && (
+      <SubCardWrapper>
+        {subProjectsSmall.map((project) => (
+          <SubCard
+            image={project.data.teaserImage}
+            href={`/teilprojekte/${project.slug}`}
+            title={project.data.title}
+            teaser={project.data.teaser}
+          />
+        ))}
+      </SubCardWrapper>
+    )
+  }
+</Section>

@@ -349,6 +349,17 @@ export default config({
               },
               ContentView: contentViewImageDefaultDouble,
             }),
+            SubprojectSection: block({
+              label: "Übersicht Teilprojekte",
+              description:
+                "Zur Positionierung der Liste der Teilprojekte-Teaser. Die Vorschau ist nur ein generischer Platzhalter.",
+              schema: {
+                id: fields.empty(),
+              },
+              ContentView: (props) => (
+                <img src="/subproject-section-dummy.jpg" alt="" />
+              ),
+            }),
           },
           options: {
             image: {
