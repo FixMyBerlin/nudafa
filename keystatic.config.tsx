@@ -38,8 +38,7 @@ const contentViewImageDefaultDouble = (props: any) => (
 
 export default config({
   storage: {
-    // kind: "local",
-    kind: "github",
+    kind: process.env.NODE_ENV === "development" ? "local" : "github",
     repo: {
       owner: "FixMyBerlin",
       name: "nudafa",
