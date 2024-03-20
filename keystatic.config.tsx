@@ -1,5 +1,6 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
 import { block, inline, wrapper } from "@keystatic/core/content-components";
+import { ArrowRightIcon, ArrowUpRightIcon } from "@heroicons/react/24/outline";
 
 const contentViewImageDefault = (props: any) => (
   <figure>
@@ -75,21 +76,6 @@ export default config({
         content: fields.mdx({
           label: "Content",
           components: {
-            StatusBadge: inline({
-              label: "StatusBadge",
-              schema: {
-                status: fields.select({
-                  label: "Status",
-                  options: [
-                    { label: "To do", value: "todo" },
-                    { label: "In Progress", value: "in-progress" },
-                    { label: "Ready for review", value: "ready-for-review" },
-                    { label: "Done", value: "done" },
-                  ],
-                  defaultValue: "todo",
-                }),
-              },
-            }),
             TextLinkArrow: inline({
               label: "Textlink mit Pfeil",
               schema: {
@@ -106,16 +92,39 @@ export default config({
                   defaultValue: false,
                 }),
               },
-              // todo
-              // ContentView: (props) => (
-              //   <a
-              //     href={props.value.href}
-              //     rel="noopener noreferrer"
-              //     target="_blank"
-              //   >
-              //     {props.value.display}
-              //   </a>
-              // ),
+              NodeView: (props) => {
+                if (props.value.external) {
+                  return (
+                    <span
+                      style={{
+                        color: "#977214",
+                      }}
+                    >
+                      <ArrowRightIcon
+                        style={{
+                          width: "0.74rem",
+                        }}
+                      />{" "}
+                      {props.value.display}
+                    </span>
+                  );
+                } else {
+                  return (
+                    <span
+                      style={{
+                        color: "#977214",
+                      }}
+                    >
+                      <ArrowUpRightIcon
+                        style={{
+                          width: "0.74rem",
+                        }}
+                      />{" "}
+                      {props.value.display}
+                    </span>
+                  );
+                }
+              },
             }),
             ImageSingleVertical: block({
               label: "Bild: einzeln, Hochformat",
