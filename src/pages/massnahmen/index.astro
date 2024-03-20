@@ -1,0 +1,31 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import PageHeader from "../../components/PageHeader.astro";
+import Layout from "../../components/layouts/Layout.astro";
+import Section from "../../components/layouts/Section.astro";
+
+const measures = await getCollection("measures");
+console.log({ measures });
+---
+
+<Layout title="Alle Maßnahmen">
+  <PageHeader title="Alle Maßnahmen" subTitle="" />
+
+  <Section>
+    {
+      measures.map((measure) => (
+        <div>
+          <h2>{measure.data.title}</h2>
+          <p>{measure.data.id}</p>
+          <p>{measure.data.geometry}</p>
+          <p>{measure.data.topics}</p>
+          <p>{measure.data.realisationDate}</p>
+          <p>{measure.data.cost}</p>
+          <p>{measure.data.image}</p>
+          <p>{measure.data.state}</p>
+          <p>{measure.data.operators}</p>
+        </div>
+      ))
+    }
+  </Section>
+</Layout>

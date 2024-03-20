@@ -43,10 +43,25 @@ const communesCollection = defineCollection({
       website: z.string().optional(),
     }),
 });
+const measuresCollection = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      id: z.string(),
+      geometry: z.any(),
+      topics: z.array(z.string()),
+      realisationDate: z.date(),
+      cost: z.number(),
+      image: image(),
+      state: z.string(),
+      operators: z.array(z.string()),
+    }),
+});
 
 export const collections = {
   communes: communesCollection,
   news: newsCollection,
   persons: personsCollection,
   subprojects: subprojectsCollection,
+  measures: measuresCollection,
 };
