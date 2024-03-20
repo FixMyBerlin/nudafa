@@ -32,7 +32,7 @@ const position = imageConfig.value?.value;
   class:list={[
     position === "center" && "justify-center",
     position === "right" && "justify-end",
-    "w-full flex",
+    "w-full flex my-8",
   ]}
 >
   <figure
@@ -55,6 +55,6 @@ const position = imageConfig.value?.value;
         loading="lazy"
       />
     </div>
-    <figcaption>{caption}</figcaption>
+    <figcaption class="mt-2">{caption}</figcaption>
   </figure>
 </div>

@@ -28,15 +28,20 @@ if (!images[srcSecond])
   );
 const orientation = imageConfig.discriminant;
 const ratio = imageConfig.value;
-const srcs = [src, srcSecond];
+const srcs = [
+  { src: src, caption: caption },
+  { src: srcSecond, caption: captionSecond },
+];
 ---
 
-<figure class:list={["not-prose"]}>
-  <div class:list={["w-full grid grid-cols-1 md:grid-cols-2 gap-2"]}>
-    <!-- quality="high" -->
-    <!-- https://docs.astro.build/en/guides/images/#quality -->
-    {
-      srcs.map((s) => (
+<div
+  class:list={["w-full grid grid-cols-1 md:grid-cols-2 gap-5 not-prose my-8"]}
+>
+  <!-- quality="high" -->
+  <!-- https://docs.astro.build/en/guides/images/#quality -->
+  {
+    srcs.map((s) => (
+      <figure class:list={[]}>
         <div
           class:list={[
             orientation === "square" && "aspect-[1/1]",
@@ -48,13 +53,13 @@ const srcs = [src, srcSecond];
         >
           <Image
             class="w-full h-full overflow-hidden object-cover"
-            src={images[s]()}
+            src={images[s.src]()}
             alt={alt || ""}
             loading="lazy"
           />
         </div>
-      ))
-    }
-  </div>
-  <figcaption class="">{caption}, {captionSecond}</figcaption>
-</figure>
+        <figcaption class="mt-2">{s.caption}</figcaption>
+      </figure>
+    ))
+  }
+</div>
