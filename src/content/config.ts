@@ -47,14 +47,15 @@ const measuresCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      type: z.string().optional(),
       id: z.string(),
       geometry: z.any(),
-      topics: z.array(z.string()),
-      realisationDate: z.date(),
+      topics: z.array(z.string()).optional(),
+      realisationDate: z.date().optional(),
       cost: z.number(),
-      image: image(),
+      image: image().optional(),
       state: z.string(),
-      operators: z.array(z.string()),
+      operators: z.array(z.string()).optional(),
     }),
 });
 

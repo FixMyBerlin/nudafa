@@ -1,0 +1,18 @@
+---
+import { linkStyles } from "./links/styles";
+
+interface Props {
+  measure: any;
+}
+const { measure } = Astro.props;
+const { Content } = await measure.render();
+---
+
+{
+  (
+    <div class="px-4 pb-4 gap-2 flex flex-col">
+      <Content />
+      <p class="text-right">Weniger Details</p>
+    </div>
+  )
+}

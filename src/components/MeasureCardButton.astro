@@ -1,0 +1,79 @@
+---
+import { Image } from "astro:assets";
+import TopicLabel from "../components/TopicLabel.astro";
+import PartnerLabel from "./PartnerLabel.astro";
+import { getCollection } from "astro:content";
+
+interface Props {
+  title: string;
+  image?: any;
+  type: string;
+  topics?: string[];
+  operators?: string[];
+  cost: number;
+  state: string;
+  realisationDate?: Date;
+}
+
+const types = await getCollection("measuretypes");
+
+const getTypeTitle = (typeId: string) => {
+  const type = types.find((type) => type.id === typeId);
+  return type ? type.data.title : "-";
+};
+
+const { title, image, type, topics, operators, cost, state, realisationDate } =
+  Astro.props;
+---
+
+{
+  (
+    <div class="flex flex-col gap-4 p-4 w-full  ">
+      <div class="flex flex-col md:flex-row gap-4 cs w-full  ">
+        {image && (
+          <Image
+            src={image}
+            width="100"
+            alt=""
+            class="w-36 h-36 object-cover shrink-0"
+          />
+        )}
+        <div class="flex flex-col w-full justify-between">
+          <div class="flex justify-between">
+            <div class="text-left">
+              <p class="font-bold uppercase">{title}</p>
+              <p class="">{getTypeTitle(type)}</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 ">
+              <div class="flex flex-col gap-4 flex-grow ">
+                <div class="flex flex-row gap-4">
+                  <p>length: todo</p>
+                  <p>date: {realisationDate?.toLocaleDateString()}</p>
+                  <p>{cost} €</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col items-start md:items-end ">
+              <p>{state}</p>
+            </div>
+          </div>
+          <div class="flex flex-row items-end">
+            <ul class="flex flex-wrap gap-2 items-end ">
+              {!!topics?.length ? (
+                topics.map((topic) => <TopicLabel topic={topic} />)
+              ) : (
+                <span>-</span>
+              )}
+              {!!operators?.length ? (
+                operators.map((operator) => <PartnerLabel partner={operator} />)
+              ) : (
+                <span>-</span>
+              )}
+            </ul>
+            <p class="flex-shrink-0 text-right flex-grow">Mehr Details</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

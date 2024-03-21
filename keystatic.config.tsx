@@ -54,7 +54,7 @@ export default config({
       Home: ["homepage"],
       "Über uns": ["projectpartnerpage", "persons"],
       Teilprojekte: ["subProjects", "subprojectstopics", "communes"],
-      Maßnahmen: ["measures", "measureoperators", "subprojectstopics"],
+      Maßnahmen: ["measures", "measuretypes", "subprojectstopics"],
       "Weitere Seiten": ["presspage", "imprintpage", "privacypage"],
     },
   },
@@ -593,6 +593,10 @@ export default config({
             false: fields.empty(),
           }
         ),
+        type: fields.relationship({
+          label: "Maßnahmenart",
+          collection: "measuretypes",
+        }),
         topics: fields.array(
           fields.relationship({
             label: "Themen/Typ",
@@ -628,17 +632,17 @@ export default config({
           ],
           defaultValue: "idea",
         }),
-        operators: fields.array(
-          fields.relationship({
-            label: "Baulastträger",
-            collection: "measureoperators",
-          }),
-          {
-            label: "Baulastträger",
-            itemLabel: (props) => props.value || "thema",
-            validation: { length: { min: 1 } },
-          }
-        ),
+        operators: fields.multiselect({
+          label: "Baulastträger",
+          options: [
+            { label: "Eichwalde", value: "eichwalde" },
+            { label: "Schulzendorf", value: "schulzendorf" },
+            { label: "Zeuthen", value: "zeuthen" },
+            { label: "Wildau", value: "wildau" },
+            { label: "Königs-Wusterhausen", value: "kw" },
+            { label: "Schönefeld", value: "schoenefeld" },
+          ],
+        }),
         content: fields.mdx({
           label: "Beschreibung",
           options: {
@@ -650,10 +654,10 @@ export default config({
         }),
       },
     }),
-    measureoperators: collection({
-      label: "Baulastträger",
+    measuretypes: collection({
+      label: "Maßnahmenart",
       slugField: "title",
-      path: "src/content/measureoperator/*",
+      path: "src/content/measuretypes/*",
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
       },

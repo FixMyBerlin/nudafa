@@ -19,12 +19,12 @@ if (subprojects?.length) {
     subprojectsNavigation[p.data.title] = `/teilprojekte/${p.slug}`;
   });
 }
-const measuresNavigation = {};
-if (measures?.length) {
-  measures.forEach((p) => {
-    measuresNavigation[p.data.title] = `/teilprojekte/${p.slug}`;
-  });
-}
+// const measuresNavigation = {};
+// if (measures?.length) {
+//   measures.forEach((p) => {
+//     measuresNavigation[p.data.title] = `/teilprojekte/${p.slug}`;
+//   });
+// }
 
 const mainNavigation: TMainNavigation = {
   first: {
@@ -42,7 +42,8 @@ const mainNavigation: TMainNavigation = {
       todo2: "/todo",
     },
     "Zu den Maßnahmen": {
-      ...measuresNavigation,
+      "Alle Maßnahmen": "/massnahmen",
+      // ...measuresNavigation,
     },
   },
   //   Veranstaltungen: {

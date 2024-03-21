@@ -3,29 +3,39 @@ import { getCollection, getEntry } from "astro:content";
 import PageHeader from "../../components/PageHeader.astro";
 import Layout from "../../components/layouts/Layout.astro";
 import Section from "../../components/layouts/Section.astro";
+import MeasureCardButton from "../../components/MeasureCardButton.astro";
+import MeasureCardPanel from "../../components/MeasureCardPanel.astro";
+
+import { MeasureCard } from "../../components/MeasureCard.tsx";
+import H2 from "../../components/Text/H2.astro";
 
 const measures = await getCollection("measures");
-console.log({ measures });
 ---
 
 <Layout title="Alle Maßnahmen">
   <PageHeader title="Alle Maßnahmen" subTitle="" />
 
-  <Section>
-    {
-      measures.map((measure) => (
-        <div>
-          <h2>{measure.data.title}</h2>
-          <p>{measure.data.id}</p>
-          <p>{measure.data.geometry}</p>
-          <p>{measure.data.topics}</p>
-          <p>{measure.data.realisationDate}</p>
-          <p>{measure.data.cost}</p>
-          <p>{measure.data.image}</p>
-          <p>{measure.data.state}</p>
-          <p>{measure.data.operators}</p>
-        </div>
-      ))
-    }
+  <Section className="bg-[#DBEAFE]">
+    <H2
+      >Liste aller Maßnahmen in... <H2 />
+      {
+        measures.map((measure) => (
+          <MeasureCard client:load>
+            <MeasureCardButton
+              slot="button"
+              title={measure.data.title}
+              image={measure.data.image}
+              type={measure.data.type}
+              topics={measure.data.topics}
+              operators={measure.data.operators}
+              cost={measure.data.cost}
+              state={measure.data.state}
+              realisationDate={measure.data.realisationDate}
+            />
+            <MeasureCardPanel slot="panel" measure={measure} />
+          </MeasureCard>
+        ))
+      }
+    </H2>
   </Section>
 </Layout>
