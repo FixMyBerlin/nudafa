@@ -1,6 +1,7 @@
 ---
-import { getCollection } from "astro:content";
 import { isPast } from "date-fns";
+import PartnerLabel from "../components/PartnerLabel.astro";
+import TopicLabel from "../components/TopicLabel.astro";
 
 interface Props {
   start: Date;
@@ -10,12 +11,6 @@ interface Props {
   funding?: string;
   topics: string[];
 }
-const subTopics = await getCollection("subprojectstopics");
-
-const getFullTopicTitle = (topic: string) => {
-  const subTopic = subTopics.find((subTopic) => subTopic.id === topic);
-  return subTopic ? subTopic.data.title : topic;
-};
 
 const { start, end, commune, partners, funding, topics } = Astro.props;
 const isProjectPast = end && isPast(end);
@@ -24,15 +19,6 @@ const communeTableData = {
   zeuthen: "Gemeinde Zeuthen",
   schulzendorf: "Gemeinde Schulzendorf",
   wildau: "Gemeinde Wildau",
-};
-export const partnersTableData = {
-  th: { color: "bg-[#FEE2E2]", title: "TH Wildau" },
-  eichwalde: { color: "bg-[#FED7AA]", title: "Gemeinde Eichwalde" },
-  zeuthen: { color: "bg-[#FEF3C7]", title: "Gemeinde Zeuthen" },
-  schulzendorf: { color: "bg-[#A5F3FC]", title: "Gemeinde Schulzendorf" },
-  wildau: { color: "bg-[#C7D2FE]", title: "Gemeinde Wildau" },
-  tu: { color: "bg-[#99F6E4]", title: "TU Berlin" },
-  fmc: { color: "bg-[#F9A8D4]", title: "FixMyCity" },
 };
 ---
 
@@ -46,15 +32,7 @@ export const partnersTableData = {
     <ul class="flex flex-wrap gap-2">
       {
         !!topics?.length ? (
-          topics.map((topic) => (
-            <li
-              class:list={[
-                "border text-black rounded-md border-black px-2 py-[1px]",
-              ]}
-            >
-              {getFullTopicTitle(topic)}
-            </li>
-          ))
+          topics.map((topic) => <TopicLabel topic={topic} />)
         ) : (
           <span>-</span>
         )
@@ -68,16 +46,7 @@ export const partnersTableData = {
     <ul class="flex flex-wrap gap-2">
       {
         !!partners?.length ? (
-          partners.map((partner) => (
-            <li
-              class:list={[
-                "text-black rounded-md px-2 py-[1px]",
-                partnersTableData[partner].color,
-              ]}
-            >
-              {partnersTableData[partner].title}
-            </li>
-          ))
+          partners.map((partner) => <PartnerLabel partner={partner} />)
         ) : (
           <span>-</span>
         )
