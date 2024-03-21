@@ -1,13 +1,12 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import PageHeader from "../components/PageHeader.astro";
-import Layout from "../components/layouts/Layout.astro";
-import { Image } from "astro:assets";
-import Section from "../components/layouts/Section.astro";
-import H2 from "../components/Text/H2.astro";
-import PersonCardWrapper from "../components/PersonCardWrapper.astro";
-import PersonCard from "../components/PersonCard.astro";
 import CommuneCard from "../components/CommuneCard.astro";
+import PageHeader from "../components/PageHeader.astro";
+import PersonCard from "../components/PersonCard.astro";
+import PersonCardWrapper from "../components/PersonCardWrapper.astro";
+import H2 from "../components/Text/H2.astro";
+import Layout from "../components/layouts/Layout.astro";
+import Section from "../components/layouts/Section.astro";
 
 const page = await getEntry("projectpartnerpage", "index");
 const { title, subTitle, mediaLinks } = page.data;
