@@ -79,11 +79,11 @@ export default config({
               label: "Textlink mit Pfeil",
               schema: {
                 href: fields.url({
-                  label: "Link",
+                  label: "Link-Label",
                   validation: { isRequired: true },
                 }),
                 display: fields.text({
-                  label: "Link",
+                  label: "URL",
                   validation: { isRequired: true },
                 }),
                 external: fields.checkbox({
