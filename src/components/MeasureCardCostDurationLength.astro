@@ -1,0 +1,41 @@
+---
+import { CalendarDaysIcon } from "@heroicons/react/24/outline";
+import { Image } from "astro:assets";
+import { format } from "date-fns";
+import { de } from "date-fns/locale";
+import routeIcon from "./../assets/icons/route.png";
+
+interface Props {
+  realisationDate?: Date;
+  cost?: number;
+}
+
+const { realisationDate, cost }: Props = Astro.props;
+---
+
+<div class="flex flex-row text-sm flex-shrink-0 flex-grow items-start md:px-4">
+  <div class="flex flex-row items-center gap-1">
+    <Image
+      src={routeIcon}
+      width="100"
+      alt=""
+      class="w-3 h-3 object-cover shrink-0"
+    />{" "}
+    <p class="border-r border-black pr-2 leading-3 text-nowrap">todokm</p>
+  </div>
+  <div class="flex flex-row items-center gap-1 ml-2">
+    <CalendarDaysIcon className="w-[13px] h-[13px]" />
+    <p class="border-r border-black pr-2 leading-3 text-nowrap">
+      {
+        realisationDate
+          ? format(realisationDate, "MMMM yyyy", {
+              locale: de,
+            })
+          : " -"
+      }
+    </p>
+  </div>
+  <p class="text-nowrap leading-3 ml-2">
+    € {cost ? cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : "-"}
+  </p>
+</div>

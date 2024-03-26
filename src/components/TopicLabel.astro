@@ -15,6 +15,10 @@ const getFullTopicTitle = (topic: string) => {
 const { topic } = Astro.props as Props;
 ---
 
-<li class:list={["border text-black rounded-md border-black px-2 py-[1px]"]}>
+<li
+  class:list={[
+    "border text-black text-sm rounded-md border-black px-2 py-[1px]",
+  ]}
+>
   {getFullTopicTitle(topic)}
 </li>
