@@ -20,6 +20,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
+      serif: ["Roboto Slab", ...defaultTheme.fontFamily.serif],
     },
     fontWeight: {
       // todo check
