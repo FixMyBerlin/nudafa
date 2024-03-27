@@ -27,7 +27,7 @@ export const Uint8Array: React.FC<Props> = ({ data }) => {
         objectFit: "cover",
       }}
       src={imageUrl}
-      alt="From Uint8Array"
+      alt="Image Preview"
     />
   ) : null;
 };

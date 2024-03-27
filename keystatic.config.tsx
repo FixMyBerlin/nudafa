@@ -3,76 +3,92 @@ import { collection, config, fields, singleton } from "@keystatic/core";
 import { block, inline } from "@keystatic/core/content-components";
 import { Uint8Array } from "./src/components/Unit8Image.tsx";
 
-const contentViewImageVertical = (props: any) => (
-  <div>
-    <small style={{ color: "gray" }}>
-      *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt
-      dargestellt
-    </small>
-    <figure>
-      <div style={{ height: "300px", width: "200px" }}>
-        <Uint8Array data={props.value.src?.data} />
+const contentViewImageVertical = (props: any) => {
+  if (props.value.src)
+    return (
+      <div>
+        <small style={{ color: "gray" }}>
+          *Positionierung und Seitenverhältnis sind in der Vorschau nicht
+          korrekt dargestellt
+        </small>
+        <figure>
+          <div style={{ height: "300px", width: "200px" }}>
+            <Uint8Array data={props.value.src?.data} />
+          </div>
+          <figcaption>{props.value.caption}</figcaption>
+        </figure>
       </div>
-      <figcaption>{props.value.caption}</figcaption>
-    </figure>
-  </div>
-);
-const contentViewImageSquare = (props: any) => (
-  <div>
-    <small style={{ color: "gray" }}>
-      *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt
-      dargestellt
-    </small>
-    <figure>
-      <div style={{ height: "200px", width: "200px" }}>
-        <Uint8Array data={props.value.src?.data} />
+    );
+  return <p>Füge ein Bild hinzu über "Edit"</p>;
+};
+const contentViewImageSquare = (props: any) => {
+  if (props.value.src)
+    return (
+      <div>
+        <small style={{ color: "gray" }}>
+          *Positionierung und Seitenverhältnis sind in der Vorschau nicht
+          korrekt dargestellt
+        </small>
+        <figure>
+          <div style={{ height: "200px", width: "200px" }}>
+            <Uint8Array data={props.value.src?.data} />
+          </div>
+          <figcaption>{props.value.caption}</figcaption>
+        </figure>
       </div>
-      <figcaption>{props.value.caption}</figcaption>
-    </figure>
-  </div>
-);
-const contentViewImageHorizontal = (props: any) => (
-  <div>
-    <small style={{ color: "gray" }}>
-      *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt
-      dargestellt
-    </small>
-    <figure>
-      <div style={{ height: "200px", width: "300PX" }}>
-        <Uint8Array data={props.value.src?.data} />
+    );
+  return <p>Füge ein Bild hinzu über "Edit"</p>;
+};
+const contentViewImageHorizontal = (props: any) => {
+  if (props.value.src)
+    return (
+      <div>
+        <small style={{ color: "gray" }}>
+          *Positionierung und Seitenverhältnis sind in der Vorschau nicht
+          korrekt dargestellt
+        </small>
+        <figure>
+          <div style={{ height: "200px", width: "300PX" }}>
+            <Uint8Array data={props.value.src?.data} />
+          </div>
+          <figcaption>{props.value.caption}</figcaption>
+        </figure>
       </div>
-      <figcaption>{props.value.caption}</figcaption>
-    </figure>
-  </div>
-);
-const contentViewImageDefaultDouble = (props: any) => (
-  <div>
-    <small style={{ color: "gray" }}>
-      *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt
-      dargestellt
-    </small>
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "49% 49%",
-        width: "100%",
-      }}
-    >
-      <figure>
-        <div style={{ height: "250px" }}>
-          <Uint8Array data={props.value.src?.data} />
+    );
+  return <p>Füge ein Bild hinzu über "Edit"</p>;
+};
+const contentViewImageDefaultDouble = (props: any) => {
+  if (props.value.src)
+    return (
+      <div>
+        <small style={{ color: "gray" }}>
+          *Positionierung und Seitenverhältnis sind in der Vorschau nicht
+          korrekt dargestellt
+        </small>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "49% 49%",
+            width: "100%",
+          }}
+        >
+          <figure>
+            <div style={{ height: "250px" }}>
+              <Uint8Array data={props.value.src?.data} />
+            </div>
+            <figcaption>{props.value.caption}</figcaption>
+          </figure>
+          <figure>
+            <div style={{ height: "250px" }}>
+              <Uint8Array data={props.value.srcSecond?.data} />
+            </div>
+            <figcaption>{props.value.captionSecond}</figcaption>
+          </figure>
         </div>
-        <figcaption>{props.value.caption}</figcaption>
-      </figure>
-      <figure>
-        <div style={{ height: "250px" }}>
-          <Uint8Array data={props.value.srcSecond?.data} />
-        </div>
-        <figcaption>{props.value.captionSecond}</figcaption>
-      </figure>
-    </div>
-  </div>
-);
+      </div>
+    );
+  return <p>Füge ein Bild hinzu über "Edit"</p>;
+};
 
 export default config({
   storage: {
@@ -439,11 +455,281 @@ export default config({
         ),
         content: fields.mdx({
           label: "Content",
-          options: {
-            image: {
-              directory: "src/assets/presspage",
-              publicPath: "/src/assets/presspage",
-            },
+          components: {
+            TextLinkArrow: inline({
+              label: "Textlink mit Pfeil",
+              schema: {
+                href: fields.url({
+                  label: "Link-Label",
+                  validation: { isRequired: true },
+                }),
+                display: fields.text({
+                  label: "URL",
+                  validation: { isRequired: true },
+                }),
+                external: fields.checkbox({
+                  label: "Externer Link",
+                  defaultValue: false,
+                }),
+              },
+              NodeView: (props) => {
+                if (props.value.external) {
+                  return (
+                    <span
+                      style={{
+                        color: "#977214",
+                      }}
+                    >
+                      <ArrowRightIcon
+                        style={{
+                          width: "0.74rem",
+                        }}
+                      />{" "}
+                      {props.value.display}
+                    </span>
+                  );
+                } else {
+                  return (
+                    <span
+                      style={{
+                        color: "#977214",
+                      }}
+                    >
+                      <ArrowUpRightIcon
+                        style={{
+                          width: "0.74rem",
+                        }}
+                      />{" "}
+                      {props.value.display}
+                    </span>
+                  );
+                }
+              },
+            }),
+            ImageSingleVertical: block({
+              label: "Bild: einzeln, Hochformat",
+              schema: {
+                src: fields.image({
+                  label: "Bild",
+                  directory: "src/assets/presspage",
+                  publicPath: "/src/assets/presspage",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Breite",
+                    description:
+                      "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                    options: [
+                      { label: "halbe Breite", value: "half" },
+                      { label: "ganze Breite", value: "full" },
+                    ],
+                    defaultValue: "half",
+                  }),
+                  {
+                    half: fields.select({
+                      label: "Position",
+                      options: [
+                        { label: "links", value: "left" },
+                        { label: "zentriert", value: "center" },
+                        { label: "rechts", value: "right" },
+                      ],
+                      defaultValue: "left",
+                    }),
+                    full: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageVertical,
+            }),
+            ImageSingleHorizontal: block({
+              label: "Bild: einzeln, Querformat",
+              schema: {
+                src: fields.image({
+                  label: "Bild",
+                  directory: "src/assets/presspage",
+                  publicPath: "/src/assets/presspage",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Seitenverhältnis",
+                    description:
+                      "Breite Formate (16:9 und 9:4) werden immer über die ganze Breite dargestellt.",
+                    options: [
+                      { label: "3:2", value: "3/2" },
+                      { label: "4:3", value: "4/3" },
+                      { label: "9:4", value: "9/4" },
+                      { label: "16:9", value: "pano" },
+                    ],
+                    defaultValue: "4/3",
+                  }),
+                  {
+                    "3/2": fields.conditional(
+                      fields.select({
+                        label: "Breite",
+                        description:
+                          "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                        options: [
+                          { label: "halbe Breite", value: "half" },
+                          { label: "ganze Breite", value: "full" },
+                        ],
+                        defaultValue: "full",
+                      }),
+                      {
+                        half: fields.select({
+                          label: "Position",
+                          options: [
+                            { label: "links", value: "left" },
+                            { label: "zentriert", value: "center" },
+                            { label: "rechts", value: "right" },
+                          ],
+                          defaultValue: "left",
+                        }),
+                        full: fields.empty(),
+                      }
+                    ),
+                    "4/3": fields.conditional(
+                      fields.select({
+                        label: "Breite",
+                        description:
+                          "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                        options: [
+                          { label: "halbe Breite", value: "half" },
+                          { label: "ganze Breite", value: "full" },
+                        ],
+                        defaultValue: "full",
+                      }),
+                      {
+                        half: fields.select({
+                          label: "Position",
+                          options: [
+                            { label: "links", value: "left" },
+                            { label: "zentriert", value: "center" },
+                            { label: "rechts", value: "right" },
+                          ],
+                          defaultValue: "left",
+                        }),
+                        full: fields.empty(),
+                      }
+                    ),
+                    "9/4": fields.empty(),
+                    pano: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageHorizontal,
+            }),
+            ImageSingleSquare: block({
+              label: "Bild: einzeln, quadratisch",
+              schema: {
+                src: fields.image({
+                  label: "Bild",
+                  directory: "src/assets/presspage",
+                  publicPath: "/src/assets/presspage",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Breite",
+                    description:
+                      "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                    options: [
+                      { label: "halbe Breite", value: "half" },
+                      { label: "ganze Breite", value: "full" },
+                    ],
+                    defaultValue: "full",
+                  }),
+                  {
+                    half: fields.select({
+                      label: "Position",
+                      options: [
+                        { label: "links", value: "left" },
+                        { label: "zentriert", value: "center" },
+                        { label: "rechts", value: "right" },
+                      ],
+                      defaultValue: "left",
+                    }),
+                    full: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageSquare,
+            }),
+            ImageDouble: block({
+              label: "Bild: doppelt",
+              description: "quer / hoch / quadratisch",
+              schema: {
+                src: fields.image({
+                  label: "1. Bild",
+                  directory: "src/assets/presspage",
+                  publicPath: "/src/assets/presspage",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                srcSecond: fields.image({
+                  label: "2. Bild",
+                  directory: "src/assets/presspage",
+                  publicPath: "/src/assets/presspage",
+                  validation: { isRequired: true },
+                }),
+                captionSecond: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Ausrichtung",
+                    description: "",
+                    options: [
+                      { label: "quer", value: "horizontal" },
+                      { label: "hoch", value: "vertical" },
+                      { label: "quadratisch", value: "square" },
+                    ],
+                    defaultValue: "vertical",
+                  }),
+                  {
+                    vertical: fields.select({
+                      label: "Seitenverhältnis",
+                      options: [
+                        { label: "3:2", value: "3/2" },
+                        { label: "4:3", value: "4/3" },
+                      ],
+                      defaultValue: "3/2",
+                    }),
+                    horizontal: fields.select({
+                      label: "Seitenverhältnis",
+                      options: [
+                        { label: "3:2", value: "3/2" },
+                        { label: "4:3", value: "4/3" },
+                      ],
+                      defaultValue: "3/2",
+                    }),
+                    square: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageDefaultDouble,
+            }),
           },
         }),
       },
@@ -463,11 +749,281 @@ export default config({
         }),
         content: fields.mdx({
           label: "Content",
-          options: {
-            image: {
-              directory: "src/assets/projectpartnerpage",
-              publicPath: "/src/assets/projectpartnerpage",
-            },
+          components: {
+            TextLinkArrow: inline({
+              label: "Textlink mit Pfeil",
+              schema: {
+                href: fields.url({
+                  label: "Link-Label",
+                  validation: { isRequired: true },
+                }),
+                display: fields.text({
+                  label: "URL",
+                  validation: { isRequired: true },
+                }),
+                external: fields.checkbox({
+                  label: "Externer Link",
+                  defaultValue: false,
+                }),
+              },
+              NodeView: (props) => {
+                if (props.value.external) {
+                  return (
+                    <span
+                      style={{
+                        color: "#977214",
+                      }}
+                    >
+                      <ArrowRightIcon
+                        style={{
+                          width: "0.74rem",
+                        }}
+                      />{" "}
+                      {props.value.display}
+                    </span>
+                  );
+                } else {
+                  return (
+                    <span
+                      style={{
+                        color: "#977214",
+                      }}
+                    >
+                      <ArrowUpRightIcon
+                        style={{
+                          width: "0.74rem",
+                        }}
+                      />{" "}
+                      {props.value.display}
+                    </span>
+                  );
+                }
+              },
+            }),
+            ImageSingleVertical: block({
+              label: "Bild: einzeln, Hochformat",
+              schema: {
+                src: fields.image({
+                  label: "Bild",
+                  directory: "src/assets/projectpartnerpage",
+                  publicPath: "/src/assets/projectpartnerpage",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Breite",
+                    description:
+                      "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                    options: [
+                      { label: "halbe Breite", value: "half" },
+                      { label: "ganze Breite", value: "full" },
+                    ],
+                    defaultValue: "half",
+                  }),
+                  {
+                    half: fields.select({
+                      label: "Position",
+                      options: [
+                        { label: "links", value: "left" },
+                        { label: "zentriert", value: "center" },
+                        { label: "rechts", value: "right" },
+                      ],
+                      defaultValue: "left",
+                    }),
+                    full: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageVertical,
+            }),
+            ImageSingleHorizontal: block({
+              label: "Bild: einzeln, Querformat",
+              schema: {
+                src: fields.image({
+                  label: "Bild",
+                  directory: "src/assets/projectpartnerpage",
+                  publicPath: "/src/assets/projectpartnerpage",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Seitenverhältnis",
+                    description:
+                      "Breite Formate (16:9 und 9:4) werden immer über die ganze Breite dargestellt.",
+                    options: [
+                      { label: "3:2", value: "3/2" },
+                      { label: "4:3", value: "4/3" },
+                      { label: "9:4", value: "9/4" },
+                      { label: "16:9", value: "pano" },
+                    ],
+                    defaultValue: "4/3",
+                  }),
+                  {
+                    "3/2": fields.conditional(
+                      fields.select({
+                        label: "Breite",
+                        description:
+                          "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                        options: [
+                          { label: "halbe Breite", value: "half" },
+                          { label: "ganze Breite", value: "full" },
+                        ],
+                        defaultValue: "full",
+                      }),
+                      {
+                        half: fields.select({
+                          label: "Position",
+                          options: [
+                            { label: "links", value: "left" },
+                            { label: "zentriert", value: "center" },
+                            { label: "rechts", value: "right" },
+                          ],
+                          defaultValue: "left",
+                        }),
+                        full: fields.empty(),
+                      }
+                    ),
+                    "4/3": fields.conditional(
+                      fields.select({
+                        label: "Breite",
+                        description:
+                          "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                        options: [
+                          { label: "halbe Breite", value: "half" },
+                          { label: "ganze Breite", value: "full" },
+                        ],
+                        defaultValue: "full",
+                      }),
+                      {
+                        half: fields.select({
+                          label: "Position",
+                          options: [
+                            { label: "links", value: "left" },
+                            { label: "zentriert", value: "center" },
+                            { label: "rechts", value: "right" },
+                          ],
+                          defaultValue: "left",
+                        }),
+                        full: fields.empty(),
+                      }
+                    ),
+                    "9/4": fields.empty(),
+                    pano: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageHorizontal,
+            }),
+            ImageSingleSquare: block({
+              label: "Bild: einzeln, quadratisch",
+              schema: {
+                src: fields.image({
+                  label: "Bild",
+                  directory: "src/assets/projectpartnerpage",
+                  publicPath: "/src/assets/projectpartnerpage",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Breite",
+                    description:
+                      "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                    options: [
+                      { label: "halbe Breite", value: "half" },
+                      { label: "ganze Breite", value: "full" },
+                    ],
+                    defaultValue: "full",
+                  }),
+                  {
+                    half: fields.select({
+                      label: "Position",
+                      options: [
+                        { label: "links", value: "left" },
+                        { label: "zentriert", value: "center" },
+                        { label: "rechts", value: "right" },
+                      ],
+                      defaultValue: "left",
+                    }),
+                    full: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageSquare,
+            }),
+            ImageDouble: block({
+              label: "Bild: doppelt",
+              description: "quer / hoch / quadratisch",
+              schema: {
+                src: fields.image({
+                  label: "1. Bild",
+                  directory: "src/assets/projectpartnerpage",
+                  publicPath: "/src/assets/projectpartnerpage",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                srcSecond: fields.image({
+                  label: "2. Bild",
+                  directory: "src/assets/projectpartnerpage",
+                  publicPath: "/src/assets/projectpartnerpage",
+                  validation: { isRequired: true },
+                }),
+                captionSecond: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Ausrichtung",
+                    description: "",
+                    options: [
+                      { label: "quer", value: "horizontal" },
+                      { label: "hoch", value: "vertical" },
+                      { label: "quadratisch", value: "square" },
+                    ],
+                    defaultValue: "vertical",
+                  }),
+                  {
+                    vertical: fields.select({
+                      label: "Seitenverhältnis",
+                      options: [
+                        { label: "3:2", value: "3/2" },
+                        { label: "4:3", value: "4/3" },
+                      ],
+                      defaultValue: "3/2",
+                    }),
+                    horizontal: fields.select({
+                      label: "Seitenverhältnis",
+                      options: [
+                        { label: "3:2", value: "3/2" },
+                        { label: "4:3", value: "4/3" },
+                      ],
+                      defaultValue: "3/2",
+                    }),
+                    square: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageDefaultDouble,
+            }),
           },
         }),
       },
@@ -582,12 +1138,281 @@ export default config({
         funding: fields.text({ label: "Finanzierung" }),
         content: fields.mdx({
           label: "Content",
-          components: {},
-          options: {
-            image: {
-              directory: "src/assets/images/subprojects",
-              publicPath: "/src/assets/images/subprojects/",
-            },
+          components: {
+            TextLinkArrow: inline({
+              label: "Textlink mit Pfeil",
+              schema: {
+                href: fields.url({
+                  label: "Link-Label",
+                  validation: { isRequired: true },
+                }),
+                display: fields.text({
+                  label: "URL",
+                  validation: { isRequired: true },
+                }),
+                external: fields.checkbox({
+                  label: "Externer Link",
+                  defaultValue: false,
+                }),
+              },
+              NodeView: (props) => {
+                if (props.value.external) {
+                  return (
+                    <span
+                      style={{
+                        color: "#977214",
+                      }}
+                    >
+                      <ArrowRightIcon
+                        style={{
+                          width: "0.74rem",
+                        }}
+                      />{" "}
+                      {props.value.display}
+                    </span>
+                  );
+                } else {
+                  return (
+                    <span
+                      style={{
+                        color: "#977214",
+                      }}
+                    >
+                      <ArrowUpRightIcon
+                        style={{
+                          width: "0.74rem",
+                        }}
+                      />{" "}
+                      {props.value.display}
+                    </span>
+                  );
+                }
+              },
+            }),
+            ImageSingleVertical: block({
+              label: "Bild: einzeln, Hochformat",
+              schema: {
+                src: fields.image({
+                  label: "Bild",
+                  directory: "src/assets/subprojects",
+                  publicPath: "/src/assets/subprojects",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Breite",
+                    description:
+                      "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                    options: [
+                      { label: "halbe Breite", value: "half" },
+                      { label: "ganze Breite", value: "full" },
+                    ],
+                    defaultValue: "half",
+                  }),
+                  {
+                    half: fields.select({
+                      label: "Position",
+                      options: [
+                        { label: "links", value: "left" },
+                        { label: "zentriert", value: "center" },
+                        { label: "rechts", value: "right" },
+                      ],
+                      defaultValue: "left",
+                    }),
+                    full: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageVertical,
+            }),
+            ImageSingleHorizontal: block({
+              label: "Bild: einzeln, Querformat",
+              schema: {
+                src: fields.image({
+                  label: "Bild",
+                  directory: "src/assets/subprojects",
+                  publicPath: "/src/assets/subprojects",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Seitenverhältnis",
+                    description:
+                      "Breite Formate (16:9 und 9:4) werden immer über die ganze Breite dargestellt.",
+                    options: [
+                      { label: "3:2", value: "3/2" },
+                      { label: "4:3", value: "4/3" },
+                      { label: "9:4", value: "9/4" },
+                      { label: "16:9", value: "pano" },
+                    ],
+                    defaultValue: "4/3",
+                  }),
+                  {
+                    "3/2": fields.conditional(
+                      fields.select({
+                        label: "Breite",
+                        description:
+                          "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                        options: [
+                          { label: "halbe Breite", value: "half" },
+                          { label: "ganze Breite", value: "full" },
+                        ],
+                        defaultValue: "full",
+                      }),
+                      {
+                        half: fields.select({
+                          label: "Position",
+                          options: [
+                            { label: "links", value: "left" },
+                            { label: "zentriert", value: "center" },
+                            { label: "rechts", value: "right" },
+                          ],
+                          defaultValue: "left",
+                        }),
+                        full: fields.empty(),
+                      }
+                    ),
+                    "4/3": fields.conditional(
+                      fields.select({
+                        label: "Breite",
+                        description:
+                          "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                        options: [
+                          { label: "halbe Breite", value: "half" },
+                          { label: "ganze Breite", value: "full" },
+                        ],
+                        defaultValue: "full",
+                      }),
+                      {
+                        half: fields.select({
+                          label: "Position",
+                          options: [
+                            { label: "links", value: "left" },
+                            { label: "zentriert", value: "center" },
+                            { label: "rechts", value: "right" },
+                          ],
+                          defaultValue: "left",
+                        }),
+                        full: fields.empty(),
+                      }
+                    ),
+                    "9/4": fields.empty(),
+                    pano: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageHorizontal,
+            }),
+            ImageSingleSquare: block({
+              label: "Bild: einzeln, quadratisch",
+              schema: {
+                src: fields.image({
+                  label: "Bild",
+                  directory: "src/assets/subprojects",
+                  publicPath: "/src/assets/subprojects",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Breite",
+                    description:
+                      "Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.",
+                    options: [
+                      { label: "halbe Breite", value: "half" },
+                      { label: "ganze Breite", value: "full" },
+                    ],
+                    defaultValue: "full",
+                  }),
+                  {
+                    half: fields.select({
+                      label: "Position",
+                      options: [
+                        { label: "links", value: "left" },
+                        { label: "zentriert", value: "center" },
+                        { label: "rechts", value: "right" },
+                      ],
+                      defaultValue: "left",
+                    }),
+                    full: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageSquare,
+            }),
+            ImageDouble: block({
+              label: "Bild: doppelt",
+              description: "quer / hoch / quadratisch",
+              schema: {
+                src: fields.image({
+                  label: "1. Bild",
+                  directory: "src/assets/subprojects",
+                  publicPath: "/src/assets/subprojects",
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                srcSecond: fields.image({
+                  label: "2. Bild",
+                  directory: "src/assets/subprojects",
+                  publicPath: "/src/assets/subprojects",
+                  validation: { isRequired: true },
+                }),
+                captionSecond: fields.text({
+                  label: "Bildunterschrift",
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: "Alt-Text" }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: "Ausrichtung",
+                    description: "",
+                    options: [
+                      { label: "quer", value: "horizontal" },
+                      { label: "hoch", value: "vertical" },
+                      { label: "quadratisch", value: "square" },
+                    ],
+                    defaultValue: "vertical",
+                  }),
+                  {
+                    vertical: fields.select({
+                      label: "Seitenverhältnis",
+                      options: [
+                        { label: "3:2", value: "3/2" },
+                        { label: "4:3", value: "4/3" },
+                      ],
+                      defaultValue: "3/2",
+                    }),
+                    horizontal: fields.select({
+                      label: "Seitenverhältnis",
+                      options: [
+                        { label: "3:2", value: "3/2" },
+                        { label: "4:3", value: "4/3" },
+                      ],
+                      defaultValue: "3/2",
+                    }),
+                    square: fields.empty(),
+                  }
+                ),
+              },
+              ContentView: contentViewImageDefaultDouble,
+            }),
           },
         }),
       },
