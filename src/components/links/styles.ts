@@ -3,7 +3,7 @@ import type { LinkProps } from "./Link.astro";
 
 // LINK
 export const linkStyles =
-  "underline hover:decoration-beige-500 hover:text-beige-500 active:decoration-beige-500 underline-offset-2 active:decoration-2";
+  "underline decoration-beige-500 hover:text-beige-500 underline-offset-2 active:decoration-2 decoration-[1.5px]";
 
 export const menuLinkStylesDefault =
   "no-underline hover:underline hover:decoration-beige-500 text-black";

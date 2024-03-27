@@ -8,7 +8,7 @@ export const markdownProseClasses = clsx(
   "prose-h2:text-base md:prose-h2:text-lg prose-h2:font-bold", // h2 size
   "prose-h3:text-sm md:prose-h3:text-base prose-h3:font-bold", // h3 size
   "prose-h3:mt-1 prose-h1:mb-2 prose-h2:mb-2 prose-h2:mt-1 prose-h3:mb-2 prose-p:mb-2 prose-p:mt-1",
-  "prose-a:underline hover:prose-a:decoration-yellow-500 hover:prose-a:text-yellow-500 active:prose-a:decoration-yellow-500 prose-a:underline-offset-2 active:prose-a:decoration-2",
   "prose-li:m-0 prose-li:p-0",
+  "prose-a:underline prose-a:decoration-beige-500 hover:prose-a:text-beige-500 prose-a:underline-offset-2 prose-a:active:decoration-2 prose-a:decoration-[1.5px]",
   "prose-headings:max-w-3xl prose-p:max-w-3xl prose-a:max-w-3xl prose-blockquote:max-w-3xl prose-code:max-w-3xl prose-ol:max-w-3xl prose-ul:max-w-3xl prose-table:max-w-3xl prose-hr:max-w-3xl "
 );
