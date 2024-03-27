@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import CommuneCard from "../components/CommuneCard.astro";
+import CommuneCardWrapper from "../components/CommueCardWrapper.astro";
 import ImageDouble from "../components/ImageDouble.astro";
 import ImageSingleHorizontal from "../components/ImageSingleHorizontal.astro";
 import ImageSingleSquare from "../components/ImageSingleSquare.astro";
@@ -51,7 +52,7 @@ const communes = await getCollection("communes");
   </Section>
   <Section className="bg-[#FEF3C7]">
     <H2>Das Unsere Partnerkommunen</H2>
-    <PersonCardWrapper>
+    <CommuneCardWrapper>
       {
         communes?.length!! &&
           communes.map((p) => (
@@ -62,6 +63,6 @@ const communes = await getCollection("communes");
             />
           ))
       }
-    </PersonCardWrapper>
+    </CommuneCardWrapper>
   </Section>
 </Layout>
