@@ -106,10 +106,10 @@ export default config({
     },
     navigation: {
       Home: ["homepage"],
-      "Über uns": ["projectpartnerpage", "persons"],
+      "Das Reallabor": ["projectpartnerpage", "persons", "presspage"],
       Teilprojekte: ["subProjects", "subprojectstopics", "communes"],
       Maßnahmen: ["measures", "measuretypes", "subprojectstopics"],
-      "Weitere Seiten": ["presspage", "imprintpage", "privacypage"],
+      "Weitere Seiten": ["imprintpage", "privacypage"],
     },
   },
   singletons: {
