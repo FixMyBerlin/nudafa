@@ -4,6 +4,7 @@ import PageHeader from "../components/PageHeader.astro";
 import Link from "../components/links/Link.astro";
 import Layout from "../components/layouts/Layout.astro";
 import Section from "../components/layouts/Section.astro";
+import H3 from "../components/Text/H3.astro";
 
 const page = await getEntry("presspage", "index");
 const { title, subTitle, mediaLinks } = page.data;
@@ -15,7 +16,7 @@ const { Content } = await page.render();
     <Content />
   </PageHeader>
   <Section>
-    <h3>Presselinks:</h3>
+    <H3>Presselinks:</H3>
     {mediaLinks.map((link) => <Link href={link.url}>{link.display}</Link>)}
   </Section>
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { cardStylesForLinkElements, linkStyles } from "./links/styles";
+import H3 from "./Text/H3.astro";
 
 interface Props {
   href?: string;
@@ -29,7 +30,7 @@ const { href, title, teaser, image } = Astro.props;
       <figcaption></figcaption>
     </figure>
     <div class="flex flex-col gap-2 line-clamp-2 p-6">
-      <p class="font-bold">{title}</p>
+      <H3 className="font-serif">{title}</H3>
       {teaser && <p class="line-clamp-3">{teaser}</p>}
     </div>
     <small class:list={[linkStyles, "px-6 pb-6"]}>Weiterlesen</small>

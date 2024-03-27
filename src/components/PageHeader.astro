@@ -1,7 +1,6 @@
 ---
 import ProseMarkdown from "./ProseMarkdown.astro";
 import H1 from "./Text/H1.astro";
-import H2 from "./Text/H2.astro";
 import Section from "./layouts/Section.astro";
 
 interface Props {
@@ -16,7 +15,7 @@ const { title, subTitle } = Astro.props;
   <H1>
     {title}
   </H1>
-  {subTitle && <H2>{subTitle}</H2>}
+  {subTitle && <p class="text-base md:text-xl md:mb-2">{subTitle}</p>}
   <ProseMarkdown>
     <slot />
   </ProseMarkdown>
