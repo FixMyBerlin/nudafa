@@ -5,8 +5,8 @@ interface Props {
 const { className } = Astro.props;
 ---
 
-<section class:list={["my-4 md:my-8", className]}>
-  <div class="max-w-[919px] mx-auto p-4 my-2">
+<section class:list={["my-10 px-4", className]}>
+  <div class="max-w-[919px] mx-auto">
     <slot />
   </div>
 </section>
