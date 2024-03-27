@@ -1,13 +1,15 @@
 ---
 import type { TMainNavigation } from "./navbar/Navbar";
 import Link from "./links/Link.astro";
+import { getCollection } from "astro:content";
 
 interface Props {
   mainNavigation: TMainNavigation;
 }
 
+const communes = await getCollection("communes");
+
 const { mainNavigation } = Astro.props;
-console.log({ mainNavigation });
 ---
 
 <div
@@ -46,6 +48,27 @@ console.log({ mainNavigation });
             </ul>
           </div>
         )
+      )
+    }
+    {
+      (
+        <div>
+          <p class="font-bold pb-2">Beteiligte Kommunen</p>
+          <ul class="text-sm flex flex-col gap-2">
+            {communes.map((commune) => (
+              <li>
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  class="no-underline  hover:text-beige-500"
+                  href={commune.data.website}
+                >
+                  {commune.data.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       )
     }
   </div>

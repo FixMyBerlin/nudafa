@@ -1593,6 +1593,7 @@ export default config({
         }),
         website: fields.url({
           label: "Website",
+          validation: { isRequired: true },
         }),
         fakeDocument: fields.emptyDocument(),
       },
