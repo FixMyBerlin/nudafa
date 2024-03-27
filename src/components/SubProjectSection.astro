@@ -1,46 +1,50 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import BigSubCard from "../components/BigSubCard.astro";
-import BigSubCardWrapper from "../components/BigSubCardWrapper.astro";
-import SubCard from "../components/SubCard.astro";
-import SubCardWrapper from "../components/SubCardWrapper.astro";
+
 import H2 from "../components/Text/H2.astro";
 import Section from "../components/layouts/Section.astro";
+import SubprojectCardWrapper from "./SubprojectCardWrapper.astro";
+import BigSubprojectCardWrapper from "./BigSubprojectCardWrapper.astro";
+import SubprojectCard from "./SubprojectCard.astro";
 
 const subProjects = await getCollection("subprojects");
 
 const subProjectsBig = subProjects.filter((p) => p.data.showBig);
 const subProjectsSmall = subProjects.filter((p) => !p.data.showBig);
+
+console.log(subProjectsSmall);
 ---
 
 <Section className="bg-[#FEF3C7]" extraPadding>
   <H2>Teilprojekte</H2>
   {
     Boolean(subProjectsBig?.length) && (
-      <BigSubCardWrapper>
+      <BigSubprojectCardWrapper>
         {subProjectsBig.map((project) => (
-          <BigSubCard
+          <SubprojectCard
             image={project.data.teaserImage}
             href={`/teilprojekte/${project.slug}`}
             title={project.data.title}
             teaser={project.data.teaser}
+            teaserImageCopyright={project.data.teaserImageCopyright}
           />
         ))}
-      </BigSubCardWrapper>
+      </BigSubprojectCardWrapper>
     )
   }
   {
     Boolean(subProjectsSmall?.length) && (
-      <SubCardWrapper>
+      <SubprojectCardWrapper>
         {subProjectsSmall.map((project) => (
-          <SubCard
+          <SubprojectCard
             image={project.data.teaserImage}
             href={`/teilprojekte/${project.slug}`}
             title={project.data.title}
             teaser={project.data.teaser}
+            teaserImageCopyright={project.data.teaserImageCopyright}
           />
         ))}
-      </SubCardWrapper>
+      </SubprojectCardWrapper>
     )
   }
 </Section>

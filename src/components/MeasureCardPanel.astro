@@ -10,15 +10,24 @@ const { Content } = await measure.render();
 ---
 
 <div class="flex flex-col gap-4 md:flex-row">
-  {
-    measure.data.image && (
-      <Image
-        src={measure.data.image}
-        alt=""
-        class="w-full md:w-auto object-cover shrink-0 md:-mb-7 lg:h-[250px] md:h-[200px] md:pt-2 aspect-[3/2]"
-      />
-    )
-  }
+  <div>
+    {
+      measure.data.image && (
+        <Image
+          src={measure.data.image}
+          alt=""
+          class="w-full md:w-auto object-cover shrink-0 lg:h-[250px] md:h-[200px] md:pt-2 aspect-[3/2]"
+        />
+      )
+    }
+    {
+      measure.data.imageCopyright && (
+        <figcaption class="text-xs text-left mt-2 text-gray-400 md:text-sm">
+          © {measure.data.imageCopyright}
+        </figcaption>
+      )
+    }
+  </div>
   <ProseMarkdown>
     <Content />
   </ProseMarkdown>

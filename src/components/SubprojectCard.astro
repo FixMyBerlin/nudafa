@@ -8,8 +8,9 @@ interface Props {
   image: any;
   title: string;
   teaser?: string;
+  teaserImageCopyright?: string;
 }
-const { href, title, teaser, image } = Astro.props;
+const { href, title, teaser, image, teaserImageCopyright } = Astro.props;
 ---
 
 <li class:list={[""]}>
@@ -27,12 +28,18 @@ const { href, title, teaser, image } = Astro.props;
         alt={""}
         loading="lazy"
       />
-      <figcaption></figcaption>
+      {
+        teaserImageCopyright && (
+          <figcaption class="text-xs text-right mt-2 text-gray-400 mr-6 md:text-sm">
+            © {teaserImageCopyright}
+          </figcaption>
+        )
+      }
     </figure>
-    <div class="flex flex-col gap-2 line-clamp-2 p-6">
-      <H3 className="font-serif">{title}</H3>
+    <div class="flex flex-col gap-4 line-clamp-2 p-6">
+      <h3 class="font-serif font-bold text-2xl">{title}</h3>
       {teaser && <p class="line-clamp-3">{teaser}</p>}
+      <small class:list={[linkStyles]}>Weiterlesen</small>
     </div>
-    <small class:list={[linkStyles, "px-6 pb-6"]}>Weiterlesen</small>
   </a>
 </li>

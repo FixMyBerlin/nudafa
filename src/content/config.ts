@@ -23,6 +23,7 @@ const subprojectsCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       teaserImage: image(),
+      teaserImageCopyright: z.string().optional(),
       title: z.string(),
       subTitle: z.string().optional(),
       teaser: z.string().optional(),
@@ -54,6 +55,7 @@ const measuresCollection = defineCollection({
       realisationDate: z.date().optional(),
       cost: z.number(),
       image: image().optional(),
+      imageCopyright: z.string().optional(),
       state: z.string(),
       operators: z.array(z.string()).optional(),
     }),

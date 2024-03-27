@@ -1376,6 +1376,10 @@ export default config({
           publicPath: "/src/assets/subprojects",
           validation: { isRequired: true },
         }),
+        teaserImageCopyright: fields.text({
+          label: "Copyright Teaser Bild",
+          validation: { length: { max: 100 } },
+        }),
         topics: fields.array(
           fields.relationship({
             label: "Themen",
@@ -1765,6 +1769,10 @@ export default config({
             "Bild bitte im Format 2:3 (quer) hochlade bzw. wird dementsprechend beschnitten.",
           directory: "src/assets/measures",
           publicPath: "/src/assets/measures",
+        }),
+        imageCopyright: fields.text({
+          label: "Copyright Bild",
+          validation: { length: { max: 100 } },
         }),
         state: fields.select({
           label: "Status",
