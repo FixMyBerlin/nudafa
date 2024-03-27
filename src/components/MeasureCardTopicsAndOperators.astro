@@ -20,7 +20,11 @@ const { operators, topics }: Props = Astro.props;
   }
   {
     !!operators?.length ? (
-      operators.map((operator) => <PartnerLabel partner={operator} />)
+      operators.map((operator) => (
+        <li>
+          <PartnerLabel partner={operator} />
+        </li>
+      ))
     ) : (
       <span>-</span>
     )

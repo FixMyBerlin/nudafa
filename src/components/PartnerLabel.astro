@@ -25,11 +25,11 @@ export const partnersTableData: TPartnersTableData = {
 const { partner } = Astro.props as Props;
 ---
 
-<li
+<span
   class:list={[
     "text-black rounded-md px-2 py-[1px] list-none text-sm",
     partnersTableData[partner].color,
   ]}
 >
   {partnersTableData[partner].title}
-</li>
+</span>

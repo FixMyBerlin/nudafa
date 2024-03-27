@@ -46,7 +46,11 @@ const communeTableData = {
     <ul class="flex flex-wrap gap-2">
       {
         !!partners?.length ? (
-          partners.map((partner) => <PartnerLabel partner={partner} />)
+          partners.map((partner) => (
+            <li>
+              <PartnerLabel partner={partner} />
+            </li>
+          ))
         ) : (
           <span>-</span>
         )
