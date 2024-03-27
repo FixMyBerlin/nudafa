@@ -1,39 +1,77 @@
-import { config, fields, collection, singleton } from "@keystatic/core";
-import { block, inline, wrapper } from "@keystatic/core/content-components";
 import { ArrowRightIcon, ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import { collection, config, fields, singleton } from "@keystatic/core";
+import { block, inline } from "@keystatic/core/content-components";
+import { Uint8Array } from "./src/components/Unit8Image.tsx";
 
-const contentViewImageDefault = (props: any) => (
-  <figure>
-    <div>
-      <img src="/placeholder_image.jpg" alt="" />
-    </div>
-    {/* <img
-     src={`/src/assets/news/${}/${props.value.src?.filename}`}
-     alt=""
-     width={200}
-     height={200}
-   /> */}
-    <figcaption>{props.value.caption}</figcaption>
-  </figure>
+const contentViewImageVertical = (props: any) => (
+  <div>
+    <small style={{ color: "gray" }}>
+      *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt
+      dargestellt
+    </small>
+    <figure>
+      <div style={{ height: "300px", width: "200px" }}>
+        <Uint8Array data={props.value.src?.data} />
+      </div>
+      <figcaption>{props.value.caption}</figcaption>
+    </figure>
+  </div>
 );
-
+const contentViewImageSquare = (props: any) => (
+  <div>
+    <small style={{ color: "gray" }}>
+      *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt
+      dargestellt
+    </small>
+    <figure>
+      <div style={{ height: "200px", width: "200px" }}>
+        <Uint8Array data={props.value.src?.data} />
+      </div>
+      <figcaption>{props.value.caption}</figcaption>
+    </figure>
+  </div>
+);
+const contentViewImageHorizontal = (props: any) => (
+  <div>
+    <small style={{ color: "gray" }}>
+      *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt
+      dargestellt
+    </small>
+    <figure>
+      <div style={{ height: "200px", width: "300PX" }}>
+        <Uint8Array data={props.value.src?.data} />
+      </div>
+      <figcaption>{props.value.caption}</figcaption>
+    </figure>
+  </div>
+);
 const contentViewImageDefaultDouble = (props: any) => (
-  <figure>
-    <div>
-      <img
-        style={{ position: "relative" }}
-        src="/placeholder_image.jpg"
-        alt=""
-      />
-
-      <img
-        style={{ position: "relative" }}
-        src="/placeholder_image.jpg"
-        alt=""
-      />
+  <div>
+    <small style={{ color: "gray" }}>
+      *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt
+      dargestellt
+    </small>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "49% 49%",
+        width: "100%",
+      }}
+    >
+      <figure>
+        <div style={{ height: "250px" }}>
+          <Uint8Array data={props.value.src?.data} />
+        </div>
+        <figcaption>{props.value.caption}</figcaption>
+      </figure>
+      <figure>
+        <div style={{ height: "250px" }}>
+          <Uint8Array data={props.value.srcSecond?.data} />
+        </div>
+        <figcaption>{props.value.captionSecond}</figcaption>
+      </figure>
     </div>
-    <figcaption>{props.value.caption}</figcaption>
-  </figure>
+  </div>
 );
 
 export default config({
@@ -164,7 +202,7 @@ export default config({
                   }
                 ),
               },
-              ContentView: contentViewImageDefault,
+              ContentView: contentViewImageVertical,
             }),
             ImageSingleHorizontal: block({
               label: "Bild: einzeln, Querformat",
@@ -247,7 +285,7 @@ export default config({
                   }
                 ),
               },
-              ContentView: contentViewImageDefault,
+              ContentView: contentViewImageHorizontal,
             }),
             ImageSingleSquare: block({
               label: "Bild: einzeln, quadratisch",
@@ -288,7 +326,7 @@ export default config({
                   }
                 ),
               },
-              ContentView: contentViewImageDefault,
+              ContentView: contentViewImageSquare,
             }),
             ImageDouble: block({
               label: "Bild: doppelt",
