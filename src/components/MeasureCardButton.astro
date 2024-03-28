@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import MeasureCardTitle from "./MeasureCardTitle.astro";
 import MeasureCardTopicsAndOperators from "./MeasureCardTopicsAndOperators.astro";
 import MeasureCardCostDurationLength from "./MeasureCardCostDurationLength.astro";
@@ -7,7 +6,6 @@ import StatusLabel from "./StatusLabel.astro";
 
 interface Props {
   title: string;
-  image?: any;
   type: string;
   topics?: string[];
   operators?: string[];
@@ -16,22 +14,12 @@ interface Props {
   realisationDate?: Date;
 }
 
-const { title, image, type, topics, operators, cost, state, realisationDate } =
+const { title, type, topics, operators, cost, state, realisationDate } =
   Astro.props;
 ---
 
 <!-- desktop version -->
 <div class="flex-row gap-4 w-full hidden md:flex">
-  {
-    image && (
-      <Image
-        src={image}
-        width="100"
-        alt=""
-        class="w-36 h-36 object-cover shrink-0"
-      />
-    )
-  }
   <div class="flex flex-col w-full justify-between">
     <div class="flex justify-between">
       <MeasureCardTitle title={title} type={type} />
@@ -39,30 +27,18 @@ const { title, image, type, topics, operators, cost, state, realisationDate } =
         cost={cost}
         realisationDate={realisationDate}
       />
-      <div class="flex-col items-end">
+      <div class="flex-col items-end flex-shrink-0">
         <StatusLabel state={state} />
       </div>
     </div>
-    <div class="flex flex-row items-end justify-between">
-      <MeasureCardTopicsAndOperators topics={topics} operators={operators} />
-      <p class="invisible shrink-0 text-sm">Mehr Details</p>
-    </div>
+    <MeasureCardTopicsAndOperators topics={topics} operators={operators} />
+    <p class="invisible shrink-0 text-sm">Mehr Details</p>
   </div>
 </div>
 
 <!-- mobile version -->
 <div class="flex-col flex gap-4 w-full md:hidden">
   <div class="flex gap-4">
-    {
-      image && (
-        <Image
-          src={image}
-          width="100"
-          alt=""
-          class="w-36 h-36 object-cover shrink-0"
-        />
-      )
-    }
     <MeasureCardTitle title={title} type={type} />
   </div>
   <div class="flex flex-col w-full justify-between gap-4">

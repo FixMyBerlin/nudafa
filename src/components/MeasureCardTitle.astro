@@ -17,6 +17,6 @@ const { title, type }: Props = Astro.props;
 ---
 
 <div class="text-left">
-  <p class="font-bold font-serif break-all">{title}</p>
-  <p class="text-xs mb-4">{getTypeTitle(type)}</p>
+  <h3 class="font-bold font-serif break-all leading-none">{title}</h3>
+  <p class="text-xs mb-4 mt-2">{getTypeTitle(type)}</p>
 </div>

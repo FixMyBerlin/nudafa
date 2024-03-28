@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import ProseMarkdown from "./ProseMarkdown.astro";
+
 interface Props {
   measure: any;
 }
@@ -6,4 +9,17 @@ const { measure } = Astro.props;
 const { Content } = await measure.render();
 ---
 
-{(<Content />)}
+<div class="flex flex-col gap-4 md:flex-row">
+  {
+    measure.data.image && (
+      <Image
+        src={measure.data.image}
+        alt=""
+        class="w-full md:w-auto object-cover shrink-0 md:-mb-7 lg:h-[250px] md:h-[200px] md:pt-2 aspect-[3/2]"
+      />
+    )
+  }
+  <ProseMarkdown>
+    <Content />
+  </ProseMarkdown>
+</div>

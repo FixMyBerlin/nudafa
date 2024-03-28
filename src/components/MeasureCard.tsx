@@ -10,11 +10,7 @@ type Props = {
 
 export const MeasureCard: React.FC<Props> = ({ button, panel }) => {
   return (
-    <li
-      className={clsx([
-        "rounded-sm flex bg-white shadow-lg flex-col gap-3 mb-8",
-      ])}
-    >
+    <li className={clsx(["rounded-sm flex bg-white shadow-lg flex-col mb-8"])}>
       <Disclosure>
         {({ open }) => (
           <>

@@ -13,14 +13,11 @@ interface Props {
 const { realisationDate, cost }: Props = Astro.props;
 ---
 
-<div class="flex flex-row text-sm flex-shrink-0 flex-grow items-start md:px-4">
+<div
+  class="flex flex-row text-sm flex-shrink-0 flex-grow items-start md:justify-center md:px-4"
+>
   <div class="flex flex-row items-center gap-1">
-    <Image
-      src={routeIcon}
-      width="100"
-      alt=""
-      class="w-3 h-3 object-cover shrink-0"
-    />{" "}
+    <Image src={routeIcon} alt="" class="w-3 h-3 object-cover shrink-0" />{" "}
     <p class="border-r border-black pr-2 leading-3 text-nowrap">todokm</p>
   </div>
   <div class="flex flex-row items-center gap-1 ml-2">
