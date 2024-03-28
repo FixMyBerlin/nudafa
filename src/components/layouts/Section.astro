@@ -1,11 +1,12 @@
 ---
 interface Props {
   className?: string;
+  extraPadding?: boolean;
 }
-const { className } = Astro.props;
+const { className, extraPadding } = Astro.props;
 ---
 
-<section class:list={["my-10 px-4", className]}>
+<section class:list={["my-10 px-4", extraPadding && "py-8", className]}>
   <div class="max-w-[919px] mx-auto">
     <slot />
   </div>

@@ -13,7 +13,7 @@ const subProjectsBig = subProjects.filter((p) => p.data.showBig);
 const subProjectsSmall = subProjects.filter((p) => !p.data.showBig);
 ---
 
-<Section className="bg-[#FEF3C7] not-prose">
+<Section className="bg-[#FEF3C7]" extraPadding>
   <H2>Teilprojekte</H2>
   {
     Boolean(subProjectsBig?.length) && (
