@@ -13,13 +13,17 @@ import H2 from "../components/Text/H2.astro";
 import Layout from "../components/layouts/Layout.astro";
 import Section from "../components/layouts/Section.astro";
 import TextLinkArrow from "../components/links/TextLinkArrow.astro";
+import ProseMarkdown from "../components/ProseMarkdown.astro";
 
-const page = await getEntry("projectpartnerpage", "index");
-const { title, subTitle, mediaLinks } = page.data;
+const page = await getEntry("projectpartnerpageintro", "index");
+const pagemain = await getEntry("projectpartnerpagemain", "index");
+
+const { title, subTitle } = page.data;
 const { Content } = await page.render();
 
 const persons = await getCollection("persons");
 const communes = await getCollection("communes");
+const { Content: ContentMain } = await pagemain.render();
 ---
 
 <Layout title={title}>
@@ -64,5 +68,18 @@ const communes = await getCollection("communes");
           ))
       }
     </CommuneCardWrapper>
+  </Section>
+  <Section>
+    <ProseMarkdown>
+      <ContentMain
+        components={{
+          ImageSingleHorizontal,
+          ImageSingleSquare,
+          ImageSingleVertical,
+          ImageDouble,
+          TextLinkArrow,
+        }}
+      />
+    </ProseMarkdown>
   </Section>
 </Layout>
