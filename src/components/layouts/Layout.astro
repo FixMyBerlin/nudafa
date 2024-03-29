@@ -64,11 +64,13 @@ const mainNavigation: TMainNavigation = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-white font-sans">
-    <Navbar path={pathname} mainNavigation={mainNavigation} client:load />
-    <main>
-      <slot />
-    </main>
-    <Footer mainNavigation={mainNavigation} />
+  <body class="font-sans bg-[#eee]">
+    <div class="max-w-[1440px] mx-auto shadow-sm bg-white">
+      <Navbar path={pathname} mainNavigation={mainNavigation} client:load />
+      <main>
+        <slot />
+      </main>
+      <Footer mainNavigation={mainNavigation} />
+    </div>
   </body>
 </html>
