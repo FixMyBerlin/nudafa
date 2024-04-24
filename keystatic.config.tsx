@@ -1671,16 +1671,10 @@ export default config({
           label: "Copyright Teaser Bild",
           validation: { length: { max: 100 } },
         }),
-        topics: fields.array(
-          fields.relationship({
-            label: "Themen",
-            collection: "subprojectstopics",
-          }),
-          {
-            label: "Themen",
-            itemLabel: (props) => props.value || "thema",
-          }
-        ),
+        topics: fields.multiRelationship({
+          label: "Themen",
+          collection: "subprojectstopics",
+        }),
         partners: fields.multiselect({
           label: "Projektpartner",
           options: [
@@ -1694,16 +1688,10 @@ export default config({
           ],
           defaultValue: ["th"],
         }),
-        projectCommunes: fields.array(
-          fields.relationship({
-            label: "Projektkommune(n)",
-            collection: "communes",
-          }),
-          {
-            label: "Projektkommune",
-            itemLabel: (props) => props.value || "Kommune",
-          }
-        ),
+        projectCommunes: fields.multiRelationship({
+          label: "Projektkommune(n)",
+          collection: "communes",
+        }),
         start: fields.date({
           label: "Projektstart",
           validation: { isRequired: true },
@@ -2036,17 +2024,10 @@ export default config({
           label: "Maßnahmenart",
           collection: "measuretypes",
         }),
-        topics: fields.array(
-          fields.relationship({
-            label: "Themen/Typ",
-            collection: "subprojectstopics",
-          }),
-          {
-            label: "Themen",
-            itemLabel: (props) => props.value || "thema",
-            validation: { length: { min: 1 } },
-          }
-        ),
+        topics: fields.multiRelationship({
+          label: "Themen/Typ",
+          collection: "subprojectstopics",
+        }),
         realisationDate: fields.date({
           label: "Datum der Realisierung",
         }),
