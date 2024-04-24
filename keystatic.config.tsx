@@ -1021,7 +1021,7 @@ export default config({
       },
     }),
     projectpartnerpageintro: singleton({
-      label: "Projektpartner*innen-Seite Einführung",
+      label: "Über uns-Seite Einführung",
       format: { contentField: "content" },
       path: "src/content/projectpartnerpageintro/",
       schema: {
@@ -1315,7 +1315,7 @@ export default config({
       },
     }),
     projectpartnerpagemain: singleton({
-      label: "Projektpartner*innen-Seite Hauptteil",
+      label: "Über uns-Seite Hauptteil",
       format: { contentField: "content" },
       path: "src/content/projectpartnerpagemain/",
       schema: {
@@ -1682,7 +1682,7 @@ export default config({
             { label: "Gemeinde Eichwalde", value: "eichwalde" },
             { label: "Gemeinde Zeuthen", value: "zeuthen" },
             { label: "Gemeinde Schulzendorf", value: "schulzendorf" },
-            { label: "Gemeinde Wildau", value: "wildau" },
+            { label: "Stadt Wildau", value: "wildau" },
             { label: "TU Berlin", value: "tu" },
             { label: "FixMyCity", value: "fmc" },
           ],
@@ -2118,7 +2118,7 @@ export default config({
             { label: "Gemeinde Eichwalde", value: "eichwalde" },
             { label: "Gemeinde Zeuthen", value: "zeuthen" },
             { label: "Gemeinde Schulzendorf", value: "schulzendorf" },
-            { label: "Gemeinde Wildau", value: "wildau" },
+            { label: "Stadt Wildau", value: "wildau" },
             { label: "TU Berlin", value: "tu" },
             { label: "FixMyCity", value: "fmc" },
           ],
