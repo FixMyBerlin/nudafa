@@ -119,6 +119,7 @@ export default config({
   },
   singletons: {
     homepageintro: singleton({
+      entryLayout: "content",
       label: "Homepage Einführung (Über Teilprojekte-Teasern)",
       format: { contentField: "content" },
       path: "src/content/homepageintro/",
@@ -419,6 +420,7 @@ export default config({
       },
     }),
     homepagemain: singleton({
+      entryLayout: "content",
       label: "Homepage Hauptteil (Unter Teilprojekte-Teasern)",
       format: { contentField: "content" },
       path: "src/content/homepagemain/",
@@ -711,6 +713,7 @@ export default config({
       },
     }),
     presspage: singleton({
+      entryLayout: "content",
       label: "Presse-Seite",
       format: { contentField: "content" },
       path: "src/content/presspage/",
@@ -1021,6 +1024,7 @@ export default config({
       },
     }),
     projectpartnerpageintro: singleton({
+      entryLayout: "content",
       label: "Über uns-Seite Einführung",
       format: { contentField: "content" },
       path: "src/content/projectpartnerpageintro/",
@@ -1315,6 +1319,7 @@ export default config({
       },
     }),
     projectpartnerpagemain: singleton({
+      entryLayout: "content",
       label: "Über uns-Seite Hauptteil",
       format: { contentField: "content" },
       path: "src/content/projectpartnerpagemain/",
@@ -1601,6 +1606,7 @@ export default config({
       },
     }),
     imprintpage: singleton({
+      entryLayout: "content",
       label: "Impressum",
       format: { contentField: "content" },
       path: "src/content/imprintpage/",
@@ -1619,6 +1625,7 @@ export default config({
       },
     }),
     privacypage: singleton({
+      entryLayout: "content",
       label: "Datenschutz",
       format: { contentField: "content" },
       path: "src/content/privacypage/",
