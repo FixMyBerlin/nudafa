@@ -12,6 +12,7 @@ interface Props {
   cost: number;
   state: string;
   realisationDate?: Date;
+  startDate?: Date;
   urgency: boolean;
 }
 
@@ -23,6 +24,7 @@ const {
   cost,
   state,
   realisationDate,
+  startDate,
   urgency,
 } = Astro.props;
 ---
@@ -35,6 +37,7 @@ const {
       <MeasureCardCostDurationLength
         cost={cost}
         realisationDate={realisationDate}
+        startDate={startDate}
       />
       {urgency && <p class="text-red-500 rounded-full p-1"> !</p>}
       <div class="flex-col items-end flex-shrink-0">
@@ -57,6 +60,7 @@ const {
       <MeasureCardCostDurationLength
         cost={cost}
         realisationDate={realisationDate}
+        startDate={startDate}
       />
     </div>
     <MeasureCardTopicsAndOperators topics={topics} operators={operators} />

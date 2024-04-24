@@ -2032,8 +2032,11 @@ export default config({
           label: "Dringlichkeit",
           defaultValue: false,
         }),
+        startDate: fields.date({
+          label: "Datum Beginn",
+        }),
         realisationDate: fields.date({
-          label: "Datum der Realisierung",
+          label: "Datum der Fertigstellung",
         }),
         cost: fields.number({
           label: "Kosten in €",

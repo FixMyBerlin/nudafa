@@ -7,10 +7,11 @@ import routeIcon from "./../assets/icons/route.png";
 
 interface Props {
   realisationDate?: Date;
+  startDate?: Date;
   cost?: number;
 }
-
-const { realisationDate, cost }: Props = Astro.props;
+const { realisationDate, cost, startDate }: Props = Astro.props;
+// console.log({ startDate });
 ---
 
 <div
@@ -23,12 +24,19 @@ const { realisationDate, cost }: Props = Astro.props;
   <div class="flex flex-row items-center gap-1 ml-2">
     <CalendarDaysIcon className="w-[13px] h-[13px]" />
     <p class="border-r border-black pr-2 leading-3 text-nowrap">
+      {!startDate && !realisationDate && "-"}
+      {startDate && !realisationDate && "ab"}
       {
-        realisationDate
-          ? format(realisationDate, "MMMM yyyy", {
-              locale: de,
-            })
-          : " -"
+        startDate &&
+          `${format(startDate, "yyyy", {
+            locale: de,
+          })} `
+      }
+      {
+        realisationDate &&
+          ` bis ${format(realisationDate, "yyyy", {
+            locale: de,
+          })}`
       }
     </p>
   </div>

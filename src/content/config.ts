@@ -53,6 +53,7 @@ const measuresCollection = defineCollection({
       geometry: z.any(),
       topics: z.array(z.string()).optional(),
       realisationDate: z.date().optional(),
+      startDate: z.date().optional(),
       cost: z.number(),
       image: image().optional(),
       imageCopyright: z.string().optional(),
