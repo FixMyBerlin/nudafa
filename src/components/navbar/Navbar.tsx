@@ -22,7 +22,7 @@ export const Navbar = (props: Props) => {
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <a href="/" className="flex-shrink-0">
-                <img className="w-[171px]" src="/Logo_NUDAFA_1.png" />
+                <img className="w-[171px]" src="/Logo_NUDAFA.png" />
               </a>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex gap-2 divide-x divide-solid divide-gray-900">
