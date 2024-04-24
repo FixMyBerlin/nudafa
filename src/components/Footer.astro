@@ -1,15 +1,15 @@
 ---
-import type { TMainNavigation } from "./navbar/Navbar";
+import type { TNavigation } from "./navbar/Navbar";
 import Link from "./links/Link.astro";
 import { getCollection } from "astro:content";
 
 interface Props {
-  mainNavigation: TMainNavigation;
+  footerNavigation: TNavigation;
 }
 
 const communes = await getCollection("communes");
 
-const { mainNavigation } = Astro.props;
+const { footerNavigation } = Astro.props;
 ---
 
 <div
@@ -17,23 +17,25 @@ const { mainNavigation } = Astro.props;
 >
   <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-7">
     {
-      Object.entries(mainNavigation.first).map(([title, menuChildrenItems]) => (
-        <div>
-          <p class="font-bold pb-2">{title}</p>
-          <ul class="text-sm flex flex-col gap-2">
-            {Object.entries(menuChildrenItems).map(([item, href]) => (
-              <li>
-                <a class="no-underline  hover:text-beige-500" href={href}>
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
+      Object.entries(footerNavigation.first).map(
+        ([title, menuChildrenItems]) => (
+          <div>
+            <p class="font-bold pb-2">{title}</p>
+            <ul class="text-sm flex flex-col gap-2">
+              {Object.entries(menuChildrenItems).map(([item, href]) => (
+                <li>
+                  <a class="no-underline  hover:text-beige-500" href={href}>
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      )
     }
     {
-      Object.entries(mainNavigation.second).map(
+      Object.entries(footerNavigation.second).map(
         ([title, menuChildrenItems]) => (
           <div>
             <p class="font-bold pb-2">{title}</p>

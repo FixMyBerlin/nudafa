@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Footer from "./../Footer.astro";
-import { Navbar, type TMainNavigation } from "../navbar/Navbar.tsx";
+import { Navbar, type TNavigation } from "../navbar/Navbar.tsx";
 import "@fontsource-variable/open-sans";
 import "@fontsource/roboto-slab";
 
@@ -27,7 +27,7 @@ if (subprojects?.length) {
 //   });
 // }
 
-const mainNavigation: TMainNavigation = {
+const mainNavigation: TNavigation = {
   first: {
     "Das Reallabor": {
       Presse: "/presse",
@@ -52,6 +52,16 @@ const mainNavigation: TMainNavigation = {
   //     Veranstaltungsarchiv: "/veranstaltungen/archiv",
   //   },
 };
+
+const footerNavigation: TNavigation = {
+  first: {
+    ...mainNavigation.first,
+    Teilprojekte: {
+      "Übersicht Teilprojekte": "/#teilprojekte",
+    },
+  },
+  second: { ...mainNavigation.second },
+};
 ---
 
 <!doctype html>
@@ -70,7 +80,7 @@ const mainNavigation: TMainNavigation = {
       <main>
         <slot />
       </main>
-      <Footer mainNavigation={mainNavigation} />
+      <Footer footerNavigation={footerNavigation} />
     </div>
   </body>
 </html>

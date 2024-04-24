@@ -3,13 +3,13 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavbarMenuItem } from "./NavbarMenuItem";
 import { NavigationMobile } from "./NavigationMobile";
 
-export type TMainNavigation = {
+export type TNavigation = {
   first: Record<string, Record<string, string>>;
   second: Record<string, Record<string, string>>;
 };
 
 type Props = {
-  mainNavigation: TMainNavigation;
+  mainNavigation: TNavigation;
   path: string;
 };
 

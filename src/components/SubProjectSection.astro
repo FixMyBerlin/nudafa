@@ -16,35 +16,37 @@ console.log(subProjectsSmall);
 ---
 
 <Section className="bg-[#FEF3C7]" extraPadding>
-  <H2>Teilprojekte</H2>
-  {
-    Boolean(subProjectsBig?.length) && (
-      <BigSubprojectCardWrapper>
-        {subProjectsBig.map((project) => (
-          <SubprojectCard
-            image={project.data.teaserImage}
-            href={`/teilprojekte/${project.slug}`}
-            title={project.data.title}
-            teaser={project.data.teaser}
-            teaserImageCopyright={project.data.teaserImageCopyright}
-          />
-        ))}
-      </BigSubprojectCardWrapper>
-    )
-  }
-  {
-    Boolean(subProjectsSmall?.length) && (
-      <SubprojectCardWrapper>
-        {subProjectsSmall.map((project) => (
-          <SubprojectCard
-            image={project.data.teaserImage}
-            href={`/teilprojekte/${project.slug}`}
-            title={project.data.title}
-            teaser={project.data.teaser}
-            teaserImageCopyright={project.data.teaserImageCopyright}
-          />
-        ))}
-      </SubprojectCardWrapper>
-    )
-  }
+  <div id="teilprojekte">
+    <H2>Teilprojekte</H2>
+    {
+      Boolean(subProjectsBig?.length) && (
+        <BigSubprojectCardWrapper>
+          {subProjectsBig.map((project) => (
+            <SubprojectCard
+              image={project.data.teaserImage}
+              href={`/teilprojekte/${project.slug}`}
+              title={project.data.title}
+              teaser={project.data.teaser}
+              teaserImageCopyright={project.data.teaserImageCopyright}
+            />
+          ))}
+        </BigSubprojectCardWrapper>
+      )
+    }
+    {
+      Boolean(subProjectsSmall?.length) && (
+        <SubprojectCardWrapper>
+          {subProjectsSmall.map((project) => (
+            <SubprojectCard
+              image={project.data.teaserImage}
+              href={`/teilprojekte/${project.slug}`}
+              title={project.data.title}
+              teaser={project.data.teaser}
+              teaserImageCopyright={project.data.teaserImageCopyright}
+            />
+          ))}
+        </SubprojectCardWrapper>
+      )
+    }
+  </div>
 </Section>
