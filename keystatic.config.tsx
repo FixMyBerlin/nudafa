@@ -2028,6 +2028,10 @@ export default config({
           label: "Themen/Typ",
           collection: "subprojectstopics",
         }),
+        urgency: fields.checkbox({
+          label: "Dringlichkeit",
+          defaultValue: false,
+        }),
         realisationDate: fields.date({
           label: "Datum der Realisierung",
         }),

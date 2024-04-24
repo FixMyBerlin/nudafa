@@ -30,6 +30,7 @@ const measures = await getCollection("measures");
               cost={measure.data.cost}
               state={measure.data.state}
               realisationDate={measure.data.realisationDate}
+              urgency={measure.data.urgency}
             />
             <MeasureCardPanel slot="panel" measure={measure} />
           </MeasureCard>

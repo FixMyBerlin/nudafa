@@ -58,6 +58,7 @@ const measuresCollection = defineCollection({
       imageCopyright: z.string().optional(),
       state: z.string(),
       operators: z.array(z.string()).optional(),
+      urgency: z.boolean(),
     }),
 });
 

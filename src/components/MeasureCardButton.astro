@@ -12,21 +12,31 @@ interface Props {
   cost: number;
   state: string;
   realisationDate?: Date;
+  urgency: boolean;
 }
 
-const { title, type, topics, operators, cost, state, realisationDate } =
-  Astro.props;
+const {
+  title,
+  type,
+  topics,
+  operators,
+  cost,
+  state,
+  realisationDate,
+  urgency,
+} = Astro.props;
 ---
 
 <!-- desktop version -->
 <div class="flex-row gap-4 w-full hidden md:flex">
   <div class="flex flex-col w-full justify-between">
-    <div class="flex justify-between">
+    <div class="flex justify-between items-start">
       <MeasureCardTitle title={title} type={type} />
       <MeasureCardCostDurationLength
         cost={cost}
         realisationDate={realisationDate}
       />
+      {urgency && <p class="text-red-500 rounded-full p-1"> !</p>}
       <div class="flex-col items-end flex-shrink-0">
         <StatusLabel state={state} />
       </div>
@@ -40,6 +50,7 @@ const { title, type, topics, operators, cost, state, realisationDate } =
 <div class="flex-col flex gap-4 w-full md:hidden">
   <div class="flex gap-4">
     <MeasureCardTitle title={title} type={type} />
+    {urgency && <p class="text-red-500 rounded-full p-1"> !</p>}
   </div>
   <div class="flex flex-col w-full justify-between gap-4">
     <div class="flex justify-between">
