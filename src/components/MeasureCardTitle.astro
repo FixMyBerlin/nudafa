@@ -8,7 +8,6 @@ interface Props {
 
 const types = await getCollection("measuretypes");
 
-console.log({ types });
 const getTypeTitle = (typeId: string | undefined) => {
   return typeId ? types.find((type) => type.id === typeId)?.data.title : "-";
 };
