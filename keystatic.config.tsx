@@ -1689,7 +1689,7 @@ export default config({
           defaultValue: ["th"],
         }),
         projectCommunes: fields.multiRelationship({
-          label: "Projektkommune(n)",
+          label: "Weitere Projektpartner",
           collection: "communes",
         }),
         start: fields.date({

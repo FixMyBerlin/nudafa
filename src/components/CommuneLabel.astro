@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  communeId: string;
+}
+
+const communes = await getCollection("communes");
+
+const getFullCommuneTitle = (communeId: string) => {
+  const commune = communes.find((commune) => commune.slug === communeId);
+
+  return commune ? commune.data.name : commune;
+};
+
+const { communeId } = Astro.props as Props;
+---
+
+<li
+  class:list={["text-sm rounded-md border-black px-2 py-[1px] bg-yellow-100"]}
+>
+  {getFullCommuneTitle(communeId)}
+</li>
