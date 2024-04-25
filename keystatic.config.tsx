@@ -2135,18 +2135,9 @@ export default config({
           publicPath: "../../assets/persons",
           validation: { isRequired: true },
         }),
-        institution: fields.select({
+        institution: fields.relationship({
           label: "Institution",
-          options: [
-            { label: "TH Wildau", value: "th" },
-            { label: "Gemeinde Eichwalde", value: "eichwalde" },
-            { label: "Gemeinde Zeuthen", value: "zeuthen" },
-            { label: "Gemeinde Schulzendorf", value: "schulzendorf" },
-            { label: "Stadt Wildau", value: "wildau" },
-            { label: "TU Berlin", value: "tu" },
-            { label: "FixMyCity", value: "fmc" },
-          ],
-          defaultValue: "th",
+          collection: "communes",
         }),
         position: fields.text({
           label: "Position",

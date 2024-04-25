@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import PartnerLabel, { partnersTableData } from "./PartnerLabel.astro";
+import CommuneLabel from "./CommuneLabel.astro";
 
 interface Props {
   image: any;
@@ -29,6 +29,6 @@ const { name, image, position, institution } = Astro.props;
   >
     <p class="font-bold text-center">{name}</p>
     <p class="text-center text-gray-500">{position}</p>
-    {institution && <PartnerLabel partner={institution} />}
+    {institution && <CommuneLabel communeId={institution} />}
   </div>
 </li>
