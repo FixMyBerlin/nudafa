@@ -1693,7 +1693,7 @@ export default config({
           collection: "communes",
         }),
         projectPartners: fields.multiRelationship({
-          label: "Verbundpartner",
+          label: "Projektpartner",
           collection: "partners",
         }),
         // fields.multiselect({
