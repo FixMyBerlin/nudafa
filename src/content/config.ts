@@ -29,11 +29,11 @@ const subprojectsCollection = defineCollection({
       teaser: z.string().optional(),
       showBig: z.boolean(),
       topics: z.array(z.string()),
-      partners: z.array(z.string()),
       start: z.date(),
       end: z.date().optional(),
       funding: z.string().optional(),
       projectCommunes: z.array(z.string()).optional(),
+      projectPartners: z.array(z.string()).optional(),
     }),
 });
 const communesCollection = defineCollection({
@@ -42,6 +42,7 @@ const communesCollection = defineCollection({
       image: image(),
       name: z.string(),
       website: z.string().optional(),
+      color: z.string().optional(),
     }),
 });
 const measuresCollection = defineCollection({

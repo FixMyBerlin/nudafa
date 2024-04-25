@@ -1,35 +1,50 @@
 ---
+import { getCollection } from "astro:content";
+
 interface Props {
-  partner: string;
+  partnerId: string;
 }
 
-type TPartnersTableData = {
-  [key: string]: {
-    color: string;
-    title: string;
-  };
+const partners = await getCollection("partners");
+
+const getFullPartnerTitle = (partnerId: string) => {
+  const partner = partners.find((partner) => partner.slug === partnerId);
+
+  return partner ? partner.data.name : partner;
 };
 
-export const partnersTableData: TPartnersTableData = {
-  eichwalde: { color: "bg-[#FED7AA]", title: "Gemeinde Eichwalde" },
-  schulzendorf: { color: "bg-[#A5F3FC]", title: "Gemeinde Schulzendorf" },
-  zeuthen: { color: "bg-[#A7F3D0]", title: "Gemeinde Zeuthen" },
-  wildau: { color: "bg-[#A7F3D0]", title: "Stadt Wildau" },
-  th: { color: "bg-[#7DD3FC]", title: "TH Wildau" },
-  tu: { color: "bg-[#C4B5FD]", title: "TU Berlin" },
-  fmc: { color: "bg-[#F9A8D4]", title: "FixMyCity" },
-  kw: { color: "bg-yellow-600", title: "Königs-Wusterhausen" },
-  schoenefeld: { color: "bg-yellow-600", title: "Schönefeld" },
+const getColorClass = (partnerId: string) => {
+  const partner = partners.find((partner) => partner.slug === partnerId);
+  switch (partner?.data.color) {
+    case "#AED7A0":
+      return "bg-[#AED7A0]";
+    case "#F9A8D4":
+      return "bg-[#F9A8D4]";
+    case "#95E8D8":
+      return "bg-[#95E8D8]";
+    case "#BAE6FD":
+      return "bg-[#BAE6FD]";
+    case "#79C6FD":
+      return "bg-[#79C6FD]";
+    case "#FCA5A5":
+      return "bg-[#FCA5A5]";
+    case "#FCA5A5":
+      return "bg-[#FCA5A5]";
+    case "#FFFBEB":
+      return "bg-[#FFFBEB]";
+    default:
+      return "bg-[#FFFBEB]";
+  }
 };
 
-const { partner } = Astro.props as Props;
+const { partnerId } = Astro.props as Props;
 ---
 
-<span
+<li
   class:list={[
     "text-black rounded-md px-2 py-[1px] list-none text-sm",
-    partnersTableData[partner].color,
+    getColorClass(partnerId),
   ]}
 >
-  {partnersTableData[partner].title}
-</span>
+  {getFullPartnerTitle(partnerId)}
+</li>

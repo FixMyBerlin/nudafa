@@ -25,9 +25,9 @@ const {
   subTitle,
   topics,
   projectCommunes,
+  projectPartners,
   start,
   end,
-  partners,
   funding,
 } = entry.data;
 const { Content } = await entry.render();
@@ -40,7 +40,7 @@ const { Content } = await entry.render();
       start={start}
       end={end}
       communes={projectCommunes}
-      partners={partners}
+      projectPartners={projectPartners}
       funding={funding}
       topics={topics}
     />

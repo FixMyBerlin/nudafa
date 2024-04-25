@@ -112,7 +112,12 @@ export default config({
         "persons",
         "presspage",
       ],
-      Teilprojekte: ["subProjects", "subprojectstopics", "communes"],
+      Teilprojekte: [
+        "subProjects",
+        "subprojectstopics",
+        "communes",
+        "partners",
+      ],
       Maßnahmen: ["measures", "measuretypes", "subprojectstopics"],
       "Weitere Seiten": ["imprintpage", "privacypage"],
     },
@@ -1682,23 +1687,28 @@ export default config({
           label: "Themen",
           collection: "subprojectstopics",
         }),
-        partners: fields.multiselect({
-          label: "Projektpartner",
-          options: [
-            { label: "TH Wildau", value: "th" },
-            { label: "Gemeinde Eichwalde", value: "eichwalde" },
-            { label: "Gemeinde Zeuthen", value: "zeuthen" },
-            { label: "Gemeinde Schulzendorf", value: "schulzendorf" },
-            { label: "Stadt Wildau", value: "wildau" },
-            { label: "TU Berlin", value: "tu" },
-            { label: "FixMyCity", value: "fmc" },
-          ],
-          defaultValue: ["th"],
-        }),
+        // Verbundpartner
         projectCommunes: fields.multiRelationship({
-          label: "Weitere Projektpartner",
+          label: "Verbundpartner",
           collection: "communes",
         }),
+        projectPartners: fields.multiRelationship({
+          label: "Verbundpartner",
+          collection: "partners",
+        }),
+        // fields.multiselect({
+        //   label: "Weitere Projektpartner",
+        //   options: [
+        //     { label: "TH Wildau", value: "th" },
+        //     { label: "Gemeinde Eichwalde", value: "eichwalde" },
+        //     { label: "Gemeinde Zeuthen", value: "zeuthen" },
+        //     { label: "Gemeinde Schulzendorf", value: "schulzendorf" },
+        //     { label: "Stadt Wildau", value: "wildau" },
+        //     { label: "TU Berlin", value: "tu" },
+        //     { label: "FixMyCity", value: "fmc" },
+        //   ],
+        //   defaultValue: ["th"],
+        // }),
         start: fields.date({
           label: "Projektstart",
           validation: { isRequired: true },
@@ -2147,7 +2157,7 @@ export default config({
       },
     }),
     communes: collection({
-      label: "Kommunen",
+      label: "Verbundpartner",
       path: "src/content/communes/*",
       format: {
         contentField: "fakeDocument",
@@ -2160,6 +2170,20 @@ export default config({
             validation: { length: { min: 1, max: 500 } },
           },
         }),
+        color: fields.select({
+          label: "Farbe des Labels",
+          options: [
+            { label: "#AED7A0 - dunkelgrün", value: "#AED7A0" },
+            { label: "#F9A8D4 - pink", value: "#F9A8D4" },
+            { label: "#95E8D8 - türkis", value: "#95E8D8" },
+            { label: "#BAE6FD - hellblau", value: "#BAE6FD" },
+            { label: "#79C6FD - dunkelblau", value: "#79C6FD" },
+            { label: "#FCA5A5 - rot", value: "#FCA5A5" },
+            { label: "#FCA5A5 - orange", value: "#FCA5A5" },
+            { label: "#FFFBEB - hellgelb", value: "#FFFBEB" },
+          ],
+          defaultValue: "#FFFBEB",
+        }),
         image: fields.image({
           label: "Bild",
           directory: "src/assets/communes",
@@ -2169,6 +2193,39 @@ export default config({
         website: fields.url({
           label: "Website",
           validation: { isRequired: true },
+        }),
+        fakeDocument: fields.emptyDocument(),
+      },
+    }),
+    partners: collection({
+      label: "Projektpartner",
+      path: "src/content/partners/*",
+      format: {
+        contentField: "fakeDocument",
+      },
+      slugField: "name",
+      schema: {
+        name: fields.slug({
+          name: {
+            label: "Name",
+            validation: { length: { min: 1, max: 500 } },
+          },
+        }),
+        color: fields.select({
+          label: "Farbe des Labels",
+          options: [
+            { label: "#AED7A0 - dunkelgrün", value: "#AED7A0" },
+            { label: "#F9A8D4 - pink", value: "#F9A8D4" },
+            { label: "#95E8D8 - türkis", value: "#95E8D8" },
+            { label: "#BAE6FD - hellblau", value: "#BAE6FD" },
+            { label: "#79C6FD - dunkelblau", value: "#79C6FD" },
+            { label: "#FCA5A5 - rot", value: "#FCA5A5" },
+            { label: "#FCA5A5 - orange", value: "#FCA5A5" },
+            { label: "#DDEBA7 - hellgrün", value: "#DDEBA7" },
+            { label: "#FFD1B7 - lachs", value: "#FFD1B7" },
+            { label: "#FFFBEB - hellgelb", value: "#FFFBEB" },
+          ],
+          defaultValue: "#FFFBEB",
         }),
         fakeDocument: fields.emptyDocument(),
       },

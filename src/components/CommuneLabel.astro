@@ -13,11 +13,38 @@ const getFullCommuneTitle = (communeId: string) => {
   return commune ? commune.data.name : commune;
 };
 
+const getColorClass = (communeId: string) => {
+  const commune = communes.find((commune) => commune.slug === communeId);
+  switch (commune?.data.color) {
+    case "#AED7A0":
+      return "bg-[#AED7A0]";
+    case "#F9A8D4":
+      return "bg-[#F9A8D4]";
+    case "#95E8D8":
+      return "bg-[#95E8D8]";
+    case "#BAE6FD":
+      return "bg-[#BAE6FD]";
+    case "#79C6FD":
+      return "bg-[#79C6FD]";
+    case "#FCA5A5":
+      return "bg-[#FCA5A5]";
+    case "#FCA5A5":
+      return "bg-[#FCA5A5]";
+    case "#FFFBEB":
+      return "bg-[#FFFBEB]";
+    default:
+      return "bg-[#FFFBEB]";
+  }
+};
+
 const { communeId } = Astro.props as Props;
 ---
 
 <li
-  class:list={["text-sm rounded-md border-black px-2 py-[1px] bg-yellow-100"]}
+  class:list={[
+    "text-black rounded-md px-2 py-[1px] list-none text-sm",
+    getColorClass(communeId),
+  ]}
 >
   {getFullCommuneTitle(communeId)}
 </li>

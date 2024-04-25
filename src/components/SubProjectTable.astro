@@ -9,12 +9,11 @@ interface Props {
   start: Date;
   end?: Date;
   communes?: string[];
-  partners: string[];
+  projectPartners: string[];
   funding?: string;
   topics: string[];
 }
-
-const { start, end, communes, partners, funding, topics } = Astro.props;
+const { start, end, communes, projectPartners, funding, topics } = Astro.props;
 const isProjectPast = end && isPast(end);
 ---
 
@@ -41,19 +40,16 @@ const isProjectPast = end && isPast(end);
     <p class="min-w-[200px] flex-shrink-0">Beteiligte Projektpartner</p>
     <ul class="flex flex-wrap gap-2">
       {
-        !!partners?.length ? (
-          partners.map((partner) => (
-            <li>
-              <PartnerLabel partner={partner} />
-            </li>
-          ))
-        ) : (
-          <span>-</span>
-        )
-      }
-      {
         !!communes?.length &&
           communes.map((c) => <CommuneLabel communeId={c} />)
+      }
+      {
+        !!projectPartners?.length &&
+          projectPartners.map((partner) => (
+            <li>
+              <PartnerLabel partnerId={partner} />
+            </li>
+          ))
       }
     </ul>
   </div>
@@ -66,7 +62,7 @@ const isProjectPast = end && isPast(end);
       {
         isProjectPast
           ? `Laufzeit: ${format(start, "MM/yyyy")} bis ${format(end, "MM/yyyy")}`
-          : "Seit " + format(start, "MM/yyyy")
+          : "Beginn " + format(start, "MM/yyyy")
       }
     </p>
   </div>
