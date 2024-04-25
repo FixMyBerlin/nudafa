@@ -1,11 +1,10 @@
 ---
-import type { TNavigation } from "./navbar/Navbar";
-import BmbfLogo from "../assets/logos/BMBF_gefoerdert_deutsch.png";
-import FonaLogo from "../assets/logos/BMBF_FONA_Logo_rgb.png";
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import P from "./Text/P.astro";
+import { getCollection } from "astro:content";
+import FonaLogo from "../assets/logos/BMBF_FONA_Logo_rgb.png";
+import BmbfLogo from "../assets/logos/BMBF_gefoerdert_deutsch.png";
 import Section from "./layouts/Section.astro";
+import type { TNavigation } from "./navbar/Navbar";
 
 interface Props {
   footerNavigation: TNavigation;
@@ -74,7 +73,7 @@ const { footerNavigation } = Astro.props;
     {
       (
         <div>
-          <p class="font-bold pb-2">Beteiligte Kommunen</p>
+          <p class="font-bold pb-2">Verbundpartner</p>
           <ul class="text-sm flex flex-col gap-2">
             {communes.map((commune) => (
               <li>
