@@ -35,7 +35,7 @@ export const partnersTableData: TStatusTableData = {
 const { state } = Astro.props as Props;
 ---
 
-<li
+<span
   class:list={[
     "text-black text-xs rounded-full pl-2 pr-3 py-[2px] list-none flex gap-1 text-sm items-center",
     partnersTableData[state].color,
@@ -51,4 +51,4 @@ const { state } = Astro.props as Props;
   <p>
     {partnersTableData[state].title}
   </p>
-</li>
+</span>

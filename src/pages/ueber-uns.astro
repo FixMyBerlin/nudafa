@@ -24,6 +24,9 @@ const { Content } = await page.render();
 const persons = await getCollection("persons");
 const communes = await getCollection("communes");
 const { Content: ContentMain } = await pagemain.render();
+
+console.log({ persons });
+console.log(persons[0].data);
 ---
 
 <Layout title={title}>
@@ -42,7 +45,7 @@ const { Content: ContentMain } = await pagemain.render();
     <H2>Das NUDAFA-Team</H2>
     <PersonCardWrapper>
       {
-        persons?.length!! &&
+        !!persons?.length &&
           persons.map((p) => (
             <PersonCard
               position={p.data.position}
@@ -58,7 +61,7 @@ const { Content: ContentMain } = await pagemain.render();
     <H2>Verbundpartner</H2>
     <CommuneCardWrapper>
       {
-        communes?.length!! &&
+        !!communes?.length &&
           communes.map((p) => (
             <CommuneCard
               image={p.data.image}

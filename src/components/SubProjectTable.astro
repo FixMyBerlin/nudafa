@@ -27,7 +27,11 @@ const isProjectPast = end && isPast(end);
     <ul class="flex flex-wrap gap-2">
       {
         !!topics?.length ? (
-          topics.map((topic) => <TopicLabel topic={topic} />)
+          topics.map((topic) => (
+            <li>
+              <TopicLabel topic={topic} />
+            </li>
+          ))
         ) : (
           <span>-</span>
         )
@@ -41,7 +45,11 @@ const isProjectPast = end && isPast(end);
     <ul class="flex flex-wrap gap-2">
       {
         !!communes?.length &&
-          communes.map((c) => <CommuneLabel communeId={c} />)
+          communes.map((c) => (
+            <li>
+              <CommuneLabel communeId={c} />
+            </li>
+          ))
       }
       {
         !!projectPartners?.length &&

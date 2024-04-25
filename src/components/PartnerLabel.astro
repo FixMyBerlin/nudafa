@@ -9,7 +9,6 @@ const partners = await getCollection("partners");
 
 const getFullPartnerTitle = (partnerId: string) => {
   const partner = partners.find((partner) => partner.slug === partnerId);
-
   return partner ? partner.data.name : partner;
 };
 
@@ -40,11 +39,11 @@ const getColorClass = (partnerId: string) => {
 const { partnerId } = Astro.props as Props;
 ---
 
-<li
+<span
   class:list={[
     "text-black rounded-md px-2 py-[1px] list-none text-sm",
     getColorClass(partnerId),
   ]}
 >
   {getFullPartnerTitle(partnerId)}
-</li>
+</span>
