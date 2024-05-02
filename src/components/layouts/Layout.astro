@@ -17,6 +17,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const subprojectsNavigation = {};
 if (subprojects?.length) {
   subprojects.forEach((p) => {
+    // @ts-expect-error
     subprojectsNavigation[p.data.title] = `/teilprojekte/${p.slug}`;
   });
 }
