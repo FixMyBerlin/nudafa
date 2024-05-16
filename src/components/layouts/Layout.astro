@@ -1,13 +1,14 @@
 ---
-import { getCollection } from 'astro:content'
-import Footer from './../Footer.astro'
-import { Navbar, type TNavigation } from '../navbar/Navbar.tsx'
 import '@fontsource-variable/open-sans'
 import '@fontsource/roboto-slab'
+import { getCollection } from 'astro:content'
+import { Navbar, type TNavigation } from '../navbar/Navbar.tsx'
+import Footer from './../Footer.astro'
 
 type Props = {
   title?: string
 }
+
 const subprojects = await getCollection('subprojects')
 const measures = await getCollection('measures')
 const { title = 'Nudafa' } = Astro.props

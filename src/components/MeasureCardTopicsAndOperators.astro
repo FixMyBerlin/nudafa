@@ -1,7 +1,6 @@
 ---
-import TopicLabel from './TopicLabel.astro'
-import PartnerLabel from './PartnerLabel.astro'
 import OperatorLabel from './OperatorLabel.astro'
+import TopicLabel from './TopicLabel.astro'
 
 type Props = {
   topics?: string[]
@@ -13,15 +12,14 @@ const { operators, topics }: Props = Astro.props
 
 <ul class="flex flex-wrap items-end gap-2">
   {
-    !!topics?.length &&
-      topics.map((topic) => (
-        <li>
-          <TopicLabel topic={topic} />
-        </li>
-      ))
+    topics?.map((topic) => (
+      <li>
+        <TopicLabel topic={topic} />
+      </li>
+    ))
   }
   {
-    !!operators?.length ? (
+    operators?.length ? (
       operators.map((operator) => (
         <li>
           <OperatorLabel operatorId={operator} />
