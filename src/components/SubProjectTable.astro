@@ -5,7 +5,7 @@ import TopicLabel from '../components/TopicLabel.astro'
 import CommuneLabel from './CommuneLabel.astro'
 import { format } from 'date-fns'
 
-interface Props {
+type Props = {
   start: Date
   end?: Date
   communes?: string[]
