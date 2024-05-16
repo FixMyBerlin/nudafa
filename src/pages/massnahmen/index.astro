@@ -1,13 +1,12 @@
 ---
-import { getCollection, getEntry } from 'astro:content'
-import PageHeader from '../../components/PageHeader.astro'
-import Layout from '../../components/layouts/Layout.astro'
-import Section from '../../components/layouts/Section.astro'
+import { getCollection } from 'astro:content'
+import { MeasureCard } from '../../components/MeasureCard.tsx'
 import MeasureCardButton from '../../components/MeasureCardButton.astro'
 import MeasureCardPanel from '../../components/MeasureCardPanel.astro'
-
-import { MeasureCard } from '../../components/MeasureCard.tsx'
+import PageHeader from '../../components/PageHeader.astro'
 import H2 from '../../components/Text/H2.astro'
+import Layout from '../../components/layouts/Layout.astro'
+import Section from '../../components/layouts/Section.astro'
 
 const measures = await getCollection('measures')
 ---

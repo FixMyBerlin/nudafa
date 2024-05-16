@@ -1,6 +1,5 @@
 import { Disclosure, Transition } from '@headlessui/react'
 import clsx from 'clsx'
-import React from 'react'
 import { linkStyles } from './links/styles'
 
 type Props = {
