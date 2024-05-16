@@ -1,15 +1,15 @@
 ---
-import { getCollection, getEntry } from "astro:content";
-import PageHeader from "../../components/PageHeader.astro";
-import Layout from "../../components/layouts/Layout.astro";
-import Section from "../../components/layouts/Section.astro";
-import MeasureCardButton from "../../components/MeasureCardButton.astro";
-import MeasureCardPanel from "../../components/MeasureCardPanel.astro";
+import { getCollection, getEntry } from 'astro:content'
+import PageHeader from '../../components/PageHeader.astro'
+import Layout from '../../components/layouts/Layout.astro'
+import Section from '../../components/layouts/Section.astro'
+import MeasureCardButton from '../../components/MeasureCardButton.astro'
+import MeasureCardPanel from '../../components/MeasureCardPanel.astro'
 
-import { MeasureCard } from "../../components/MeasureCard.tsx";
-import H2 from "../../components/Text/H2.astro";
+import { MeasureCard } from '../../components/MeasureCard.tsx'
+import H2 from '../../components/Text/H2.astro'
 
-const measures = await getCollection("measures");
+const measures = await getCollection('measures')
 ---
 
 <Layout title="Alle Maßnahmen">

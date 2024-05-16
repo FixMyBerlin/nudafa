@@ -1,24 +1,20 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
 interface Props {
-  topic: string;
+  topic: string
 }
 
-const subTopics = await getCollection("subprojectstopics");
+const subTopics = await getCollection('subprojectstopics')
 
 const getFullTopicTitle = (topic: string) => {
-  const subTopic = subTopics.find((subTopic) => subTopic.id === topic);
-  return subTopic ? subTopic.data.title : topic;
-};
+  const subTopic = subTopics.find((subTopic) => subTopic.id === topic)
+  return subTopic ? subTopic.data.title : topic
+}
 
-const { topic } = Astro.props as Props;
+const { topic } = Astro.props as Props
 ---
 
-<span
-  class:list={[
-    "border text-black text-sm rounded-md border-black px-2 py-[1px]",
-  ]}
->
+<span class:list={['rounded-md border border-black px-2 py-[1px] text-sm text-black']}>
   {getFullTopicTitle(topic)}
 </span>

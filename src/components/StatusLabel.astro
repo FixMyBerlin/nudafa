@@ -1,52 +1,47 @@
 ---
-import BuildingIcon from "./../assets/icons/building.png";
-import PlanningIcon from "./../assets/icons/planning.png";
-import CheckmarkIcon from "./../assets/icons/checkmark.png";
-import BulbIcon from "./../assets/icons/bulb.png";
-import { Image } from "astro:assets";
+import BuildingIcon from './../assets/icons/building.png'
+import PlanningIcon from './../assets/icons/planning.png'
+import CheckmarkIcon from './../assets/icons/checkmark.png'
+import BulbIcon from './../assets/icons/bulb.png'
+import { Image } from 'astro:assets'
 
 interface Props {
-  state: string;
+  state: string
 }
 
 type TStatusTableData = {
   [key: string]: {
-    color: string;
-    title: string;
-    icon?: any;
-  };
-};
+    color: string
+    title: string
+    icon?: any
+  }
+}
 
 export const partnersTableData: TStatusTableData = {
   idea: {
-    color: "bg-[#FEF3C7]",
-    title: "Idee",
+    color: 'bg-[#FEF3C7]',
+    title: 'Idee',
     icon: BulbIcon,
   },
-  planning: { color: "bg-[#FDE68A]", title: "Planung", icon: PlanningIcon },
+  planning: { color: 'bg-[#FDE68A]', title: 'Planung', icon: PlanningIcon },
   realization: {
-    color: "bg-[#FBBF24]",
-    title: "Umsetzung",
+    color: 'bg-[#FBBF24]',
+    title: 'Umsetzung',
     icon: BuildingIcon,
   },
-  complete: { color: "bg-[#84D470]", title: "Fertig", icon: CheckmarkIcon },
-};
+  complete: { color: 'bg-[#84D470]', title: 'Fertig', icon: CheckmarkIcon },
+}
 
-const { state } = Astro.props as Props;
+const { state } = Astro.props as Props
 ---
 
 <span
   class:list={[
-    "text-black text-xs rounded-full pl-2 pr-3 py-[2px] list-none flex gap-1 text-sm items-center",
+    'flex list-none items-center gap-1 rounded-full py-[2px] pl-2 pr-3 text-sm text-xs text-black',
     partnersTableData[state].color,
   ]}
 >
-  <Image
-    class="w-6 h-6"
-    src={partnersTableData[state].icon}
-    alt={""}
-    loading="lazy"
-  />
+  <Image class="h-6 w-6" src={partnersTableData[state].icon} alt={''} loading="lazy" />
 
   <p>
     {partnersTableData[state].title}

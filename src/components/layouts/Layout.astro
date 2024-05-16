@@ -1,25 +1,25 @@
 ---
-import { getCollection } from "astro:content";
-import Footer from "./../Footer.astro";
-import { Navbar, type TNavigation } from "../navbar/Navbar.tsx";
-import "@fontsource-variable/open-sans";
-import "@fontsource/roboto-slab";
+import { getCollection } from 'astro:content'
+import Footer from './../Footer.astro'
+import { Navbar, type TNavigation } from '../navbar/Navbar.tsx'
+import '@fontsource-variable/open-sans'
+import '@fontsource/roboto-slab'
 
 interface Props {
-  title?: string;
+  title?: string
 }
-const subprojects = await getCollection("subprojects");
-const measures = await getCollection("measures");
-const { title = "Nudafa" } = Astro.props;
+const subprojects = await getCollection('subprojects')
+const measures = await getCollection('measures')
+const { title = 'Nudafa' } = Astro.props
 
-const pathname = new URL(Astro.request.url).pathname;
+const pathname = new URL(Astro.request.url).pathname
 
-const subprojectsNavigation = {};
+const subprojectsNavigation = {}
 if (subprojects?.length) {
   subprojects.forEach((p) => {
     // @ts-expect-error
-    subprojectsNavigation[p.data.title] = `/teilprojekte/${p.slug}`;
-  });
+    subprojectsNavigation[p.data.title] = `/teilprojekte/${p.slug}`
+  })
 }
 // const measuresNavigation = {};
 // if (measures?.length) {
@@ -30,18 +30,18 @@ if (subprojects?.length) {
 
 const mainNavigation: TNavigation = {
   first: {
-    "Das Reallabor": {
-      Presse: "/presse",
-      "Über uns": "/ueber-uns",
+    'Das Reallabor': {
+      Presse: '/presse',
+      'Über uns': '/ueber-uns',
     },
     Teilprojekte: {
       ...subprojectsNavigation,
     },
   },
   second: {
-    "Zum Radnetz": "/radnetz/einleitung",
-    "Zu den Maßnahmen": {
-      "Alle Maßnahmen": "/massnahmen",
+    'Zum Radnetz': '/radnetz/einleitung',
+    'Zu den Maßnahmen': {
+      'Alle Maßnahmen': '/massnahmen',
       // ...measuresNavigation,
     },
   },
@@ -49,17 +49,17 @@ const mainNavigation: TNavigation = {
   //     "Aktuelle Veranstaltungen": "/veranstaltungen/aktuelle-veranstaltungen",
   //     Veranstaltungsarchiv: "/veranstaltungen/archiv",
   //   },
-};
+}
 
 const footerNavigation: TNavigation = {
   first: {
     ...mainNavigation.first,
     Teilprojekte: {
-      "Übersicht Teilprojekte": "/#teilprojekte",
+      'Übersicht Teilprojekte': '/#teilprojekte',
     },
   },
   second: { ...mainNavigation.second },
-};
+}
 ---
 
 <!doctype html>
@@ -72,8 +72,8 @@ const footerNavigation: TNavigation = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="font-sans bg-[#eee]">
-    <div class="max-w-[1440px] mx-auto shadow-sm bg-white">
+  <body class="bg-[#eee] font-sans">
+    <div class="mx-auto max-w-[1440px] bg-white shadow-sm">
       <Navbar path={pathname} mainNavigation={mainNavigation} client:load />
       <main>
         <slot />

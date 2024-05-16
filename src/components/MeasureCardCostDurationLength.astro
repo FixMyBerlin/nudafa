@@ -1,46 +1,44 @@
 ---
-import { CalendarDaysIcon } from "@heroicons/react/24/outline";
-import { Image } from "astro:assets";
-import { format } from "date-fns";
-import { de } from "date-fns/locale";
-import routeIcon from "./../assets/icons/route.png";
+import { CalendarDaysIcon } from '@heroicons/react/24/outline'
+import { Image } from 'astro:assets'
+import { format } from 'date-fns'
+import { de } from 'date-fns/locale'
+import routeIcon from './../assets/icons/route.png'
 
 interface Props {
-  realisationDate?: Date;
-  startDate?: Date;
-  cost?: number;
+  realisationDate?: Date
+  startDate?: Date
+  cost?: number
 }
-const { realisationDate, cost, startDate }: Props = Astro.props;
+const { realisationDate, cost, startDate }: Props = Astro.props
 // console.log({ startDate });
 ---
 
-<div
-  class="flex flex-row text-sm flex-shrink-0 flex-grow items-start md:justify-center md:px-4"
->
+<div class="flex flex-shrink-0 flex-grow flex-row items-start text-sm md:justify-center md:px-4">
   <div class="flex flex-row items-center gap-1">
-    <Image src={routeIcon} alt="" class="w-3 h-3 object-cover shrink-0" />{" "}
-    <p class="border-r border-black pr-2 leading-3 text-nowrap">todokm</p>
+    <Image src={routeIcon} alt="" class="h-3 w-3 shrink-0 object-cover" />{' '}
+    <p class="text-nowrap border-r border-black pr-2 leading-3">todokm</p>
   </div>
-  <div class="flex flex-row items-center gap-1 ml-2">
-    <CalendarDaysIcon className="w-[13px] h-[13px]" />
-    <p class="border-r border-black pr-2 leading-3 text-nowrap">
-      {!startDate && !realisationDate && "-"}
-      {startDate && !realisationDate && "ab"}
+  <div class="ml-2 flex flex-row items-center gap-1">
+    <CalendarDaysIcon className="h-[13px] w-[13px]" />
+    <p class="text-nowrap border-r border-black pr-2 leading-3">
+      {!startDate && !realisationDate && '-'}
+      {startDate && !realisationDate && 'ab'}
       {
         startDate &&
-          `${format(startDate, "yyyy", {
+          `${format(startDate, 'yyyy', {
             locale: de,
           })} `
       }
       {
         realisationDate &&
-          ` bis ${format(realisationDate, "yyyy", {
+          ` bis ${format(realisationDate, 'yyyy', {
             locale: de,
           })}`
       }
     </p>
   </div>
-  <p class="text-nowrap leading-3 ml-2">
-    € {cost ? cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : "-"}
+  <p class="ml-2 text-nowrap leading-3">
+    € {cost ? cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') : '-'}
   </p>
 </div>

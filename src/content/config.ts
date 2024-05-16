@@ -1,5 +1,5 @@
 // @ts-ignore
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from 'astro:content'
 
 const newsCollection = defineCollection({
   schema: ({ image }) =>
@@ -7,7 +7,7 @@ const newsCollection = defineCollection({
       title: z.string(),
       teaserImage: image(),
     }),
-});
+})
 const personsCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
@@ -18,7 +18,7 @@ const personsCollection = defineCollection({
       email: z.string().optional(),
       institution: z.string().optional(),
     }),
-});
+})
 const subprojectsCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
@@ -35,7 +35,7 @@ const subprojectsCollection = defineCollection({
       projectCommunes: z.array(z.string()),
       projectPartners: z.array(z.string()),
     }),
-});
+})
 const communesCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
@@ -44,7 +44,7 @@ const communesCollection = defineCollection({
       website: z.string().optional(),
       color: z.string().optional(),
     }),
-});
+})
 const measuresCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
@@ -62,7 +62,7 @@ const measuresCollection = defineCollection({
       operators: z.array(z.string()).optional(),
       urgency: z.boolean(),
     }),
-});
+})
 
 export const collections = {
   communes: communesCollection,
@@ -70,4 +70,4 @@ export const collections = {
   persons: personsCollection,
   subprojects: subprojectsCollection,
   measures: measuresCollection,
-};
+}

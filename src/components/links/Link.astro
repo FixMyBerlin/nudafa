@@ -1,13 +1,13 @@
 ---
-import { selectLinkStyle } from "./styles";
+import { selectLinkStyle } from './styles'
 
 export interface LinkProps {
-  href: string;
-  external?: boolean;
-  className?: string;
-  classNameOverwrites?: string;
-  blank?: boolean;
-  button?: true | "white" | "black" | "card";
+  href: string
+  external?: boolean
+  className?: string
+  classNameOverwrites?: string
+  blank?: boolean
+  button?: true | 'white' | 'black' | 'card'
 }
 
 const {
@@ -17,25 +17,22 @@ const {
   external,
   blank = undefined,
   button,
-} = Astro.props as LinkProps;
+} = Astro.props as LinkProps
 ---
 
 <astro>
   {
-    external || href.startsWith("http") ? (
+    external || href.startsWith('http') ? (
       <a
         href={href}
         class={classNameOverwrites || selectLinkStyle(button, className)}
         rel="noopener noreferrer"
-        target={blank === false ? undefined : "_blank"}
+        target={blank === false ? undefined : '_blank'}
       >
         <slot />
       </a>
     ) : (
-      <a
-        href={href}
-        class={classNameOverwrites || selectLinkStyle(button, className)}
-      >
+      <a href={href} class={classNameOverwrites || selectLinkStyle(button, className)}>
         <slot />
       </a>
     )

@@ -1,28 +1,26 @@
 ---
-import { isPast } from "date-fns";
-import PartnerLabel from "../components/PartnerLabel.astro";
-import TopicLabel from "../components/TopicLabel.astro";
-import CommuneLabel from "./CommuneLabel.astro";
-import { format } from "date-fns";
+import { isPast } from 'date-fns'
+import PartnerLabel from '../components/PartnerLabel.astro'
+import TopicLabel from '../components/TopicLabel.astro'
+import CommuneLabel from './CommuneLabel.astro'
+import { format } from 'date-fns'
 
 interface Props {
-  start: Date;
-  end?: Date;
-  communes?: string[];
-  projectPartners: string[];
-  funding?: string;
-  topics: string[];
+  start: Date
+  end?: Date
+  communes?: string[]
+  projectPartners: string[]
+  funding?: string
+  topics: string[]
 }
-const { start, end, communes, projectPartners, funding, topics } = Astro.props;
-const isProjectPast = end && isPast(end);
+const { start, end, communes, projectPartners, funding, topics } = Astro.props
+const isProjectPast = end && isPast(end)
 ---
 
 <div
-  class="flex flex-col divide-y divide-gray-200 text-gray-500 border border-gray-200 rounded-sm shadow-lg"
+  class="flex flex-col divide-y divide-gray-200 rounded-sm border border-gray-200 text-gray-500 shadow-lg"
 >
-  <div
-    class="flex flex-col md:flex-row gap-2 p-3 min-w-[200px] flex-shrink-0 md:items-center"
-  >
+  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 md:flex-row md:items-center">
     <p class="min-w-[200px] flex-shrink-0">Themen</p>
     <ul class="flex flex-wrap gap-2">
       {
@@ -38,9 +36,7 @@ const isProjectPast = end && isPast(end);
       }
     </ul>
   </div>
-  <div
-    class="flex flex-col md:flex-row gap-2 p-3 min-w-[200px] flex-shrink-0 md:items-center"
-  >
+  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 md:flex-row md:items-center">
     <p class="min-w-[200px] flex-shrink-0">Beteiligte Projektpartner</p>
     <ul class="flex flex-wrap gap-2">
       {
@@ -62,24 +58,20 @@ const isProjectPast = end && isPast(end);
     </ul>
   </div>
 
-  <div
-    class="flex flex-col md:flex-row gap-2 p-3 min-w-[200px] flex-shrink-0 md:items-center"
-  >
+  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 md:flex-row md:items-center">
     <p class="min-w-[200px] flex-shrink-0">Projektlaufzeit</p>
-    <p class="text-black font-bold">
+    <p class="font-bold text-black">
       {
         isProjectPast
-          ? `Laufzeit: ${format(start, "MM/yyyy")} bis ${format(end, "MM/yyyy")}`
-          : "Beginn " + format(start, "MM/yyyy")
+          ? `Laufzeit: ${format(start, 'MM/yyyy')} bis ${format(end, 'MM/yyyy')}`
+          : 'Beginn ' + format(start, 'MM/yyyy')
       }
     </p>
   </div>
-  <div
-    class="flex flex-col md:flex-row gap-2 p-3 min-w-[200px] flex-shrink-0 md:items-center"
-  >
+  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 md:flex-row md:items-center">
     <p class="min-w-[200px] flex-shrink-0">Finanzierung</p>
-    <p class="text-black font-bold">
-      {funding || "-"}
+    <p class="font-bold text-black">
+      {funding || '-'}
     </p>
   </div>
 </div>

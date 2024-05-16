@@ -1,36 +1,28 @@
 ---
-import { getCollection } from "astro:content";
-import ImageDouble from "../../components/ImageDouble.astro";
-import ImageSingleHorizontal from "../../components/ImageSingleHorizontal.astro";
-import ImageSingleSquare from "../../components/ImageSingleSquare.astro";
-import ImageSingleVertical from "../../components/ImageSingleVertical.astro";
-import PageHeader from "../../components/PageHeader.astro";
-import ProseMarkdown from "../../components/ProseMarkdown.astro";
-import SubProjectTable from "../../components/SubProjectTable.astro";
-import Layout from "../../components/layouts/Layout.astro";
-import Section from "../../components/layouts/Section.astro";
-import TextLinkArrow from "../../components/links/TextLinkArrow.astro";
+import { getCollection } from 'astro:content'
+import ImageDouble from '../../components/ImageDouble.astro'
+import ImageSingleHorizontal from '../../components/ImageSingleHorizontal.astro'
+import ImageSingleSquare from '../../components/ImageSingleSquare.astro'
+import ImageSingleVertical from '../../components/ImageSingleVertical.astro'
+import PageHeader from '../../components/PageHeader.astro'
+import ProseMarkdown from '../../components/ProseMarkdown.astro'
+import SubProjectTable from '../../components/SubProjectTable.astro'
+import Layout from '../../components/layouts/Layout.astro'
+import Section from '../../components/layouts/Section.astro'
+import TextLinkArrow from '../../components/links/TextLinkArrow.astro'
 
 export async function getStaticPaths() {
-  const projects = await getCollection("subprojects");
+  const projects = await getCollection('subprojects')
   return projects.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
-  }));
+  }))
 }
 
-const { entry } = Astro.props;
-const {
-  title,
-  subTitle,
-  topics,
-  projectCommunes,
-  projectPartners,
-  start,
-  end,
-  funding,
-} = entry.data;
-const { Content } = await entry.render();
+const { entry } = Astro.props
+const { title, subTitle, topics, projectCommunes, projectPartners, start, end, funding } =
+  entry.data
+const { Content } = await entry.render()
 ---
 
 <Layout title={title}>

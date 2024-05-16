@@ -1,10 +1,10 @@
-const colors = require("tailwindcss/colors");
-import defaultTheme from "tailwindcss/defaultTheme";
+const colors = require('tailwindcss/colors')
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {},
     colors: {
@@ -14,20 +14,20 @@ module.exports = {
       yellow: colors.yellow,
       red: colors.red,
       beige: {
-        100: "#F5F0E2",
-        500: "#977214",
-        700: "#544624",
+        100: '#F5F0E2',
+        500: '#977214',
+        700: '#544624',
       },
     },
     fontFamily: {
-      sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
-      serif: ["Roboto Slab", ...defaultTheme.fontFamily.serif],
+      sans: ['Open Sans Variable', ...defaultTheme.fontFamily.sans],
+      serif: ['Roboto Slab', ...defaultTheme.fontFamily.serif],
     },
     fontWeight: {
       // todo check
-      normal: "400",
-      bold: "700",
+      normal: '400',
+      bold: '700',
     },
   },
-  plugins: [require("@tailwindcss/typography")],
-};
+  plugins: [require('@tailwindcss/typography')],
+}

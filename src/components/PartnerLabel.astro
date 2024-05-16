@@ -1,49 +1,46 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
 interface Props {
-  partnerId: string;
+  partnerId: string
 }
 
-const partners = await getCollection("partners");
+const partners = await getCollection('partners')
 
 const getFullPartnerTitle = (partnerId: string) => {
-  const partner = partners.find((partner) => partner.slug === partnerId);
-  return partner ? partner.data.name : partner;
-};
+  const partner = partners.find((partner) => partner.slug === partnerId)
+  return partner ? partner.data.name : partner
+}
 
 const getColorClass = (partnerId: string) => {
-  const partner = partners.find((partner) => partner.slug === partnerId);
+  const partner = partners.find((partner) => partner.slug === partnerId)
   switch (partner?.data.color) {
-    case "#AED7A0":
-      return "bg-[#AED7A0]";
-    case "#F9A8D4":
-      return "bg-[#F9A8D4]";
-    case "#95E8D8":
-      return "bg-[#95E8D8]";
-    case "#BAE6FD":
-      return "bg-[#BAE6FD]";
-    case "#79C6FD":
-      return "bg-[#79C6FD]";
-    case "#FCA5A5":
-      return "bg-[#FCA5A5]";
-    case "#FCA5A5":
-      return "bg-[#FCA5A5]";
-    case "#FFFBEB":
-      return "bg-[#FFFBEB]";
+    case '#AED7A0':
+      return 'bg-[#AED7A0]'
+    case '#F9A8D4':
+      return 'bg-[#F9A8D4]'
+    case '#95E8D8':
+      return 'bg-[#95E8D8]'
+    case '#BAE6FD':
+      return 'bg-[#BAE6FD]'
+    case '#79C6FD':
+      return 'bg-[#79C6FD]'
+    case '#FCA5A5':
+      return 'bg-[#FCA5A5]'
+    case '#FCA5A5':
+      return 'bg-[#FCA5A5]'
+    case '#FFFBEB':
+      return 'bg-[#FFFBEB]'
     default:
-      return "bg-[#FFFBEB]";
+      return 'bg-[#FFFBEB]'
   }
-};
+}
 
-const { partnerId } = Astro.props as Props;
+const { partnerId } = Astro.props as Props
 ---
 
 <span
-  class:list={[
-    "text-black rounded-md px-2 py-[1px] list-none text-sm",
-    getColorClass(partnerId),
-  ]}
+  class:list={['list-none rounded-md px-2 py-[1px] text-sm text-black', getColorClass(partnerId)]}
 >
   {getFullPartnerTitle(partnerId)}
 </span>
