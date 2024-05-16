@@ -1,32 +1,32 @@
 ---
-import { getCollection, getEntry } from "astro:content";
-import CommuneCard from "../components/CommuneCard.astro";
-import CommuneCardWrapper from "../components/CommueCardWrapper.astro";
-import ImageDouble from "../components/ImageDouble.astro";
-import ImageSingleHorizontal from "../components/ImageSingleHorizontal.astro";
-import ImageSingleSquare from "../components/ImageSingleSquare.astro";
-import ImageSingleVertical from "../components/ImageSingleVertical.astro";
-import PageHeader from "../components/PageHeader.astro";
-import PersonCard from "../components/PersonCard.astro";
-import PersonCardWrapper from "../components/PersonCardWrapper.astro";
-import H2 from "../components/Text/H2.astro";
-import Layout from "../components/layouts/Layout.astro";
-import Section from "../components/layouts/Section.astro";
-import TextLinkArrow from "../components/links/TextLinkArrow.astro";
-import ProseMarkdown from "../components/ProseMarkdown.astro";
+import { getCollection, getEntry } from 'astro:content'
+import CommuneCard from '../components/CommuneCard.astro'
+import CommuneCardWrapper from '../components/CommueCardWrapper.astro'
+import ImageDouble from '../components/ImageDouble.astro'
+import ImageSingleHorizontal from '../components/ImageSingleHorizontal.astro'
+import ImageSingleSquare from '../components/ImageSingleSquare.astro'
+import ImageSingleVertical from '../components/ImageSingleVertical.astro'
+import PageHeader from '../components/PageHeader.astro'
+import PersonCard from '../components/PersonCard.astro'
+import PersonCardWrapper from '../components/PersonCardWrapper.astro'
+import H2 from '../components/Text/H2.astro'
+import Layout from '../components/layouts/Layout.astro'
+import Section from '../components/layouts/Section.astro'
+import TextLinkArrow from '../components/links/TextLinkArrow.astro'
+import ProseMarkdown from '../components/ProseMarkdown.astro'
 
-const page = await getEntry("projectpartnerpageintro", "index");
-const pagemain = await getEntry("projectpartnerpagemain", "index");
+const page = await getEntry('projectpartnerpageintro', 'index')
+const pagemain = await getEntry('projectpartnerpagemain', 'index')
 
-const { title, subTitle } = page.data;
-const { Content } = await page.render();
+const { title, subTitle } = page.data
+const { Content } = await page.render()
 
-const persons = await getCollection("persons");
-const communes = await getCollection("communes");
-const { Content: ContentMain } = await pagemain.render();
+const persons = await getCollection('persons')
+const communes = await getCollection('communes')
+const { Content: ContentMain } = await pagemain.render()
 
-console.log({ persons });
-console.log(persons[0].data);
+console.log({ persons })
+console.log(persons[0].data)
 ---
 
 <Layout title={title}>
@@ -50,7 +50,7 @@ console.log(persons[0].data);
             <PersonCard
               position={p.data.position}
               image={p.data.personImage}
-              name={p.data.firstName + " " + p.data.name}
+              name={p.data.firstName + ' ' + p.data.name}
               institution={p.data.institution}
             />
           ))
@@ -63,11 +63,7 @@ console.log(persons[0].data);
       {
         !!communes?.length &&
           communes.map((p) => (
-            <CommuneCard
-              image={p.data.image}
-              name={p.data.name}
-              website={p.data.website}
-            />
+            <CommuneCard image={p.data.image} name={p.data.name} website={p.data.website} />
           ))
       }
     </CommuneCardWrapper>

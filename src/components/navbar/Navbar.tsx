@@ -1,21 +1,21 @@
-import { Disclosure } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import {clsx} from "clsx";
-import { NavbarMenuItem } from "./NavbarMenuItem";
-import { NavigationMobile } from "./NavigationMobile";
+import { Disclosure } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { clsx } from 'clsx'
+import { NavbarMenuItem } from './NavbarMenuItem'
+import { NavigationMobile } from './NavigationMobile'
 
 export type TNavigation = {
-  first: Record<string, Record<string, string>>;
-  second: Record<string, string | Record<string, string>>;
-};
+  first: Record<string, Record<string, string>>
+  second: Record<string, string | Record<string, string>>
+}
 
 type Props = {
-  mainNavigation: TNavigation;
-  path: string;
-};
+  mainNavigation: TNavigation
+  path: string
+}
 
 export const Navbar = (props: Props) => {
-  const { mainNavigation, path } = props;
+  const { mainNavigation, path } = props
   return (
     <Disclosure as="nav" className="bg-beige-100 text-gray-900 shadow-md">
       {({ open }) => (
@@ -28,16 +28,14 @@ export const Navbar = (props: Props) => {
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex gap-2 divide-x divide-solid divide-gray-900">
                   <div className="flex">
-                    {Object.entries(mainNavigation.first).map(
-                      ([title, menuChildrenItems]) => (
-                        <NavbarMenuItem
-                          key={title}
-                          path={path}
-                          title={title}
-                          menuChildrenItems={menuChildrenItems}
-                        />
-                      )
-                    )}
+                    {Object.entries(mainNavigation.first).map(([title, menuChildrenItems]) => (
+                      <NavbarMenuItem
+                        key={title}
+                        path={path}
+                        title={title}
+                        menuChildrenItems={menuChildrenItems}
+                      />
+                    ))}
                   </div>
 
                   {/* Current: "bg-yellow-500 text-white", Default: "text-gray-300
@@ -49,31 +47,38 @@ export const Navbar = (props: Props) => {
                       Dashboard
                     </a> */}
                   <div className="flex">
-                    {Object.entries(mainNavigation.second).map(
-                      (seconItem) => {
-                        if (typeof seconItem[1] === 'string') {
-                          return <a href={seconItem[1]} className={clsx(
-                            "relative ml-3 flex items-center gap-2 px-3 py-2 font-medium hover:text-beige-500",
-                            seconItem[1] === path && "font-bold"
-                          )}>{seconItem[0]}</a>
-                        }
+                    {Object.entries(mainNavigation.second).map((seconItem) => {
+                      if (typeof seconItem[1] === 'string') {
+                        return (
+                          <a
+                            href={seconItem[1]}
+                            className={clsx(
+                              'font-medium relative ml-3 flex items-center gap-2 px-3 py-2 hover:text-beige-500',
+                              seconItem[1] === path && 'font-bold',
+                            )}
+                          >
+                            {seconItem[0]}
+                          </a>
+                        )
+                      }
 
-                        const [title, menuChildrenItems] = seconItem;
-                        return (<NavbarMenuItem
+                      const [title, menuChildrenItems] = seconItem
+                      return (
+                        <NavbarMenuItem
                           key={title}
                           path={path}
                           title={title}
                           menuChildrenItems={menuChildrenItems}
                         />
-                      )}
-                    )}
+                      )
+                    })}
                   </div>
                 </div>
               </div>
 
               <div className="-mr-2 flex sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="relative inline-flex items-center justify-center p-2 text-gray-900 h hover:text-beige-500">
+                <Disclosure.Button className="h relative inline-flex items-center justify-center p-2 text-gray-900 hover:text-beige-500">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -90,5 +95,5 @@ export const Navbar = (props: Props) => {
         </>
       )}
     </Disclosure>
-  );
-};
+  )
+}

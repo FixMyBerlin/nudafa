@@ -1,79 +1,81 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import FonaLogo from "../assets/logos/BMBF_FONA_Logo_rgb.png";
-import BmbfLogo from "../assets/logos/BMBF_gefoerdert_deutsch.png";
-import Section from "./layouts/Section.astro";
-import type { TNavigation } from "./navbar/Navbar";
-import {clsx} from "clsx";
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import FonaLogo from '../assets/logos/BMBF_FONA_Logo_rgb.png'
+import BmbfLogo from '../assets/logos/BMBF_gefoerdert_deutsch.png'
+import Section from './layouts/Section.astro'
+import type { TNavigation } from './navbar/Navbar'
+import { clsx } from 'clsx'
 
 interface Props {
-  footerNavigation: TNavigation;
+  footerNavigation: TNavigation
 }
 
-const communes = await getCollection("communes");
+const communes = await getCollection('communes')
 
-const { footerNavigation } = Astro.props;
+const { footerNavigation } = Astro.props
 ---
 
 <Section>
-  <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-    <div class="flex flex-shrink-0 w-full md:w-auto">
+  <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+    <div class="flex w-full flex-shrink-0 md:w-auto">
       <Image class="w-40" src={BmbfLogo} alt="Nudafa Logo" />
       <Image class="w-40" src={FonaLogo} alt="Nudafa Logo" />
     </div>
     <p class="flex-shrink text-xs">
-      Das Bundesministerium für Bildung und Forschung (BMBF) fördert das Projekt
-      NUDAFA im Rahmen der Strategie „Forschung für Nachhaltigkeit“ (FONA,
-      www.fona.de) im Förderschwerpunkt Sozial-ökologische Forschung unter dem
-      Förderkennzeichen 01UV2124. Die Verantwortung für den Inhalt dieser
-      Veröffentlichung liegt bei den Autoren.
+      Das Bundesministerium für Bildung und Forschung (BMBF) fördert das Projekt NUDAFA im Rahmen
+      der Strategie „Forschung für Nachhaltigkeit“ (FONA, www.fona.de) im Förderschwerpunkt
+      Sozial-ökologische Forschung unter dem Förderkennzeichen 01UV2124. Die Verantwortung für den
+      Inhalt dieser Veröffentlichung liegt bei den Autoren.
     </p>
   </div>
 </Section>
 <div
-  class="bg-beige-700 text-white p-4 py-6 flex flex-col divide-y divide-white gap-8 justify-center"
+  class="flex flex-col justify-center gap-8 divide-y divide-white bg-beige-700 p-4 py-6 text-white"
 >
-  <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-7">
+  <div class="grid grid-cols-2 gap-7 md:grid-cols-4 lg:grid-cols-6">
     {
-      Object.entries(footerNavigation.first).map(
-        ([title, menuChildrenItems]) => (
-          <div>
-            <p class="font-bold pb-2">{title}</p>
-            <ul class="text-sm flex flex-col gap-2">
-              {Object.entries(menuChildrenItems).map(([item, href]) => (
-                <li>
-                  <a class="no-underline  hover:text-beige-500" href={href}>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )
-      )
+      Object.entries(footerNavigation.first).map(([title, menuChildrenItems]) => (
+        <div>
+          <p class="pb-2 font-bold">{title}</p>
+          <ul class="flex flex-col gap-2 text-sm">
+            {Object.entries(menuChildrenItems).map(([item, href]) => (
+              <li>
+                <a class="no-underline  hover:text-beige-500" href={href}>
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
     }
     {
-      Object.entries(footerNavigation.second).map(
-                              (seconItem) => {
-                        if (typeof seconItem[1] === 'string') {
-                          return(
+      Object.entries(footerNavigation.second).map((seconItem) => {
+        if (typeof seconItem[1] === 'string') {
+          return (
+            <div>
+              <p class="pb-2 font-bold">
+                <a
+                  href={seconItem[1]}
+                  class={clsx(
+                    'font-medium relative ml-3 flex items-center gap-2 px-3 hover:text-beige-500',
+                    // TODO Highlight when active page
+                    // seconItem[1] === path && "font-bold"
+                  )}
+                >
+                  {seconItem[0]}
+                </a>
+              </p>
+            </div>
+          )
+        }
 
-                                    <div>
-            <p class="font-bold pb-2"><a href={seconItem[1]} class={clsx(
-                            "relative ml-3 flex items-center gap-2 px-3 font-medium hover:text-beige-500",
-                            // TODO Highlight when active page
-                            // seconItem[1] === path && "font-bold"
-                          )}>{seconItem[0]}</a></p>
-          </div>)
-
-                        }
-
-                        const [title, menuChildrenItems] = seconItem
-                        return(
+        const [title, menuChildrenItems] = seconItem
+        return (
           <div>
-            <p class="font-bold pb-2">{title}</p>
-            <ul class="text-sm flex flex-col gap-2">
+            <p class="pb-2 font-bold">{title}</p>
+            <ul class="flex flex-col gap-2 text-sm">
               {Object.entries(menuChildrenItems).map(([item, v]) => (
                 <li>
                   <a class="no-underline  hover:text-beige-500" href={v}>
@@ -83,14 +85,14 @@ const { footerNavigation } = Astro.props;
               ))}
             </ul>
           </div>
-        )}
-      )
+        )
+      })
     }
     {
       (
         <div>
-          <p class="font-bold pb-2">Verbundpartner</p>
-          <ul class="text-sm flex flex-col gap-2">
+          <p class="pb-2 font-bold">Verbundpartner</p>
+          <ul class="flex flex-col gap-2 text-sm">
             {communes.map((commune) => (
               <li>
                 <a
@@ -108,14 +110,10 @@ const { footerNavigation } = Astro.props;
       )
     }
   </div>
-  <div class="flex flex-col md:flex-row-reverse gap-2 pt-6 md:justify-between">
+  <div class="flex flex-col gap-2 pt-6 md:flex-row-reverse md:justify-between">
     <div class="flex gap-8">
-      <a class="no-underline hover:text-beige-500" href="/impressum"
-        >Impressum</a
-      >
-      <a class="no-underline hover:text-beige-500" href="/datenschutz"
-        >Datenschutz</a
-      >
+      <a class="no-underline hover:text-beige-500" href="/impressum">Impressum</a>
+      <a class="no-underline hover:text-beige-500" href="/datenschutz">Datenschutz</a>
     </div>
     <p>© Gemeinde Eichwalde</p>
   </div>

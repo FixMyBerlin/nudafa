@@ -1,14 +1,14 @@
 ---
 interface Props {
-  id?: string;
-  className?: string;
+  id?: string
+  className?: string
 }
 
-const { id, className } = Astro.props;
+const { id, className } = Astro.props
 ---
 
 <div class="mb-4 md:mb-6">
-  <h3 id={id} class:list={["text-lg md:text-2xl font-bold", className]}>
+  <h3 id={id} class:list={['text-lg font-bold md:text-2xl', className]}>
     <slot />
   </h3>
   <!-- <div class="h-[2px] bg-yellow-500 w-1/3"></div> -->

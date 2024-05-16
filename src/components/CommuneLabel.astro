@@ -1,50 +1,47 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
 interface Props {
-  communeId: string;
+  communeId: string
 }
 
-const communes = await getCollection("communes");
+const communes = await getCollection('communes')
 
 const getFullCommuneTitle = (communeId: string) => {
-  const commune = communes.find((commune) => commune.slug === communeId);
+  const commune = communes.find((commune) => commune.slug === communeId)
 
-  return commune ? commune.data.name : commune;
-};
+  return commune ? commune.data.name : commune
+}
 
 const getColorClass = (communeId: string) => {
-  const commune = communes.find((commune) => commune.slug === communeId);
+  const commune = communes.find((commune) => commune.slug === communeId)
   switch (commune?.data.color) {
-    case "#AED7A0":
-      return "bg-[#AED7A0]";
-    case "#F9A8D4":
-      return "bg-[#F9A8D4]";
-    case "#95E8D8":
-      return "bg-[#95E8D8]";
-    case "#BAE6FD":
-      return "bg-[#BAE6FD]";
-    case "#79C6FD":
-      return "bg-[#79C6FD]";
-    case "#FCA5A5":
-      return "bg-[#FCA5A5]";
-    case "#FCA5A5":
-      return "bg-[#FCA5A5]";
-    case "#FFFBEB":
-      return "bg-[#FFFBEB]";
+    case '#AED7A0':
+      return 'bg-[#AED7A0]'
+    case '#F9A8D4':
+      return 'bg-[#F9A8D4]'
+    case '#95E8D8':
+      return 'bg-[#95E8D8]'
+    case '#BAE6FD':
+      return 'bg-[#BAE6FD]'
+    case '#79C6FD':
+      return 'bg-[#79C6FD]'
+    case '#FCA5A5':
+      return 'bg-[#FCA5A5]'
+    case '#FCA5A5':
+      return 'bg-[#FCA5A5]'
+    case '#FFFBEB':
+      return 'bg-[#FFFBEB]'
     default:
-      return "bg-[#FFFBEB]";
+      return 'bg-[#FFFBEB]'
   }
-};
+}
 
-const { communeId } = Astro.props as Props;
+const { communeId } = Astro.props as Props
 ---
 
 <span
-  class:list={[
-    "text-black rounded-md px-2 py-[1px] list-none text-sm",
-    getColorClass(communeId),
-  ]}
+  class:list={['list-none rounded-md px-2 py-[1px] text-sm text-black', getColorClass(communeId)]}
 >
   {getFullCommuneTitle(communeId)}
 </span>

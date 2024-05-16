@@ -1,26 +1,26 @@
-import { Disclosure, Transition } from "@headlessui/react";
-import clsx from "clsx";
-import React from "react";
-import { linkStyles } from "./links/styles";
+import { Disclosure, Transition } from '@headlessui/react'
+import clsx from 'clsx'
+import React from 'react'
+import { linkStyles } from './links/styles'
 
 type Props = {
-  button: any;
-  panel: any;
-};
+  button: any
+  panel: any
+}
 
 export const MeasureCard: React.FC<Props> = ({ button, panel }) => {
   return (
-    <li className={clsx(["rounded-sm flex bg-white shadow-lg flex-col mb-8"])}>
+    <li className={clsx(['mb-8 flex flex-col rounded-sm bg-white shadow-lg'])}>
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex flex-col p-4 w-full">
+            <Disclosure.Button className="flex w-full flex-col p-4">
               {button}
               {!open && (
                 <p
                   className={clsx(
                     linkStyles,
-                    "text-sm flex-shrink-0 md:text-right text-left flex-grow w-full md:-mt-5"
+                    'w-full flex-shrink-0 flex-grow text-left text-sm md:-mt-5 md:text-right',
                   )}
                 >
                   Mehr Details
@@ -36,13 +36,13 @@ export const MeasureCard: React.FC<Props> = ({ button, panel }) => {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Disclosure.Panel className="px-4 pb-4 gap-2 flex flex-col">
+              <Disclosure.Panel className="flex flex-col gap-2 px-4 pb-4">
                 {panel}
                 <Disclosure.Button>
                   <p
                     className={clsx(
                       linkStyles,
-                      "flex-shrink-0 md:text-right text-left flex-grow text-sm"
+                      'flex-shrink-0 flex-grow text-left text-sm md:text-right',
                     )}
                   >
                     Weniger Details
@@ -54,5 +54,5 @@ export const MeasureCard: React.FC<Props> = ({ button, panel }) => {
         )}
       </Disclosure>
     </li>
-  );
-};
+  )
+}

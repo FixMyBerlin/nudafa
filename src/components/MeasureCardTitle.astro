@@ -1,21 +1,21 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
 interface Props {
-  title: string;
-  type?: string;
+  title: string
+  type?: string
 }
 
-const types = await getCollection("measuretypes");
+const types = await getCollection('measuretypes')
 
 const getTypeTitle = (typeId: string | undefined) => {
-  return typeId ? types.find((type) => type.id === typeId)?.data.title : "-";
-};
+  return typeId ? types.find((type) => type.id === typeId)?.data.title : '-'
+}
 
-const { title, type }: Props = Astro.props;
+const { title, type }: Props = Astro.props
 ---
 
 <div class="text-left">
-  <h3 class="font-bold font-serif break-all leading-none">{title}</h3>
-  <p class="text-xs mb-4 mt-2">{getTypeTitle(type)}</p>
+  <h3 class="break-all font-serif font-bold leading-none">{title}</h3>
+  <p class="mb-4 mt-2 text-xs">{getTypeTitle(type)}</p>
 </div>
