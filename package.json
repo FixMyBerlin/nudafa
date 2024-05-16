@@ -7,7 +7,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "type-check": "astro check && tsc --skipLibCheck --noEmit",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|astro|mdx)\"",
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|astro|mdx)\" --write",
+    "check": "npm run type-check && npm run format && npm run lint",
+    "updatePackages:major": "nvm use && npx taze major --write && npm install",
+    "updatePackages:minor": "nvm use && npx taze minor --write && npm install"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
