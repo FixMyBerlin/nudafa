@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type Props = {
   data: any
 }
 
-export const Uint8Array: React.FC<Props> = ({ data }) => {
-  const [imageUrl, setImageUrl] = useState(null)
+export const Uint8Array = ({ data }: Props) => {
+  const [imageUrl, setImageUrl] = useState<null | string>(null)
 
   useEffect(() => {
     const blob = new Blob([data], { type: 'image/jpeg' }) // Adjust the type if needed

@@ -1,14 +1,12 @@
 ---
-import { getCollection, getEntry } from 'astro:content'
-
+import { getCollection } from 'astro:content'
 import H2 from '../components/Text/H2.astro'
 import Section from '../components/layouts/Section.astro'
-import SubprojectCardWrapper from './SubprojectCardWrapper.astro'
 import BigSubprojectCardWrapper from './BigSubprojectCardWrapper.astro'
 import SubprojectCard from './SubprojectCard.astro'
+import SubprojectCardWrapper from './SubprojectCardWrapper.astro'
 
 const subProjects = await getCollection('subprojects')
-
 const subProjectsBig = subProjects.filter((p) => p.data.showBig)
 const subProjectsSmall = subProjects.filter((p) => !p.data.showBig)
 
