@@ -1,14 +1,6 @@
 ---
 import { selectLinkStyle } from './styles'
-
-export interface LinkProps {
-  href: string
-  external?: boolean
-  className?: string
-  classNameOverwrites?: string
-  blank?: boolean
-  button?: true | 'white' | 'black' | 'card'
-}
+import type { LinkProps } from './types'
 
 const {
   href,

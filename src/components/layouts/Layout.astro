@@ -10,7 +10,7 @@ type Props = {
 }
 
 const subprojects = await getCollection('subprojects')
-const measures = await getCollection('measures')
+// const measures = await getCollection('measures')
 const { title = 'Nudafa' } = Astro.props
 
 const pathname = new URL(Astro.request.url).pathname

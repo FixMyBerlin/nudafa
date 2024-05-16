@@ -30,6 +30,6 @@ const { Content } = await page.render()
   </PageHeader>
   <Section>
     <H3>Presselinks:</H3>
-    {mediaLinks.map((link) => <Link href={link.url}>{link.display}</Link>)}
+    {mediaLinks.map((link: any) => <Link href={link.url}>{link.display}</Link>)}
   </Section>
 </Layout>

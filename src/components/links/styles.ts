@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import type { LinkProps } from './Link.astro'
+import type { LinkProps } from './types'
 
 // LINK
 export const linkStyles =
