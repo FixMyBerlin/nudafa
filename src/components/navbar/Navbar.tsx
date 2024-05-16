@@ -1,11 +1,12 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {clsx} from "clsx";
 import { NavbarMenuItem } from "./NavbarMenuItem";
 import { NavigationMobile } from "./NavigationMobile";
 
 export type TNavigation = {
   first: Record<string, Record<string, string>>;
-  second: Record<string, Record<string, string>>;
+  second: Record<string, string | Record<string, string>>;
 };
 
 type Props = {
@@ -49,14 +50,22 @@ export const Navbar = (props: Props) => {
                     </a> */}
                   <div className="flex">
                     {Object.entries(mainNavigation.second).map(
-                      ([title, menuChildrenItems]) => (
-                        <NavbarMenuItem
+                      (seconItem) => {
+                        if (typeof seconItem[1] === 'string') {
+                          return <a href={seconItem[1]} className={clsx(
+                            "relative ml-3 flex items-center gap-2 px-3 py-2 font-medium hover:text-beige-500",
+                            seconItem[1] === path && "font-bold"
+                          )}>{seconItem[0]}</a>
+                        }
+
+                        const [title, menuChildrenItems] = seconItem;
+                        return (<NavbarMenuItem
                           key={title}
                           path={path}
                           title={title}
                           menuChildrenItems={menuChildrenItems}
                         />
-                      )
+                      )}
                     )}
                   </div>
                 </div>

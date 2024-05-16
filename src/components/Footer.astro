@@ -5,6 +5,7 @@ import FonaLogo from "../assets/logos/BMBF_FONA_Logo_rgb.png";
 import BmbfLogo from "../assets/logos/BMBF_gefoerdert_deutsch.png";
 import Section from "./layouts/Section.astro";
 import type { TNavigation } from "./navbar/Navbar";
+import {clsx} from "clsx";
 
 interface Props {
   footerNavigation: TNavigation;
@@ -54,7 +55,22 @@ const { footerNavigation } = Astro.props;
     }
     {
       Object.entries(footerNavigation.second).map(
-        ([title, menuChildrenItems]) => (
+                              (seconItem) => {
+                        if (typeof seconItem[1] === 'string') {
+                          return(
+
+                                    <div>
+            <p class="font-bold pb-2"><a href={seconItem[1]} class={clsx(
+                            "relative ml-3 flex items-center gap-2 px-3 font-medium hover:text-beige-500",
+                            // TODO Highlight when active page
+                            // seconItem[1] === path && "font-bold"
+                          )}>{seconItem[0]}</a></p>
+          </div>)
+
+                        }
+
+                        const [title, menuChildrenItems] = seconItem
+                        return(
           <div>
             <p class="font-bold pb-2">{title}</p>
             <ul class="text-sm flex flex-col gap-2">
@@ -67,7 +83,7 @@ const { footerNavigation } = Astro.props;
               ))}
             </ul>
           </div>
-        )
+        )}
       )
     }
     {
