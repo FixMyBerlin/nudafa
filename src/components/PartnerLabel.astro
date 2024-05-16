@@ -39,8 +39,6 @@ const getColorClass = (partnerId: string) => {
 const { partnerId } = Astro.props as Props
 ---
 
-<span
-  class:list={['list-none rounded-md px-2 py-[1px] text-sm text-black', getColorClass(partnerId)]}
->
   {getFullPartnerTitle(partnerId)}
+<span class:list={['list-none rounded-md px-2 py-px text-sm text-black', getColorClass(partnerId)]}>
 </span>

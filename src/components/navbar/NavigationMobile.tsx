@@ -13,7 +13,7 @@ export const NavigationMobile = (props: Props) => {
   return (
     <Disclosure.Panel
       as="div"
-      className="absolute w-screen space-y-[1px] bg-beige-100 pb-1 shadow-lg sm:hidden"
+      className="absolute w-screen space-y-px bg-beige-100 pb-1 shadow-lg sm:hidden"
     >
       {Object.entries(mainNavigation.first).map(([title, menuChildrenItems]) => (
         <NavigationDisclosureItemMobile
