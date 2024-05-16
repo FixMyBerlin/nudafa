@@ -53,7 +53,8 @@ export const Navbar = (props: Props) => {
                           <a
                             href={seconItem[1]}
                             className={clsx(
-                              'font-medium relative ml-3 flex items-center gap-2 px-3 py-2 hover:text-beige-500',
+                              'ml-3 flex',
+                              'font-medium flex items-center gap-2 px-3 py-2 hover:text-beige-500',
                               seconItem[1] === path && 'font-bold',
                             )}
                           >

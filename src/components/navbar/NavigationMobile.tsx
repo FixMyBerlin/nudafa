@@ -1,13 +1,10 @@
 import { Disclosure } from '@headlessui/react'
+import clsx from 'clsx'
+import type { TNavigation } from './Navbar'
 import { NavigationDisclosureItemMobile } from './NavigationDisclosureItemMobile'
 
-export type TMainNavigation = {
-  first: Record<string, Record<string, string>>
-  second: Record<string, Record<string, string>>
-}
-
 type Props = {
-  mainNavigation: TMainNavigation
+  mainNavigation: TNavigation
   path: string
 }
 
@@ -26,14 +23,32 @@ export const NavigationMobile = (props: Props) => {
           menuChildrenItems={menuChildrenItems}
         />
       ))}
-      {Object.entries(mainNavigation.second).map(([title, menuChildrenItems]) => (
-        <NavigationDisclosureItemMobile
-          key={title}
-          path={path}
-          title={title}
-          menuChildrenItems={menuChildrenItems}
-        />
-      ))}
+      {Object.entries(mainNavigation.second).map((seconItem) => {
+        if (typeof seconItem[1] === 'string') {
+          return (
+            <a
+              href={seconItem[1]}
+              className={clsx(
+                'relative w-full divide-y-2 divide-beige-100 bg-white',
+                'font-medium flex w-full items-center justify-between px-3 py-4',
+                seconItem[1] === path && 'font-bold',
+              )}
+            >
+              {seconItem[0]}
+            </a>
+          )
+        }
+
+        const [title, menuChildrenItems] = seconItem
+        return (
+          <NavigationDisclosureItemMobile
+            key={title}
+            path={path}
+            title={title}
+            menuChildrenItems={menuChildrenItems}
+          />
+        )
+      })}
     </Disclosure.Panel>
   )
 }
