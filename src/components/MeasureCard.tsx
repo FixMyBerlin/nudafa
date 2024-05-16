@@ -3,11 +3,11 @@ import clsx from 'clsx'
 import { linkStyles } from './links/styles'
 
 type Props = {
-  button: any
-  panel: any
+  button?: React.ReactNode
+  panel?: React.ReactNode
 }
 
-export const MeasureCard: React.FC<Props> = ({ button, panel }) => {
+export const MeasureCard = ({ button, panel }: Props) => {
   return (
     <li className={clsx(['mb-8 flex flex-col rounded-sm bg-white shadow-lg'])}>
       <Disclosure>
