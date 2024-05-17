@@ -10,27 +10,20 @@ type Props = {
   path: string
 }
 
-export const NavbarMenuItem = (props: Props) => {
-  const { title, menuChildrenItems, path } = props
+export const NavbarMenuItem = ({ title, menuChildrenItems, path }: Props) => {
   return (
-    <Menu key={title} as="div" className="relative ml-3">
+    <Menu key={title} as="div" className="relative ml-3 flex items-center justify-start">
       {({ open }) => (
         <>
-          <div>
-            <Menu.Button
-              className={clsx(
-                'font-medium flex items-center gap-2 px-3 py-2 hover:text-beige-500',
-                Object.values(menuChildrenItems).includes(path) && 'font-bold',
-              )}
-            >
-              {title}
-              {open ? (
-                <ChevronUpIcon className="h-3 w-3" />
-              ) : (
-                <ChevronDownIcon className="h-3 w-3" />
-              )}
-            </Menu.Button>
-          </div>
+          <Menu.Button
+            className={clsx(
+              'font-medium flex items-center gap-2 px-3 py-2 text-left hover:text-beige-500',
+              Object.values(menuChildrenItems).includes(path) && 'font-bold',
+            )}
+          >
+            {title}
+            {open ? <ChevronUpIcon className="h-3 w-3" /> : <ChevronDownIcon className="h-3 w-3" />}
+          </Menu.Button>
           <Transition
             as={Fragment}
             enter="transition ease-out duration-100"
@@ -40,11 +33,10 @@ export const NavbarMenuItem = (props: Props) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute left-0 z-10 mt-2 w-52 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
+            <Menu.Items className="absolute left-0 top-12 z-10 mt-2 w-52 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
               {Object.entries(menuChildrenItems).map(([caption, href]) => (
                 <Menu.Item key={caption}>
                   {({ active }) => (
-                    // current font-bold
                     <a
                       href={href}
                       className={clsx(

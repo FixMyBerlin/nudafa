@@ -1,7 +1,8 @@
 ---
+import LayoutPage from '@components/layouts/LayoutPage.astro'
 import { getCollection, getEntry } from 'astro:content'
-import CommuneCard from '../components/CommuneCard.astro'
 import CommuneCardWrapper from '../components/CommueCardWrapper.astro'
+import CommuneCard from '../components/CommuneCard.astro'
 import ImageDouble from '../components/ImageDouble.astro'
 import ImageSingleHorizontal from '../components/ImageSingleHorizontal.astro'
 import ImageSingleSquare from '../components/ImageSingleSquare.astro'
@@ -9,11 +10,10 @@ import ImageSingleVertical from '../components/ImageSingleVertical.astro'
 import PageHeader from '../components/PageHeader.astro'
 import PersonCard from '../components/PersonCard.astro'
 import PersonCardWrapper from '../components/PersonCardWrapper.astro'
+import ProseMarkdown from '../components/ProseMarkdown.astro'
 import H2 from '../components/Text/H2.astro'
-import Layout from '../components/layouts/Layout.astro'
 import Section from '../components/layouts/Section.astro'
 import TextLinkArrow from '../components/links/TextLinkArrow.astro'
-import ProseMarkdown from '../components/ProseMarkdown.astro'
 
 const page = await getEntry('projectpartnerpageintro', 'index')
 const pagemain = await getEntry('projectpartnerpagemain', 'index')
@@ -29,7 +29,7 @@ console.log({ persons })
 console.log(persons[0].data)
 ---
 
-<Layout title={title}>
+<LayoutPage title={title}>
   <PageHeader title={title} subTitle={subTitle}>
     <Content
       components={{
@@ -81,4 +81,4 @@ console.log(persons[0].data)
       />
     </ProseMarkdown>
   </Section>
-</Layout>
+</LayoutPage>

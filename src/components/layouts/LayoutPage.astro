@@ -1,0 +1,21 @@
+---
+import Footer from '../Footer.astro'
+import Layout from './Layout.astro'
+import { Navbar } from './navbar/Navbar.tsx'
+import { footerNavigation, mainNavigation } from './navbar/navigation.ts'
+
+type Props = { title?: string }
+const { title }: Props = Astro.props
+
+const pathname = new URL(Astro.request.url).pathname
+---
+
+<Layout title={title}>
+  <div class="mx-auto flex min-h-full max-w-[1440px] flex-col bg-white shadow-sm">
+    <Navbar path={pathname} mainNavigation={mainNavigation} client:load />
+    <main class="z-0 flex-grow">
+      <slot />
+    </main>
+    <Footer footerNavigation={footerNavigation} />
+  </div>
+</Layout>
