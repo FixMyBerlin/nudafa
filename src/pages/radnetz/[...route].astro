@@ -1,0 +1,34 @@
+---
+import { Radnetz } from '@components/page_radnetz/Radnetz'
+import PageHeader from '../../components/PageHeader.astro'
+import Layout from '../../components/layouts/Layout.astro'
+
+export function getStaticPaths() {
+  // This catch-all renders our React components which navigates with client side routing .
+  // However the first page load will use the static generated page.
+  // Props like the page title will only update on the initial page load or a page reload.
+  //
+  // const projects = await getCollection('subprojects')
+  // return projects.map((entry) => ({
+  //   params: { slug: entry.slug },
+  //   props: { entry },
+  // }))
+  return [
+    { params: { route: undefined }, props: { title: 'foo1' } },
+    { params: { route: 'einleitung' }, props: { title: 'foo2' } },
+    { params: { route: 'page2' }, props: { title: 'foo3' } },
+  ]
+}
+
+const { title } = Astro.props
+// const { entry } = Astro.props
+// const { title, subTitle, topics, projectCommunes, projectPartners, start, end, funding } =
+//   entry.data
+// const { Content } = await entry.render()
+---
+
+<Layout title={`Radnetz ${title}`}>
+  <PageHeader title={`Radnetz ${title}`} subTitle="" />
+  title: {title}
+  <Radnetz client:load />
+</Layout>
