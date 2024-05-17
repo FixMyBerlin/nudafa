@@ -1,7 +1,7 @@
 ---
+import LayoutApp from '@components/layouts/LayoutApp.astro'
 import { Radnetz } from '@components/page_radnetz/Radnetz'
 import PageHeader from '../../components/PageHeader.astro'
-import Layout from '../../components/layouts/Layout.astro'
 
 export function getStaticPaths() {
   // This catch-all renders our React components which navigates with client side routing .
@@ -27,8 +27,7 @@ const { title } = Astro.props
 // const { Content } = await entry.render()
 ---
 
-<Layout title={`Radnetz ${title}`}>
-  <PageHeader title={`Radnetz ${title}`} subTitle="" />
-  title: {title}
-  <Radnetz client:load />
-</Layout>
+<LayoutApp title={title}>
+  <!-- Has to be `client:only`, not `client:load` to work around hydration missmatches. -->
+  <Radnetz client:only />
+</LayoutApp>

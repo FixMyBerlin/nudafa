@@ -9,8 +9,7 @@ type Props = {
   path: string
 }
 
-export const NavigationDisclosureItemMobile = (props: Props) => {
-  const { title, menuChildrenItems, path } = props
+export const NavigationDisclosureItemMobile = ({ title, menuChildrenItems, path }: Props) => {
   return (
     <Disclosure
       key={title}

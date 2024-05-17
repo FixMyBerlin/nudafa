@@ -14,13 +14,12 @@ type Props = {
   path: string
 }
 
-export const Navbar = (props: Props) => {
-  const { mainNavigation, path } = props
+export const Navbar = ({ mainNavigation, path }: Props) => {
   return (
     <Disclosure as="nav" className="bg-beige-100 text-gray-900 shadow-md">
       {({ open }) => (
         <>
-          <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto px-4 leading-5 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <a href="/" className="flex-shrink-0">
                 <img className="w-[171px]" src="/Logo_NUDAFA.png" />
@@ -38,19 +37,12 @@ export const Navbar = (props: Props) => {
                     ))}
                   </div>
 
-                  {/* Current: "bg-yellow-500 text-white", Default: "text-gray-300
-                    hover:bg-gray-700 hover:text-white" */}
-                  {/* <a
-                      href="#"
-                      className="rounded-md bg-yellow-500 px-3 py-2 text-sm font-medium text-white"
-                    >
-                      Dashboard
-                    </a> */}
                   <div className="flex">
                     {Object.entries(mainNavigation.second).map((seconItem) => {
                       if (typeof seconItem[1] === 'string') {
                         return (
                           <a
+                            key={seconItem[1]}
                             href={seconItem[1]}
                             className={clsx(
                               'ml-3 flex',
@@ -79,7 +71,7 @@ export const Navbar = (props: Props) => {
 
               <div className="-mr-2 flex sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="h relative inline-flex items-center justify-center p-2 text-gray-900 hover:text-beige-500">
+                <Disclosure.Button className="relative inline-flex items-center justify-center p-2 text-gray-900 hover:text-beige-500">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (

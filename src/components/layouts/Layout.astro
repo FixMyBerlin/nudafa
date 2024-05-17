@@ -1,70 +1,13 @@
 ---
 import '@fontsource-variable/open-sans'
 import '@fontsource/roboto-slab'
-import { getCollection } from 'astro:content'
-import { Navbar, type TNavigation } from '../navbar/Navbar.tsx'
-import Footer from './../Footer.astro'
 
-type Props = {
-  title?: string
-}
-
-const subprojects = await getCollection('subprojects')
-// const measures = await getCollection('measures')
-const { title = 'Nudafa' } = Astro.props
-
-const pathname = new URL(Astro.request.url).pathname
-
-const subprojectsNavigation = {}
-if (subprojects?.length) {
-  subprojects.forEach((p) => {
-    // @ts-expect-error
-    subprojectsNavigation[p.data.title] = `/teilprojekte/${p.slug}`
-  })
-}
-// const measuresNavigation = {};
-// if (measures?.length) {
-//   measures.forEach((p) => {
-//     measuresNavigation[p.data.title] = `/teilprojekte/${p.slug}`;
-//   });
-// }
-
-const mainNavigation: TNavigation = {
-  first: {
-    'Das Reallabor': {
-      Presse: '/presse',
-      'Über uns': '/ueber-uns',
-    },
-    Teilprojekte: {
-      ...subprojectsNavigation,
-    },
-  },
-  second: {
-    'Zum Radnetz': '/radnetz/einleitung',
-    'Zu den Maßnahmen': {
-      'Alle Maßnahmen': '/massnahmen',
-      // ...measuresNavigation,
-    },
-  },
-  //   Veranstaltungen: {
-  //     "Aktuelle Veranstaltungen": "/veranstaltungen/aktuelle-veranstaltungen",
-  //     Veranstaltungsarchiv: "/veranstaltungen/archiv",
-  //   },
-}
-
-const footerNavigation: TNavigation = {
-  first: {
-    ...mainNavigation.first,
-    Teilprojekte: {
-      'Übersicht Teilprojekte': '/#teilprojekte',
-    },
-  },
-  second: { ...mainNavigation.second },
-}
+type Props = { title?: string }
+const { title = 'Nudafa' }: Props = Astro.props
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang="de" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -73,13 +16,9 @@ const footerNavigation: TNavigation = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-[#eee] font-sans">
-    <div class="mx-auto max-w-[1440px] bg-white shadow-sm">
-      <Navbar path={pathname} mainNavigation={mainNavigation} client:load />
-      <main>
-        <slot />
-      </main>
-      <Footer footerNavigation={footerNavigation} />
+  <body class="flex min-h-full w-full bg-[#eee] font-sans antialiased">
+    <div class="relative flex-auto">
+      <slot />
     </div>
   </body>
 </html>

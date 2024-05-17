@@ -8,8 +8,7 @@ type Props = {
   path: string
 }
 
-export const NavigationMobile = (props: Props) => {
-  const { mainNavigation, path } = props
+export const NavigationMobile = ({ mainNavigation, path }: Props) => {
   return (
     <Disclosure.Panel
       as="div"
@@ -27,6 +26,7 @@ export const NavigationMobile = (props: Props) => {
         if (typeof seconItem[1] === 'string') {
           return (
             <a
+              key={seconItem[1]}
               href={seconItem[1]}
               className={clsx(
                 'relative w-full divide-y-2 divide-beige-100 bg-white',

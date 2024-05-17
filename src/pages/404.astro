@@ -1,13 +1,13 @@
 ---
+import LayoutPage from '@components/layouts/LayoutPage.astro'
 import PageHeader from '../components/PageHeader.astro'
-import Link from '../components/links/Link.astro'
-import Layout from '../components/layouts/Layout.astro'
 import Section from '../components/layouts/Section.astro'
+import Link from '../components/links/Link.astro'
 ---
 
-<Layout>
+<LayoutPage title="Seite nicht gefundne (404)">
   <PageHeader title="Fehler 404" subTitle="Diese Seite existiert nicht." />
   <Section>
     <Link href="/">Zurück zur Startseite</Link>
   </Section>
-</Layout>
+</LayoutPage>

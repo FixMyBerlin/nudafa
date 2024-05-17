@@ -1,34 +1,18 @@
-import { useStore } from '@nanostores/react'
-import { createRouter, getPagePath } from '@nanostores/router'
-
-const $router = createRouter(
-  {
-    radnetz: '/radnetz/:section',
-  },
-  {
-    search: true,
-  },
-)
+import 'maplibre-gl/dist/maplibre-gl.css'
+import { RadnetzMap } from './RadnetzMap'
+import { RadnetzNav } from './RadnetzNav'
 
 export const Radnetz = () => {
-  const profile = useStore($router)
+  const initialMapView = {
+    zoom: 12,
+    longitude: 13.61,
+    latitude: 52.35,
+  }
+
   return (
-    <>
-      Hello: {profile?.params?.section}
-      {profile?.search?.map}
-      <hr />
-      <a
-        href={getPagePath(
-          $router,
-          'radnetz',
-          { section: 'page2' },
-          {
-            map: '14/52.352/13.619',
-          },
-        )}
-      >
-        Foo
-      </a>
-    </>
+    <main className="relative flex h-full w-full flex-row">
+      <RadnetzNav />
+      <RadnetzMap initialMapView={initialMapView} interactiveLayerIds={[]} />
+    </main>
   )
 }
