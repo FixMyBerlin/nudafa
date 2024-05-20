@@ -1,6 +1,6 @@
-import { fields, singleton } from '@keystatic/core'
+import { config, fields, singleton } from '@keystatic/core'
 
-export const keystaticPrivacyConfig = {
+export const keystaticPrivacyConfig: ReturnType<typeof config>['singletons'] = {
   privacypage: singleton({
     entryLayout: 'content',
     label: 'Datenschutz',
@@ -20,4 +20,4 @@ export const keystaticPrivacyConfig = {
       }),
     },
   }),
-} as const
+}
