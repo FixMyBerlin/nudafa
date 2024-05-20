@@ -1,10 +1,10 @@
-import { ArrowRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { collection, fields } from '@keystatic/core'
-import { block, inline } from '@keystatic/core/content-components'
+import { block } from '@keystatic/core/content-components'
 import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageDefaultDouble'
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
+import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
 
 export const keystaticSubprojectsConfig = collection({
   label: 'Teilprojekte',
@@ -76,56 +76,7 @@ export const keystaticSubprojectsConfig = collection({
     content: fields.mdx({
       label: 'Content',
       components: {
-        TextLinkArrow: inline({
-          label: 'Textlink mit Pfeil',
-          schema: {
-            href: fields.url({
-              label: 'Link-Label',
-              validation: { isRequired: true },
-            }),
-            display: fields.text({
-              label: 'URL',
-              validation: { isRequired: true },
-            }),
-            external: fields.checkbox({
-              label: 'Externer Link',
-              defaultValue: false,
-            }),
-          },
-          NodeView: (props) => {
-            if (props.value.external) {
-              return (
-                <span
-                  style={{
-                    color: '#977214',
-                  }}
-                >
-                  <ArrowRightIcon
-                    style={{
-                      width: '0.74rem',
-                    }}
-                  />{' '}
-                  {props.value.display}
-                </span>
-              )
-            } else {
-              return (
-                <span
-                  style={{
-                    color: '#977214',
-                  }}
-                >
-                  <ArrowUpRightIcon
-                    style={{
-                      width: '0.74rem',
-                    }}
-                  />{' '}
-                  {props.value.display}
-                </span>
-              )
-            }
-          },
-        }),
+        ...keystaticTextLinkArrowConfig,
         ImageSingleVertical: block({
           label: 'Bild: einzeln, Hochformat',
           schema: {
