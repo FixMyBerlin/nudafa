@@ -1,4 +1,4 @@
-import { Disclosure } from '@headlessui/react'
+import { Disclosure, DisclosureButton } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { clsx } from 'clsx'
 import { NavbarMenuItem } from './NavbarMenuItem'
@@ -71,7 +71,7 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
 
               <div className="-mr-2 flex sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="relative inline-flex items-center justify-center p-2 text-gray-900 hover:text-beige-500">
+                <DisclosureButton className="relative inline-flex items-center justify-center p-2 text-gray-900 hover:text-beige-500">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -79,7 +79,7 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                   ) : (
                     <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                   )}
-                </Disclosure.Button>
+                </DisclosureButton>
               </div>
             </div>
           </div>

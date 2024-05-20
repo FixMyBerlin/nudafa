@@ -1,4 +1,4 @@
-import { Disclosure } from '@headlessui/react'
+import { DisclosurePanel } from '@headlessui/react'
 import clsx from 'clsx'
 import type { TNavigation } from './Navbar'
 import { NavigationDisclosureItemMobile } from './NavigationDisclosureItemMobile'
@@ -10,7 +10,7 @@ type Props = {
 
 export const NavigationMobile = ({ mainNavigation, path }: Props) => {
   return (
-    <Disclosure.Panel
+    <DisclosurePanel
       as="div"
       className="absolute w-screen space-y-px bg-beige-100 pb-1 shadow-lg sm:hidden"
     >
@@ -49,6 +49,6 @@ export const NavigationMobile = ({ mainNavigation, path }: Props) => {
           />
         )
       })}
-    </Disclosure.Panel>
+    </DisclosurePanel>
   )
 }
