@@ -5,9 +5,12 @@ import { contentViewImageDefaultDouble } from 'keystatic/contentViewImageDefault
 import { contentViewImageHorizontal } from 'keystatic/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/contentViewImageVertical.tsx'
-import { keystaticHomepageConfig } from 'keystatic/keystatic.homepage.config'
-import { keystaticImprintConfig } from 'keystatic/keystatic.imprint.config'
-import { keystaticPrivacyConfig } from 'keystatic/keystatic.privacy.config'
+import {
+  keystaticHomepageIntroConfig,
+  keystaticHomepageMainConfig,
+} from 'keystatic/keystatic.homepage.config'
+import { keystaticImprintPageConfig } from 'keystatic/keystatic.imprint.config'
+import { keystaticPrivacyPageConfig } from 'keystatic/keystatic.privacy.config'
 
 export default config({
   storage: {
@@ -37,7 +40,8 @@ export default config({
     },
   },
   singletons: {
-    ...keystaticHomepageConfig,
+    homepageintro: keystaticHomepageIntroConfig,
+    homepagemain: keystaticHomepageMainConfig,
     presspage: singleton({
       entryLayout: 'content',
       label: 'Presse-Seite',
@@ -931,8 +935,8 @@ export default config({
         }),
       },
     }),
-    ...keystaticImprintConfig,
-    ...keystaticPrivacyConfig,
+    imprintpage: keystaticImprintPageConfig,
+    privacypage: keystaticPrivacyPageConfig,
   },
   collections: {
     subProjects: collection({
