@@ -19,11 +19,14 @@ type Props = {
 }
 
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxbounds
-const maxBounds = [13.3579, 52.2095, 13.825, 52.4784] satisfies LngLatBoundsLike
+const maxBounds = [
+  [13.3579, 52.2095],
+  [13.825, 52.4784],
+] satisfies LngLatBoundsLike
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setminzoom
-const minZoom = 12
+const minZoom = 11.5
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxzoom
-const maxZoom = 21
+const maxZoom = 16
 
 export const RadnetzMap = ({ initialMapView, interactiveLayerIds, children }: Props) => {
   // Setup pmtiles
@@ -55,30 +58,29 @@ export const RadnetzMap = ({ initialMapView, interactiveLayerIds, children }: Pr
   return (
     <Map
       id="mainMap"
-      initialViewState={{
-        bounds: maxBounds,
-        fitBoundsOptions: {
-          minZoom,
-          maxZoom,
-          padding: 20,
-        },
-        ...mapParamsObject(),
-      }}
+      // Map View
+      initialViewState={mapParamsObject()}
+      onMoveEnd={handleMoveEnd}
+      // Contain Map
+      maxBounds={maxBounds}
+      minZoom={minZoom}
+      maxZoom={maxZoom}
       // Style: https://cloud.maptiler.com/maps/dataviz/
       mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=ECOoUBmpqklzSCASXxcu"
       style={{ width: '100%', height: '100%' }}
       // Set map state for <MapData>:
       onLoad={() => $mapLoaded.set(true)}
-      // MapLocation
-      onMoveEnd={handleMoveEnd}
-      // Handle cursor and click:
+      // "Loading…"
+      onData={() => setMapDataLoading(true)}
+      onIdle={() => setMapDataLoading(false)}
+      // Cursor
       interactiveLayerIds={interactiveLayerIds}
       cursor={cursorStyle}
       onMouseEnter={() => setCursorStyle('pointer')}
       onMouseLeave={() => setCursorStyle('grab')}
-      onData={() => setMapDataLoading(true)}
-      onIdle={() => setMapDataLoading(false)}
+      // Inspector
       onClick={(event) => $clickedMapData.set(event.features)}
+      // Some defaults
       dragRotate={false}
       // @ts-expect-error: See https://github.com/visgl/react-map-gl/issues/2310
       RTLTextPlugin={null}
