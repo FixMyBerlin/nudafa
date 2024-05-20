@@ -1,4 +1,4 @@
-import { Disclosure, Transition } from '@headlessui/react'
+import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 import { linkStyles } from './links/styles'
 
@@ -13,7 +13,7 @@ export const MeasureCard = ({ button, panel }: Props) => {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex w-full flex-col p-4">
+            <DisclosureButton className="flex w-full flex-col p-4">
               {button}
               {!open && (
                 <p
@@ -25,7 +25,7 @@ export const MeasureCard = ({ button, panel }: Props) => {
                   Mehr Details
                 </p>
               )}
-            </Disclosure.Button>
+            </DisclosureButton>
 
             <Transition
               enter="transition duration-100 ease-out"
@@ -35,9 +35,9 @@ export const MeasureCard = ({ button, panel }: Props) => {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Disclosure.Panel className="flex flex-col gap-2 px-4 pb-4">
+              <DisclosurePanel className="flex flex-col gap-2 px-4 pb-4">
                 {panel}
-                <Disclosure.Button>
+                <DisclosureButton>
                   <p
                     className={clsx(
                       linkStyles,
@@ -46,8 +46,8 @@ export const MeasureCard = ({ button, panel }: Props) => {
                   >
                     Weniger Details
                   </p>
-                </Disclosure.Button>
-              </Disclosure.Panel>
+                </DisclosureButton>
+              </DisclosurePanel>
             </Transition>
           </>
         )}

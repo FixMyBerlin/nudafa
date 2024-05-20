@@ -1,4 +1,4 @@
-import { Disclosure, Transition } from '@headlessui/react'
+import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { Fragment } from 'react'
@@ -19,7 +19,7 @@ export const NavigationDisclosureItemMobile = ({ title, menuChildrenItems, path 
       {({ open }) => (
         <>
           <div className="w-full">
-            <Disclosure.Button
+            <DisclosureButton
               className={clsx(
                 'font-medium flex w-full items-center justify-between px-3 py-4',
                 Object.values(menuChildrenItems).includes(path) && 'font-bold',
@@ -31,7 +31,7 @@ export const NavigationDisclosureItemMobile = ({ title, menuChildrenItems, path 
               ) : (
                 <ChevronDownIcon className="h-3 w-3" />
               )}
-            </Disclosure.Button>
+            </DisclosureButton>
           </div>
           <Transition
             as={Fragment}
@@ -42,7 +42,7 @@ export const NavigationDisclosureItemMobile = ({ title, menuChildrenItems, path 
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Disclosure.Panel className="mx-[3%] w-[94%] py-1 text-gray-500">
+            <DisclosurePanel className="mx-[3%] w-[94%] py-1 text-gray-500">
               {Object.entries(menuChildrenItems).map(([caption, href]) => (
                 <a
                   key={caption}
@@ -52,7 +52,7 @@ export const NavigationDisclosureItemMobile = ({ title, menuChildrenItems, path 
                   {caption}
                 </a>
               ))}
-            </Disclosure.Panel>
+            </DisclosurePanel>
           </Transition>
         </>
       )}
