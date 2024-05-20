@@ -1,93 +1,10 @@
 import { ArrowRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { collection, config, fields, singleton } from '@keystatic/core'
 import { block, inline } from '@keystatic/core/content-components'
-import { Uint8Array } from './src/components/Unit8Image.tsx'
-
-const contentViewImageVertical = (props: any) => {
-  if (props.value.src)
-    return (
-      <div>
-        <small style={{ color: 'gray' }}>
-          *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt dargestellt
-        </small>
-        <figure>
-          <div style={{ height: '300px', width: '200px' }}>
-            <Uint8Array data={props.value.src?.data} />
-          </div>
-          <figcaption>{props.value.caption}</figcaption>
-        </figure>
-      </div>
-    )
-  return <p>Füge ein Bild hinzu über "Edit"</p>
-}
-
-const contentViewImageSquare = (props: any) => {
-  if (props.value.src)
-    return (
-      <div>
-        <small style={{ color: 'gray' }}>
-          *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt dargestellt
-        </small>
-        <figure>
-          <div style={{ height: '200px', width: '200px' }}>
-            <Uint8Array data={props.value.src?.data} />
-          </div>
-          <figcaption>{props.value.caption}</figcaption>
-        </figure>
-      </div>
-    )
-  return <p>Füge ein Bild hinzu über "Edit"</p>
-}
-
-const contentViewImageHorizontal = (props: any) => {
-  if (props.value.src)
-    return (
-      <div>
-        <small style={{ color: 'gray' }}>
-          *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt dargestellt
-        </small>
-        <figure>
-          <div style={{ height: '200px', width: '300PX' }}>
-            <Uint8Array data={props.value.src?.data} />
-          </div>
-          <figcaption>{props.value.caption}</figcaption>
-        </figure>
-      </div>
-    )
-  return <p>Füge ein Bild hinzu über "Edit"</p>
-}
-
-const contentViewImageDefaultDouble = (props: any) => {
-  if (props.value.src)
-    return (
-      <div>
-        <small style={{ color: 'gray' }}>
-          *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt dargestellt
-        </small>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '49% 49%',
-            width: '100%',
-          }}
-        >
-          <figure>
-            <div style={{ height: '250px' }}>
-              <Uint8Array data={props.value.src?.data} />
-            </div>
-            <figcaption>{props.value.caption}</figcaption>
-          </figure>
-          <figure>
-            <div style={{ height: '250px' }}>
-              <Uint8Array data={props.value.srcSecond?.data} />
-            </div>
-            <figcaption>{props.value.captionSecond}</figcaption>
-          </figure>
-        </div>
-      </div>
-    )
-  return <p>Füge ein Bild hinzu über "Edit"</p>
-}
+import { contentViewImageDefaultDouble } from 'keystatic/contentViewImageDefaultDouble'
+import { contentViewImageHorizontal } from 'keystatic/contentViewImageHorizontal'
+import { contentViewImageSquare } from 'keystatic/contentViewImageSquare'
+import { contentViewImageVertical } from 'keystatic/contentViewImageVertical.tsx'
 
 export default config({
   storage: {
