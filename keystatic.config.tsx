@@ -1,4 +1,5 @@
 import { collection, config, fields } from '@keystatic/core'
+import { keystaticBicyclenetworkPagesConfig } from 'keystatic/keystatic.bicyclenetworkPages.config'
 import {
   keystaticHomepageIntroConfig,
   keystaticHomepageMainConfig,
@@ -40,6 +41,7 @@ export default config({
         'presspage',
       ],
       Teilprojekte: ['subProjects', 'subprojectstopics', 'communes', 'partners'],
+      Radnetz: ['bicyclenetworkPages'],
       Maßnahmen: ['measures', 'measuretypes', 'subprojectstopics'],
       'Weitere Seiten': ['imprintpage', 'privacypage'],
     },
@@ -56,6 +58,9 @@ export default config({
   collections: {
     subProjects: keystaticSubprojectsConfig,
     subprojectstopics: keystaticSubprojectAndMeasureTopicsConfig,
+    communes: keystaticSubprojectCommunesConfig,
+    partners: keystaticSubprojectPartnersConfig,
+    bicyclenetworkPages: keystaticBicyclenetworkPagesConfig,
     measures: collection({
       label: 'Maßnahmen',
       slugField: 'title',
@@ -196,8 +201,6 @@ export default config({
         fakeDocument: fields.emptyDocument(),
       },
     }),
-    communes: keystaticSubprojectCommunesConfig,
-    partners: keystaticSubprojectPartnersConfig,
     // posts: collection({
     //   label: "Posts",
     //   slugField: "title",
