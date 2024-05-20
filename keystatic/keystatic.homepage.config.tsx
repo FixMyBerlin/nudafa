@@ -1,12 +1,12 @@
 import { ArrowRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline'
-import { config, fields, singleton } from '@keystatic/core'
+import { fields, singleton } from '@keystatic/core'
 import { block, inline } from '@keystatic/core/content-components'
 import { contentViewImageDefaultDouble } from 'keystatic/contentViewImageDefaultDouble'
 import { contentViewImageHorizontal } from 'keystatic/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/contentViewImageVertical.tsx'
 
-export const keystaticHomepageConfig: ReturnType<typeof config>['singletons'] = {
+export const keystaticHomepageConfig = {
   homepageintro: singleton({
     entryLayout: 'content',
     label: 'Homepage Einführung (Über Teilprojekte-Teasern)',
@@ -601,4 +601,4 @@ export const keystaticHomepageConfig: ReturnType<typeof config>['singletons'] = 
       }),
     },
   }),
-}
+} as const
