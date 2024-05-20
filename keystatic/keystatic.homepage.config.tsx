@@ -5,6 +5,7 @@ import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageD
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
+import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
 
 export const keystaticHomepageIntroConfig = singleton({
   entryLayout: 'content',
@@ -23,56 +24,7 @@ export const keystaticHomepageIntroConfig = singleton({
     content: fields.mdx({
       label: 'Content',
       components: {
-        TextLinkArrow: inline({
-          label: 'Textlink mit Pfeil',
-          schema: {
-            href: fields.url({
-              label: 'URL',
-              validation: { isRequired: true },
-            }),
-            display: fields.text({
-              label: 'Link-Label',
-              validation: { isRequired: true },
-            }),
-            external: fields.checkbox({
-              label: 'Externer Link',
-              defaultValue: false,
-            }),
-          },
-          NodeView: (props) => {
-            if (props.value.external) {
-              return (
-                <span
-                  style={{
-                    color: '#977214',
-                  }}
-                >
-                  <ArrowRightIcon
-                    style={{
-                      width: '0.74rem',
-                    }}
-                  />{' '}
-                  {props.value.display}
-                </span>
-              )
-            } else {
-              return (
-                <span
-                  style={{
-                    color: '#977214',
-                  }}
-                >
-                  <ArrowUpRightIcon
-                    style={{
-                      width: '0.74rem',
-                    }}
-                  />{' '}
-                  {props.value.display}
-                </span>
-              )
-            }
-          },
-        }),
+        ...keystaticTextLinkArrowConfig,
         ImageSingleVertical: block({
           label: 'Bild: einzeln, Hochformat',
           schema: {
