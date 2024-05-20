@@ -1,10 +1,6 @@
 import { ArrowRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { collection, config, fields } from '@keystatic/core'
 import { block, inline } from '@keystatic/core/content-components'
-import { contentViewImageDefaultDouble } from 'keystatic/contentViewImageDefaultDouble'
-import { contentViewImageHorizontal } from 'keystatic/contentViewImageHorizontal'
-import { contentViewImageSquare } from 'keystatic/contentViewImageSquare'
-import { contentViewImageVertical } from 'keystatic/contentViewImageVertical.tsx'
 import {
   keystaticHomepageIntroConfig,
   keystaticHomepageMainConfig,
@@ -16,6 +12,10 @@ import {
 } from 'keystatic/keystatic.partner.config'
 import { keystaticPressPageConfig } from 'keystatic/keystatic.press.config'
 import { keystaticPrivacyPageConfig } from 'keystatic/keystatic.privacy.config'
+import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageDefaultDouble'
+import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
+import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
+import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
 
 export default config({
   storage: {

@@ -1,10 +1,10 @@
 import { ArrowRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline'
 import { fields, singleton } from '@keystatic/core'
 import { block, inline } from '@keystatic/core/content-components'
-import { contentViewImageDefaultDouble } from 'keystatic/contentViewImageDefaultDouble'
-import { contentViewImageHorizontal } from 'keystatic/contentViewImageHorizontal'
-import { contentViewImageSquare } from 'keystatic/contentViewImageSquare'
-import { contentViewImageVertical } from 'keystatic/contentViewImageVertical.tsx'
+import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageDefaultDouble'
+import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
+import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
+import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
 
 export const keystaticProjectPartnerPageIntroConfig = singleton({
   entryLayout: 'content',
