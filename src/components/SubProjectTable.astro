@@ -1,9 +1,8 @@
 ---
-import { isPast } from 'date-fns'
-import PartnerLabel from '../components/PartnerLabel.astro'
-import TopicLabel from '../components/TopicLabel.astro'
+import PartnerLabel from '@components/PartnerLabel.astro'
+import TopicLabel from '@components/TopicLabel.astro'
+import { format, isPast } from 'date-fns'
 import CommuneLabel from './CommuneLabel.astro'
-import { format } from 'date-fns'
 
 type Props = {
   start: Date

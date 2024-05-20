@@ -1,15 +1,15 @@
 ---
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import { getCollection } from 'astro:content'
-import ImageDouble from '../../components/ImageDouble.astro'
-import ImageSingleHorizontal from '../../components/ImageSingleHorizontal.astro'
-import ImageSingleSquare from '../../components/ImageSingleSquare.astro'
-import ImageSingleVertical from '../../components/ImageSingleVertical.astro'
-import PageHeader from '../../components/PageHeader.astro'
-import ProseMarkdown from '../../components/ProseMarkdown.astro'
-import SubProjectTable from '../../components/SubProjectTable.astro'
-import Section from '../../components/layouts/Section.astro'
-import TextLinkArrow from '../../components/links/TextLinkArrow.astro'
+import ImageDouble from '@components/ImageDouble.astro'
+import ImageSingleHorizontal from '@components/ImageSingleHorizontal.astro'
+import ImageSingleSquare from '@components/ImageSingleSquare.astro'
+import ImageSingleVertical from '@components/ImageSingleVertical.astro'
+import PageHeader from '@components/PageHeader.astro'
+import ProseMarkdown from '@components/ProseMarkdown.astro'
+import SubProjectTable from '@components/SubProjectTable.astro'
+import Section from '@components/layouts/Section.astro'
+import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 
 export async function getStaticPaths() {
   const projects = await getCollection('subprojects')

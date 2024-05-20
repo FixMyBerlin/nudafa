@@ -1,15 +1,15 @@
 ---
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import { getEntry } from 'astro:content'
-import ImageDouble from '../components/ImageDouble.astro'
-import ImageSingleHorizontal from '../components/ImageSingleHorizontal.astro'
-import ImageSingleSquare from '../components/ImageSingleSquare.astro'
-import ImageSingleVertical from '../components/ImageSingleVertical.astro'
-import PageHeader from '../components/PageHeader.astro'
-import ProseMarkdown from '../components/ProseMarkdown.astro'
-import SubProjectSection from '../components/SubProjectSection.astro'
-import Section from '../components/layouts/Section.astro'
-import TextLinkArrow from '../components/links/TextLinkArrow.astro'
+import ImageDouble from '@components/ImageDouble.astro'
+import ImageSingleHorizontal from '@components/ImageSingleHorizontal.astro'
+import ImageSingleSquare from '@components/ImageSingleSquare.astro'
+import ImageSingleVertical from '@components/ImageSingleVertical.astro'
+import PageHeader from '@components/PageHeader.astro'
+import ProseMarkdown from '@components/ProseMarkdown.astro'
+import SubProjectSection from '@components/SubProjectSection.astro'
+import Section from '@components/layouts/Section.astro'
+import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 
 const homepageintro = await getEntry('homepageintro', 'index')
 const homepagemain = await getEntry('homepagemain', 'index')
