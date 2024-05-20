@@ -1,6 +1,6 @@
-import { fields, singleton } from '@keystatic/core'
+import { config, fields, singleton } from '@keystatic/core'
 
-export const keystaticImprintConfig = {
+export const keystaticImprintConfig: ReturnType<typeof config>['singletons'] = {
   imprintpage: singleton({
     entryLayout: 'content',
     label: 'Impressum',
@@ -20,4 +20,4 @@ export const keystaticImprintConfig = {
       }),
     },
   }),
-} as const
+}
