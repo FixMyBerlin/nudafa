@@ -45,7 +45,7 @@ const { title } = entry.data
 
 <LayoutApp title={title}>
   <main class="relative flex h-full w-full flex-row">
-    <RadnetzNav client:load pages={pages} />
+    <RadnetzNav client:load articleSlug={entry.slug} pages={pages} />
     <Radnetz client:load />
     {
       pages.map(({ slug, title, Content }) => (
