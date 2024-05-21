@@ -1,23 +1,32 @@
 ---
 import LayoutApp from '@components/layouts/LayoutApp.astro'
+import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 import { Radnetz } from '@components/page_radnetz/Radnetz'
 import { RadnetzArticleWrapper } from '@components/page_radnetz/RadnetzArticleWrapper'
 import { RadnetzNav } from '@components/page_radnetz/RadnetzNav'
 import { getCollection } from 'astro:content'
 
-export type Page = { slug: string; menu: string; order: number; title: string }
+export type Page = {
+  slug: string
+  menu: string
+  order: number
+  title: string
+  Content: any
+}
 
 const rawPages = await getCollection('bicyclenetworkpages')
-const pages: Page[] = rawPages
-  .sort((a, b) => a.data.order - b.data.order)
-  .map((innerPage) => {
-    return {
-      slug: innerPage.slug,
-      menu: innerPage.data.menu,
-      order: innerPage.data.order,
-      title: innerPage.data.title,
-    }
+const sortedPages = rawPages.sort((a, b) => a.data.order - b.data.order)
+const pages: Page[] = []
+for (const page of sortedPages) {
+  const { Content } = await page.render()
+  pages.push({
+    slug: page.slug,
+    menu: page.data.menu,
+    order: page.data.order,
+    title: page.data.title,
+    Content: Content,
   })
+}
 
 export async function getStaticPaths() {
   // This catch-all renders our React components which navigates with client side routing .
@@ -32,7 +41,6 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props
 const { title } = entry.data
-const { Content } = await entry.render()
 ---
 
 <LayoutApp title={title}>
@@ -40,10 +48,14 @@ const { Content } = await entry.render()
     <RadnetzNav client:load pages={pages} />
     <Radnetz client:load />
     {
-      pages.map((page) => (
-        <RadnetzArticleWrapper client:load articleSlug={page.slug} title={page.title}>
+      pages.map(({ slug, title, Content }) => (
+        <RadnetzArticleWrapper client:load articleSlug={slug} title={title}>
           {/* TODO FIXME: We render the same content for each page :facepalm:. This needs some rework… */}
-          <Content />
+          <Content
+            components={{
+              TextLinkArrow,
+            }}
+          />
         </RadnetzArticleWrapper>
       ))
     }
