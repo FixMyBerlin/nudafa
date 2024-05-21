@@ -49,6 +49,15 @@ const communesCollection = defineCollection({
       color: z.string().optional(),
     }),
 })
+const bicyclenetworkpagesCollection = defineCollection({
+  type: 'content',
+  schema: () =>
+    z.object({
+      menu: z.string(),
+      title: z.string(),
+      order: z.number(),
+    }),
+})
 const measuresCollection = defineCollection({
   type: 'content',
   schema: ({ image }) =>
@@ -74,5 +83,6 @@ export const collections = {
   persons: personsCollection,
   subprojects: subprojectsCollection,
   communes: communesCollection,
+  bicyclenetworkpages: bicyclenetworkpagesCollection,
   measures: measuresCollection,
 }
