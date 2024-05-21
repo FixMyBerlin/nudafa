@@ -1,0 +1,51 @@
+---
+import LayoutApp from '@components/layouts/LayoutApp.astro'
+import { Radnetz } from '@components/page_radnetz/Radnetz'
+import { RadnetzArticleWrapper } from '@components/page_radnetz/RadnetzArticleWrapper'
+import { RadnetzNav } from '@components/page_radnetz/RadnetzNav'
+import { getCollection } from 'astro:content'
+
+export type Page = { slug: string; menu: string; order: number; title: string }
+
+const rawPages = await getCollection('bicyclenetworkpages')
+const pages: Page[] = rawPages
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((innerPage) => {
+    return {
+      slug: innerPage.slug,
+      menu: innerPage.data.menu,
+      order: innerPage.data.order,
+      title: innerPage.data.title,
+    }
+  })
+
+export async function getStaticPaths() {
+  // This catch-all renders our React components which navigates with client side routing .
+  // However the first page load will use the static generated page.
+  // Props like the page title will only update on the initial page load or a page reload.
+  const rawPages = await getCollection('bicyclenetworkpages')
+  return rawPages.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { title } = entry.data
+const { Content } = await entry.render()
+---
+
+<LayoutApp title={title}>
+  <main class="relative flex h-full w-full flex-row">
+    <RadnetzNav client:load pages={pages} />
+    <Radnetz client:load />
+    {
+      pages.map((page) => (
+        <RadnetzArticleWrapper client:load articleSlug={page.slug} title={page.title}>
+          {/* TODO FIXME: We render the same content for each page :facepalm:. This needs some rework… */}
+          <Content />
+        </RadnetzArticleWrapper>
+      ))
+    }
+  </main>
+</LayoutApp>

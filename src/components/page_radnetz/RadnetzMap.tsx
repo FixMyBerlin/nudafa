@@ -81,6 +81,7 @@ export const RadnetzMap = ({ initialMapView, interactiveLayerIds, children }: Pr
       // Inspector
       onClick={(event) => $clickedMapData.set(event.features)}
       // Some defaults
+      attributionControl={false}
       dragRotate={false}
       // @ts-expect-error: See https://github.com/visgl/react-map-gl/issues/2310
       RTLTextPlugin={null}
@@ -88,7 +89,7 @@ export const RadnetzMap = ({ initialMapView, interactiveLayerIds, children }: Pr
       {children}
       {mapDataLoading && <div className="absolute left-0 top-0 bg-white p-2">Loading...</div>}
       <AttributionControl compact={true} position="bottom-left" />
-      <NavigationControl showCompass={false} />
+      <NavigationControl showCompass={false} position="top-left" />
     </Map>
   )
 }
