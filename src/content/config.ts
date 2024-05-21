@@ -2,6 +2,7 @@
 import { defineCollection, z } from 'astro:content'
 
 const newsCollection = defineCollection({
+  type: 'content',
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -9,6 +10,7 @@ const newsCollection = defineCollection({
     }),
 })
 const personsCollection = defineCollection({
+  type: 'content',
   schema: ({ image }) =>
     z.object({
       personImage: image(),
@@ -20,6 +22,7 @@ const personsCollection = defineCollection({
     }),
 })
 const subprojectsCollection = defineCollection({
+  type: 'content',
   schema: ({ image }) =>
     z.object({
       teaserImage: image(),
@@ -37,6 +40,7 @@ const subprojectsCollection = defineCollection({
     }),
 })
 const communesCollection = defineCollection({
+  type: 'content',
   schema: ({ image }) =>
     z.object({
       image: image(),
@@ -46,6 +50,7 @@ const communesCollection = defineCollection({
     }),
 })
 const measuresCollection = defineCollection({
+  type: 'content',
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -65,9 +70,9 @@ const measuresCollection = defineCollection({
 })
 
 export const collections = {
-  communes: communesCollection,
   news: newsCollection,
   persons: personsCollection,
   subprojects: subprojectsCollection,
+  communes: communesCollection,
   measures: measuresCollection,
 }
