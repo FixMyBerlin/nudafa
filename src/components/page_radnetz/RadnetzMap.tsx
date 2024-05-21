@@ -74,11 +74,13 @@ export const RadnetzMap = ({ initialMapView, interactiveLayerIds, children }: Pr
       onData={() => setMapDataLoading(true)}
       onIdle={() => setMapDataLoading(false)}
       // Cursor
+      // UNUSED at the moment
       interactiveLayerIds={interactiveLayerIds}
       cursor={cursorStyle}
       onMouseEnter={() => setCursorStyle('pointer')}
       onMouseLeave={() => setCursorStyle('grab')}
       // Inspector
+      // UNUSED at the moment
       onClick={(event) => $clickedMapData.set(event.features)}
       // Some defaults
       attributionControl={false}
@@ -87,6 +89,7 @@ export const RadnetzMap = ({ initialMapView, interactiveLayerIds, children }: Pr
       RTLTextPlugin={null}
     >
       {children}
+      {/* TODO: Make Loading state nice with some spinner component */}
       {mapDataLoading && <div className="absolute left-0 top-0 bg-white p-2">Loading...</div>}
       <AttributionControl compact={true} position="bottom-left" />
       <NavigationControl showCompass={false} position="top-left" />
