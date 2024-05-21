@@ -2,6 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@head
 import { XMarkIcon } from '@heroicons/react/20/solid'
 import { useStore } from '@nanostores/react'
 import clsx from 'clsx'
+import { useEffect, useState } from 'react'
 import { markdownProseClasses } from 'src/proseClasses'
 import { $router } from './utils/store'
 
@@ -17,8 +18,11 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children }: Props) =
     $router.open(`/radnetz/${articleSlug}`)
   }
 
+  // SSR: We have to use this weird useEffect roundtrip in order to work around hydration mismatches
   const router = useStore($router)
-  const visible = router?.params.section === articleSlug
+  const section = router?.params.section
+  const [visible, setVisible] = useState(false)
+  useEffect(() => setVisible(section === articleSlug), [section])
 
   return (
     <Disclosure defaultOpen={true}>
