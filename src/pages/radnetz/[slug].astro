@@ -50,7 +50,6 @@ const { title } = entry.data
     {
       pages.map(({ slug, title, Content }) => (
         <RadnetzArticleWrapper client:load articleSlug={slug} title={title}>
-          {/* TODO FIXME: We render the same content for each page :facepalm:. This needs some rework… */}
           <Content
             components={{
               TextLinkArrow,
