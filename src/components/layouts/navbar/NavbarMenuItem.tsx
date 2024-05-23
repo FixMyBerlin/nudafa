@@ -17,7 +17,7 @@ export const NavbarMenuItem = ({ title, menuChildrenItems, path }: Props) => {
         <>
           <MenuButton
             className={clsx(
-              'font-medium flex items-center gap-2 px-3 py-2 text-left hover:text-beige-500',
+              'font-medium hover:bg-beige-50 flex items-center gap-2 px-3 py-2  text-left',
               Object.values(menuChildrenItems).includes(path) && 'font-bold',
             )}
           >

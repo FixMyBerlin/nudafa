@@ -19,7 +19,7 @@ const isProjectPast = end && isPast(end)
 <div
   class="flex flex-col divide-y divide-gray-200 rounded-sm border border-gray-200 text-gray-500 shadow-lg"
 >
-  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 md:flex-row md:items-center">
+  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 py-4 md:flex-row md:items-center">
     <p class="min-w-[200px] flex-shrink-0">Themen</p>
     <ul class="flex flex-wrap gap-2">
       {
@@ -35,7 +35,7 @@ const isProjectPast = end && isPast(end)
       }
     </ul>
   </div>
-  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 md:flex-row md:items-center">
+  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 py-4 md:flex-row md:items-center">
     <p class="min-w-[200px] flex-shrink-0">Beteiligte Projektpartner</p>
     <ul class="flex flex-wrap gap-2">
       {
@@ -57,7 +57,7 @@ const isProjectPast = end && isPast(end)
     </ul>
   </div>
 
-  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 md:flex-row md:items-center">
+  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 py-4 md:flex-row md:items-center">
     <p class="min-w-[200px] flex-shrink-0">Projektlaufzeit</p>
     <p class="font-bold text-black">
       {
@@ -67,8 +67,8 @@ const isProjectPast = end && isPast(end)
       }
     </p>
   </div>
-  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 md:flex-row md:items-center">
-    <p class="min-w-[200px] flex-shrink-0">Finanzierung</p>
+  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 py-4 md:flex-row md:items-center">
+    <p class="min-w-[200px] flex-shrink-0 py-4">Finanzierung</p>
     <p class="font-bold text-black">
       {funding || '-'}
     </p>

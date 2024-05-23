@@ -40,6 +40,8 @@ const getColorClass = (communeId: string) => {
 const { communeId } = Astro.props as Props
 ---
 
-<span class:list={['list-none rounded-md px-2 py-px text-sm text-black', getColorClass(communeId)]}>
+<span
+  class:list={['list-none rounded-md px-2 py-[1px] text-sm text-black', getColorClass(communeId)]}
+>
   {getFullCommuneTitle(communeId)}
 </span>

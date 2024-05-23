@@ -10,5 +10,5 @@ export const markdownProseClasses = clsx(
   'prose-h1:mb-2 prose-h2:mb-2 prose-h2:mt-1 prose-h3:mb-2 prose-h3:mt-1 prose-p:mb-2 prose-p:mt-1',
   'prose-li:m-0 prose-li:p-0',
   'prose-a:underline prose-a:decoration-beige-500 prose-a:decoration-[1.5px] prose-a:underline-offset-2 hover:prose-a:text-beige-500 prose-a:active:decoration-2',
-  'prose-headings:max-w-3xl prose-p:max-w-3xl prose-a:max-w-3xl prose-blockquote:max-w-3xl prose-code:max-w-3xl prose-ol:max-w-3xl prose-ul:max-w-3xl prose-table:max-w-3xl prose-hr:max-w-3xl ',
+  'prose-headings:max-w-[690px] prose-p:max-w-[690px] prose-a:max-w-[690px] prose-blockquote:max-w-[690px] prose-code:max-w-[690px] prose-ol:max-w-[690px] prose-ul:max-w-[690px] prose-table:max-w-[690px] prose-hr:max-w-[690px] ',
 )

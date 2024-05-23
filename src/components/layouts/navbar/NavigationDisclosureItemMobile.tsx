@@ -14,7 +14,7 @@ export const NavigationDisclosureItemMobile = ({ title, menuChildrenItems, path 
     <Disclosure
       key={title}
       as="div"
-      className="relative w-full divide-y-2 divide-beige-100 bg-white"
+      className="divide-beige-50 relative w-full divide-y-2 bg-white"
     >
       {({ open }) => (
         <>
