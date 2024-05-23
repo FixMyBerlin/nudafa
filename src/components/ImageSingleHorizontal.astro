@@ -16,7 +16,7 @@ type Props = {
 }
 const { src, alt, caption, imageConfig } = Astro.props
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/**/*.{jpeg,jpg,png,gif,webp,JPG,JPEG,PNG,GIF}',
+  '/src/assets/**/*.{jpeg,jpg,png,gif,webp,JPG,JPEG,PNG,GIF}'
 )
 if (!images[src])
   throw new Error(`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
@@ -51,6 +51,6 @@ const position = imageConfig.value?.value
         loading="lazy"
       />
     </div>
-    <figcaption class="mt-2 text-xs md:text-sm">{caption}</figcaption>
+    <figcaption class="mt-2 text-xs text-gray-500 md:text-sm">{caption}</figcaption>
   </figure>
 </div>

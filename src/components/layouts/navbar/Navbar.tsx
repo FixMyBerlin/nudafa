@@ -16,7 +16,7 @@ type Props = {
 
 export const Navbar = ({ mainNavigation, path }: Props) => {
   return (
-    <Disclosure as="nav" className="bg-beige-100 text-gray-900 shadow-md">
+    <Disclosure as="nav" className="bg-beige-50 text-gray-900 shadow-md">
       {({ open }) => (
         <>
           <div className="mx-auto px-4 leading-5 sm:px-6 lg:px-8">

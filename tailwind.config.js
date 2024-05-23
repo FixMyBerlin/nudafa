@@ -15,6 +15,8 @@ module.exports = {
       red: colors.red,
       beige: {
         100: '#F5F0E2',
+        50: '#F5F0E2',
+        100: '#F5E4B7',
         500: '#977214',
         700: '#544624',
       },

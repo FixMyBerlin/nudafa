@@ -17,7 +17,7 @@ const { footerNavigation } = Astro.props
 ---
 
 <Section>
-  <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+  <div class="mb-12 mt-56 flex flex-col items-center justify-between gap-8 md:flex-row">
     <div class="flex w-full flex-shrink-0 md:w-auto">
       <Image class="w-40" src={BmbfLogo} alt="Nudafa Logo" />
       <Image class="w-40" src={FonaLogo} alt="Nudafa Logo" />
@@ -31,17 +31,17 @@ const { footerNavigation } = Astro.props
   </div>
 </Section>
 <div
-  class="flex flex-col justify-center gap-8 divide-y divide-white bg-beige-700 p-4 py-6 text-white"
+  class="divide-beige-50 text-beige-50 flex flex-col justify-center gap-8 divide-y bg-beige-700 p-6"
 >
   <div class="grid grid-cols-2 gap-7 md:grid-cols-4 lg:grid-cols-6">
     {
       Object.entries(footerNavigation.first).map(([title, menuChildrenItems]) => (
         <div>
-          <p class="pb-2 font-bold">{title}</p>
+          <p class="text-beige-[#F5E4B7] pb-2 font-bold">{title}</p>
           <ul class="flex flex-col gap-2 text-sm">
             {Object.entries(menuChildrenItems).map(([item, href]) => (
               <li>
-                <a class="no-underline  hover:text-beige-500" href={href}>
+                <a class="text-beige-50 no-underline hover:text-beige-500" href={href}>
                   {item}
                 </a>
               </li>
@@ -59,7 +59,7 @@ const { footerNavigation } = Astro.props
                 <a
                   href={seconItem[1]}
                   class={clsx(
-                    'font-medium relative ml-3 flex items-center gap-2 px-3 hover:text-beige-500',
+                    'font-medium text-beige-50 relative ml-3 flex items-center gap-2 px-3 hover:text-beige-500'
                     // TODO Highlight when active page
                     // seconItem[1] === path && "font-bold"
                   )}
@@ -78,7 +78,7 @@ const { footerNavigation } = Astro.props
             <ul class="flex flex-col gap-2 text-sm">
               {Object.entries(menuChildrenItems).map(([item, v]) => (
                 <li>
-                  <a class="no-underline  hover:text-beige-500" href={v}>
+                  <a class="text-beige-50 no-underline hover:text-beige-500" href={v}>
                     {item}
                   </a>
                 </li>
@@ -98,7 +98,7 @@ const { footerNavigation } = Astro.props
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  class="no-underline  hover:text-beige-500"
+                  class="text-beige-50 no-underline hover:text-beige-500"
                   href={commune.data.website}
                 >
                   {commune.data.name}
@@ -110,11 +110,11 @@ const { footerNavigation } = Astro.props
       )
     }
   </div>
-  <div class="flex flex-col gap-2 pt-6 md:flex-row-reverse md:justify-between">
+  <div class="mt-10 flex flex-col gap-2 pt-4 md:flex-row-reverse md:justify-between">
     <div class="flex gap-8">
-      <a class="no-underline hover:text-beige-500" href="/impressum">Impressum</a>
-      <a class="no-underline hover:text-beige-500" href="/datenschutz">Datenschutz</a>
+      <a class="text-beige-50 no-underline hover:text-beige-500" href="/impressum">Impressum</a>
+      <a class="text-beige-50 no-underline hover:text-beige-500" href="/datenschutz">Datenschutz</a>
     </div>
-    <p>© Gemeinde Eichwalde</p>
+    <p class="text-beige-50">© Gemeinde Eichwalde</p>
   </div>
 </div>
