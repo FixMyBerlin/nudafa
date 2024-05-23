@@ -47,7 +47,7 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                             className={clsx(
                               'ml-3 flex',
                               'font-medium flex items-center gap-2 px-3 py-2 hover:text-beige-500',
-                              seconItem[1] === path && 'font-bold',
+                              seconItem[1] === path && 'font-semibold',
                             )}
                           >
                             {seconItem[0]}

@@ -31,7 +31,7 @@ export const NavigationMobile = ({ mainNavigation, path }: Props) => {
               className={clsx(
                 'relative w-full divide-y-2 divide-beige-100 bg-white',
                 'font-medium flex w-full items-center justify-between px-3 py-4',
-                seconItem[1] === path && 'font-bold',
+                seconItem[1] === path && 'font-semibold',
               )}
             >
               {seconItem[0]}

@@ -33,7 +33,7 @@ export const RadnetzNav = ({ articleSlug, pages }: Props) => {
               <a
                 onClick={(event) => handleClick(event, slug)}
                 href={`/radnetz/${slug}`}
-                className={active ? 'font-bold' : ''}
+                className={active ? 'font-semibold' : ''}
               >
                 {title}
               </a>

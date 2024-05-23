@@ -22,7 +22,7 @@ export const NavigationDisclosureItemMobile = ({ title, menuChildrenItems, path 
             <DisclosureButton
               className={clsx(
                 'font-medium flex w-full items-center justify-between px-3 py-4',
-                Object.values(menuChildrenItems).includes(path) && 'font-bold',
+                Object.values(menuChildrenItems).includes(path) && 'font-semibold',
               )}
             >
               {title}
@@ -47,7 +47,7 @@ export const NavigationDisclosureItemMobile = ({ title, menuChildrenItems, path 
                 <a
                   key={caption}
                   href={href}
-                  className={clsx(path === href && 'font-bold', 'block px-6 py-2 text-sm')}
+                  className={clsx(path === href && 'font-semibold', 'block px-6 py-2 text-sm')}
                 >
                   {caption}
                 </a>

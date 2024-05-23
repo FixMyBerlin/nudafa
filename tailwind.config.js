@@ -26,8 +26,8 @@ module.exports = {
       serif: ['Roboto Slab', ...defaultTheme.fontFamily.serif],
     },
     fontWeight: {
-      // todo check
       normal: '400',
+      semibold: '600',
       bold: '700',
     },
   },
