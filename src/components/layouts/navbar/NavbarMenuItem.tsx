@@ -18,7 +18,7 @@ export const NavbarMenuItem = ({ title, menuChildrenItems, path }: Props) => {
           <MenuButton
             className={clsx(
               'font-medium hover:bg-beige-50 flex items-center gap-2 px-3 py-2  text-left',
-              Object.values(menuChildrenItems).includes(path) && 'font-bold',
+              Object.values(menuChildrenItems).includes(path) && 'font-semibold',
             )}
           >
             {title}
@@ -39,7 +39,7 @@ export const NavbarMenuItem = ({ title, menuChildrenItems, path }: Props) => {
                   <a
                     href={href}
                     className={clsx(
-                      path === href ? 'font-bold' : '',
+                      path === href ? 'font-semibold' : '',
                       'ui-active:bg-black block px-4 py-2 text-sm text-gray-900 hover:bg-beige-100 focus:bg-white focus:ring-[1.5px] focus:ring-beige-500',
                     )}
                   >
