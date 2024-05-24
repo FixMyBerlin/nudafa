@@ -40,7 +40,7 @@ export const NavbarMenuItem = ({ title, menuChildrenItems, path }: Props) => {
                     href={href}
                     className={clsx(
                       path === href ? 'font-bold' : '',
-                      'ui-active:bg-black block px-4 py-2 text-sm text-gray-900 hover:bg-beige-100 focus:bg-white focus:ring-[1.5px] focus:ring-beige-500',
+                      'ui-active:bg-black focus:ring-beige-600 block px-4 py-2 text-sm text-gray-900 hover:bg-beige-100 focus:bg-white focus:ring-[1.5px]',
                     )}
                   >
                     {caption}

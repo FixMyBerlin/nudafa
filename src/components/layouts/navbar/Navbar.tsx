@@ -14,9 +14,17 @@ type Props = {
   path: string
 }
 
+// we export theses classes to size positioned elements correctly (h-screen minus height of navigation)
+export const navHeightClass = 'h-16'
+export const navHeightClassAsNegativeMarginBottom = '-mb-16'
+export const navHeightClassAsNegativeMarginTop = '-mt-16'
+
 export const Navbar = ({ mainNavigation, path }: Props) => {
   return (
-    <Disclosure as="nav" className="bg-beige-50 text-gray-900 shadow-md">
+    <Disclosure
+      as="nav"
+      className={clsx('bg-beige-50 z-20 text-gray-900 shadow-sm', navHeightClass)}
+    >
       {({ open }) => (
         <>
           <div className="mx-auto px-4 leading-5 sm:px-6 lg:px-8">
@@ -46,7 +54,7 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                             href={seconItem[1]}
                             className={clsx(
                               'ml-3 flex',
-                              'font-semibold flex items-center gap-2 px-3 py-2 hover:text-beige-500',
+                              'font-semibold hover:text-beige-600 flex items-center gap-2 px-3 py-2',
                               seconItem[1] === path && 'font-bold',
                             )}
                           >
@@ -71,7 +79,7 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
 
               <div className="-mr-2 flex sm:hidden">
                 {/* Mobile menu button */}
-                <DisclosureButton className="relative inline-flex items-center justify-center p-2 text-gray-900 hover:text-beige-500">
+                <DisclosureButton className="hover:text-beige-600 relative inline-flex items-center justify-center p-2 text-gray-900">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (

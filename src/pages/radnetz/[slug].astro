@@ -1,10 +1,15 @@
 ---
 import LayoutApp from '@components/layouts/LayoutApp.astro'
+import {
+  navHeightClass,
+  navHeightClassAsNegativeMarginBottom,
+} from '@components/layouts/navbar/Navbar'
 import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 import { Radnetz } from '@components/page_radnetz/Radnetz'
 import { RadnetzArticleWrapper } from '@components/page_radnetz/RadnetzArticleWrapper'
 import { RadnetzNav } from '@components/page_radnetz/RadnetzNav'
 import { getCollection } from 'astro:content'
+import clsx from 'clsx'
 
 export type Page = {
   slug: string
@@ -51,7 +56,8 @@ const { title, links } = entry.data
 ---
 
 <LayoutApp title={title}>
-  <div class="relative flex h-full w-full flex-row">
+  <!-- navHeightClassAsNegativeMarginBottom makes RadnetzNav 'max h-screen minus height of Navbar' possible -->
+  <div class={clsx('relative flex h-full w-full flex-row', navHeightClassAsNegativeMarginBottom)}>
     <RadnetzNav client:load articleSlug={entry.slug} pages={pages} />
     <Radnetz client:load />
     {
