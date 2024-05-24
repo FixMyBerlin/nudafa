@@ -12,6 +12,12 @@ export type Page = {
   order: number
   title: string
   Content: any
+  links:
+    | {
+        display: string
+        url: string
+      }[]
+    | undefined
 }
 
 const rawPages = await getCollection('bicyclenetworkpages')
@@ -24,6 +30,7 @@ for (const page of sortedPages) {
     menu: page.data.menu,
     order: page.data.order,
     title: page.data.title,
+    links: page.data.links,
     Content: Content,
   })
 }
@@ -40,7 +47,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { title } = entry.data
+const { title, links } = entry.data
 ---
 
 <LayoutApp title={title}>
@@ -49,7 +56,7 @@ const { title } = entry.data
     <Radnetz client:load />
     {
       pages.map(({ slug, title, Content }) => (
-        <RadnetzArticleWrapper client:load articleSlug={slug} title={title}>
+        <RadnetzArticleWrapper client:load articleSlug={slug} title={title} links={links}>
           <Content
             components={{
               TextLinkArrow,

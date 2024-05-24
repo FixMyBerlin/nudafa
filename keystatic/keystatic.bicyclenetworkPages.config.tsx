@@ -3,6 +3,7 @@ import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.co
 
 export const keystaticBicyclenetworkPagesConfig = collection({
   label: 'Radnetz Seiten',
+  entryLayout: 'content',
   slugField: 'menu',
   path: 'src/content/bicyclenetworkpages/*',
   format: { contentField: 'content' },
@@ -23,5 +24,21 @@ export const keystaticBicyclenetworkPagesConfig = collection({
       label: 'Content',
       components: { ...keystaticTextLinkArrowConfig },
     }),
+    links: fields.array(
+      fields.object({
+        url: fields.url({
+          label: 'Link URL',
+          validation: { isRequired: true },
+        }),
+        display: fields.text({
+          label: 'Link-Beschriftung',
+          validation: { length: { min: 1 } },
+        }),
+      }),
+      {
+        label: 'Weiterführende Links',
+        itemLabel: (props) => props.fields.display.value || 'Link',
+      },
+    ),
   },
 })
