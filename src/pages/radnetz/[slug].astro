@@ -44,7 +44,7 @@ const { title } = entry.data
 ---
 
 <LayoutApp title={title}>
-  <main class="relative mt-24 flex h-full w-full flex-row">
+  <div class="relative flex h-full w-full flex-row">
     <RadnetzNav client:load articleSlug={entry.slug} pages={pages} />
     <Radnetz client:load />
     {
@@ -58,5 +58,5 @@ const { title } = entry.data
         </RadnetzArticleWrapper>
       ))
     }
-  </main>
+  </div>
 </LayoutApp>

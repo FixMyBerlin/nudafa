@@ -27,8 +27,10 @@ module.exports = {
     },
     fontWeight: {
       normal: '400',
-      semibold: '600',
+      medium: 500,
+      semibold: 600,
       bold: '700',
+      extrabold: '800',
     },
   },
   plugins: [require('@tailwindcss/typography')],
