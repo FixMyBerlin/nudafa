@@ -46,8 +46,8 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                             href={seconItem[1]}
                             className={clsx(
                               'ml-3 flex',
-                              'font-medium flex items-center gap-2 px-3 py-2 hover:text-beige-500',
-                              seconItem[1] === path && 'font-semibold',
+                              'font-semibold flex items-center gap-2 px-3 py-2 hover:text-beige-500',
+                              seconItem[1] === path && 'font-bold',
                             )}
                           >
                             {seconItem[0]}

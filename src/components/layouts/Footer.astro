@@ -37,7 +37,7 @@ const { footerNavigation } = Astro.props
     {
       Object.entries(footerNavigation.first).map(([title, menuChildrenItems]) => (
         <div>
-          <p class="text-beige-[#F5E4B7] pb-2 font-semibold">{title}</p>
+          <p class="text-beige-[#F5E4B7] pb-2 font-bold">{title}</p>
           <ul class="flex flex-col gap-2 text-sm">
             {Object.entries(menuChildrenItems).map(([item, href]) => (
               <li>
@@ -55,13 +55,13 @@ const { footerNavigation } = Astro.props
         if (typeof seconItem[1] === 'string') {
           return (
             <div>
-              <p class="pb-2 font-semibold">
+              <p class="pb-2 font-bold">
                 <a
                   href={seconItem[1]}
                   class={clsx(
-                    'font-medium text-beige-50 relative ml-3 flex items-center gap-2 px-3 hover:text-beige-500'
+                    'text-beige-50 relative ml-3 flex items-center gap-2 px-3 font-semibold hover:text-beige-500'
                     // TODO Highlight when active page
-                    // seconItem[1] === path && "font-semibold"
+                    // seconItem[1] === path && "font-bold"
                   )}
                 >
                   {seconItem[0]}
@@ -74,7 +74,7 @@ const { footerNavigation } = Astro.props
         const [title, menuChildrenItems] = seconItem
         return (
           <div>
-            <p class="pb-2 font-semibold">{title}</p>
+            <p class="pb-2 font-bold">{title}</p>
             <ul class="flex flex-col gap-2 text-sm">
               {Object.entries(menuChildrenItems).map(([item, v]) => (
                 <li>
@@ -91,7 +91,7 @@ const { footerNavigation } = Astro.props
     {
       (
         <div>
-          <p class="pb-2 font-semibold">Verbundpartner</p>
+          <p class="pb-2 font-bold">Verbundpartner</p>
           <ul class="flex flex-col gap-2 text-sm">
             {communes.map((commune) => (
               <li>

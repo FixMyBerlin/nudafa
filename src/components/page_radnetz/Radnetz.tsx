@@ -11,7 +11,7 @@ export const Radnetz = () => {
   return <RadnetzMap initialMapView={initialMapView} interactiveLayerIds={[]} />
 
   return (
-    <main className="relative mt-24 flex h-full w-full flex-row">
+    <main className="relative flex h-full w-full flex-row">
       <RadnetzNav />
       <RadnetzMap initialMapView={initialMapView} interactiveLayerIds={[]} />
     </main>
