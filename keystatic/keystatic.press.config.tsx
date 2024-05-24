@@ -33,7 +33,7 @@ export const keystaticPressPageConfig = singleton({
       }),
       {
         label: 'Liste Medienartikel',
-        itemLabel: (props) => props.fields.url.value || 'Artikel',
+        itemLabel: (props) => props.fields.display.value || 'Artikel',
       },
     ),
     content: fields.mdx({
