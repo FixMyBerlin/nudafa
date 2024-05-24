@@ -56,6 +56,7 @@ const bicyclenetworkpagesCollection = defineCollection({
       menu: z.string(),
       title: z.string(),
       order: z.number(),
+      links: z.array(z.object({ url: z.string(), display: z.string() })).optional(),
     }),
 })
 const measuresCollection = defineCollection({
