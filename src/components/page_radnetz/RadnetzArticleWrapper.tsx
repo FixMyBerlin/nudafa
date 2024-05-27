@@ -8,7 +8,8 @@ import { ChevronLeftIcon } from '@heroicons/react/24/outline'
 import { useStore } from '@nanostores/react'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
-import { markdownProseClasses } from 'src/proseClasses'
+import { RadnetzInfo } from './RadnetzInfo'
+import { RadnetzLegend } from './RadnetzLegend'
 import { $router } from './utils/store'
 
 type Props = {
@@ -76,28 +77,8 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: P
             leaveTo="opacity-0 -translate-y-6"
           >
             <DisclosurePanel static className="flex flex-grow flex-col">
-              <div className="p-4">
-                <div className={clsx(markdownProseClasses)}>{children}</div>
-                {links && (
-                  <div>
-                    <p> Weiterführende Links:</p>
-                    <div className="grid grid-cols-2 gap-2 py-4">
-                      {links.map((link: any) => (
-                        <div>
-                          <a
-                            className="inline-block rounded-full border border-beige-700 bg-white px-5 py-3 font-semibold hover:bg-beige-600 hover:text-white"
-                            target="_blank"
-                            href={link.url}
-                          >
-                            {link.display}
-                          </a>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}{' '}
-              </div>
-              <div className="flex-grow bg-gray-50 p-4">Legende Platzhalter</div>
+              <RadnetzInfo links={links}>{children}</RadnetzInfo>
+              <RadnetzLegend legend={{ some: 'thing' }} />
             </DisclosurePanel>
           </Transition>
         </article>
