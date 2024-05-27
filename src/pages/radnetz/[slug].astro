@@ -7,7 +7,7 @@ import {
 import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 import { Radnetz } from '@components/page_radnetz/Radnetz'
 import { RadnetzArticleWrapper } from '@components/page_radnetz/RadnetzArticleWrapper'
-import { RadnetzNav } from '@components/page_radnetz/RadnetzNav'
+import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
 import { getCollection } from 'astro:content'
 import clsx from 'clsx'
 
@@ -58,7 +58,7 @@ const { title, links } = entry.data
 <LayoutApp title={title}>
   <!-- navHeightClassAsNegativeMarginBottom makes RadnetzNav 'max h-screen minus height of Navbar' possible -->
   <div class={clsx('relative flex h-full w-full flex-row', navHeightClassAsNegativeMarginBottom)}>
-    <RadnetzNav client:load articleSlug={entry.slug} pages={pages} />
+    <RadnetzNavMobileAndDesktop client:load articleSlug={entry.slug} pages={pages} />
     <Radnetz client:load />
     {
       pages.map(({ slug, title, Content }) => (

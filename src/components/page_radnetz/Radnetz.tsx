@@ -1,6 +1,6 @@
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { RadnetzMap } from './RadnetzMap'
-import { RadnetzNav } from './RadnetzNav'
+import { RadnetzNavMobileAndDesktop } from './RadnetzNav'
 
 export const Radnetz = () => {
   const initialMapView = {
@@ -12,7 +12,7 @@ export const Radnetz = () => {
 
   return (
     <main className="relative flex h-full w-full flex-row">
-      <RadnetzNav />
+      <RadnetzNavMobileAndDesktop />
       <RadnetzMap initialMapView={initialMapView} interactiveLayerIds={[]} />
     </main>
   )
