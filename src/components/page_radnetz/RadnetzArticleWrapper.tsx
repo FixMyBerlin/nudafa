@@ -55,15 +55,15 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: P
           aria-hidden={visible}
         >
           {/* navHeightClasses make 'max h-screen minus height of Navbar' possible */}
-          <div className={navHeightClass}></div>
-          <div className={clsx('relative flex items-start gap-4 px-4 pt-4')}>
+          <div className={clsx(navHeightClass, 'flex-shrink-0')}></div>
+          <div className={clsx('relative flex items-start justify-between gap-4 px-4 pt-4')}>
             <h3 className="text-lg font-bold md:text-2xl">{open ? title : ''}</h3>
             <DisclosureButton>
               <span className="sr-only">Artikel {open ? 'zuklappen' : 'aufklapp'}</span>
               {open ? (
-                <XMarkIcon className="bg-beige-200 hover:bg-beige-600 size-10 rounded-full p-2 hover:text-white" />
+                <XMarkIcon className="size-10 rounded-full bg-beige-200 p-2 hover:bg-beige-600 hover:text-white" />
               ) : (
-                <ChevronLeftIcon className="bg-beige-200 hover:bg-beige-600 size-10 rounded-full p-2 hover:text-white" />
+                <ChevronLeftIcon className="size-10 rounded-full bg-beige-200 p-2 hover:bg-beige-600 hover:text-white" />
               )}
             </DisclosureButton>
           </div>
@@ -78,14 +78,14 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: P
             <DisclosurePanel static className="flex flex-grow flex-col">
               <div className="p-4">
                 <div className={clsx(markdownProseClasses)}>{children}</div>
-                <div>
-                  <p> Weiterführende Links:</p>
-                  <div className="grid grid-cols-2 gap-2 py-4">
-                    {links &&
-                      links.map((link: any) => (
+                {links && (
+                  <div>
+                    <p> Weiterführende Links:</p>
+                    <div className="grid grid-cols-2 gap-2 py-4">
+                      {links.map((link: any) => (
                         <div>
                           <a
-                            className="font-semibold hover:bg-beige-600 inline-block rounded-full border border-beige-700 bg-white px-5 py-3 hover:text-white"
+                            className="inline-block rounded-full border border-beige-700 bg-white px-5 py-3 font-semibold hover:bg-beige-600 hover:text-white"
                             target="_blank"
                             href={link.url}
                           >
@@ -93,8 +93,9 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: P
                           </a>
                         </div>
                       ))}
+                    </div>
                   </div>
-                </div>
+                )}{' '}
               </div>
               <div className="flex-grow bg-gray-50 p-4">Legende Platzhalter</div>
             </DisclosurePanel>
