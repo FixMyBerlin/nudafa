@@ -41,7 +41,7 @@ const { communeId } = Astro.props as Props
 ---
 
 <span
-  class:list={['py-1px list-none rounded-md px-2 text-sm text-black', getColorClass(communeId)]}
+  class:list={['py-px list-none rounded-md px-2 text-sm text-black', getColorClass(communeId)]}
 >
   {getFullCommuneTitle(communeId)}
 </span>
