@@ -1,6 +1,5 @@
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { RadnetzMap } from './RadnetzMap'
-import { RadnetzNavMobileAndDesktop } from './RadnetzNav'
 
 export const Radnetz = () => {
   const initialMapView = {
@@ -9,11 +8,4 @@ export const Radnetz = () => {
     latitude: 52.35,
   }
   return <RadnetzMap initialMapView={initialMapView} interactiveLayerIds={[]} />
-
-  return (
-    <main className="relative flex h-full w-full flex-row">
-      <RadnetzNavMobileAndDesktop />
-      <RadnetzMap initialMapView={initialMapView} interactiveLayerIds={[]} />
-    </main>
-  )
 }
