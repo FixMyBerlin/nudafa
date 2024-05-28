@@ -1,7 +1,7 @@
 import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
 import { IconLegendLine } from './icons/IconLegendLine'
 
-export const LegendNetwork = () => {
+export const LegendZielnetz = () => {
   return (
     <Legend>
       <LegendCol>

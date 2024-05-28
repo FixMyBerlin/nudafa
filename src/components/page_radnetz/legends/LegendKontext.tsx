@@ -9,7 +9,7 @@ import {
 } from './Legend'
 import { IconLegendLine } from './icons/IconLegendLine'
 
-export const LegendCurrent = () => {
+export const LegendKontext = () => {
   return (
     <Legend>
       <LegendCol>

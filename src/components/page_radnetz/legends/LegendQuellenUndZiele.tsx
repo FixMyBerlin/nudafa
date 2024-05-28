@@ -15,7 +15,7 @@ import { Line } from './icons/Line'
 import { Sbahn } from './icons/Sbahn'
 import { Train } from './icons/Train'
 
-export const LegendFromTo = () => {
+export const LegendQuellenUndZiele = () => {
   return (
     <Legend>
       <LegendCol>

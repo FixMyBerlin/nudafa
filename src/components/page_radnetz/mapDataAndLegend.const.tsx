@@ -5,6 +5,13 @@ import type {
   LineLayerSpecification,
   SymbolLayerSpecification,
 } from 'maplibre-gl'
+import { LegendBestand } from './legends/LegendBestand'
+import { LegendKomfort } from './legends/LegendKomfort'
+import { LegendKontext } from './legends/LegendKontext'
+import { LegendQuellenUndZiele } from './legends/LegendQuellenUndZiele'
+import { LegendSicherheit } from './legends/LegendSicherheit'
+import { LegendStrassentypen } from './legends/LegendStrassentypen'
+import { LegendZielnetz } from './legends/LegendZielnetz'
 
 export type MapDataAndLegend = {
   [pageSlug: string]: {
@@ -76,6 +83,38 @@ export const mapDataAndLegend: MapDataAndLegend = {
         },
       },
     ],
-    legends: <span>Component</span>,
+    legends: <LegendQuellenUndZiele />,
   },
+  komfort: {
+    sources: [],
+    legends: <LegendKomfort />,
+  },
+  // todo: check if this matching is correct
+  // "Kontext" in table = "Netze und Planungen" in map / former website ?
+  kontext: {
+    sources: [],
+    legends: <LegendKontext />,
+  },
+  // todo: check if this matching is correct
+  // "Bestand" in table = "Radinfrastruktur" in map / former website ?
+  bestand: {
+    sources: [],
+    legends: <LegendBestand />,
+  },
+  sicherheit: {
+    sources: [],
+    legends: <LegendSicherheit />,
+  },
+  strassentypen: {
+    sources: [],
+    legends: <LegendStrassentypen />,
+  },
+  zielnetz: {
+    sources: [],
+    legends: <LegendZielnetz />,
+  },
+  // missing legends:
+  // massnahmen
+  // bedarfe
+  // luftliniennetz
 }
