@@ -1,14 +1,11 @@
 ---
 import LayoutApp from '@components/layouts/LayoutApp.astro'
-import {
-  navHeightClass,
-  navHeightClassAsNegativeMarginBottom,
-} from '@components/layouts/navbar/Navbar'
+import { navHeightClassAsNegativeMarginBottom } from '@components/layouts/navbar/Navbar'
 import TextLinkArrow from '@components/links/TextLinkArrow.astro'
-import { Radnetz } from '@components/page_radnetz/Radnetz'
 import { RadnetzArticleWrapperDesktop } from '@components/page_radnetz/RadnetzArticleWrapperDesktop'
 import { RadnetzArticleWrapperMobile } from '@components/page_radnetz/RadnetzArticleWrapperMobile'
 import { RadnetzImprintPrivacy } from '@components/page_radnetz/RadnetzImprintPrivacy'
+import { RadnetzMap } from '@components/page_radnetz/RadnetzMap'
 
 import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
 import { getCollection } from 'astro:content'
@@ -65,7 +62,7 @@ const { title, links } = entry.data
   >
     <RadnetzNavMobileAndDesktop client:load articleSlug={entry.slug} pages={pages} />
     <div class="relative h-[500px] w-full md:h-full">
-      <Radnetz client:load />
+      <RadnetzMap client:load />
     </div>
 
     {

@@ -13,8 +13,6 @@ import { $clickedMapData, $mapLoaded, $router } from './utils/store'
 import { useMapParam, type MapParamObject } from './utils/useMapParam'
 
 type Props = {
-  initialMapView: MapParamObject
-  interactiveLayerIds: string[]
   children?: React.ReactNode
 }
 
@@ -27,8 +25,14 @@ const maxBounds = [
 const minZoom = 11.5
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxzoom
 const maxZoom = 16
+const initialMapView: MapParamObject = {
+  zoom: 12,
+  longitude: 13.61,
+  latitude: 52.35,
+}
+const interactiveLayerIds: string[] = []
 
-export const RadnetzMap = ({ initialMapView, interactiveLayerIds, children }: Props) => {
+export const RadnetzMap = ({ children }: Props) => {
   // Setup pmtiles
   useEffect(() => {
     const protocol = new pmtiles.Protocol()
