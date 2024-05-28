@@ -23,20 +23,24 @@ const RadnetzNav = ({ currentSection, handleClick, pages, className }: RadnetzNa
         className,
       )}
     >
-      <ul className="divide-y divide-gray-100">
+      <ul className="text-sm font-medium">
         {pages.map(({ slug, menu }) => {
           const active = currentSection === slug
           return (
-            <li
-              className={clsx('px-3 py-3 md:p-4', active ? 'bg-beige-50 md:bg-beige-600' : '')}
-              key={slug}
-            >
+            <li key={slug} className="min-h-0">
               <a
                 onClick={(event) => handleClick(event, slug)}
                 href={`/radnetz/${slug}`}
-                className={clsx(active ? 'text-black md:text-white' : '', 'text-sm font-medium')}
+                className={clsx(
+                  'group block border-b border-gray-100 px-3 py-3 md:p-4',
+                  active
+                    ? 'bg-beige-50 text-black md:bg-beige-600 md:text-white'
+                    : 'hover:bg-gray-50',
+                )}
               >
-                <div className="border-l-2 border-l-beige-50 pl-2">{menu}</div>
+                <span className="border-l-2 border-l-beige-50 pl-2 group-hover:border-l-beige-100">
+                  {menu}
+                </span>
               </a>
             </li>
           )
