@@ -8,12 +8,12 @@ type Props = {
 
 export const RadnetzInfo = ({ children, links }: Props) => {
   return (
-    <div className="p-4">
+    <div className="px-4 ">
       <div className={clsx(markdownProseClasses)}>{children}</div>
       {links && (
         <div>
           <p> Weiterführende Links:</p>
-          <div className="grid grid-cols-2 gap-2 py-4">
+          <div className="grid gap-2 py-4 md:grid-cols-2">
             {links.map((link: any) => (
               <div key={link.url}>
                 <a
@@ -27,7 +27,7 @@ export const RadnetzInfo = ({ children, links }: Props) => {
             ))}
           </div>
         </div>
-      )}{' '}
+      )}
     </div>
   )
 }

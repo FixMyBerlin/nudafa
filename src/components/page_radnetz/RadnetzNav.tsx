@@ -1,4 +1,3 @@
-import { linkStyles } from '@components/links/styles'
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import { useStore } from '@nanostores/react'
@@ -6,6 +5,7 @@ import { openPage } from '@nanostores/router'
 import clsx from 'clsx'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { Page } from 'src/pages/radnetz/[slug].astro'
+import { RadnetzImprintPrivacy } from './RadnetzImprintPrivacy'
 import { $router } from './utils/store'
 
 type RadnetzNavProps = {
@@ -19,7 +19,7 @@ const RadnetzNav = ({ currentSection, handleClick, pages, className }: RadnetzNa
   return (
     <nav
       className={clsx(
-        'max-h-screen w-[210px] flex-col overflow-auto bg-white md:z-auto md:flex md:w-[310px] md:justify-between md:p-2',
+        'max-h-screen w-[210px] flex-col overflow-auto bg-white shadow-lg md:z-auto md:flex md:w-[310px] md:justify-between md:p-2 md:shadow-none',
         className,
       )}
     >
@@ -42,13 +42,8 @@ const RadnetzNav = ({ currentSection, handleClick, pages, className }: RadnetzNa
           )
         })}
       </ul>
-      <div className="mb-6 mt-4 flex justify-center gap-2 text-sm">
-        <a className={linkStyles} href="/impressum">
-          Impressum
-        </a>
-        <a className={linkStyles} href="/datenschutz">
-          Datenschutz
-        </a>
+      <div className="hidden md:block">
+        <RadnetzImprintPrivacy />
       </div>
     </nav>
   )
