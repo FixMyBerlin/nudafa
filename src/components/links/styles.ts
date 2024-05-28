@@ -19,7 +19,7 @@ const hoverTranslateClassNames =
 
 export const cardStylesForLinkElements = clsx(
   hoverTranslateClassNames,
-  'active:ring-beige-600 active:ring-2', // activeStyleForLinkElement
+  'active:ring-2 active:ring-beige-600', // activeStyleForLinkElement
 )
 
 // WHITE BUTTON  (white/purple text)
@@ -27,13 +27,13 @@ const whiteButtonBase = 'ring-black text-black bg-transparent ring-1 px-6'
 const whiteButtonStylesForLinkElement = clsx(
   buttonBase,
   whiteButtonBase,
-  'active:ring-beige-600 active:ring-2', // activeStyleForLinkElement
+  'active:ring-2 active:ring-beige-600', // activeStyleForLinkElement
   hoverTranslateClassNames, // hoverStyleForLinkElement
 )
 export const whiteButtonStyles = clsx(
   buttonBase,
   whiteButtonBase,
-  'enabled:active:ring-beige-600 enabled:active:border-0 enabled:active:ring-2', // activeStyleForButtonElement
+  'enabled:active:border-0 enabled:active:ring-2 enabled:active:ring-beige-600', // activeStyleForButtonElement
   'transition-all duration-200 enabled:hover:-translate-y-0.5 enabled:hover:shadow-lg', // hoverStyleForButtonElement
 )
 
@@ -48,7 +48,7 @@ const blackButtonStylesForLinkElement = clsx(
 export const blackButtonStyles = clsx(
   buttonBase,
   blackButtonBase,
-  'enabled:active:ring-beige-600 enabled:active:border-0 enabled:active:ring-2', // hoverStyleForButtonElement
+  'enabled:active:border-0 enabled:active:ring-2 enabled:active:ring-beige-600', // hoverStyleForButtonElement
   'transition-all duration-200 enabled:hover:-translate-y-0.5 enabled:hover:shadow-lg', // activeStyleForButtonElement
 )
 

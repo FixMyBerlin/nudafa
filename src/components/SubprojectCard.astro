@@ -36,7 +36,7 @@ const { href, title, teaser, image, teaserImageCopyright } = Astro.props
       }
     </figure>
     <div class="line-clamp-2 flex flex-col gap-4 p-6">
-      <h3 class="font-extrabold font-serif text-2xl">{title}</h3>
+      <h3 class="font-serif text-2xl font-extrabold">{title}</h3>
       {teaser && <p class="line-clamp-3 text-sm text-gray-600">{teaser}</p>}
       <small class:list={[linkStyles]}>Weiterlesen</small>
     </div>
