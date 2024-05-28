@@ -8,6 +8,15 @@ import {
   LegendSources,
 } from './Legend'
 
+import { Icon0 } from './icons/Icon0'
+import { Icon1 } from './icons/Icon1'
+import { Icon2 } from './icons/Icon2'
+import { Icon3 } from './icons/Icon3'
+import { Icon4 } from './icons/Icon4'
+import { School } from './icons/School'
+import { Unsafe } from './icons/Unsafe'
+import { WayToSchool } from './icons/WayToSchool'
+
 export const LegendSafety = () => {
   return (
     <Legend>
@@ -15,15 +24,21 @@ export const LegendSafety = () => {
         <LegendHeader>Schulwegsicherheit</LegendHeader>
         <LegendItems>
           <LegendItem>
-            <IconWrapper>{/* <IconToSchool /> */}</IconWrapper>
+            <IconWrapper>
+              <WayToSchool />
+            </IconWrapper>
             <span>Schulwege¹ </span>
           </LegendItem>
           <LegendItem>
-            <IconWrapper>{/* <IconToSchoolUnsafe /> */}</IconWrapper>
+            <IconWrapper>
+              <Unsafe />
+            </IconWrapper>
             Unsichere Abschnitte auf Schulwegen²
           </LegendItem>
           <LegendItem>
-            <IconWrapper>{/* <IconSchool /> */}</IconWrapper>
+            <IconWrapper>
+              <School />
+            </IconWrapper>
             Bildungseinrichtungen³
           </LegendItem>
         </LegendItems>
@@ -32,16 +47,28 @@ export const LegendSafety = () => {
         <LegendHeader>Unfälle mit Radfahrbeteiligung (2016-2021)⁴</LegendHeader>
         <LegendItems>
           <LegendItem>
-            <IconWrapper>{/* <Icons0 /> */}</IconWrapper> mit Getöteten
+            <IconWrapper>
+              <Icon0 />
+            </IconWrapper>
+            mit Getöteten
           </LegendItem>
           <LegendItem>
-            <IconWrapper>{/* <Icons1 /> */}</IconWrapper> mit Schwerverletzten
+            <IconWrapper>
+              <Icon1 />
+            </IconWrapper>
+            mit Schwerverletzten
           </LegendItem>
           <LegendItem>
-            <IconWrapper>{/* <Icons2 /> */}</IconWrapper> mit Leichtverletzten
+            <IconWrapper>
+              <Icon2 />
+            </IconWrapper>
+            mit Leichtverletzten
           </LegendItem>
           <LegendItem>
-            <IconWrapper>{/* <Icons3 /> */}</IconWrapper> mit Sachschaden
+            <IconWrapper>
+              <Icon3 />
+            </IconWrapper>
+            mit Sachschaden
           </LegendItem>
         </LegendItems>
       </LegendCol>
@@ -49,7 +76,10 @@ export const LegendSafety = () => {
         <LegendHeader>Gefahrenstellen</LegendHeader>
         <LegendItems>
           <LegendItem>
-            <IconWrapper>{/* <Icons4 /> */}</IconWrapper> Beinaheunfälle⁵
+            <IconWrapper>
+              <Icon4 />
+            </IconWrapper>
+            Beinaheunfälle⁵
           </LegendItem>
         </LegendItems>
       </LegendCol>

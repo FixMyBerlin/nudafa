@@ -1,4 +1,3 @@
-import { IconLegendArea, IconLegendCircle } from './IconLegend'
 import {
   IconWrapper,
   Legend,
@@ -9,6 +8,12 @@ import {
   LegendSources,
 } from './Legend'
 import { LegendItemPoiShop } from './LegendItems/LegendItemPoiShop'
+import { Airport } from './icons/Airport'
+import { IconLegendArea } from './icons/IconLegendArea'
+import { IconLegendCircle } from './icons/IconLegendCircle'
+import { Line } from './icons/Line'
+import { Sbahn } from './icons/Sbahn'
+import { Train } from './icons/Train'
 
 export const LegendFromTo = () => {
   return (
@@ -17,15 +22,21 @@ export const LegendFromTo = () => {
         <LegendHeader>Hindernisse und natürliche Barrieren</LegendHeader>
         <LegendItems>
           <LegendItem>
-            <IconWrapper>{/* <IconTrain>/> */}</IconWrapper>
+            <IconWrapper>
+              <Train />
+            </IconWrapper>
             Eisenbahnstrecken
           </LegendItem>
           <LegendItem>
-            <IconWrapper>{/* <IconLine/> */}</IconWrapper>
+            <IconWrapper>
+              <Line />
+            </IconWrapper>
             Autobahnen
           </LegendItem>
           <LegendItem>
-            <IconWrapper>{/* <IconAirport /> */}</IconWrapper>
+            <IconWrapper>
+              <Airport />
+            </IconWrapper>
             Gewässer, Flughafen
           </LegendItem>
         </LegendItems>
@@ -80,7 +91,9 @@ export const LegendFromTo = () => {
             Schulen
           </LegendItem>
           <LegendItem>
-            <IconWrapper>{/* <SbahnIcon /> */}</IconWrapper>
+            <IconWrapper>
+              <Sbahn />
+            </IconWrapper>
             S-Bahnhöfe
           </LegendItem>
           <LegendItemPoiShop />

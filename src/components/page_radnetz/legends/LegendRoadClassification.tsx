@@ -1,4 +1,3 @@
-import { IconLegendLine } from './IconLegend'
 import {
   IconWrapper,
   Legend,
@@ -9,6 +8,7 @@ import {
   LegendSources,
 } from './Legend'
 import { LegendItemPoiShop } from './LegendItems/LegendItemPoiShop'
+import { IconLegendLine } from './icons/IconLegendLine'
 
 export const LegendRoadClassification = () => {
   return (

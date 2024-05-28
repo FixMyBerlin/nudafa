@@ -1,34 +1,33 @@
-import { IconLegendCircle } from '../IconLegend'
 import { IconWrapper, LegendItem } from '../Legend'
+import { IconLegendCircle } from '../icons/IconLegendCircle'
+
+import { Heatmap } from './../icons/Heatmap'
 
 export const LegendItemPoiShop = () => {
   return (
     <>
       <LegendItem>
         <IconWrapper>
-          {/* <IconHeatmap /> */}
-          <div>hallo</div>
+          <Heatmap />
         </IconWrapper>
         Wichtige Zielorte
       </LegendItem>
-      {/* todo legend */}
-      <LegendItem>
-        <IconWrapper> </IconWrapper>
+      <LegendItem className="mt-2">
         <div>
           <em>Wenn nah heran gezoomed:</em> <br />
-          <div style={{ width: '10px', display: 'inline-block' }}>
+          <div className="mr-2 inline-block w-2.5">
             <IconLegendCircle color="#e709fb" borderWidth={0} size={5} />
-          </div>{' '}
+          </div>
           Einkaufen
           <br />
-          <div style={{ width: '10px', display: 'inline-block' }}>
+          <div className="mr-2 inline-block w-2.5">
             <IconLegendCircle color="#960854" borderWidth={0} size={5} />
-          </div>{' '}
+          </div>
           Freizeit / Sport
           <br />
-          <div style={{ width: '10px', display: 'inline-block' }}>
+          <div className="mr-2 inline-block w-2.5">
             <IconLegendCircle color="#1122df" borderWidth={0} size={5} />
-          </div>{' '}
+          </div>
           Bildungsstätten
         </div>
       </LegendItem>
