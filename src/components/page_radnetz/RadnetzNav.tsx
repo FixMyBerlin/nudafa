@@ -24,7 +24,7 @@ const RadnetzNav = ({ currentSection, handleClick, pages, className }: RadnetzNa
       )}
     >
       <ul className="divide-y divide-gray-100">
-        {pages.map(({ slug, title }) => {
+        {pages.map(({ slug, menu }) => {
           const active = currentSection === slug
           return (
             <li
@@ -36,7 +36,7 @@ const RadnetzNav = ({ currentSection, handleClick, pages, className }: RadnetzNa
                 href={`/radnetz/${slug}`}
                 className={clsx(active ? 'text-black md:text-white' : '', 'text-sm font-medium')}
               >
-                <div className="border-l-2 border-l-beige-50 pl-2">{title}</div>
+                <div className="border-l-2 border-l-beige-50 pl-2">{menu}</div>
               </a>
             </li>
           )
@@ -81,7 +81,7 @@ export const RadnetzNavMobileAndDesktop = ({ articleSlug, pages }: Props) => {
             <>
               <DisclosureButton className="w-[210px]">
                 <div className="flex items-center justify-between bg-beige-600 px-3 py-3 text-left text-sm font-semibold text-white">
-                  <div className="border-l-2 border-l-beige-50 pl-2">{currentArticle?.title}</div>
+                  <div className="border-l-2 border-l-beige-50 pl-2">{currentArticle?.menu}</div>
                   {open ? (
                     <ChevronDownIcon className="h-5 w-5 flex-shrink-0" />
                   ) : (
