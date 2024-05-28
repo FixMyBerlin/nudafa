@@ -1,11 +1,11 @@
 import { mapDataAndLegend } from './mapDataAndLegend.const'
 
 type Props = {
-  slug: string
+  articleSlug: string
 }
 
-export const RadnetzLegend = ({ slug }: Props) => {
-  const legends = mapDataAndLegend[slug]?.legends
+export const RadnetzLegend = ({ articleSlug }: Props) => {
+  const legends = mapDataAndLegend[articleSlug]?.legends
   if (!legends) return null
 
   return <div className="flex-grow bg-gray-50 p-4">{legends}</div>
