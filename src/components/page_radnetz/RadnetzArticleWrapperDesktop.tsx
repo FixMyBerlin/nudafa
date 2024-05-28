@@ -79,7 +79,7 @@ export const RadnetzArticleWrapperDesktop = ({ articleSlug, title, children, lin
           >
             <DisclosurePanel static className="flex flex-grow flex-col">
               <RadnetzInfo links={links}>{children}</RadnetzInfo>
-              <RadnetzLegend legend={{ some: 'thing' }} />
+              <RadnetzLegend slug={articleSlug} />
             </DisclosurePanel>
           </Transition>
         </article>
