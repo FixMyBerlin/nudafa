@@ -2,8 +2,7 @@
 import LayoutApp from '@components/layouts/LayoutApp.astro'
 import { navHeightClassAsNegativeMarginBottom } from '@components/layouts/navbar/Navbar'
 import TextLinkArrow from '@components/links/TextLinkArrow.astro'
-import { RadnetzArticleWrapperDesktop } from '@components/page_radnetz/RadnetzArticleWrapperDesktop'
-import { RadnetzArticleWrapperMobile } from '@components/page_radnetz/RadnetzArticleWrapperMobile'
+import { RadnetzArticleWrapper } from '@components/page_radnetz/RadnetzArticleWrapper'
 import { RadnetzImprintPrivacy } from '@components/page_radnetz/RadnetzImprintPrivacy'
 import { RadnetzMap } from '@components/page_radnetz/RadnetzMap'
 import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
@@ -51,22 +50,13 @@ const { title, links } = entry.data
 
     {
       pages.map(({ slug, title, Content }) => (
-        <>
-          <RadnetzArticleWrapperDesktop client:load articleSlug={slug} title={title} links={links}>
-            <Content
-              components={{
-                TextLinkArrow,
-              }}
-            />
-          </RadnetzArticleWrapperDesktop>
-          <RadnetzArticleWrapperMobile client:load articleSlug={slug} title={title} links={links}>
-            <Content
-              components={{
-                TextLinkArrow,
-              }}
-            />
-          </RadnetzArticleWrapperMobile>
-        </>
+        <RadnetzArticleWrapper client:load articleSlug={slug} title={title} links={links}>
+          <Content
+            components={{
+              TextLinkArrow,
+            }}
+          />
+        </RadnetzArticleWrapper>
       ))
     }
   </div>
