@@ -38,6 +38,23 @@ const initialMapView: MapParamObject = {
 const interactiveLayerIds: string[] = []
 
 export const RadnetzMap = ({ articleSlug, children }: Props) => {
+  const [isScreenHorizontal, setIsScreenHorizontal] = useState(false)
+
+  useEffect(() => {
+    // reminder: hard coded breakpoint md tailwind css - has to be changed if tailwind.config.ts is changed
+    const mdMediaQuery = window.matchMedia('(min-width: 768px)')
+    function onMediaQueryChange({ matches }: { matches: boolean }) {
+      setIsScreenHorizontal(matches)
+    }
+
+    onMediaQueryChange(mdMediaQuery)
+    mdMediaQuery.addEventListener('change', onMediaQueryChange)
+
+    return () => {
+      mdMediaQuery.removeEventListener('change', onMediaQueryChange)
+    }
+  }, [])
+
   // Setup pmtiles
   useEffect(() => {
     const protocol = new pmtiles.Protocol()
@@ -97,6 +114,7 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
         // Some defaults
         attributionControl={false}
         dragRotate={false}
+        scrollZoom={isScreenHorizontal}
         // @ts-expect-error: See https://github.com/visgl/react-map-gl/issues/2310
         RTLTextPlugin={null}
       >
@@ -123,7 +141,10 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
         })}
 
         <AttributionControl compact={true} position="bottom-left" />
-        <NavigationControl showCompass={false} position="bottom-left" />
+        <NavigationControl
+          showCompass={false}
+          position={isScreenHorizontal ? 'top-left' : 'top-right'}
+        />
       </Map>
     </div>
   )
