@@ -2,19 +2,16 @@ import {
   navHeightClass,
   navHeightClassAsNegativeMarginTop,
 } from '@components/layouts/navbar/Navbar'
-import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/20/solid'
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'
-import { useStore } from '@nanostores/react'
 import clsx from 'clsx'
-import { useEffect, useState } from 'react'
 import { RadnetzInfo } from './RadnetzInfo'
 import { RadnetzLegend } from './RadnetzLegend'
-import { $router } from './utils/store'
 
 type Props = {
+  visible: boolean
   articleSlug: string
-
   title: string
   children: React.ReactNode
   links:
@@ -29,17 +26,13 @@ type Props = {
  * @desc In SSR we render all articles of the collection on every page but hide all but the current.
  * In React we update the hidden state for the current article.
  */
-export const RadnetzArticleWrapperDesktop = ({ articleSlug, title, children, links }: Props) => {
-  // SSR: We need to tell the router which page is pre-rendered so there is no hydration mismatch
-  if (import.meta.env.SSR) {
-    $router.open(`/radnetz/${articleSlug}`)
-  }
-  // SSR: We have to use this weird useEffect roundtrip in order to work around hydration mismatches
-  const router = useStore($router)
-  const section = router?.params.section
-  const [visible, setVisible] = useState(false)
-  useEffect(() => setVisible(section === articleSlug), [section])
-
+export const RadnetzArticleWrapperDesktop = ({
+  visible,
+  articleSlug,
+  title,
+  children,
+  links,
+}: Props) => {
   return (
     <Disclosure as="div" className="hidden md:block" defaultOpen={true}>
       {({ open }) => (
@@ -57,8 +50,8 @@ export const RadnetzArticleWrapperDesktop = ({ articleSlug, title, children, lin
           aria-hidden={visible}
         >
           {/* navHeightClasses make 'max h-screen minus height of Navbar' possible */}
-          <div className={clsx(navHeightClass, 'flex-shrink-0')}></div>
-          <div className={clsx('relative flex items-start justify-between gap-4 px-4 pt-4')}>
+          <div className={clsx(navHeightClass, 'flex-shrink-0')} />
+          <div className="relative flex items-start justify-between gap-4 px-4 pt-4">
             <h3 className="text-2xl font-bold">{open ? title : ''}</h3>
             <DisclosureButton>
               <span className="sr-only">Artikel {open ? 'zuklappen' : 'aufklapp'}</span>
@@ -69,19 +62,10 @@ export const RadnetzArticleWrapperDesktop = ({ articleSlug, title, children, lin
               )}
             </DisclosureButton>
           </div>
-          <Transition
-            enter="duration-200 ease-out"
-            enterFrom="opacity-0 -translate-y-6"
-            enterTo="opacity-100 translate-y-0"
-            leave="duration-300 ease-out"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 -translate-y-6"
-          >
-            <DisclosurePanel static className="flex flex-grow flex-col">
-              <RadnetzInfo links={links}>{children}</RadnetzInfo>
-              <RadnetzLegend articleSlug={articleSlug} />
-            </DisclosurePanel>
-          </Transition>
+          <DisclosurePanel className="flex flex-grow flex-col">
+            <RadnetzInfo links={links}>{children}</RadnetzInfo>
+            <RadnetzLegend articleSlug={articleSlug} />
+          </DisclosurePanel>
         </article>
       )}
     </Disclosure>

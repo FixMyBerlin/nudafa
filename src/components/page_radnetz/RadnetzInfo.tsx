@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { markdownProseClasses } from 'src/proseClasses'
 
 type Props = {
@@ -8,13 +7,14 @@ type Props = {
 
 export const RadnetzInfo = ({ children, links }: Props) => {
   return (
-    <div className="px-4 ">
-      <div className={clsx(markdownProseClasses)}>{children}</div>
+    <section className="px-4">
+      <div className={markdownProseClasses}>{children}</div>
+
       {links && (
-        <div>
-          <p> Weiterführende Links:</p>
+        <nav>
+          <h3>Weiterführende Links:</h3>
           <div className="grid gap-2 py-4 md:grid-cols-2">
-            {links.map((link: any) => (
+            {links.map((link) => (
               <div key={link.url}>
                 <a
                   className="inline-block rounded-full border border-beige-700 bg-white px-5 py-3 font-semibold hover:bg-beige-600 hover:text-white"
@@ -26,8 +26,8 @@ export const RadnetzInfo = ({ children, links }: Props) => {
               </div>
             ))}
           </div>
-        </div>
+        </nav>
       )}
-    </div>
+    </section>
   )
 }
