@@ -4,10 +4,10 @@ export const Unsafe = () => {
       <path
         d="M.5 4.5h24"
         stroke="#f07524"
-        stroke-width="8"
-        stroke-opacity=".7"
+        strokeWidth="8"
+        strokeOpacity=".7"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       />
     </svg>
   )

@@ -5,8 +5,8 @@ export const Airport = () => {
         d="M25 1 1 25m24-12L13 25M25 7 7 25m18-6-6 6M1 13 13 1M1 19 19 1M1 7l6-6"
         stroke="#868686"
         fill="none"
-        fill-rule="evenodd"
-        stroke-linecap="square"
+        fillRule="evenodd"
+        strokeLinecap="square"
       />
     </svg>
   )

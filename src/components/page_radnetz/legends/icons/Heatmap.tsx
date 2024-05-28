@@ -11,8 +11,8 @@ export const Heatmap = () => {
           gradientTransform="matrix(0 1 -.94816 0 .814 -.018)"
           id="b"
         >
-          <stop stop-color="#952809" offset="0%" />
-          <stop stop-color="#952709" stop-opacity=".1" offset="100%" />
+          <stop stopColor="#952809" offset="0%" />
+          <stop stopColor="#952709" stopOpacity=".1" offset="100%" />
         </radialGradient>
         <filter
           x="-11.7%"
@@ -30,7 +30,7 @@ export const Heatmap = () => {
         filter="url(#a)"
         transform="translate(-240 -249)"
         fill="url(#b)"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       />
     </svg>
   )

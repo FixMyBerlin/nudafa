@@ -14,6 +14,7 @@ import { $router } from './utils/store'
 
 type Props = {
   articleSlug: string
+
   title: string
   children: React.ReactNode
   links:
@@ -40,7 +41,7 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: P
   useEffect(() => setVisible(section === articleSlug), [section])
 
   return (
-    <Disclosure defaultOpen={true}>
+    <Disclosure as="div" defaultOpen={true}>
       {({ open }) => (
         <article
           className={
