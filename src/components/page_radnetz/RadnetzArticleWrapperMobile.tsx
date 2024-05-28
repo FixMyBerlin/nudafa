@@ -33,7 +33,7 @@ export const RadnetzArticleWrapperMobile = ({ articleSlug, title, children, link
   useEffect(() => setVisible(section === articleSlug), [section])
 
   return (
-    <article className={visible ? 'bg-green-50' : 'hidden'} aria-hidden={visible}>
+    <article className={visible ? 'bg-green-50 md:hidden' : 'hidden'} aria-hidden={visible}>
       <h3 className="px-4 pt-4 text-lg font-bold">{title}</h3>
       <RadnetzInfo links={links}>{children}</RadnetzInfo>
       <RadnetzLegend slug={articleSlug} />
