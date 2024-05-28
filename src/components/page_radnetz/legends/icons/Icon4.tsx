@@ -8,8 +8,8 @@ export const Icon4 = () => {
         transform="translate(1 -26)"
         fill="#FFF"
         stroke="#FE7E16"
-        stroke-width="2"
-        fill-rule="evenodd"
+        strokeWidth="2"
+        fillRule="evenodd"
       />
     </svg>
   )
