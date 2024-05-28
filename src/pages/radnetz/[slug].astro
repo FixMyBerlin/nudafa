@@ -61,9 +61,7 @@ const { title, links } = entry.data
     class={clsx('relative h-full w-full md:flex md:flex-row', navHeightClassAsNegativeMarginBottom)}
   >
     <RadnetzNavMobileAndDesktop client:load articleSlug={entry.slug} pages={pages} />
-    <div class="relative h-[500px] w-full md:h-full">
-      <RadnetzMap client:load />
-    </div>
+    <RadnetzMap client:load />
 
     {
       pages.map(({ slug, title, Content }) => (

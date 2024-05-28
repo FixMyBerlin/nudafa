@@ -1,3 +1,4 @@
+import { SmallSpinner } from '@components/spinner/SmallSpinner'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import * as pmtiles from 'pmtiles'
@@ -60,43 +61,50 @@ export const RadnetzMap = ({ children }: Props) => {
   }
 
   return (
-    <Map
-      id="mainMap"
-      // Map View
-      initialViewState={mapParamsObject()}
-      onMoveEnd={handleMoveEnd}
-      // Contain Map
-      maxBounds={maxBounds}
-      minZoom={minZoom}
-      maxZoom={maxZoom}
-      // Style: https://cloud.maptiler.com/maps/dataviz/
-      mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=ECOoUBmpqklzSCASXxcu"
-      style={{ width: '100%', height: '100%' }}
-      // Set map state for <MapData>:
-      onLoad={() => $mapLoaded.set(true)}
-      // "Loading…"
-      onData={() => setMapDataLoading(true)}
-      onIdle={() => setMapDataLoading(false)}
-      // Cursor
-      // UNUSED at the moment
-      interactiveLayerIds={interactiveLayerIds}
-      cursor={cursorStyle}
-      onMouseEnter={() => setCursorStyle('pointer')}
-      onMouseLeave={() => setCursorStyle('grab')}
-      // Inspector
-      // UNUSED at the moment
-      onClick={(event) => $clickedMapData.set(event.features)}
-      // Some defaults
-      attributionControl={false}
-      dragRotate={false}
-      // @ts-expect-error: See https://github.com/visgl/react-map-gl/issues/2310
-      RTLTextPlugin={null}
-    >
-      {children}
-      {/* TODO: Make Loading state nice with some spinner component */}
-      {mapDataLoading && <div className="absolute left-0 top-0 bg-white p-2">Loading...</div>}
-      <AttributionControl compact={true} position="bottom-left" />
-      <NavigationControl showCompass={false} position="bottom-left" />
-    </Map>
+    <div className="relative h-[500px] w-full md:h-full">
+      <Map
+        id="mainMap"
+        // Map View
+        initialViewState={mapParamsObject()}
+        onMoveEnd={handleMoveEnd}
+        // Contain Map
+        maxBounds={maxBounds}
+        minZoom={minZoom}
+        maxZoom={maxZoom}
+        // Style: https://cloud.maptiler.com/maps/dataviz/
+        mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=ECOoUBmpqklzSCASXxcu"
+        style={{ width: '100%', height: '100%' }}
+        // Set map state for <MapData>:
+        onLoad={() => $mapLoaded.set(true)}
+        // "Loading…"
+        onData={() => setMapDataLoading(true)}
+        onIdle={() => setMapDataLoading(false)}
+        // Cursor
+        // UNUSED at the moment
+        interactiveLayerIds={interactiveLayerIds}
+        cursor={cursorStyle}
+        onMouseEnter={() => setCursorStyle('pointer')}
+        onMouseLeave={() => setCursorStyle('grab')}
+        // Inspector
+        // UNUSED at the moment
+        onClick={(event) => $clickedMapData.set(event.features)}
+        // Some defaults
+        attributionControl={false}
+        dragRotate={false}
+        // @ts-expect-error: See https://github.com/visgl/react-map-gl/issues/2310
+        RTLTextPlugin={null}
+      >
+        {children}
+
+        {mapDataLoading && (
+          <div className="absolute left-5 top-5 flex items-center justify-center">
+            <SmallSpinner />
+          </div>
+        )}
+
+        <AttributionControl compact={true} position="bottom-left" />
+        <NavigationControl showCompass={false} position="bottom-left" />
+      </Map>
+    </div>
   )
 }
