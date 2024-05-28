@@ -29,7 +29,7 @@ type Props = {
  * @desc In SSR we render all articles of the collection on every page but hide all but the current.
  * In React we update the hidden state for the current article.
  */
-export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: Props) => {
+export const RadnetzArticleWrapperDesktop = ({ articleSlug, title, children, links }: Props) => {
   // SSR: We need to tell the router which page is pre-rendered so there is no hydration mismatch
   if (import.meta.env.SSR) {
     $router.open(`/radnetz/${articleSlug}`)
@@ -41,7 +41,7 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: P
   useEffect(() => setVisible(section === articleSlug), [section])
 
   return (
-    <Disclosure as="div" defaultOpen={true}>
+    <Disclosure as="div" className="hidden md:block" defaultOpen={true}>
       {({ open }) => (
         <article
           className={
@@ -59,7 +59,7 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: P
           {/* navHeightClasses make 'max h-screen minus height of Navbar' possible */}
           <div className={clsx(navHeightClass, 'flex-shrink-0')}></div>
           <div className={clsx('relative flex items-start justify-between gap-4 px-4 pt-4')}>
-            <h3 className="text-lg font-bold md:text-2xl">{open ? title : ''}</h3>
+            <h3 className="text-2xl font-bold">{open ? title : ''}</h3>
             <DisclosureButton>
               <span className="sr-only">Artikel {open ? 'zuklappen' : 'aufklapp'}</span>
               {open ? (

@@ -6,7 +6,10 @@ import {
 } from '@components/layouts/navbar/Navbar'
 import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 import { Radnetz } from '@components/page_radnetz/Radnetz'
-import { RadnetzArticleWrapper } from '@components/page_radnetz/RadnetzArticleWrapper'
+import { RadnetzArticleWrapperDesktop } from '@components/page_radnetz/RadnetzArticleWrapperDesktop'
+import { RadnetzArticleWrapperMobile } from '@components/page_radnetz/RadnetzArticleWrapperMobile'
+import { RadnetzImprintPrivacy } from '@components/page_radnetz/RadnetzImprintPrivacy'
+
 import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
 import { getCollection } from 'astro:content'
 import clsx from 'clsx'
@@ -57,19 +60,36 @@ const { title, links } = entry.data
 
 <LayoutApp title={title}>
   <!-- navHeightClassAsNegativeMarginBottom makes RadnetzNav 'max h-screen minus height of Navbar' possible -->
-  <div class={clsx('relative flex h-full w-full flex-row', navHeightClassAsNegativeMarginBottom)}>
+  <div
+    class={clsx('relative h-full w-full md:flex md:flex-row', navHeightClassAsNegativeMarginBottom)}
+  >
     <RadnetzNavMobileAndDesktop client:load articleSlug={entry.slug} pages={pages} />
-    <Radnetz client:load />
+    <div class="relative h-[500px] w-full md:h-full">
+      <Radnetz client:load />
+    </div>
+
     {
       pages.map(({ slug, title, Content }) => (
-        <RadnetzArticleWrapper client:load articleSlug={slug} title={title} links={links}>
-          <Content
-            components={{
-              TextLinkArrow,
-            }}
-          />
-        </RadnetzArticleWrapper>
+        <>
+          <RadnetzArticleWrapperDesktop client:load articleSlug={slug} title={title} links={links}>
+            <Content
+              components={{
+                TextLinkArrow,
+              }}
+            />
+          </RadnetzArticleWrapperDesktop>
+          <RadnetzArticleWrapperMobile client:load articleSlug={slug} title={title} links={links}>
+            <Content
+              components={{
+                TextLinkArrow,
+              }}
+            />
+          </RadnetzArticleWrapperMobile>
+        </>
       ))
     }
+  </div>
+  <div class="md:hidden">
+    <RadnetzImprintPrivacy client:load />
   </div>
 </LayoutApp>
