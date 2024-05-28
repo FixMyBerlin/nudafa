@@ -1,20 +1,12 @@
-import { LegendInfrastructure } from './legends/LegendInfrastructure'
+import { mapDataAndLegend } from './mapDataAndLegend.const'
 
 type Props = {
-  legend: any
+  slug: string
 }
 
-// todo: make legend dynamic
-export const RadnetzLegend = ({ legend }: Props) => {
-  return (
-    <div className="flex-grow bg-gray-50 p-4">
-      <LegendInfrastructure />
-      {/* <LegendFromTo /> */}
-      {/* <LegendCurrent /> */}
-      {/* <LegendNetwork /> */}
-      {/* <LegendRoadClassification /> */}
-      {/* <LegendInfrastructure /> */}
-      {/* <LegendSafety /> */}
-    </div>
-  )
+export const RadnetzLegend = ({ slug }: Props) => {
+  const legends = mapDataAndLegend[slug]?.legends
+  if (!legends) return null
+
+  return <div className="flex-grow bg-gray-50 p-4">{legends}</div>
 }

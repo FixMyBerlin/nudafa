@@ -36,7 +36,7 @@ export const RadnetzArticleWrapperMobile = ({ articleSlug, title, children, link
     <article className={visible ? 'bg-green-50' : 'hidden'} aria-hidden={visible}>
       <h3 className="px-4 pt-4 text-lg font-bold">{title}</h3>
       <RadnetzInfo links={links}>{children}</RadnetzInfo>
-      <RadnetzLegend legend={{ some: 'thing' }} />
+      <RadnetzLegend slug={articleSlug} />
     </article>
   )
 }
