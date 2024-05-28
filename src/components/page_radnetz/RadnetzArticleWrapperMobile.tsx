@@ -1,5 +1,4 @@
 import { useStore } from '@nanostores/react'
-import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { RadnetzInfo } from './RadnetzInfo'
 import { RadnetzLegend } from './RadnetzLegend'
@@ -34,12 +33,10 @@ export const RadnetzArticleWrapperMobile = ({ articleSlug, title, children, link
   useEffect(() => setVisible(section === articleSlug), [section])
 
   return (
-    <div className="bg-green-50">
-      <article className={visible ? clsx('') : 'sr-only'} aria-hidden={visible}>
-        <h3 className="px-4 pt-4 text-lg font-bold">{title}</h3>
-        <RadnetzInfo links={links}>{children}</RadnetzInfo>
-        <RadnetzLegend legend={{ some: 'thing' }} />
-      </article>
-    </div>
+    <article className={visible ? 'bg-green-50' : 'hidden'} aria-hidden={visible}>
+      <h3 className="px-4 pt-4 text-lg font-bold">{title}</h3>
+      <RadnetzInfo links={links}>{children}</RadnetzInfo>
+      <RadnetzLegend legend={{ some: 'thing' }} />
+    </article>
   )
 }

@@ -52,7 +52,7 @@ export const RadnetzArticleWrapperDesktop = ({ articleSlug, title, children, lin
                   open ? 'bg-green-50 ' : '',
                   navHeightClassAsNegativeMarginTop,
                 )
-              : 'sr-only'
+              : 'hidden'
           }
           aria-hidden={visible}
         >
