@@ -6,24 +6,28 @@ import { useEffect, useState } from 'react'
 import type { LngLatBoundsLike } from 'react-map-gl/maplibre'
 import {
   AttributionControl,
+  Layer,
   Map,
   NavigationControl,
+  Source,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre'
+import { mapDataAndLegend } from './mapDataAndLegend.const'
 import { $clickedMapData, $mapLoaded, $router } from './utils/store'
 import { useMapParam, type MapParamObject } from './utils/useMapParam'
 
 type Props = {
+  articleSlug: string
   children?: React.ReactNode
 }
 
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxbounds
 const maxBounds = [
-  [13.3579, 52.2095],
-  [13.825, 52.4784],
+  [13.247683121825787, 52.05970889348518],
+  [14.057293817329509, 52.517318654366335],
 ] satisfies LngLatBoundsLike
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setminzoom
-const minZoom = 11.5
+const minZoom = 7
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxzoom
 const maxZoom = 16
 const initialMapView: MapParamObject = {
@@ -33,7 +37,7 @@ const initialMapView: MapParamObject = {
 }
 const interactiveLayerIds: string[] = []
 
-export const RadnetzMap = ({ children }: Props) => {
+export const RadnetzMap = ({ articleSlug, children }: Props) => {
   // Setup pmtiles
   useEffect(() => {
     const protocol = new pmtiles.Protocol()
@@ -59,6 +63,8 @@ export const RadnetzMap = ({ children }: Props) => {
     const { latitude, longitude, zoom } = event.viewState
     setMapParams({ latitude, longitude, zoom })
   }
+
+  const articleMapSources = mapDataAndLegend[articleSlug]?.sources
 
   return (
     <div className="relative h-[500px] w-full md:h-full">
@@ -101,6 +107,20 @@ export const RadnetzMap = ({ children }: Props) => {
             <SmallSpinner />
           </div>
         )}
+
+        {articleMapSources?.map((articleMapSource) => {
+          return Object.entries(articleMapSource).map(([sourceId, sourceData]) => {
+            const sourceKey = `${articleSlug}-${sourceId}`
+            return (
+              <Source key={sourceKey} type="vector" url={`pmtiles://${sourceData.pmTilesUrl}`}>
+                {sourceData.layers?.map((layer) => {
+                  const layerKey = `${sourceKey}-${layer.id}`
+                  return <Layer key={layerKey} {...layer} source-layer="default" />
+                })}
+              </Source>
+            )
+          })
+        })}
 
         <AttributionControl compact={true} position="bottom-left" />
         <NavigationControl showCompass={false} position="bottom-left" />

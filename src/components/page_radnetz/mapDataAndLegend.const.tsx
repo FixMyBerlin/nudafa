@@ -30,7 +30,7 @@ type MapDataAndLegend = {
 
 export const mapDataAndLegend: MapDataAndLegend = {
   // Page `slug`
-  quelle: {
+  'quellen-und-ziele': {
     sources: [
       {
         // Source `id`
@@ -38,6 +38,15 @@ export const mapDataAndLegend: MapDataAndLegend = {
           pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-maskierung',
           layers: [
             // Layer list, copied from Mapbox
+            // Last item in list shows on the top of the layer stack
+            {
+              id: 'dimmlayer-ZES-Betrachtungsraum',
+              type: 'fill',
+              paint: {
+                'fill-opacity': 0.5,
+                'fill-outline-color': 'hsla(0, 0%, 0%, 0)',
+              },
+            },
             {
               id: 'Border-ZES-Betrachtungsraum',
               type: 'line',
@@ -47,15 +56,6 @@ export const mapDataAndLegend: MapDataAndLegend = {
                 'line-opacity': 0.71,
                 'line-dasharray': [3, 1, 1, 1],
               },
-            },
-            {
-              id: 'dimmlayer-ZES-Betrachtungsraum',
-              type: 'fill',
-              paint: {
-                'fill-opacity': 0.5,
-                'fill-outline-color': 'hsla(0, 0%, 0%, 0)',
-              },
-              filter: ['match', ['get', 'layer'], ['DEU'], true, false],
             },
           ],
         },
