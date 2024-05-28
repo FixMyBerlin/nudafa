@@ -6,7 +6,7 @@ import type {
   SymbolLayerSpecification,
 } from 'maplibre-gl'
 
-type MapDataAndLegend = {
+export type MapDataAndLegend = {
   [pageSlug: string]: {
     sources: {
       [sourceId: string]: {
