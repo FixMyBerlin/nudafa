@@ -1,0 +1,16 @@
+export const Icon2 = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+      <circle
+        cx="10"
+        cy="81"
+        r="6"
+        transform="translate(-3 -74)"
+        fill="#FE7E16"
+        stroke="#FFF"
+        stroke-width=".5"
+        fill-rule="evenodd"
+      />
+    </svg>
+  )
+}
