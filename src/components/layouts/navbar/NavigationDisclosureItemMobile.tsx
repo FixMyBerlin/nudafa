@@ -14,14 +14,14 @@ export const NavigationDisclosureItemMobile = ({ title, menuChildrenItems, path 
     <Disclosure
       key={title}
       as="div"
-      className="divide-beige-50 relative w-full divide-y-2 bg-white"
+      className="relative w-full divide-y-2 divide-beige-50 bg-white"
     >
       {({ open }) => (
         <>
           <div className="w-full">
             <DisclosureButton
               className={clsx(
-                'font-semibold flex w-full items-center justify-between px-3 py-4',
+                'flex w-full items-center justify-between px-3 py-4 font-semibold',
                 Object.values(menuChildrenItems).includes(path) && 'font-bold',
               )}
             >

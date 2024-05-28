@@ -1,11 +1,9 @@
-import React from 'react';
-
 type Props = {
-  color?: string;
-  borderColor?: string;
-  borderWidth?: number;
-  size?: number;
-};
+  color?: string
+  borderColor?: string
+  borderWidth?: number
+  size?: number
+}
 
 export const IconLegendArea = ({
   color = 'black',
@@ -23,5 +21,5 @@ export const IconLegendArea = ({
         strokeWidth={borderWidth}
       />
     </svg>
-  );
-};
+  )
+}

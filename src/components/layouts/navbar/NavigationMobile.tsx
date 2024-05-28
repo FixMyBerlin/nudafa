@@ -12,7 +12,7 @@ export const NavigationMobile = ({ mainNavigation, path }: Props) => {
   return (
     <DisclosurePanel
       as="div"
-      className="bg-beige-50 absolute w-screen space-y-px pb-1 shadow-lg sm:hidden"
+      className="absolute w-screen space-y-px bg-beige-50 pb-1 shadow-lg sm:hidden"
     >
       {Object.entries(mainNavigation.first).map(([title, menuChildrenItems]) => (
         <NavigationDisclosureItemMobile
@@ -30,7 +30,7 @@ export const NavigationMobile = ({ mainNavigation, path }: Props) => {
               href={seconItem[1]}
               className={clsx(
                 'relative w-full divide-y-2 divide-beige-100 bg-white',
-                'font-semibold flex w-full items-center justify-between px-3 py-4',
+                'flex w-full items-center justify-between px-3 py-4 font-semibold',
                 seconItem[1] === path && 'font-bold',
               )}
             >

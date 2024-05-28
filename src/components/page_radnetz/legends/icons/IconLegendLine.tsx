@@ -1,12 +1,10 @@
-import React from 'react';
-
 type Props = {
-  color?: string;
-  width?: number;
-  size?: number;
+  color?: string
+  width?: number
+  size?: number
   // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray#example
-  strokeDasharray?: string;
-};
+  strokeDasharray?: string
+}
 
 export const IconLegendLine = ({
   color = 'black',
@@ -26,5 +24,5 @@ export const IconLegendLine = ({
         strokeDasharray={strokeDasharray}
       />
     </svg>
-  );
-};
+  )
+}

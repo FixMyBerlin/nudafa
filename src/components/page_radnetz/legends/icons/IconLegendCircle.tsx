@@ -1,11 +1,9 @@
-import React from 'react';
-
 type Props = {
-  color?: string;
-  borderColor?: string;
-  borderWidth?: number;
-  size?: number;
-};
+  color?: string
+  borderColor?: string
+  borderWidth?: number
+  size?: number
+}
 
 export const IconLegendCircle = ({
   color = 'black',
@@ -13,7 +11,7 @@ export const IconLegendCircle = ({
   borderWidth = 0.5,
   size = 22,
 }: Props) => {
-  const radius = size / 2 - borderWidth;
+  const radius = size / 2 - borderWidth
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${size} ${size}`}>
       <circle
@@ -25,5 +23,5 @@ export const IconLegendCircle = ({
         strokeWidth={borderWidth}
       />
     </svg>
-  );
-};
+  )
+}

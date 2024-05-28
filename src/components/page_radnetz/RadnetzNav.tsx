@@ -34,9 +34,9 @@ const RadnetzNav = ({ currentSection, handleClick, pages, className }: RadnetzNa
               <a
                 onClick={(event) => handleClick(event, slug)}
                 href={`/radnetz/${slug}`}
-                className={clsx(active ? 'text-black md:text-white' : '', 'font-medium text-sm')}
+                className={clsx(active ? 'text-black md:text-white' : '', 'text-sm font-medium')}
               >
-                <div className="border-l-beige-50 border-l-2 pl-2">{title}</div>
+                <div className="border-l-2 border-l-beige-50 pl-2">{title}</div>
               </a>
             </li>
           )
@@ -80,8 +80,8 @@ export const RadnetzNavMobileAndDesktop = ({ articleSlug, pages }: Props) => {
           {({ open }) => (
             <>
               <DisclosureButton className="w-[210px]">
-                <div className="bg-beige-600 font-semibold flex items-center justify-between px-3 py-3 text-left text-sm text-white">
-                  <div className="border-l-beige-50 border-l-2 pl-2">{currentArticle?.title}</div>
+                <div className="flex items-center justify-between bg-beige-600 px-3 py-3 text-left text-sm font-semibold text-white">
+                  <div className="border-l-2 border-l-beige-50 pl-2">{currentArticle?.title}</div>
                   {open ? (
                     <ChevronDownIcon className="h-5 w-5 flex-shrink-0" />
                   ) : (

@@ -45,7 +45,7 @@ const { operatorId } = Astro.props as Props
 ---
 
 <span
-  class:list={['py-px list-none rounded-md px-2 text-sm text-black', getColorClass(operatorId)]}
+  class:list={['list-none rounded-md px-2 py-px text-sm text-black', getColorClass(operatorId)]}
 >
   {getFulloperatorTitle(operatorId)}
 </span>
