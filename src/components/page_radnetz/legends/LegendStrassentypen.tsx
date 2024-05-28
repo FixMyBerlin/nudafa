@@ -10,7 +10,7 @@ import {
 import { LegendItemPoiShop } from './LegendItems/LegendItemPoiShop'
 import { IconLegendLine } from './icons/IconLegendLine'
 
-export const LegendRoadClassification = () => {
+export const LegendStrassentypen = () => {
   return (
     <Legend>
       <LegendCol>

@@ -9,7 +9,7 @@ import {
 } from './Legend'
 import { IconLegendLine } from './icons/IconLegendLine'
 
-export const LegendSurfaceQuality = () => {
+export const LegendKomfort = () => {
   return (
     <Legend>
       <LegendCol>

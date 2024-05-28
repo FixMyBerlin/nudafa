@@ -17,7 +17,7 @@ import { School } from './icons/School'
 import { Unsafe } from './icons/Unsafe'
 import { WayToSchool } from './icons/WayToSchool'
 
-export const LegendSafety = () => {
+export const LegendSicherheit = () => {
   return (
     <Legend>
       <LegendCol>
