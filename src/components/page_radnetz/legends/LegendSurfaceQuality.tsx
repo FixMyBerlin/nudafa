@@ -1,4 +1,3 @@
-import { IconLegendLine } from './IconLegend'
 import {
   IconWrapper,
   Legend,
@@ -8,6 +7,7 @@ import {
   LegendItems,
   LegendSources,
 } from './Legend'
+import { IconLegendLine } from './icons/IconLegendLine'
 
 export const LegendSurfaceQuality = () => {
   return (

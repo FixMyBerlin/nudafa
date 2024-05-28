@@ -6,28 +6,14 @@ import { RadnetzArticleWrapperDesktop } from '@components/page_radnetz/RadnetzAr
 import { RadnetzArticleWrapperMobile } from '@components/page_radnetz/RadnetzArticleWrapperMobile'
 import { RadnetzImprintPrivacy } from '@components/page_radnetz/RadnetzImprintPrivacy'
 import { RadnetzMap } from '@components/page_radnetz/RadnetzMap'
-
 import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
+import type { RadnetzPage } from '@components/page_radnetz/types'
 import { getCollection } from 'astro:content'
 import clsx from 'clsx'
 
-export type Page = {
-  slug: string
-  menu: string
-  order: number
-  title: string
-  Content: any
-  links:
-    | {
-        display: string
-        url: string
-      }[]
-    | undefined
-}
-
 const rawPages = await getCollection('bicyclenetworkpages')
 const sortedPages = rawPages.sort((a, b) => a.data.order - b.data.order)
-const pages: Page[] = []
+const pages: RadnetzPage[] = []
 for (const page of sortedPages) {
   const { Content } = await page.render()
   pages.push({

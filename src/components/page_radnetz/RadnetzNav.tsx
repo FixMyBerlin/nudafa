@@ -4,14 +4,14 @@ import { useStore } from '@nanostores/react'
 import { openPage } from '@nanostores/router'
 import clsx from 'clsx'
 import 'maplibre-gl/dist/maplibre-gl.css'
-import type { Page } from 'src/pages/radnetz/[slug].astro'
 import { RadnetzImprintPrivacy } from './RadnetzImprintPrivacy'
+import type { RadnetzPage } from './types'
 import { $router } from './utils/store'
 
 type RadnetzNavProps = {
   currentSection?: string
   handleClick: any
-  pages: Page[]
+  pages: RadnetzPage[]
   className?: string
 }
 
@@ -47,7 +47,7 @@ const RadnetzNav = ({ currentSection, handleClick, pages, className }: RadnetzNa
   )
 }
 
-type Props = { articleSlug: string; pages: Page[] }
+type Props = { articleSlug: string; pages: RadnetzPage[] }
 
 export const RadnetzNavMobileAndDesktop = ({ articleSlug, pages }: Props) => {
   // SSR: We need to tell the router which page is pre-rendered so there is no hydration mismatch for the `active` state
