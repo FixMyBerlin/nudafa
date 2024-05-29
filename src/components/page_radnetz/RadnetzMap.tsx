@@ -6,16 +6,13 @@ import { useEffect, useState } from 'react'
 import type { LngLatBoundsLike } from 'react-map-gl/maplibre'
 import {
   AttributionControl,
-  Layer,
   Map,
   MapProvider,
   NavigationControl,
-  Source,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre'
 import { MapDebugHelper } from './MapDebugHelper/MapDebugHelper'
-import { mapDataAndLegend } from './mapDataAndLegend.const'
-import { mapDataBase } from './mapDataBase.const'
+import { RadnetzMapSourcesLayers } from './RadnetzMapSourcesLayers'
 import { $clickedMapData, $mapLoaded, $router } from './utils/store'
 import { useMapParam, type MapParamObject } from './utils/useMapParam'
 import { useScreenHorizontal } from './utils/useScreenHorizontal'
@@ -70,8 +67,6 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
     setMapParams({ latitude, longitude, zoom })
   }
 
-  const articleMapSources = mapDataAndLegend[articleSlug]?.sources
-
   return (
     <MapProvider>
       <div className="relative h-[500px] w-full md:h-full">
@@ -116,40 +111,7 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
             </div>
           )}
 
-          {articleMapSources &&
-            Object.entries(articleMapSources).map(([sourceId, sourceData]) => {
-              const sourceKey = `${articleSlug}-${sourceId}`
-              return (
-                <Source
-                  id={sourceKey}
-                  key={sourceKey}
-                  type="vector"
-                  url={`pmtiles://${sourceData.pmTilesUrl}`}
-                >
-                  {sourceData.layers?.map((layer) => {
-                    const layerKey = `${sourceKey}-${layer.id}`
-                    return <Layer key={layerKey} {...layer} source-layer="default" />
-                  })}
-                </Source>
-              )
-            })}
-
-          {Object.entries(mapDataBase).map(([sourceId, sourceData]) => {
-            const sourceKey = `${articleSlug}-${sourceId}`
-            return (
-              <Source
-                id={sourceKey}
-                key={sourceKey}
-                type="vector"
-                url={`pmtiles://${sourceData.pmTilesUrl}`}
-              >
-                {sourceData.layers?.map((layer) => {
-                  const layerKey = `${sourceKey}-${layer.id}`
-                  return <Layer key={layerKey} {...layer} source-layer="default" />
-                })}
-              </Source>
-            )
-          })}
+          <RadnetzMapSourcesLayers articleSlug={articleSlug} />
 
           <AttributionControl compact={true} position="bottom-left" />
           <NavigationControl
