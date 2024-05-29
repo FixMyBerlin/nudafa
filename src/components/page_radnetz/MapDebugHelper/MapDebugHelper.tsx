@@ -1,6 +1,6 @@
 import type { SourceSpecification } from 'maplibre-gl'
 import { useMap, type AnyLayer } from 'react-map-gl/maplibre'
-import { isDebugHash } from './isDebugHash'
+import { showDebugMap } from './showDebugMap'
 
 export type MapDebugHelperData = {
   styleModified: string
@@ -12,7 +12,7 @@ export type MapDebugHelperData = {
   zoom: number
 }
 
-export const showMapDebugHelper = isDebugHash('debug')
+export const showMapDebugHelper = showDebugMap('debug')
 
 export const MapDebugHelper = () => {
   const { mainMap } = useMap()
@@ -42,15 +42,6 @@ export const MapDebugHelper = () => {
 
   return (
     <section className="border-xl absolute left-20 top-2.5 z-50 max-h-[98%] overflow-y-auto rounded bg-pink-500 p-1 text-xs text-white shadow-2xl print:hidden">
-      <button
-        onClick={() => {
-          history.replaceState(null, '', window.location.href + '#debug')
-          location.reload()
-        }}
-        className="underline hover:decoration-2"
-      >
-        Refresh
-      </button>
       <details>
         <summary className="cursor-pointer">Sources ({cleanSources.length})</summary>
         <pre>{JSON.stringify(cleanSources, undefined, 2)}</pre>
