@@ -111,7 +111,7 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
             </div>
           )}
 
-          <RadnetzMapSourcesLayers articleSlug={articleSlug} />
+          <RadnetzMapSourcesLayers />
 
           <AttributionControl compact={true} position="bottom-left" />
           <NavigationControl

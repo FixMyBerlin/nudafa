@@ -1,11 +1,14 @@
+import { useStore } from '@nanostores/react'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Layer, Source } from 'react-map-gl/maplibre'
 import { mapDataAndLegend } from './mapDataAndLegend.const'
 import { mapDataBase } from './mapDataBase.const'
+import { $router } from './utils/store'
 
-type Props = { articleSlug: string }
-
-export const RadnetzMapSourcesLayers = ({ articleSlug }: Props) => {
+export const RadnetzMapSourcesLayers = () => {
+  const router = useStore($router)
+  const articleSlug = router?.params.section
+  if (!articleSlug) return null
   const articleMapSources = mapDataAndLegend[articleSlug]?.sources
 
   return (
