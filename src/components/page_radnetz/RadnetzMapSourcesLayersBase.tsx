@@ -14,7 +14,16 @@ export const RadnetzMapSourcesLayersBase = () => {
             url={`pmtiles://${sourceData.pmTilesUrl}`}
           >
             {sourceData.layers?.map((layer) => {
-              return <Layer key={layer.id} {...layer} source-layer="default" />
+              return (
+                <Layer
+                  key={layer.id}
+                  {...layer}
+                  source-layer="default"
+                  // A static helper layer from https://cloud.maptiler.com/maps/editor?map=fe7d06df-9fbd-43f3-bd9e-8f394e41efd0
+                  // This makes sure this layer always stays on above the page layers
+                  beforeId="nudafa-beforeId-maskierung"
+                />
+              )
             })}
           </Source>
         )

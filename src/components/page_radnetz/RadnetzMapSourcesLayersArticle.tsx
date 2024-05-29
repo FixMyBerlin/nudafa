@@ -25,7 +25,16 @@ export const RadnetzMapSourcesLayersArticle = () => {
           >
             {sourceData.layers?.map((layer) => {
               const layerKey = `${sourceKey}-${layer.id}`
-              return <Layer key={layerKey} {...layer} source-layer="default" />
+              return (
+                <Layer
+                  key={layerKey}
+                  {...layer}
+                  source-layer="default"
+                  // A static helper layer from https://cloud.maptiler.com/maps/editor?map=fe7d06df-9fbd-43f3-bd9e-8f394e41efd0
+                  // This makes sure this layer always stays below the base layers
+                  beforeId="nudafa-beforeId-pagelayer"
+                />
+              )
             })}
           </Source>
         )
