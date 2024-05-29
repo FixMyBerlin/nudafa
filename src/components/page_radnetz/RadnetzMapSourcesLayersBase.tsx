@@ -1,6 +1,6 @@
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Layer, Source } from 'react-map-gl/maplibre'
-import { mapDataBase } from './mapDataBase.const'
+import { mapDataBase } from './mapData/mapDataBase.const'
 
 export const RadnetzMapSourcesLayersBase = () => {
   return (

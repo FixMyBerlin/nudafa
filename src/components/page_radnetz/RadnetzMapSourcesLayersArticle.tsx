@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Layer, Source } from 'react-map-gl/maplibre'
-import { mapDataAndLegend } from './mapDataAndLegend.const'
+import { mapDataAndLegend } from './mapData/mapDataAndLegend.const'
 import { $router } from './utils/store'
 
 export const RadnetzMapSourcesLayersArticle = () => {

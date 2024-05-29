@@ -1,4 +1,4 @@
-import { mapDataAndLegend } from './mapDataAndLegend.const'
+import { mapDataAndLegend } from './mapData/mapDataAndLegend.const'
 
 type Props = {
   articleSlug: string
