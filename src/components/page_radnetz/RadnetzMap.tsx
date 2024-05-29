@@ -113,18 +113,16 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
           </div>
         )}
 
-        {articleMapSources?.map((articleMapSource) => {
-          return Object.entries(articleMapSource).map(([sourceId, sourceData]) => {
-            const sourceKey = `${articleSlug}-${sourceId}`
-            return (
-              <Source key={sourceKey} type="vector" url={`pmtiles://${sourceData.pmTilesUrl}`}>
-                {sourceData.layers?.map((layer) => {
-                  const layerKey = `${sourceKey}-${layer.id}`
-                  return <Layer key={layerKey} {...layer} source-layer="default" />
-                })}
-              </Source>
-            )
-          })
+        {Object.entries(articleMapSources).map(([sourceId, sourceData]) => {
+          const sourceKey = `${articleSlug}-${sourceId}`
+          return (
+            <Source key={sourceKey} type="vector" url={`pmtiles://${sourceData.pmTilesUrl}`}>
+              {sourceData.layers?.map((layer) => {
+                const layerKey = `${sourceKey}-${layer.id}`
+                return <Layer key={layerKey} {...layer} source-layer="default" />
+              })}
+            </Source>
+          )
         })}
 
         {Object.entries(mapDataBase).map(([sourceId, sourceData]) => {
