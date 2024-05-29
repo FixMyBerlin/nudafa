@@ -80,8 +80,8 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
           maxBounds={maxBounds}
           minZoom={minZoom}
           maxZoom={maxZoom}
-          // Style: https://cloud.maptiler.com/maps/dataviz/
-          mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=ECOoUBmpqklzSCASXxcu"
+          // Style: https://cloud.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/
+          mapStyle="https://api.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/style.json?key=ECOoUBmpqklzSCASXxcu"
           style={{ width: '100%', height: '100%' }}
           // Set map state for <MapData>:
           onLoad={() => $mapLoaded.set(true)}
