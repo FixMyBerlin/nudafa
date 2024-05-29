@@ -12,7 +12,8 @@ import {
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre'
 import { MapDebugHelper } from './MapDebugHelper/MapDebugHelper'
-import { RadnetzMapSourcesLayers } from './RadnetzMapSourcesLayers'
+import { RadnetzMapSourcesLayersArticle } from './RadnetzMapSourcesLayersArticle'
+import { RadnetzMapSourcesLayersBase } from './RadnetzMapSourcesLayersBase'
 import { $clickedMapData, $mapLoaded, $router } from './utils/store'
 import { useMapParam, type MapParamObject } from './utils/useMapParam'
 import { useScreenHorizontal } from './utils/useScreenHorizontal'
@@ -111,7 +112,8 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
             </div>
           )}
 
-          <RadnetzMapSourcesLayers />
+          <RadnetzMapSourcesLayersArticle />
+          <RadnetzMapSourcesLayersBase />
 
           <AttributionControl compact={true} position="bottom-left" />
           <NavigationControl
