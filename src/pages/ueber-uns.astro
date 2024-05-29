@@ -24,9 +24,6 @@ const { Content } = await page.render()
 const persons = await getCollection('persons')
 const communes = await getCollection('communes')
 const { Content: ContentMain } = await pagemain.render()
-
-console.log({ persons })
-console.log(persons[0].data)
 ---
 
 <LayoutPage title={title}>
