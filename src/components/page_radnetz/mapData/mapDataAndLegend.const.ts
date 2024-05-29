@@ -5,6 +5,7 @@ import type {
   LineLayerSpecification,
   SymbolLayerSpecification,
 } from 'maplibre-gl'
+import { pageBedarfe } from './pageBedarf.const'
 import { pageBestand } from './pageBestand.const'
 import { pageKomfort } from './pageKomfort.const'
 import { pageKontext } from './pageKontext.const'
@@ -50,8 +51,8 @@ export const mapDataAndLegend: MapDataAndLegend = {
   ...pageStrassentypen,
   ...pageZielnetz,
   ...pageLuftliniennetz,
+  ...pageBedarfe,
 
   // missing legends:
   // massnahmen
-  // bedarfe
 }
