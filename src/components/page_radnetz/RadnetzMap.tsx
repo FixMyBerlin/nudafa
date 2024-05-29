@@ -8,10 +8,12 @@ import {
   AttributionControl,
   Layer,
   Map,
+  MapProvider,
   NavigationControl,
   Source,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre'
+import { MapDebugHelper } from './MapDebugHelper/MapDebugHelper'
 import { mapDataAndLegend } from './mapDataAndLegend.const'
 import { mapDataBase } from './mapDataBase.const'
 import { $clickedMapData, $mapLoaded, $router } from './utils/store'
@@ -71,53 +73,71 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
   const articleMapSources = mapDataAndLegend[articleSlug]?.sources
 
   return (
-    <div className="relative h-[500px] w-full md:h-full">
-      <Map
-        id="mainMap"
-        // Map View
-        initialViewState={mapParamsObject()}
-        onMoveEnd={handleMoveEnd}
-        // Contain Map
-        maxBounds={maxBounds}
-        minZoom={minZoom}
-        maxZoom={maxZoom}
-        // Style: https://cloud.maptiler.com/maps/dataviz/
-        mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=ECOoUBmpqklzSCASXxcu"
-        style={{ width: '100%', height: '100%' }}
-        // Set map state for <MapData>:
-        onLoad={() => $mapLoaded.set(true)}
-        // "Loading…"
-        onData={() => setMapDataLoading(true)}
-        onIdle={() => setMapDataLoading(false)}
-        // Cursor
-        // UNUSED at the moment
-        interactiveLayerIds={interactiveLayerIds}
-        cursor={cursorStyle}
-        onMouseEnter={() => setCursorStyle('pointer')}
-        onMouseLeave={() => setCursorStyle('grab')}
-        // Inspector
-        // UNUSED at the moment
-        onClick={(event) => $clickedMapData.set(event.features)}
-        // Some defaults
-        attributionControl={false}
-        dragRotate={false}
-        scrollZoom={isScreenHorizontal}
-        // @ts-expect-error: See https://github.com/visgl/react-map-gl/issues/2310
-        RTLTextPlugin={null}
-      >
-        {children}
+    <MapProvider>
+      <div className="relative h-[500px] w-full md:h-full">
+        <Map
+          id="mainMap"
+          // Map View
+          initialViewState={mapParamsObject()}
+          onMoveEnd={handleMoveEnd}
+          // Contain Map
+          maxBounds={maxBounds}
+          minZoom={minZoom}
+          maxZoom={maxZoom}
+          // Style: https://cloud.maptiler.com/maps/dataviz/
+          mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=ECOoUBmpqklzSCASXxcu"
+          style={{ width: '100%', height: '100%' }}
+          // Set map state for <MapData>:
+          onLoad={() => $mapLoaded.set(true)}
+          // "Loading…"
+          onData={() => setMapDataLoading(true)}
+          onIdle={() => setMapDataLoading(false)}
+          // Cursor
+          // UNUSED at the moment
+          interactiveLayerIds={interactiveLayerIds}
+          cursor={cursorStyle}
+          onMouseEnter={() => setCursorStyle('pointer')}
+          onMouseLeave={() => setCursorStyle('grab')}
+          // Inspector
+          // UNUSED at the moment
+          onClick={(event) => $clickedMapData.set(event.features)}
+          // Some defaults
+          attributionControl={false}
+          dragRotate={false}
+          scrollZoom={isScreenHorizontal}
+          // @ts-expect-error: See https://github.com/visgl/react-map-gl/issues/2310
+          RTLTextPlugin={null}
+        >
+          {children}
 
-        {mapDataLoading && (
-          <div className="absolute left-5 top-5 flex items-center justify-center">
-            <SmallSpinner />
-          </div>
-        )}
+          {mapDataLoading && (
+            <div className="absolute left-5 top-5 flex items-center justify-center">
+              <SmallSpinner />
+            </div>
+          )}
 
-        {articleMapSources &&
-          Object.entries(articleMapSources).map(([sourceId, sourceData]) => {
+          {articleMapSources &&
+            Object.entries(articleMapSources).map(([sourceId, sourceData]) => {
+              const sourceKey = `${articleSlug}-${sourceId}`
+              return (
+                <Source key={sourceKey} type="vector" url={`pmtiles://${sourceData.pmTilesUrl}`}>
+                  {sourceData.layers?.map((layer) => {
+                    const layerKey = `${sourceKey}-${layer.id}`
+                    return <Layer key={layerKey} {...layer} source-layer="default" />
+                  })}
+                </Source>
+              )
+            })}
+
+          {Object.entries(mapDataBase).map(([sourceId, sourceData]) => {
             const sourceKey = `${articleSlug}-${sourceId}`
             return (
-              <Source key={sourceKey} type="vector" url={`pmtiles://${sourceData.pmTilesUrl}`}>
+              <Source
+                id={sourceKey}
+                key={sourceKey}
+                type="vector"
+                url={`pmtiles://${sourceData.pmTilesUrl}`}
+              >
                 {sourceData.layers?.map((layer) => {
                   const layerKey = `${sourceKey}-${layer.id}`
                   return <Layer key={layerKey} {...layer} source-layer="default" />
@@ -126,24 +146,14 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
             )
           })}
 
-        {Object.entries(mapDataBase).map(([sourceId, sourceData]) => {
-          const sourceKey = `${articleSlug}-${sourceId}`
-          return (
-            <Source key={sourceKey} type="vector" url={`pmtiles://${sourceData.pmTilesUrl}`}>
-              {sourceData.layers?.map((layer) => {
-                const layerKey = `${sourceKey}-${layer.id}`
-                return <Layer key={layerKey} {...layer} source-layer="default" />
-              })}
-            </Source>
-          )
-        })}
-
-        <AttributionControl compact={true} position="bottom-left" />
-        <NavigationControl
-          showCompass={false}
-          position={isScreenHorizontal ? 'top-left' : 'top-right'}
-        />
-      </Map>
-    </div>
+          <AttributionControl compact={true} position="bottom-left" />
+          <NavigationControl
+            showCompass={false}
+            position={isScreenHorizontal ? 'top-left' : 'top-right'}
+          />
+          <MapDebugHelper />
+        </Map>
+      </div>
+    </MapProvider>
   )
 }
