@@ -1,6 +1,6 @@
 import type { MapDataAndLegend } from './mapDataAndLegend.const'
 
-export const mapDataBase: MapDataAndLegend[number]['sources'][number] = {
+export const mapDataBase: MapDataAndLegend[number]['sources'] = {
   maskierung: {
     pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-maskierung',
     layers: [
