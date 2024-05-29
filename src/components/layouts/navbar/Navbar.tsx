@@ -1,3 +1,7 @@
+import {
+  menuButtonStylesForLinkElement,
+  selectedMenuButtonStylesForLinkElement,
+} from '@components/links/styles'
 import { Disclosure, DisclosureButton } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { clsx } from 'clsx'
@@ -27,13 +31,13 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
     >
       {({ open }) => (
         <>
-          <div className="mx-auto px-4 leading-5 sm:px-6 lg:px-8">
+          <div className="mx-auto px-4 leading-5 md:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <a href="/" className="flex-shrink-0">
                 <img className="w-[171px]" src="/Logo_NUDAFA.png" />
               </a>
-              <div className="hidden sm:ml-6 sm:block">
-                <div className="flex gap-2 divide-x divide-solid divide-gray-900">
+              <div className="hidden md:ml-6 md:block">
+                <div className="flex gap-6 divide-x divide-solid divide-gray-900">
                   <div className="flex">
                     {Object.entries(mainNavigation.first).map(([title, menuChildrenItems]) => (
                       <NavbarMenuItem
@@ -46,26 +50,28 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                   </div>
 
                   <div className="flex">
-                    {Object.entries(mainNavigation.second).map((seconItem) => {
-                      if (typeof seconItem[1] === 'string') {
+                    {Object.entries(mainNavigation.second).map((secondItem) => {
+                      if (typeof secondItem[1] === 'string') {
                         return (
                           <a
-                            key={seconItem[1]}
-                            href={seconItem[1]}
+                            key={secondItem[1]}
+                            href={secondItem[1]}
                             className={clsx(
-                              'ml-3 flex',
-                              'flex items-center gap-2 px-3 py-2 font-semibold hover:text-beige-600',
-                              seconItem[1] === path && 'font-bold',
+                              'ml-5',
+                              secondItem[1] === path
+                                ? selectedMenuButtonStylesForLinkElement
+                                : menuButtonStylesForLinkElement,
                             )}
                           >
-                            {seconItem[0]}
+                            {secondItem[0]}
                           </a>
                         )
                       }
 
-                      const [title, menuChildrenItems] = seconItem
+                      const [title, menuChildrenItems] = secondItem
                       return (
                         <NavbarMenuItem
+                          button
                           key={title}
                           path={path}
                           title={title}
@@ -77,7 +83,7 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                 </div>
               </div>
 
-              <div className="-mr-2 flex sm:hidden">
+              <div className="-mr-2 flex md:hidden">
                 {/* Mobile menu button */}
                 <DisclosureButton className="relative inline-flex items-center justify-center p-2 text-gray-900 hover:text-beige-600">
                   <span className="absolute -inset-0.5" />

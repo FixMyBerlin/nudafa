@@ -9,10 +9,27 @@ export const menuLinkStylesDefault =
   'no-underline hover:underline hover:decoration-beige-600 text-black'
 export const menuLinkActiveStyles = 'decoration-beige-600 decoration-2 text-black'
 
-export const buttonStylesForDeactivatedLinkElement =
-  'bg-gray-300 text-white hover:translate-0 transition-none hover:shadow-none '
+const buttonBase = 'inline-block rounded-full border-[1.5px] font-semibold active:border-[#60A5FA]'
 
-const buttonBase = 'inline-flex py-1.5'
+export const buttonStylesForLinkElement = clsx(
+  buttonBase,
+  'border-gray-600 bg-white px-5 py-3 text-gray-600 hover:bg-beige-50',
+)
+
+export const selectedButtonStylesForLinkElement = clsx(
+  buttonBase,
+  'border-beige-600 bg-beige-600 px-4 py-2 text-white hover:bg-beige-50 hover:text-gray-600',
+)
+
+export const menuButtonStylesForLinkElement = clsx(
+  buttonBase,
+  'border-white bg-white px-4 py-2 text-gray-900',
+)
+
+export const selectedMenuButtonStylesForLinkElement = clsx(
+  buttonBase,
+  'border-beige-600 bg-beige-600 px-4 py-2 text-white',
+)
 
 const hoverTranslateClassNames =
   'hover:-translate-y-0.5 transition-all duration-200 hover:shadow-lg'
@@ -22,46 +39,10 @@ export const cardStylesForLinkElements = clsx(
   'active:ring-2 active:ring-beige-600', // activeStyleForLinkElement
 )
 
-// WHITE BUTTON  (white/purple text)
-const whiteButtonBase = 'ring-black text-black bg-transparent ring-1 px-6'
-const whiteButtonStylesForLinkElement = clsx(
-  buttonBase,
-  whiteButtonBase,
-  'active:ring-2 active:ring-beige-600', // activeStyleForLinkElement
-  hoverTranslateClassNames, // hoverStyleForLinkElement
-)
-export const whiteButtonStyles = clsx(
-  buttonBase,
-  whiteButtonBase,
-  'enabled:active:border-0 enabled:active:ring-2 enabled:active:ring-beige-600', // activeStyleForButtonElement
-  'transition-all duration-200 enabled:hover:-translate-y-0.5 enabled:hover:shadow-lg', // hoverStyleForButtonElement
-)
-
-// BUTTON BLACK  (black/white text)
-const blackButtonBase = 'text-white bg-black px-2'
-const blackButtonStylesForLinkElement = clsx(
-  buttonBase,
-  blackButtonBase,
-  'active:ring-beige-600 active:hover:ring-2', // hoverStyleForLinkElement
-  hoverTranslateClassNames, // activeStyleForLinkElement
-)
-export const blackButtonStyles = clsx(
-  buttonBase,
-  blackButtonBase,
-  'enabled:active:border-0 enabled:active:ring-2 enabled:active:ring-beige-600', // hoverStyleForButtonElement
-  'transition-all duration-200 enabled:hover:-translate-y-0.5 enabled:hover:shadow-lg', // activeStyleForButtonElement
-)
-
 export const selectLinkStyle = (button: LinkProps['button'], className?: string) => {
   switch (button) {
     case true:
-      return clsx(whiteButtonStylesForLinkElement, className)
-    case 'white':
-      return clsx(whiteButtonStylesForLinkElement, className)
-    case 'black':
-      return clsx(blackButtonStylesForLinkElement, className)
-    case 'card':
-      return clsx(cardStylesForLinkElements, className)
+      return clsx(buttonStylesForLinkElement, className)
     default:
       return clsx(linkStyles, className)
   }

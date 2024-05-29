@@ -2,6 +2,7 @@ import {
   navHeightClass,
   navHeightClassAsNegativeMarginTop,
 } from '@components/layouts/navbar/Navbar'
+import { buttonStylesForLinkElement } from '@components/links/styles'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/20/solid'
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'
@@ -56,9 +57,13 @@ export const RadnetzArticleWrapperDesktop = ({
             <DisclosureButton>
               <span className="sr-only">Artikel {open ? 'zuklappen' : 'aufklapp'}</span>
               {open ? (
-                <XMarkIcon className="size-10 rounded-full bg-beige-200 p-2 hover:bg-beige-600 hover:text-white" />
+                <XMarkIcon
+                  className={clsx(buttonStylesForLinkElement, 'size-10 !p-2 text-black')}
+                />
               ) : (
-                <ChevronLeftIcon className="size-10 rounded-full bg-beige-200 p-2 hover:bg-beige-600 hover:text-white" />
+                <ChevronLeftIcon
+                  className={clsx(buttonStylesForLinkElement, 'size-10 !p-2 text-black')}
+                />
               )}
             </DisclosureButton>
           </div>
