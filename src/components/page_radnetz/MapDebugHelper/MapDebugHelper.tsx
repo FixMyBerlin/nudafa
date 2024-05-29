@@ -33,7 +33,9 @@ export const MapDebugHelper = () => {
     )
 
     const sources = mainMap.getStyle().sources
-    cleanSources = Object.entries(sources).filter(([key, _]) => !key.startsWith('maptiler'))
+    cleanSources = Object.entries(sources).filter(
+      ([key, _]) => !key.startsWith('maptiler') && !key.startsWith('openmaptiles'),
+    )
   } catch (error) {
     // console.info('MapDebugHelper', error)
   }
