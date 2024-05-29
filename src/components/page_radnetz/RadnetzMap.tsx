@@ -120,7 +120,12 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
             Object.entries(articleMapSources).map(([sourceId, sourceData]) => {
               const sourceKey = `${articleSlug}-${sourceId}`
               return (
-                <Source key={sourceKey} type="vector" url={`pmtiles://${sourceData.pmTilesUrl}`}>
+                <Source
+                  id={sourceKey}
+                  key={sourceKey}
+                  type="vector"
+                  url={`pmtiles://${sourceData.pmTilesUrl}`}
+                >
                   {sourceData.layers?.map((layer) => {
                     const layerKey = `${sourceKey}-${layer.id}`
                     return <Layer key={layerKey} {...layer} source-layer="default" />
