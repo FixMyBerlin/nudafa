@@ -172,11 +172,11 @@ export const pageQuelleZiele: MapDataAndLegend = {
             paint: {
               'circle-color': [
                 'case',
-                ['match', ['get', 'FMC:ShopCategory'], ['Freizeit'], true, false],
+                ['match', ['get', 'category'], ['Freizeit'], true, false],
                 '#960854',
-                ['match', ['get', 'FMC:ShopCategory'], ['Bildung'], true, false],
+                ['match', ['get', 'category'], ['Bildung'], true, false],
                 'hsl(235, 86%, 47%)',
-                ['match', ['get', 'FMC:ShopCategory'], ['Besorgungen', 'Einkauf'], true, false],
+                ['match', ['get', 'category'], ['Besorgungen', 'Einkauf'], true, false],
                 '#e709fb',
                 'hsla(116, 48%, 39%, 0.5)',
               ],
