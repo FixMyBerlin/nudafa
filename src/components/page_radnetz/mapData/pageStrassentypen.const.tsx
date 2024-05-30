@@ -8,10 +8,9 @@ export const pageStrassentypen: MapDataAndLegend = {
         pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-roads-legacy',
         layers: [
           {
-            id: 'strassentyp-wohnstrassenonly',
+            id: 'strassentyp',
             type: 'line',
             paint: {
-              'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 0.5, 22, 5],
               'line-color': [
                 'case',
                 [
@@ -21,7 +20,7 @@ export const pageStrassentypen: MapDataAndLegend = {
                   true,
                   false,
                 ],
-                '#c205a2',
+                'hsl(163, 56%, 51%)',
                 [
                   'match',
                   ['get', 'FMC:Category:HighwayTypeData:typHauptUndSammelstrasse'],
@@ -37,7 +36,7 @@ export const pageStrassentypen: MapDataAndLegend = {
                   true,
                   false,
                 ],
-                'hsla(313, 18%, 69%, 0.37)',
+                'rgba(179, 107, 25, 0.67)',
                 [
                   'match',
                   ['get', 'FMC:Category:HighwayTypeData:typAusserorts'],
@@ -50,29 +49,32 @@ export const pageStrassentypen: MapDataAndLegend = {
                 'hsla(97, 56%, 51%, 0)',
                 'hsla(97, 56%, 51%, 0)',
               ],
-              'line-opacity': 0.38,
-            },
-            filter: [
-              'all',
-              ['match', ['get', 'FMC:Category:HighwayTypeData'], ['true'], true, false],
-              [
-                'match',
-                ['get', 'FMC:Category:HighwayTypeData:typWohnstrasse'],
-                ['true'],
-                true,
-                false,
+              'line-opacity': 0.84,
+              'line-width': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                0,
+                [
+                  'match',
+                  ['get', 'FMC:Category:HighwayTypeData:typFreiGefuehrt'],
+                  ['true'],
+                  0.4,
+                  0.5,
+                ],
+                11.5,
+                [
+                  'match',
+                  ['get', 'FMC:Category:HighwayTypeData:typFreiGefuehrt'],
+                  ['true'],
+                  0.8,
+                  1.5,
+                ],
+                22,
+                ['match', ['get', 'FMC:Category:HighwayTypeData:typFreiGefuehrt'], ['true'], 2, 4],
               ],
-              [
-                'match',
-                ['get', 'FMC:Category:SurfaceData:ScopeMainWay'],
-                ['very_bad', 'bad'],
-                false,
-                true,
-              ],
-            ],
-            layout: {
-              visibility: 'none',
             },
+            filter: ['match', ['get', 'FMC:Category:HighwayTypeData'], ['true'], true, false],
           },
           {
             id: 'strassentyp-wohnstrassenonly',
@@ -137,9 +139,6 @@ export const pageStrassentypen: MapDataAndLegend = {
                 true,
               ],
             ],
-            layout: {
-              visibility: 'none',
-            },
           },
         ],
       },
