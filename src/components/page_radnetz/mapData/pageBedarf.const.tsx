@@ -21,6 +21,16 @@ export const pageBedarfe: MapDataAndLegend = {
             },
           },
           {
+            id: 'Problempunkt',
+            filter: ['match', ['get', 'Typ'], ['Problem Punkt'], true, false],
+            type: 'circle',
+            paint: {
+              'circle-color': 'rgba(240, 117, 36, 0.62)',
+              'circle-radius': 9,
+              'circle-opacity': 0.52,
+            },
+          },
+          {
             id: 'Ergaenzungsvorschlag Route',
             layout: {
               'line-cap': 'round',
