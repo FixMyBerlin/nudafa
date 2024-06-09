@@ -10,6 +10,7 @@ import { pageBestand } from './pageBestand.const'
 import { pageKomfort } from './pageKomfort.const'
 import { pageKontext } from './pageKontext.const'
 import { pageLuftliniennetz } from './pageLuftliniennetz.const'
+import { pageMassnahmen } from './pageMassnahmen.const'
 import { pageQuelleZiele } from './pageQuelleZiele.const'
 import { pageSicherheit } from './pageSicherheit.const'
 import { pageStrassentypen } from './pageStrassentypen.const'
@@ -52,7 +53,5 @@ export const mapDataAndLegend: MapDataAndLegend = {
   ...pageZielnetz,
   ...pageLuftliniennetz,
   ...pageBedarfe,
-
-  // missing legends:
-  // massnahmen
+  ...pageMassnahmen,
 }

@@ -1,29 +1,26 @@
 import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
+import { IconLegendCircle } from './icons/IconLegendCircle'
 import { IconLegendLine } from './icons/IconLegendLine'
 
-export const LegendZielnetz = () => {
+export const LegendMassnahmen = () => {
   return (
     <Legend>
       <LegendCol>
-        <LegendHeader>Netzentwurfskarte</LegendHeader>
+        <LegendHeader>Legende</LegendHeader>
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine strokeDasharray="6 2" color="#dd0303" width={3} />
+              <IconLegendLine color="#9C0AF5" width={5} />
             </IconWrapper>
-            Netzentwurf
+            Alle Maßnahmen streckenbezogen
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="#dd0303" width={1} />
+              <div className="inline-block w-2.5">
+                <IconLegendCircle color="#9C0AF5" borderWidth={0} size={5} />
+              </div>
             </IconWrapper>
-            Wohnstraßen ohne Oberfläche=schlecht
-          </LegendItem>
-          <LegendItem>
-            <IconWrapper>
-              <IconLegendLine color="#ffd53d" width={4} />
-            </IconWrapper>
-            Netzvorschläge Bürger:innen
+            Alle Maßnahmen punktbezogen
           </LegendItem>
         </LegendItems>
       </LegendCol>

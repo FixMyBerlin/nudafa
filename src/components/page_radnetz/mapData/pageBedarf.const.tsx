@@ -1,4 +1,4 @@
-import { LegendKontext } from '../legends/LegendKontext'
+import { LegendBedarfe } from '../legends/LegendBedarfe'
 import type { MapDataAndLegend } from './mapDataAndLegend.const'
 
 export const pageBedarfe: MapDataAndLegend = {
@@ -57,6 +57,6 @@ export const pageBedarfe: MapDataAndLegend = {
         ],
       },
     },
-    legends: <LegendKontext />,
+    legends: <LegendBedarfe />,
   },
 }

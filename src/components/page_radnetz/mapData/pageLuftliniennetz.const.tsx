@@ -1,3 +1,4 @@
+import { LegendLuftliniennetz } from '../legends/LegendLuftliniennetz'
 import type { MapDataAndLegend } from './mapDataAndLegend.const'
 
 export const pageLuftliniennetz: MapDataAndLegend = {
@@ -71,6 +72,6 @@ export const pageLuftliniennetz: MapDataAndLegend = {
         ],
       },
     },
-    legends: null, // not specified
+    legends: <LegendLuftliniennetz />,
   },
 }

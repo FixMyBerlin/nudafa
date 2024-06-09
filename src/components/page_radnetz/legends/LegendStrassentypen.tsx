@@ -7,7 +7,6 @@ import {
   LegendItems,
   LegendSources,
 } from './Legend'
-import { LegendItemPoiShop } from './LegendItems/LegendItemPoiShop'
 import { IconLegendLine } from './icons/IconLegendLine'
 
 export const LegendStrassentypen = () => {
@@ -40,12 +39,6 @@ export const LegendStrassentypen = () => {
             </IconWrapper>
             Frei geführt
           </LegendItem>
-        </LegendItems>
-      </LegendCol>
-      <LegendCol>
-        <LegendHeader>Zielorte</LegendHeader>
-        <LegendItems>
-          <LegendItemPoiShop />
         </LegendItems>
       </LegendCol>
 
