@@ -7,6 +7,8 @@ import type {
 } from 'maplibre-gl'
 import { pageBedarfe } from './pageBedarf.const'
 import { pageBestand } from './pageBestand.const'
+import { pageEinleitung } from './pageEinleitung.const'
+import { pageInteraktiveKarte } from './pageInteraktiveKarte.const'
 import { pageKomfort } from './pageKomfort.const'
 import { pageKontext } from './pageKontext.const'
 import { pageLuftliniennetz } from './pageLuftliniennetz.const'
@@ -40,10 +42,12 @@ export type MapDataAndLegend = {
       }
     }
     legends: JSX.Element | null
+    colorClass: string
   }
 }
 
 export const mapDataAndLegend: MapDataAndLegend = {
+  ...pageEinleitung,
   ...pageKontext,
   ...pageQuelleZiele,
   ...pageKomfort,
@@ -54,4 +58,5 @@ export const mapDataAndLegend: MapDataAndLegend = {
   ...pageLuftliniennetz,
   ...pageBedarfe,
   ...pageMassnahmen,
+  ...pageInteraktiveKarte,
 }

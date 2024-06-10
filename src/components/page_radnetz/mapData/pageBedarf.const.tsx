@@ -58,5 +58,6 @@ export const pageBedarfe: MapDataAndLegend = {
       },
     },
     legends: <LegendBedarfe />,
+    colorClass: 'border-l-[#E4B130]',
   },
 }

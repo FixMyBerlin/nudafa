@@ -144,5 +144,6 @@ export const pageStrassentypen: MapDataAndLegend = {
       },
     },
     legends: <LegendStrassentypen />,
+    colorClass: 'border-l-[#F5E4B7]',
   },
 }

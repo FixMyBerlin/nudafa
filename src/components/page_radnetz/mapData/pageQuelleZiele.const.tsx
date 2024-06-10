@@ -305,5 +305,6 @@ export const pageQuelleZiele: MapDataAndLegend = {
       },
     },
     legends: <LegendQuellenUndZiele />,
+    colorClass: 'border-l-[#F5E4B7]',
   },
 }

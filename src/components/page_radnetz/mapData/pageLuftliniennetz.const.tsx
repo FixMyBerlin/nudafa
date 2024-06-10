@@ -73,5 +73,6 @@ export const pageLuftliniennetz: MapDataAndLegend = {
       },
     },
     legends: <LegendLuftliniennetz />,
+    colorClass: 'border-l-[#977214]',
   },
 }

@@ -11,7 +11,7 @@ export const RadnetzInfo = ({ children, links }: Props) => {
     <section className="px-4">
       <div className={markdownProseClasses}>{children}</div>
 
-      {links && (
+      {links?.length && (
         <nav>
           <h3>Weiterführende Links:</h3>
           <div className="grid gap-2 py-4 md:grid-cols-2">

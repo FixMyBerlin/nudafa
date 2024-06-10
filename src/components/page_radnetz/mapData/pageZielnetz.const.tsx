@@ -87,5 +87,6 @@ export const pageZielnetz: MapDataAndLegend = {
       },
     },
     legends: <LegendZielnetz />,
+    colorClass: 'border-l-[#977214]',
   },
 }

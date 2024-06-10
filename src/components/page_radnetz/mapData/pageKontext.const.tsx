@@ -79,5 +79,6 @@ export const pageKontext: MapDataAndLegend = {
       },
     },
     legends: <LegendKontext />,
+    colorClass: 'border-l-[#F5E4B7]',
   },
 }

@@ -60,5 +60,6 @@ export const pageSicherheit: MapDataAndLegend = {
       },
     },
     legends: <LegendSicherheit />,
+    colorClass: 'border-l-[#E4B130]',
   },
 }

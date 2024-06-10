@@ -387,5 +387,6 @@ export const pageBestand: MapDataAndLegend = {
       },
     },
     legends: <LegendBestand />,
+    colorClass: 'border-l-[#F5E4B7]',
   },
 }

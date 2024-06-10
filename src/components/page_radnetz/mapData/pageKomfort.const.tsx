@@ -308,5 +308,6 @@ export const pageKomfort: MapDataAndLegend = {
       },
     },
     legends: <LegendKomfort />,
+    colorClass: 'border-l-[#F5E4B7]',
   },
 }
