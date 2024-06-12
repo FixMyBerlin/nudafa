@@ -6,7 +6,7 @@ export const LegendBedarfe = () => {
   return (
     <Legend>
       <LegendCol>
-        <LegendHeader>Legende</LegendHeader>
+        <LegendHeader>Beteiligungsergebnisse</LegendHeader>
         <LegendItems>
           <LegendItem>
             <IconWrapper>
@@ -33,9 +33,6 @@ export const LegendBedarfe = () => {
           </LegendItem>
         </LegendItems>
       </LegendCol>
-      {/* <LegendSources>
-          Quellen: -
-        </LegendSources> */}
     </Legend>
   )
 }

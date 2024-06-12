@@ -13,6 +13,7 @@ import { RadnetzLegend } from './RadnetzLegend'
 type Props = {
   visible: boolean
   articleSlug: string
+  sources?: string
   title: string
   children: React.ReactNode
   links:
@@ -32,6 +33,7 @@ export const RadnetzArticleWrapperDesktop = ({
   articleSlug,
   title,
   children,
+  sources,
   links,
 }: Props) => {
   return (
@@ -69,7 +71,7 @@ export const RadnetzArticleWrapperDesktop = ({
           </div>
           <DisclosurePanel className="flex flex-grow flex-col">
             <RadnetzInfo links={links}>{children}</RadnetzInfo>
-            <RadnetzLegend articleSlug={articleSlug} />
+            <RadnetzLegend sources={sources} articleSlug={articleSlug} />
           </DisclosurePanel>
         </article>
       )}

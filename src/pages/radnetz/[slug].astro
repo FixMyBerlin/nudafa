@@ -13,6 +13,7 @@ import clsx from 'clsx'
 const rawPages = await getCollection('bicyclenetworkpages')
 const sortedPages = rawPages.sort((a, b) => a.data.order - b.data.order)
 const pages: RadnetzPage[] = []
+
 for (const page of sortedPages) {
   const { Content } = await page.render()
   pages.push({
@@ -21,6 +22,7 @@ for (const page of sortedPages) {
     order: page.data.order,
     title: page.data.title,
     links: page.data.links,
+    sources: page.data.sources,
     Content: Content,
   })
 }
@@ -37,7 +39,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { title, links } = entry.data
+const { title, links, sources } = entry.data
 ---
 
 <LayoutApp title={title}>
@@ -50,7 +52,13 @@ const { title, links } = entry.data
 
     {
       pages.map(({ slug, title, Content }) => (
-        <RadnetzArticleWrapper client:load articleSlug={slug} title={title} links={links}>
+        <RadnetzArticleWrapper
+          client:load
+          sources={sources}
+          articleSlug={slug}
+          title={title}
+          links={links}
+        >
           <Content
             components={{
               TextLinkArrow,

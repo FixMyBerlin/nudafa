@@ -4,7 +4,10 @@ type Props = { children: React.ReactNode; className?: string }
 
 export const Legend = ({ children }: Props) => (
   <div className="bg-gray-50 text-xs">
-    <div className="text-sm md:gap-4">{children}</div>
+    <div className="text-sm md:gap-4">
+      <p>Legende</p>
+      {children}
+    </div>
   </div>
 )
 
@@ -23,7 +26,7 @@ export const LegendItem = ({ children, className }: Props) => (
 )
 
 export const LegendSources = ({ children }: Props) => (
-  <div className="mt-4 text-gray-800 md:col-span-2">{children}</div>
+  <div className="mt-4 text-xs text-gray-800 md:col-span-2">{children}</div>
 )
 
 export const IconWrapper = ({ children, className }: Props) => (

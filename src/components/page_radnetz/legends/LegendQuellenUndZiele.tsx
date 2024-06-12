@@ -1,12 +1,4 @@
-import {
-  IconWrapper,
-  Legend,
-  LegendCol,
-  LegendHeader,
-  LegendItem,
-  LegendItems,
-  LegendSources,
-} from './Legend'
+import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
 import { LegendItemPoiShop } from './LegendItems/LegendItemPoiShop'
 import { Airport } from './icons/Airport'
 import { IconLegendArea } from './icons/IconLegendArea'
@@ -99,10 +91,6 @@ export const LegendQuellenUndZiele = () => {
           <LegendItemPoiShop />
         </LegendItems>
       </LegendCol>
-
-      <LegendSources>
-        Quellen: OpenStreetMap, Vorhandene Netzkonzepte aus manuellen Importen
-      </LegendSources>
     </Legend>
   )
 }

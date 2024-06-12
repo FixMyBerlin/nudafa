@@ -3,6 +3,7 @@ export type RadnetzPage = {
   menu: string
   order: number
   title: string
+  sources?: string
   Content: any
   links:
     | {

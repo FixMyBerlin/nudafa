@@ -1,12 +1,4 @@
-import {
-  IconWrapper,
-  Legend,
-  LegendCol,
-  LegendHeader,
-  LegendItem,
-  LegendItems,
-  LegendSources,
-} from './Legend'
+import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
 import { IconLegendLine } from './icons/IconLegendLine'
 
 export const LegendBestand = () => {
@@ -46,8 +38,6 @@ export const LegendBestand = () => {
           </LegendItem>
         </LegendItems>
       </LegendCol>
-
-      <LegendSources>Quellen: OpenStreetMap</LegendSources>
     </Legend>
   )
 }

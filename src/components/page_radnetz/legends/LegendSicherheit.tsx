@@ -1,12 +1,4 @@
-import {
-  IconWrapper,
-  Legend,
-  LegendCol,
-  LegendHeader,
-  LegendItem,
-  LegendItems,
-  LegendSources,
-} from './Legend'
+import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
 
 import { Icon0 } from './icons/Icon0'
 import { Icon1 } from './icons/Icon1'
@@ -83,10 +75,6 @@ export const LegendSicherheit = () => {
           </LegendItem>
         </LegendItems>
       </LegendCol>
-      <LegendSources>
-        Quellen: ¹ ² Gemeinde Eichwalde 2020, ³ OpenStreetMap 2020, ⁴ Polizeipräsidium Brandenburg
-        2021, ⁵ SimRa - TU Berlin 2020
-      </LegendSources>
     </Legend>
   )
 }

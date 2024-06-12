@@ -6,7 +6,7 @@ import { $router } from './utils/store'
 
 type Props = {
   articleSlug: string
-
+  sources?: string
   title: string
   children: React.ReactNode
   links:
@@ -21,7 +21,7 @@ type Props = {
  * @desc In SSR we render all articles of the collection on every page but hide all but the current.
  * In React we update the hidden state for the current article.
  */
-export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: Props) => {
+export const RadnetzArticleWrapper = ({ articleSlug, title, children, links, sources }: Props) => {
   // SSR: We need to tell the router which page is pre-rendered so there is no hydration mismatch
   if (import.meta.env.SSR) {
     $router.open(`/radnetz/${articleSlug}`)
@@ -39,6 +39,7 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: P
         articleSlug={articleSlug}
         title={title}
         links={links}
+        sources={sources}
       >
         {children}
       </RadnetzArticleWrapperDesktop>
@@ -47,6 +48,7 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links }: P
         articleSlug={articleSlug}
         title={title}
         links={links}
+        sources={sources}
       >
         {children}
       </RadnetzArticleWrapperMobile>

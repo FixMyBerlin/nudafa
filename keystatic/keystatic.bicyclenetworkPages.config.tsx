@@ -20,6 +20,10 @@ export const keystaticBicyclenetworkPagesConfig = collection({
       label: 'Title',
       validation: { length: { min: 1, max: 80 } },
     }),
+    sources: fields.text({
+      label: 'Quelle(n)',
+      validation: { length: { max: 200 } },
+    }),
     content: fields.mdx({
       label: 'Content',
       components: { ...keystaticTextLinkArrowConfig },

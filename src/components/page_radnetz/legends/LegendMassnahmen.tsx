@@ -1,4 +1,4 @@
-import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
+import { IconWrapper, Legend, LegendCol, LegendItem, LegendItems } from './Legend'
 import { IconLegendCircle } from './icons/IconLegendCircle'
 import { IconLegendLine } from './icons/IconLegendLine'
 
@@ -6,7 +6,6 @@ export const LegendMassnahmen = () => {
   return (
     <Legend>
       <LegendCol>
-        <LegendHeader>Legende</LegendHeader>
         <LegendItems>
           <LegendItem>
             <IconWrapper>
@@ -24,9 +23,6 @@ export const LegendMassnahmen = () => {
           </LegendItem>
         </LegendItems>
       </LegendCol>
-      {/* <LegendSources>
-          Quellen: -
-        </LegendSources> */}
     </Legend>
   )
 }
