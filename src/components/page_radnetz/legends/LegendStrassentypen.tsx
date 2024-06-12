@@ -35,7 +35,7 @@ export const LegendStrassentypen = () => {
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="hsla(313, 18%, 69%, 0.37)" width={3} />
+              <IconLegendLine color="#b36b19" width={3} />
             </IconWrapper>
             Frei geführt
           </LegendItem>
