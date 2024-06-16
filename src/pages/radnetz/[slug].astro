@@ -39,7 +39,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { title, links, sources } = entry.data
+const { title } = entry.data
 ---
 
 <LayoutApp title={title}>
@@ -51,7 +51,7 @@ const { title, links, sources } = entry.data
     <RadnetzMap articleSlug={entry.slug} client:load />
 
     {
-      pages.map(({ slug, title, Content }) => (
+      pages.map(({ slug, title, sources, links, Content }) => (
         <RadnetzArticleWrapper
           client:load
           sources={sources}
