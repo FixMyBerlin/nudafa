@@ -1,0 +1,28 @@
+---
+import ImageDouble from '@components/ImageDouble.astro'
+import ImageSingleHorizontal from '@components/ImageSingleHorizontal.astro'
+import ImageSingleSquare from '@components/ImageSingleSquare.astro'
+import ImageSingleVertical from '@components/ImageSingleVertical.astro'
+import PageHeader from '@components/PageHeader.astro'
+import LayoutPage from '@components/layouts/LayoutPage.astro'
+import TextLinkArrow from '@components/links/TextLinkArrow.astro'
+import { getEntry } from 'astro:content'
+
+const page = await getEntry('researchpage', 'index')
+const { title, subTitle, mediaLinks } = page.data
+const { Content } = await page.render()
+---
+
+<LayoutPage title={title}>
+  <PageHeader title={title} subTitle={subTitle}>
+    <Content
+      components={{
+        ImageSingleHorizontal,
+        ImageSingleSquare,
+        ImageSingleVertical,
+        ImageDouble,
+        TextLinkArrow,
+      }}
+    />
+  </PageHeader>
+</LayoutPage>

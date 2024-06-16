@@ -11,6 +11,7 @@ import {
 } from 'keystatic/keystatic.partner.config'
 import { keystaticPressPageConfig } from 'keystatic/keystatic.press.config'
 import { keystaticPrivacyPageConfig } from 'keystatic/keystatic.privacy.config'
+import { keystaticResearchPageConfig } from 'keystatic/keystatic.research.config'
 import {
   keystaticSubprojectAndMeasureTopicsConfig,
   keystaticSubprojectCommunesConfig,
@@ -38,6 +39,7 @@ export default config({
         'projectpartnerpageintro',
         'projectpartnerpagemain',
         'persons',
+        'researchpage',
         'presspage',
       ],
       Teilprojekte: ['subProjects', 'subprojectstopics', 'communes', 'partners'],
@@ -50,6 +52,7 @@ export default config({
     homepageintro: keystaticHomepageIntroConfig,
     homepagemain: keystaticHomepageMainConfig,
     presspage: keystaticPressPageConfig,
+    researchpage: keystaticResearchPageConfig,
     projectpartnerpageintro: keystaticProjectPartnerPageIntroConfig,
     projectpartnerpagemain: keystaticProjectPartnerPageMainConfig,
     imprintpage: keystaticImprintPageConfig,

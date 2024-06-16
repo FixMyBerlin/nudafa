@@ -16,8 +16,10 @@ subprojects?.forEach((p) => {
 export const mainNavigation: TNavigation = {
   first: {
     'Das Reallabor': {
-      Presse: '/presse',
+      Start: '/',
       'Über uns': '/ueber-uns',
+      Begleitforschung: '/begleitforschung',
+      Presse: '/presse',
     },
     Teilprojekte: {
       ...subprojectsNavigation,
