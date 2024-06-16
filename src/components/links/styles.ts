@@ -13,7 +13,7 @@ const buttonBase = 'inline-block rounded-full border-[1.5px] font-semibold activ
 
 export const buttonStylesForLinkElement = clsx(
   buttonBase,
-  'border-gray-600 bg-white px-5 py-3 text-gray-600 hover:bg-beige-50',
+  'border-gray-600 bg-white px-4 py-2 text-gray-600 hover:bg-beige-50',
 )
 
 export const selectedButtonStylesForLinkElement = clsx(
