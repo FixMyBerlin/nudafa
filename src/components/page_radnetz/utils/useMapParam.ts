@@ -9,7 +9,7 @@ export type MapParamObject = {
   zoom: number
 }
 
-const initialMapParams = [12.4, 52.348, 13.623]
+const initialMapParams = [10.4, 52.368454, 13.622069]
 
 export const useMapParam = () => {
   const router = useStore($router)

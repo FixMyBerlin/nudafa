@@ -31,11 +31,11 @@ const maxBounds = [
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setminzoom
 const minZoom = 7
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxzoom
-const maxZoom = 16
+const maxZoom = 22
 const initialMapView: MapParamObject = {
-  zoom: 12,
-  longitude: 13.61,
-  latitude: 52.35,
+  zoom: 10.4,
+  longitude: 13.622069,
+  latitude: 52.368454,
 }
 const interactiveLayerIds: string[] = []
 
