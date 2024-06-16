@@ -1,11 +1,14 @@
 import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
 import { LegendItemPoiShop } from './LegendItems/LegendItemPoiShop'
 import { Airport } from './icons/Airport'
+import { Ferry } from './icons/Ferry'
 import { IconLegendArea } from './icons/IconLegendArea'
 import { IconLegendCircle } from './icons/IconLegendCircle'
 import { Line } from './icons/Line'
+import { Metro } from './icons/Metro'
 import { Sbahn } from './icons/Sbahn'
 import { Train } from './icons/Train'
+import { Ubahn } from './icons/Ubahn'
 
 export const LegendQuellenUndZiele = () => {
   return (
@@ -87,6 +90,24 @@ export const LegendQuellenUndZiele = () => {
               <Sbahn />
             </IconWrapper>
             S-Bahnhöfe
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <Metro />
+            </IconWrapper>
+            Metro
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <Ubahn />
+            </IconWrapper>
+            U-Bahn
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <Ferry />
+            </IconWrapper>
+            Fähre
           </LegendItem>
           <LegendItemPoiShop />
         </LegendItems>
