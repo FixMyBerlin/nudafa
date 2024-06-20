@@ -1,0 +1,49 @@
+---
+import PageHeader from '@components/PageHeader.astro'
+import H2 from '@components/Text/H2.astro'
+import LayoutPage from '@components/layouts/LayoutPage.astro'
+import Section from '@components/layouts/Section.astro'
+import { mapDataAndLegend } from '@components/page_radnetz/mapData/mapDataAndLegend.const'
+---
+
+<LayoutPage title="ADMIN: Alle Layer in Reihenfolge" noindex>
+  <PageHeader title="ADMIN: Alle Layer in Reihenfolge" subTitle="" />
+
+  <Section className="bg-[#DBEAFE]" extraPadding>
+    <H2>Liste aller Layer mit <code>beforeId</code></H2>
+    <table class="text-xs">
+      <thead>
+        <tr>
+          <th>Seite</th>
+          <th><code>sourceKey</code></th>
+          <th><code>layerKey</code></th>
+          <th><code>beforeId</code></th>
+        </tr>
+      </thead>
+      {
+        Object.entries(mapDataAndLegend).map(([slug, sources]) => {
+          return Object.entries(sources.sources).map(([sourceId, source]) => {
+            const sourceKey = `${slug}-${sourceId}`
+            return source.layers.map((layer) => {
+              const layerKey = `${sourceId}-${layer.id}`
+              return (
+                <tr class="border-b border-white">
+                  <th class="p-2 text-left">{slug}</th>
+                  <td class="p-2">{sourceKey}</td>
+                  <td class="p-2">{layerKey}</td>
+                  <td class="p-2">{layer.beforeId || 'NONE'}</td>
+                  <td class="p-2">
+                    <details>
+                      <summary>JSON</summary>
+                      {JSON.stringify(layer)}
+                    </details>
+                  </td>
+                </tr>
+              )
+            })
+          })
+        })
+      }
+    </table>
+  </Section>
+</LayoutPage>
