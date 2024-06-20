@@ -12,9 +12,9 @@ export const Metro = () => {
           d="M2,1 H15 C15,1 16,1 16,2 V15 C16,15 16,16 15,16 H2 C2,16 1,16 1,15 V2 C1,2 1,1 2,1"
           fill="hsl(345, 6%, 40%)"
           stroke="hsl(45, 13%, 100%)"
-          stroke-linejoin="round"
-          stroke-miterlimit="4px"
-          stroke-width="2"
+          strokeLinejoin="round"
+          strokeMiterlimit="4px"
+          strokeWidth="2"
         />
         <path
           d="M2,1 H15 C15,1 16,1 16,2 V15 C16,15 16,16 15,16 H2 C2,16 1,16 1,15 V2 C1,2 1,1 2,1"
