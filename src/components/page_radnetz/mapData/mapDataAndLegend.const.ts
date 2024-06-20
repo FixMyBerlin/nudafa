@@ -32,13 +32,15 @@ export type MapDataAndLegend = {
         // Styling:
         // Layer list, copied from Mapbox
         // Last item in list shows on the top of the layer stack
-        layers: (
+        layers: ((
           | Omit<FillLayerSpecification, 'source' | 'source-layer' | 'metadata'>
           | Omit<LineLayerSpecification, 'source' | 'source-layer' | 'metadata'>
           | Omit<SymbolLayerSpecification, 'source' | 'source-layer' | 'metadata'>
           | Omit<CircleLayerSpecification, 'source' | 'source-layer' | 'metadata'>
           | Omit<HeatmapLayerSpecification, 'source' | 'source-layer' | 'metadata'>
-        )[]
+        ) & {
+          beforeId?: string
+        })[]
       }
     }
     legends: JSX.Element | null
