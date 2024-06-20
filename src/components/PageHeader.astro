@@ -12,11 +12,17 @@ const { title, subTitle } = Astro.props
 ---
 
 <Section className="mt-12">
-  <H1>
+  <H1 transition:name="h1">
     {title}
   </H1>
-  {subTitle && <p class="mb-10 text-base md:text-xl">{subTitle}</p>}
-  <ProseMarkdown>
+  {
+    subTitle && (
+      <p class="mb-10 text-base md:text-xl" transition:name="subtitle">
+        {subTitle}
+      </p>
+    )
+  }
+  <ProseMarkdown transition:name="body">
     <slot />
   </ProseMarkdown>
 </Section>

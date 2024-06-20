@@ -1,6 +1,7 @@
 ---
 import '@fontsource-variable/open-sans'
 import '@fontsource/roboto-slab'
+import { ViewTransitions } from 'astro:transitions'
 
 type Props = { title?: string; noindex?: boolean }
 const { title = 'Nudafa', noindex = false }: Props = Astro.props
@@ -17,6 +18,7 @@ const { title = 'Nudafa', noindex = false }: Props = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon-32x32.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body class="flex min-h-full w-full bg-[#eee] font-sans antialiased">
     <div class="relative flex-auto">
