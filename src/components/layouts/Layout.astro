@@ -2,14 +2,16 @@
 import '@fontsource-variable/open-sans'
 import '@fontsource/roboto-slab'
 
-type Props = { title?: string }
-const { title = 'Nudafa' }: Props = Astro.props
+type Props = { title?: string; noindex?: boolean }
+const { title = 'Nudafa', noindex = false }: Props = Astro.props
 ---
 
 <!doctype html>
 <html lang="de" class="h-full">
   <head>
     <meta charset="UTF-8" />
+    {noindex && <meta name="robots" content="noindex" />}
+
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon-32x32.png" />
