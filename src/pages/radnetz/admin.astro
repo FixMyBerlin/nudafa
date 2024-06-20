@@ -3,7 +3,54 @@ import PageHeader from '@components/PageHeader.astro'
 import H2 from '@components/Text/H2.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
+import { MAPTILER_STYLE } from '@components/page_radnetz/RadnetzMap'
 import { mapDataAndLegend } from '@components/page_radnetz/mapData/mapDataAndLegend.const'
+
+// We need a flat data structure to sort the layers by `beforeId`
+const flattenedLayers = Object.entries(mapDataAndLegend).flatMap(([slug, sources]) =>
+  Object.entries(sources.sources).flatMap(([sourceId, source]) =>
+    source.layers.map((layer) => ({
+      slug,
+      sourceKey: `${slug}-${sourceId}`,
+      layerKey: `${sourceId}-${layer.id}`,
+      type: layer.type,
+      beforeId: layer.beforeId || 'nudafa-beforeId-pagelayer', // Fallback defined in `src/components/page_radnetz/RadnetzMapSourcesLayersArticle.tsx`
+    })),
+  ),
+)
+const sortedFlattenedLayers = flattenedLayers.sort((a, b) => a.beforeId.localeCompare(b.beforeId))
+
+const maptilerStyle = await (await fetch(MAPTILER_STYLE)).json()
+const maptilerStyleLayers: typeof flattenedLayers = maptilerStyle.layers.map((layer: any) => {
+  return {
+    slug: 'BASEMAP',
+    sourceKey: layer.source,
+    layerKey: layer.id,
+    type: layer.type,
+    beforeId: undefined,
+  }
+})
+
+let resultList: typeof flattenedLayers = []
+let flattenedLayersCopy = [...flattenedLayers] // Make a copy to modify
+
+maptilerStyleLayers.forEach((layer) => {
+  // Find and insert flattenedLayers that should come before the current layer
+  let insertIndex = resultList.length // Default to inserting at the end of newList
+  flattenedLayersCopy = flattenedLayersCopy.filter((flattenedLayer) => {
+    if (flattenedLayer.beforeId === layer.layerKey) {
+      resultList.splice(insertIndex, 0, flattenedLayer) // Insert before current layer
+      insertIndex++ // Adjust insertIndex for multiple inserts
+      return false // Remove from flattenedLayersCopy
+    }
+    return true // Keep in flattenedLayersCopy
+  })
+
+  // Add the current maptilerStyleLayer to newList
+  resultList.push(layer)
+})
+// Handle remaining flattenedLayers (those without a matching beforeId or to be appended at the end)
+resultList = [...resultList, ...flattenedLayersCopy]
 ---
 
 <LayoutPage title="ADMIN: Alle Layer in Reihenfolge" noindex>
@@ -13,36 +60,24 @@ import { mapDataAndLegend } from '@components/page_radnetz/mapData/mapDataAndLeg
     <H2>Liste aller Layer mit <code>beforeId</code></H2>
     <table class="text-xs">
       <thead>
-        <tr>
-          <th>Seite</th>
-          <th><code>sourceKey</code></th>
-          <th><code>layerKey</code></th>
-          <th><code>beforeId</code></th>
+        <tr class="bg-white/50">
+          <th class="p-2 text-left">Seite</th>
+          <th class="p-2 text-left"><code>sourceKey</code></th>
+          <th class="p-2 text-left"><code>layerKey</code></th>
+          <th class="p-2 text-left">Layer Typ</th>
+          <th class="p-2 text-left"><code>beforeId</code></th>
         </tr>
       </thead>
       {
-        Object.entries(mapDataAndLegend).map(([slug, sources]) => {
-          return Object.entries(sources.sources).map(([sourceId, source]) => {
-            const sourceKey = `${slug}-${sourceId}`
-            return source.layers.map((layer) => {
-              const layerKey = `${sourceId}-${layer.id}`
-              return (
-                <tr class="border-b border-white">
-                  <th class="p-2 text-left">{slug}</th>
-                  <td class="p-2">{sourceKey}</td>
-                  <td class="p-2">{layerKey}</td>
-                  <td class="p-2">{layer.beforeId || 'NONE'}</td>
-                  <td class="p-2">
-                    <details>
-                      <summary>JSON</summary>
-                      {JSON.stringify(layer)}
-                    </details>
-                  </td>
-                </tr>
-              )
-            })
-          })
-        })
+        resultList.map(({ slug, sourceKey, layerKey, type, beforeId }) => (
+          <tr class="border-b border-white">
+            <th class="p-2 text-left">{slug}</th>
+            <td class="p-2">{sourceKey}</td>
+            <td class="p-2">{layerKey}</td>
+            <td class="p-2">{type}</td>
+            <td class="p-2">{beforeId !== 'zzz' ? beforeId : 'NONE'}</td>
+          </tr>
+        ))
       }
     </table>
   </Section>

@@ -197,6 +197,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
           },
           {
             id: 'poiEducation-label',
+            beforeId: 'waterway_label',
             type: 'symbol',
             minzoom: 14,
             layout: {

@@ -39,6 +39,10 @@ const initialMapView: MapParamObject = {
 }
 const interactiveLayerIds: string[] = []
 
+// Style: https://cloud.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/
+export const MAPTILER_STYLE =
+  'https://api.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/style.json?key=ECOoUBmpqklzSCASXxcu'
+
 export const RadnetzMap = ({ articleSlug, children }: Props) => {
   const [isScreenHorizontal] = useScreenHorizontal()
 
@@ -80,8 +84,7 @@ export const RadnetzMap = ({ articleSlug, children }: Props) => {
           maxBounds={maxBounds}
           minZoom={minZoom}
           maxZoom={maxZoom}
-          // Style: https://cloud.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/
-          mapStyle="https://api.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/style.json?key=ECOoUBmpqklzSCASXxcu"
+          mapStyle={MAPTILER_STYLE}
           style={{ width: '100%', height: '100%' }}
           // Set map state for <MapData>:
           onLoad={() => $mapLoaded.set(true)}
