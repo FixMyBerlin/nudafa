@@ -22,11 +22,12 @@ export const MapDebugHelper = () => {
   if (!showMapDebugHelper || !mainMap) return null
 
   // mainMap is not available on first render, so we need to catch the erros
+  let allLayers: AnyLayer[] = []
   let cleanLayers: AnyLayer[] = []
   let cleanSources: [string, SourceSpecification][] = []
   try {
-    const layers = mainMap.getStyle().layers
-    cleanLayers = layers.filter(
+    allLayers = mainMap.getStyle().layers
+    cleanLayers = allLayers.filter(
       (layer) =>
         'source' in layer &&
         !layer.source.includes('maptiler') &&
@@ -88,8 +89,14 @@ export const MapDebugHelper = () => {
       <hr className="border-1 my-0.5 border-gray-600" />
 
       <details>
-        <summary className="cursor-pointer">Layers ({cleanLayers.length})</summary>
+        <summary className="cursor-pointer">Our Layers ({cleanLayers.length})</summary>
         <pre>{JSON.stringify(cleanLayers, undefined, 2)}</pre>
+      </details>
+      <hr className="border-1 my-0.5 border-gray-600" />
+
+      <details>
+        <summary className="cursor-pointer">All Layers ({allLayers.length})</summary>
+        <pre>{JSON.stringify(allLayers, undefined, 2)}</pre>
       </details>
       <hr className="border-1 my-0.5 border-gray-600" />
 
