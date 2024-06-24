@@ -4,7 +4,6 @@ import { RadnetzLegend } from './RadnetzLegend'
 type Props = {
   visible: boolean
   articleSlug: string
-  sources?: string
   title: string
   children: React.ReactNode
   links:
@@ -25,7 +24,6 @@ export const RadnetzArticleWrapperMobile = ({
   title,
   children,
   links,
-  sources,
 }: Props) => {
   return (
     <article className={visible ? 'bg-green-50 md:hidden' : 'hidden'} aria-hidden={visible}>

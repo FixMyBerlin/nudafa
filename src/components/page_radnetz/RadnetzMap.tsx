@@ -19,7 +19,6 @@ import { useMapParam, type MapParamObject } from './utils/useMapParam'
 import { useScreenHorizontal } from './utils/useScreenHorizontal'
 
 type Props = {
-  articleSlug: string
   children?: React.ReactNode
 }
 
@@ -43,7 +42,7 @@ const interactiveLayerIds: string[] = []
 export const MAPTILER_STYLE =
   'https://api.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/style.json?key=ECOoUBmpqklzSCASXxcu'
 
-export const RadnetzMap = ({ articleSlug, children }: Props) => {
+export const RadnetzMap = ({ children }: Props) => {
   const [isScreenHorizontal] = useScreenHorizontal()
 
   // Setup pmtiles

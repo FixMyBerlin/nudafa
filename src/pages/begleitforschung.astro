@@ -9,7 +9,7 @@ import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 import { getEntry } from 'astro:content'
 
 const page = await getEntry('researchpage', 'index')
-const { title, subTitle, mediaLinks } = page.data
+const { title, subTitle } = page.data
 const { Content } = await page.render()
 ---
 

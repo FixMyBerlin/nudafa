@@ -18,7 +18,6 @@ const flattenedLayers = Object.entries(mapDataAndLegend).flatMap(([slug, sources
     })),
   ),
 )
-const sortedFlattenedLayers = flattenedLayers.sort((a, b) => a.beforeId.localeCompare(b.beforeId))
 
 const maptilerStyle = await (await fetch(MAPTILER_STYLE)).json()
 const maptilerStyleLayers: typeof flattenedLayers = maptilerStyle.layers.map((layer: any) => {

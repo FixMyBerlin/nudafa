@@ -48,7 +48,6 @@ export const RadnetzArticleWrapper = ({ articleSlug, title, children, links, sou
         articleSlug={articleSlug}
         title={title}
         links={links}
-        sources={sources}
       >
         {children}
       </RadnetzArticleWrapperMobile>
