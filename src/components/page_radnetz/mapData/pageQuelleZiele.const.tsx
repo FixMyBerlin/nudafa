@@ -89,30 +89,41 @@ export const pageQuelleZiele: MapDataAndLegend = {
         pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-barrier-lines',
         layers: [
           {
-            id: 'poibarriers_train2',
+            id: 'railway-rail',
             type: 'line',
-            filter: [
-              'all',
-              ['match', ['geometry-type'], ['LineString'], true, false],
-              ['match', ['get', 'railway'], ['rail'], true, false],
-            ],
+            filter: ['match', ['get', 'railway'], ['rail'], true, false],
             paint: {
-              'line-color': 'hsl(300, 0%, 87%)',
-              'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.4, 18, 3],
-              'line-dasharray': [0.5, 1, 1],
+              'line-color': 'hsl(300, 88%, 10%)',
+              'line-width': ['interpolate', ['linear'], ['zoom'], 10, 2, 18, 4],
             },
           },
           {
-            id: 'poibarriers_train',
+            id: 'railway_rail-white',
             type: 'line',
-            filter: [
-              'all',
-              ['match', ['geometry-type'], ['LineString'], true, false],
-              ['match', ['get', 'railway'], ['rail'], true, false],
-            ],
+            filter: ['match', ['get', 'railway'], ['rail'], true, false],
             paint: {
-              'line-color': '#4a0d4a',
-              'line-width': ['interpolate', ['linear'], ['zoom'], 10, 2, 18, 4],
+              'line-color': 'hsl(300, 4%, 97%)',
+              'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.7, 18, 3],
+              'line-dasharray': [1, 1.2],
+            },
+          },
+          {
+            id: 'railway_light_rail',
+            type: 'line',
+            filter: ['match', ['get', 'railway'], ['light_rail'], true, false],
+            paint: {
+              'line-color': 'hsl(300, 88%, 10%)',
+              'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1, 18, 2],
+            },
+          },
+          {
+            id: 'railway_light_rail-white',
+            type: 'line',
+            filter: ['match', ['get', 'railway'], ['light_rail'], true, false],
+            paint: {
+              'line-color': 'hsl(300, 4%, 97%)',
+              'line-width': ['interpolate', ['linear'], ['zoom'], 10, 0.7, 18, 1.5],
+              'line-dasharray': [2, 2],
             },
           },
           {
