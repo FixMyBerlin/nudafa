@@ -9,21 +9,33 @@ export const LegendKomfort = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="hsl(119, 76%, 26%)" width={3} />
+              <IconLegendLine color="#37f644" width={3} />
             </IconWrapper>
-            sehr gut &amp; gut
+            sehr gut
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="hsl(47, 94%, 46%)" width={3} />
+              <IconLegendLine color="#b5ea2e" width={3} />
+            </IconWrapper>
+            gut
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <IconLegendLine color="#faa00f" width={3} />
             </IconWrapper>
             mittel
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="hsl(5, 96%, 52%)" width={3} />
+              <IconLegendLine color="#f90606" width={3} />
             </IconWrapper>
-            schlecht &amp; sehr schlecht
+            schlecht
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <IconLegendLine color="#d8035c" width={3} />
+            </IconWrapper>
+            sehr schlecht
           </LegendItem>
         </LegendItems>
       </LegendCol>
