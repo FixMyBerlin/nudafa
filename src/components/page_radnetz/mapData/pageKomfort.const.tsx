@@ -216,25 +216,6 @@ export const pageKomfort: MapDataAndLegend = {
             },
           },
           {
-            layout: {
-              'line-cap': 'round',
-            },
-            filter: [
-              'match',
-              ['get', 'road'],
-              ['path', 'track', 'bridleway', 'footway', 'cycleway'],
-              false,
-              true,
-            ],
-            type: 'line',
-            id: 'hitarea-roadclassification-sidepath copy',
-            paint: {
-              'line-width': ['interpolate', ['linear'], ['zoom'], 9, 1, 14.1, 10, 22, 12],
-              'line-opacity': 0,
-              'line-color': 'rgb(216, 20, 255)',
-            },
-          },
-          {
             minzoom: 13,
             layout: {
               'line-cap': 'square',
