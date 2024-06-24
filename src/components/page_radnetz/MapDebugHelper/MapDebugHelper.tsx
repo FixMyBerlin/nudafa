@@ -1,6 +1,8 @@
+import { useStore } from '@nanostores/react'
 import type { MapStyleImageMissingEvent, SourceSpecification } from 'maplibre-gl'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMap, type AnyLayer } from 'react-map-gl/maplibre'
+import { $mapLoaded } from '../utils/store'
 import { showDebugMap } from './showDebugMap'
 
 export type MapDebugHelperData = {
@@ -18,6 +20,7 @@ export const showMapDebugHelper = showDebugMap('debug')
 export const MapDebugHelper = () => {
   const { mainMap } = useMap()
   const [logclicks, setLogclicks] = useState<boolean>()
+  const mapLoaded = useStore($mapLoaded)
 
   if (!showMapDebugHelper || !mainMap) return null
 
@@ -41,6 +44,25 @@ export const MapDebugHelper = () => {
   } catch (error) {
     // console.info('MapDebugHelper', error)
   }
+
+  // Fetch existing the sprites
+  const [sprites, setSprites] = useState<string | undefined>(undefined)
+  useEffect(() => {
+    console.log('mapLoaded', mapLoaded)
+    if (!mapLoaded) return
+    try {
+      const url = mainMap?.getSprite()?.at(0)?.url
+      console.log('url', url)
+      if (url) {
+        fetch(`${url}@2x.json?key=ECOoUBmpqklzSCASXxcu`)
+          .then((response) => response.json())
+          .then((data) => setSprites(data))
+          .catch((error) => setSprites(error.toString()))
+      }
+    } catch (error) {
+      console.info('MapDebugHelper', error, mainMap)
+    }
+  }, [mapLoaded, mainMap])
 
   const zoom = mainMap.getZoom()
 
@@ -111,6 +133,18 @@ export const MapDebugHelper = () => {
           <hr className="border-1 my-0.5 border-gray-600" />
         </>
       )}
+
+      {sprites && Object.keys(sprites)?.length ? (
+        <>
+          <details>
+            <summary className="cursor-pointer">
+              Existing sprites ({Object.keys(sprites)?.length})
+            </summary>
+            <pre>{JSON.stringify(sprites, undefined, 2)}</pre>
+          </details>
+          <hr className="border-1 my-0.5 border-gray-600" />
+        </>
+      ) : null}
 
       <div>Zoom: {zoom}</div>
     </section>
