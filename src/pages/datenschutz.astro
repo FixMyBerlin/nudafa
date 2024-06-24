@@ -1,15 +1,249 @@
 ---
 import LayoutPage from '@components/layouts/LayoutPage.astro'
-import { getEntry } from 'astro:content'
 import PageHeader from '@components/PageHeader.astro'
-
-const page = await getEntry('privacypage', 'index')
-const { title, subTitle } = page.data
-const { Content } = await page.render()
+import { MailLink } from '@components/links/MailLink.tsx'
+import { TelLink } from '@components/links/TelLink.tsx'
 ---
 
-<LayoutPage title={title}>
-  <PageHeader title={title} subTitle={subTitle}>
-    <Content />
+<LayoutPage title="Datenschutzerklärung">
+  <PageHeader title="Datenschutzerklärung" subTitle="">
+    <h1>Datenschutzerklärung</h1>
+    <h2>Einleitung</h2>
+    <p>
+      Mit den nachfolgenden Informationen wollen wir Ihnen einen Überblick über die Verarbeitung
+      Ihrer personenbezogenen Daten auf unserer Website www.nudafa.de (nachfolgend „Website“
+      genannt) geben. Wir wollen Sie ebenfalls über Ihre Rechte aus dem Datenschutzrecht
+      informieren. Die Verarbeitung Ihrer personenbezogenen Daten durch uns erfolgt stets im
+      Einklang mit der Europäischen Datenschutzgrundverordnung (nachfolgend „DSGVO“ genannt) sowie
+      allen geltenden landesspezifischen Datenschutzbestimmungen, wie u.a. dem Berliner
+      Datenschutzgesetz.
+    </p>
+    <h2>Inhaltsverzeichnis</h2>
+    <ul>
+      <li>
+        <a href="#m1">Verantwortlichkeit</a>
+      </li>
+      <li>
+        <a href="#m2">Einsatz von Drittdiensten</a>
+      </li>
+      <li>
+        <a href="#m3">Bereitstellung des Informationsportals</a>
+      </li>
+      <li>
+        <a href="#m4">Verwendung des Kartendienstes Maptiler</a>
+      </li>
+      <li>
+        <a href="#m5">Kontaktmöglichkeiten</a>
+      </li>
+      <li>
+        <a href="#m6">Ihre Rechte</a>
+      </li>
+    </ul>
+    <h2 id="m1">Verantwortlichkeit</h2>
+    <p>
+      <strong>Verantwortlich im Sinne der DSGVO</strong>
+    </p>
+    <p>
+      Gemeinde Eichwalde, vertreten durch TODO
+      <br />
+      Anschrift: TODO
+      <br />
+      Tel.: <TelLink tel="+49 TODO" />
+      <br />
+      E-Mail: <MailLink mailto="stadtraetin.gerold@ba-fk.berlin.de" />
+    </p>
+    <p>
+      <strong>Datenschutzbeauftragter</strong>
+    </p>
+    <p>
+      Der/die Datenschutzbeauftragte der Gemeine Eichwalde ist: TODO
+      <br />
+      Anschrift: TODO
+      <br />
+      Tel.: +49 30 90298 4135
+      <br />
+      E-Mail: <MailLink mailto="datenschutz@TODO" />
+    </p>
+    <h2 id="m2">Einsatz von Drittdiensten</h2>
+    <p>
+      Für bestimmte Funktionen und Services auf unserer Website setzen wir Dienste von
+      Drittanbietern ein. Die konkreten Dienste können jeweils den entsprechenden Kapiteln entnommen
+      werden.
+    </p>
+    <p>
+      Teilweise setzen wir Dienstleister ein, die ihren Sitz in einem Drittland haben, also
+      außerhalb der EU. Wir übermitteln Daten nur in Drittländer, in denen ein angemessenes
+      Datenschutzniveau bzw. geeignete Garantien i. S. d. Art. 44-49 DSGVO vorliegen. Sie haben das
+      Recht, eine Kopie der von uns getroffenen geeigneten Garantien anzufordern. Schreiben Sie uns
+      dazu gerne eine E-Mail an die in diesen Datenschutzhinweisen genannte E-Mail-Adresse.
+    </p>
+    <h2 id="m3">Bereitstellung des Informationsportals</h2>
+    <h3>Allgemeine Informationen</h3>
+    <p>
+      Bei Besuch unserer Website werden automatisch Daten verarbeitet, die Ihr Browser an unseren
+      Server übermittelt. Diese allgemeinen Daten und Informationen werden in den Logfiles des
+      Servers gespeichert (in sog. „Server-Logfiles“). Erfasst werden können die
+    </p>
+    <ul class="list-disc">
+      <li>Browsertyp und Browserversion</li>
+      <li>verwendetes Betriebssystem sowie Angaben zum Endgerät</li>
+      <li>Referrer URL (zuvor besuchte Website)</li>
+      <li>Hostname des zugreifenden Rechners</li>
+      <li>Datum und Uhrzeit der Serveranfrage</li>
+      <li>Nutzungsdaten</li>
+      <li>IP-Adresse</li>
+      <li>Angaben zum betrachteten Kartenausschnitt</li>
+    </ul>
+    <h3>Zweck der Verarbeitung</h3>
+    <p>
+      Bei der Nutzung dieser allgemeinen Daten und Informationen ziehen wir keine Rückschlüsse auf
+      Ihre Person. Zu den von uns verfolgten Zwecken gehört insbesondere:
+    </p>
+    <ul>
+      <li>die Gewährleistung eines reibungslosen Verbindungsaufbaus der Website,</li>
+      <li>Übermittlung des angefragten Kartenmaterials</li>
+      <li>die Aufklärung von Missbrauchs- oder Betrugshandlungen,</li>
+      <li>Problemanalysen im Netzwerk, sowie</li>
+      <li>die Auswertung der Systemsicherheit und -stabilität.</li>
+    </ul>
+    <h3>Rechtsgrundlage</h3>
+    <p>
+      Die Rechtsgrundlage für die Datenverarbeitung ist die Wahrnehmung einer Aufgabe, die im
+      öffentlichen Interesse liegt und uns übertragen wurde, gemäß Art. 6 Abs. 1 S. 1 lit. e) DSGVO.
+    </p>
+    <h3>Speicherdauer</h3>
+    <p>
+      Die Logfiles werden aus Sicherheitsgründen durch den Auftragsverarbeiter (siehe unten, z.B.
+      zur Aufklärung von Missbrauchs- oder Betrugshandlungen) für die Dauer von maximal 30 Tagen
+      gespeichert und danach gelöscht. Daten, deren weitere Aufbewahrung zu Beweiszwecken
+      erforderlich ist, werden bis zur endgültigen Klärung der Angelegenheit aufbewahrt.
+    </p>
+    <h3>Empfänger personenbezogener Datens</h3>
+    <p>Wir setzen folgende Dienstleister ein:</p>
+    <table>
+      <tbody>
+        <tr>
+          <th class="">Anbieter</th>
+          <th>Anschrift</th>
+          <th>Drittland</th>
+          <th class="w-36">Geeignete Garantie</th>
+          <th>Zweck</th>
+        </tr>
+        <tr>
+          <td>FixMyCity GmbH</td>
+          <td>Oberlandstraße 26-35, 12099 Berlin</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td>Bereitstellung und Entwicklung des Dienstes</td>
+        </tr>
+        <tr>
+          <td>IONOS SE</td>
+          <td>Elgendorfer Str. 57, 56410 Montabaur, Deutschland</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td>Hosting der Website und Bereitstellung der Inhalte</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="m4">Verwendung des Kartendienstes Maptiler</h2>
+    <p>
+      MapTiler ist ein Kartendienst. Seine Nutzung ist vollkommen freiwillig. Anbieter ist die
+      MapTiler AG, Höfnerstrasse 98, Unterägeri, Zug 6314 in der Schweiz. Die Schweiz gehört weder
+      der EU noch dem EWR an. Sie ist vielmehr ein sog. Drittstaat, in dem die DSGVO nicht gilt.
+      Jedoch gibt es für die Schweiz einen Angemessenheitsbeschluss der EU Kommission nach Artikel
+      45 DSGVO, welcher der Schweiz im Allgemeinen ein angemessenes, der DSGVO entsprechendes
+      Datenschutzniveau attestiert. Bitte lesen Sie vor einer Nutzung von MapTiler den
+      <a href="https://www.maptiler.com/privacy-policy/" target="_blank"
+        >Compliance-Hinweis von MapTiler</a
+      > durch. Danach erhebt die MapTiler AG zur Nutzung der Kartenfunktion und aus Gründen der IT-Sicherheit
+      Ihre IP- Adresse. Bitte nutzen Sie MapTiler nur, wenn Sie dem Tool trauen. Im Verhältnis zu uns
+      erfolgt Ihre Nutzung von MapTiler völlig anonym. Wir fragen keine personenbezogenen oder personenbeziehbaren
+      Daten ab. Sofern wir solche freiwillig erhalten, löschen wir diese unverzüglich und unwiederbringlich.
+    </p><p>
+      Sie haben der <a href="https://www.maptiler.com/privacy-policy/" target="_blank"
+        >Datenschutzbestimmungen von MapTiler</a
+      > und dieser Datenschutzerklärung zugestimmt. Hier können Sie Ihre Einwilligung zurückziehen.
+    </p>
+    <h2 id="m5">Kontaktmöglichkeiten</h2>
+    <h3>Allgemeine Informationen</h3>
+    <p>Über unser Portal weisen wir auf die Möglichkeit hin, uns per E-Mail zu kontaktieren.</p>
+    <p>
+      Im Rahmen der Kontaktaufnahme und Beantwortung Ihrer Anfrage verarbeiten wir folgende
+      personenbezogene Daten von Ihnen:
+    </p>
+    <ul>
+      <li>Name</li>
+      <li>E-Mail</li>
+      <li>Datum und Zeit der Anfrage</li>
+      <li>Meta-Daten der E-Mail</li>
+      <li>Weitere personenbezogene Daten, die Sie uns im Rahmen der Kontaktaufnahme mitteilen.</li>
+    </ul>
+    <h3>Zweck der Verarbeitung</h3>
+    <p>
+      Wir verarbeiten Ihre Daten zur Beantwortung Ihrer Anfrage sowie andere daraus resultierende
+      Sachverhalte.
+    </p>
+    <h3>Rechtsgrundlage</h3>
+    <p>
+      Die Rechtsgrundlage für die Datenverarbeitung ist ist Ihre Einwilligung gemäß Art. 6 Abs. 1 S.
+      1 lit. a) DSGVO i.V.m. Art. 7 und 8 DSGVO. Sie können Ihre Einwilligung jederzeit mit Wirkung
+      für die Zukunft widerrufen.
+    </p>{' '}
+    <h3>Speicherdauer</h3>
+    <p>
+      Wir löschen Ihre personenbezogenen Daten, sobald sie für die Erreichung des Zweckes der
+      Erhebung nicht mehr erforderlich sind. Im Rahmen von Kontaktanfragen ist dies grundsätzlich
+      dann der Fall, wenn sich aus den Umständen ergibt, dass der konkrete Sachverhalt abschließend
+      bearbeitet ist. Darüber hinaus speichern wir E-Mails, sofern und solange sie gesetzlichen
+      Aufbewahrungsfristen unterliegen.
+    </p>
+    <h2 id="m6">Ihre Rechte</h2>
+    <p>Sie haben gegenüber der Gemeinde Eichwalde</p>
+    <ul>
+      <li>
+        das Recht auf Auskunft über die Verarbeitung Ihrer personenbezogenen Daten (dazu gehören
+        auch Auskünfte über Zweck, Empfänger und Dauer der Speicherung) nach Art. 15 DSGVO,
+      </li>
+      <li>das Recht auf Berichtigung unrichtiger personenbezogener Daten (Art. 16 DSGVO),</li>
+      <li>das Recht auf Löschung gemäß Art. 17 DSGVO,</li>
+      <li>
+        das Recht auf Einschränkung der Verarbeitung und Datenübertragbarkeit (Art. 18 und 20 DSGVO)
+        sowie
+      </li>
+      <li>
+        das Recht der Verarbeitung Ihrer Daten jederzeit zu widersprechen (Art. 21 DSGVO). Legen Sie
+        Widerspruch ein, werden Ihre personenbezogenen Daten nicht mehr verarbeitet. Eine Ausnahme
+        besteht, soweit zwingende schutzwürdige Gründe bestehen, die gegenüber Ihren Interessen
+        überwiegen.
+      </li>
+    </ul>
+    <p>
+      Eine einmal erteilte Einwilligung kann jederzeit gegenüber der/dem Verantwortlichen mit
+      Wirkung für die Zukunft widerrufen werden. Die Rechtmäßigkeit der aufgrund der Einwilligung
+      bis zum Widerruf erfolgten Verarbeitung wird dadurch nicht berührt. In diesem Fall können wir
+      Ihnen möglicherweise mit Ihrem Anliegen nicht mehr helfen. Der Widerruf ist zu richten an den
+      behördlichen Datenschutzbeauftragten an die oben genannte Kontaktadresse.
+    </p>
+    <p>
+      Zur Wahrung aller in dieser Ziffer genannten Rechte kann sich jeder Betroffene an den/die
+      Datenschutzbeauftragte/n der Gemeinde Eichwalde (siehe oben) wenden.
+    </p>
+    <p>
+      Zudem können Sie sich - wenn Sie der Auffassung sind, dass das Bezirksamt
+      Friedrichshain-Kreuzberg bei der Verarbeitung Ihrer Daten datenschutzrechtliche Vorschriften
+      nicht beachtet hat - mit einer Beschwerde an die zuständige Aufsichtsbehörde wenden (Art. 77
+      DSGVO). Betroffene können ihre Beschwerde an die Behörde ihres Wohnsitzes, grundsätzlich aber
+      auch an jede andere Datenschutzaufsichtsbehörde richten. Die zuständige
+      Datenschutzaufsichtsbehörde für die Senatskanzlei ist die Berliner Beauftragte für Datenschutz
+      und Informationsfreiheit, die sie wie folgt kontaktieren können:
+    </p>
+    <p>TODO Berliner Beauftragte für Datenschutz und Informationsfreiheit</p>
+    <p>
+      Anschrift: TODO
+      <br />
+      Tel.: TODO
+      <br />
+      E-Mail: <MailLink mailto="TODO" />
+    </p>
   </PageHeader>
 </LayoutPage>

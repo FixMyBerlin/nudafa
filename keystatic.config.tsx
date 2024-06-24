@@ -10,7 +10,6 @@ import {
   keystaticProjectPartnerPageMainConfig,
 } from 'keystatic/keystatic.partner.config'
 import { keystaticPressPageConfig } from 'keystatic/keystatic.press.config'
-import { keystaticPrivacyPageConfig } from 'keystatic/keystatic.privacy.config'
 import { keystaticResearchPageConfig } from 'keystatic/keystatic.research.config'
 import {
   keystaticSubprojectAndMeasureTopicsConfig,
@@ -45,7 +44,7 @@ export default config({
       Teilprojekte: ['subProjects', 'subprojectstopics', 'communes', 'partners'],
       Radnetz: ['bicyclenetworkPages'],
       Maßnahmen: ['measures', 'measuretypes', 'subprojectstopics'],
-      'Weitere Seiten': ['imprintpage', 'privacypage'],
+      'Weitere Seiten': ['imprintpage'],
     },
   },
   singletons: {
@@ -56,7 +55,6 @@ export default config({
     projectpartnerpageintro: keystaticProjectPartnerPageIntroConfig,
     projectpartnerpagemain: keystaticProjectPartnerPageMainConfig,
     imprintpage: keystaticImprintPageConfig,
-    privacypage: keystaticPrivacyPageConfig,
   },
   collections: {
     subProjects: keystaticSubprojectsConfig,
