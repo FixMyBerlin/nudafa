@@ -14,7 +14,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
             type: 'fill',
             paint: {
               'fill-color': 'black',
-              'fill-opacity': ['interpolate', ['linear'], ['zoom'], 15.9, 1, 16, 0],
+              'fill-opacity': ['interpolate', ['linear'], ['zoom'], 12, 0, 13, 1, 15.9, 1, 16, 0],
             },
           },
         ],
