@@ -1,4 +1,5 @@
 import { LegendQuellenUndZiele } from '../legends/LegendQuellenUndZiele'
+import { placesCirlce } from './layerGroups/placesCircle'
 import type { MapDataAndLegend } from './mapDataAndLegend.const'
 
 export const pageQuelleZiele: MapDataAndLegend = {
@@ -134,7 +135,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
       },
       places: {
         pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-places',
-        layers: [],
+        layers: placesCirlce,
       },
       poi: {
         pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-poi',
