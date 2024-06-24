@@ -80,7 +80,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
                 'hsl(0, 2%, 18%)',
               ],
               'fill-opacity': 0.36,
-              'fill-pattern': 'cross-hatch',
+              'fill-pattern': 'cross-hatch-big',
             },
           },
         ],
