@@ -27,7 +27,7 @@ export const keystaticTextLinkArrowConfig = {
               color: '#977214',
             }}
           >
-            <ArrowRightIcon
+            <ArrowUpRightIcon
               style={{
                 width: '0.74rem',
               }}
@@ -42,7 +42,7 @@ export const keystaticTextLinkArrowConfig = {
               color: '#977214',
             }}
           >
-            <ArrowUpRightIcon
+            <ArrowRightIcon
               style={{
                 width: '0.74rem',
               }}
