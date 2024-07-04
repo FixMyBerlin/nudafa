@@ -59,7 +59,7 @@ const { footerNavigation } = Astro.props
                 <a
                   href={seconItem[1]}
                   class={clsx(
-                    'relative ml-3 flex items-center gap-2 px-3 font-semibold text-beige-50 hover:text-beige-600',
+                    'relative ml-3 flex items-center gap-2 px-3 font-semibold text-beige-50 hover:text-beige-600'
                     // TODO Highlight when active page
                     // seconItem[1] === path && "font-bold"
                   )}
@@ -93,18 +93,20 @@ const { footerNavigation } = Astro.props
         <div>
           <p class="pb-2 font-bold">Verbundpartner</p>
           <ul class="flex flex-col gap-2 text-sm">
-            {communes.map((commune) => (
-              <li>
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  class="text-beige-50 no-underline hover:text-beige-600"
-                  href={commune.data.website}
-                >
-                  {commune.data.name}
-                </a>
-              </li>
-            ))}
+            {communes
+              .filter((commune) => commune.data.showInFooter)
+              .map((commune) => (
+                <li>
+                  <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    class="text-beige-50 no-underline hover:text-beige-600"
+                    href={commune.data.website}
+                  >
+                    {commune.data.name}
+                  </a>
+                </li>
+              ))}
           </ul>
         </div>
       )

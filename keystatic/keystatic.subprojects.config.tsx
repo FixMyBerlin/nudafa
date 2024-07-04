@@ -354,6 +354,7 @@ export const keystaticSubprojectCommunesConfig = collection({
       label: 'Reihenfolge in der Aufzählung',
       validation: { isRequired: true, min: 0 },
     }),
+    showInFooter: fields.checkbox({ label: 'Im Footer anzeigen' }),
     color: fields.select({
       label: 'Farbe des Labels',
       options: [

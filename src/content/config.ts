@@ -48,6 +48,7 @@ const communesCollection = defineCollection({
       name: z.string(),
       website: z.string().optional(),
       color: z.string().optional(),
+      showInFooter: z.boolean().optional(),
     }),
 })
 const bicyclenetworkpagesCollection = defineCollection({
