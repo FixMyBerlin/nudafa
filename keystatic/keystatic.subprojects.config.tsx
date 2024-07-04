@@ -13,6 +13,12 @@ export const keystaticSubprojectsConfig = collection({
   format: { contentField: 'content' },
   schema: {
     title: fields.slug({
+      slug: {
+        description:
+          'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
+        label: 'Dateiname / URL-Teil',
+        validation: { length: { min: 1, max: 80 } },
+      },
       name: { label: 'Title', validation: { length: { min: 1, max: 80 } } },
     }),
     subTitle: fields.text({
@@ -311,7 +317,15 @@ export const keystaticSubprojectAndMeasureTopicsConfig = collection({
   slugField: 'title',
   path: 'src/content/subprojectstopics/*',
   schema: {
-    title: fields.slug({ name: { label: 'Title' } }),
+    title: fields.slug({
+      name: { label: 'Title' },
+      slug: {
+        description:
+          'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
+        label: 'Dateiname / URL-Teil',
+        validation: { length: { min: 1, max: 80 } },
+      },
+    }),
   },
 })
 
@@ -328,6 +342,12 @@ export const keystaticSubprojectCommunesConfig = collection({
       name: {
         label: 'Name',
         validation: { length: { min: 1, max: 500 } },
+      },
+      slug: {
+        description:
+          'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
+        label: 'Dateiname / URL-Teil',
+        validation: { length: { min: 1, max: 80 } },
       },
     }),
     order: fields.number({
@@ -374,6 +394,12 @@ export const keystaticSubprojectPartnersConfig = collection({
       name: {
         label: 'Name',
         validation: { length: { min: 1, max: 500 } },
+      },
+      slug: {
+        description:
+          'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
+        label: 'Dateiname / URL-Teil',
+        validation: { length: { min: 1, max: 80 } },
       },
     }),
     color: fields.select({

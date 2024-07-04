@@ -11,6 +11,12 @@ export const keystaticBicyclenetworkPagesConfig = collection({
   schema: {
     menu: fields.slug({
       name: { label: 'Menüpunkt', validation: { length: { min: 1, max: 25 } } },
+      slug: {
+        description:
+          'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
+        label: 'Dateiname / URL-Teil',
+        validation: { length: { min: 1, max: 80 } },
+      },
     }),
     order: fields.number({
       label: 'Reihenfolge im Menü',

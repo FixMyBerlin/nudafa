@@ -72,7 +72,16 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({
-          name: { label: 'Titel', validation: { length: { min: 1, max: 80 } } },
+          name: {
+            label: 'Titel',
+            validation: { length: { min: 1, max: 80 } },
+          },
+          slug: {
+            description:
+              'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
+            label: 'Dateiname / URL-Teil',
+            validation: { length: { min: 1, max: 80 } },
+          },
         }),
         id: fields.text({
           label: 'ID',
@@ -165,7 +174,15 @@ export default config({
       slugField: 'title',
       path: 'src/content/measuretypes/*',
       schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
+        title: fields.slug({
+          name: { label: 'Title' },
+          slug: {
+            description:
+              'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
+            label: 'Dateiname / URL-Teil',
+            validation: { length: { min: 1, max: 80 } },
+          },
+        }),
       },
     }),
     persons: collection({
@@ -180,6 +197,12 @@ export default config({
           name: {
             label: 'Name',
             validation: { length: { min: 1, max: 500 } },
+          },
+          slug: {
+            description:
+              'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
+            label: 'Dateiname / URL-Teil',
+            validation: { length: { min: 1, max: 80 } },
           },
         }),
         firstName: fields.text({
