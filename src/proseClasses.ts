@@ -2,7 +2,6 @@ import clsx from 'clsx'
 
 export const markdownProseClasses = clsx(
   'prose prose-sm md:prose-base', // responsive sizes
-  'prose leading-snug md:leading-snug', // line hight
   'max-w-full', // We always wrap Prose in Section containers, which bring their own max-width
   'text-black',
   'prose-headings:font-bold', // headings font weight

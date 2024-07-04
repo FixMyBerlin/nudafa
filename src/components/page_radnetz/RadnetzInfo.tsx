@@ -1,4 +1,5 @@
 import { buttonStylesForLinkElement } from '@components/links/styles'
+import clsx from 'clsx'
 import { markdownProseClasses } from 'src/proseClasses'
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 export const RadnetzInfo = ({ children, links }: Props) => {
   return (
     <section className="px-4">
-      <div className={markdownProseClasses}>{children}</div>
+      <div className={clsx(markdownProseClasses, 'leading-snug md:leading-snug')}>{children}</div>
 
       {Boolean(links?.length) && (
         <nav>
