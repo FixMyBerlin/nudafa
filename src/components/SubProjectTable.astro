@@ -3,6 +3,7 @@ import PartnerLabel from '@components/PartnerLabel.astro'
 import TopicLabel from '@components/TopicLabel.astro'
 import { format, isPast } from 'date-fns'
 import CommuneLabel from './CommuneLabel.astro'
+import CommuneLabelList from './CommuneLabelList.astro'
 
 type Props = {
   start: Date
@@ -38,14 +39,7 @@ const isProjectPast = end && isPast(end)
   <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 py-4 md:flex-row md:items-center">
     <p class="min-w-[200px] flex-shrink-0">Beteiligte Projektpartner</p>
     <ul class="flex flex-wrap gap-2">
-      {
-        !!communes?.length &&
-          communes.map((c) => (
-            <li>
-              <CommuneLabel communeId={c} />
-            </li>
-          ))
-      }
+      {!!communes?.length && <CommuneLabelList communeIds={communes} />}
       {
         !!projectPartners?.length &&
           projectPartners.map((partner) => (

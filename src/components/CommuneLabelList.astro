@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content'
+import CommuneLabel from './CommuneLabel.astro'
+
+type Props = {
+  communeIds: string[]
+}
+
+const { communeIds } = Astro.props as Props
+
+const communes = await getCollection('communes')
+
+const filteredAndSortedCommunes = communes
+  .filter((commune) => {
+    return communeIds.includes(commune.slug)
+  })
+  .sort((a, b) => a.data.order - b.data.order)
+
+const getFullCommuneTitle = (communeId: string) => {
+  const commune = communes.find((commune) => commune.slug === communeId)
+  return commune ? commune.data.name : commune
+}
+
+const getColorClass = (communeId: string) => {
+  const commune = communes.find((commune) => commune.slug === communeId)
+  switch (commune?.data.color) {
+    case '#AED7A0':
+      return 'bg-[#AED7A0]'
+    case '#F9A8D4':
+      return 'bg-[#F9A8D4]'
+    case '#95E8D8':
+      return 'bg-[#95E8D8]'
+    case '#BAE6FD':
+      return 'bg-[#BAE6FD]'
+    case '#79C6FD':
+      return 'bg-[#79C6FD]'
+    case '#FCA5A5':
+      return 'bg-[#FCA5A5]'
+    case '#FCA5A5':
+      return 'bg-[#FCA5A5]'
+    case '#FFFBEB':
+      return 'bg-[#FFFBEB]'
+    default:
+      return 'bg-[#FFFBEB]'
+  }
+}
+---
+
+{
+  filteredAndSortedCommunes.map((c) => (
+    <li>
+      <CommuneLabel
+        communeName={getFullCommuneTitle(c.id)!}
+        communeColorClass={getColorClass(c.data.color)!}
+      />
+    </li>
+  ))
+}

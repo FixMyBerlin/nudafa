@@ -321,6 +321,7 @@ export const keystaticSubprojectCommunesConfig = collection({
   format: {
     contentField: 'fakeDocument',
   },
+  columns: ['order'],
   slugField: 'name',
   schema: {
     name: fields.slug({
@@ -328,6 +329,10 @@ export const keystaticSubprojectCommunesConfig = collection({
         label: 'Name',
         validation: { length: { min: 1, max: 500 } },
       },
+    }),
+    order: fields.number({
+      label: 'Reihenfolge in der Aufzählung',
+      validation: { isRequired: true, min: 0 },
     }),
     color: fields.select({
       label: 'Farbe des Labels',
