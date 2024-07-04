@@ -7,7 +7,9 @@ import {
   LegendItems,
   LegendSources,
 } from './Legend'
+import { FreeForBike } from './icons/FreeForBike'
 import { IconLegendLine } from './icons/IconLegendLine'
+import { Oneway } from './icons/Oneway'
 
 export const LegendStrassentypen = () => {
   return (
@@ -38,6 +40,18 @@ export const LegendStrassentypen = () => {
               <IconLegendLine color="#b36b19" width={3} />
             </IconWrapper>
             Frei geführt
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <Oneway />
+            </IconWrapper>
+            Einbahnstraßen
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <FreeForBike />
+            </IconWrapper>
+            Freigabe für Fahrrad
           </LegendItem>
         </LegendItems>
       </LegendCol>
