@@ -30,21 +30,21 @@ export const LegendBestand = () => {
       <LegendCol>
         <LegendHeader>Fahrradgeeignete Nebenstraßen</LegendHeader>
         <LegendItems>
-          <LegendItem>
+          {/* <LegendItem>
             <IconWrapper>
               <IconLegendLine color="hsl(5, 96%, 52%)" width={3} strokeDasharray="2.5 3" />
             </IconWrapper>
             Oberfläche schlecht
-          </LegendItem>
+          </LegendItem> */}
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="hsl(5, 96%, 52%)" width={3} strokeDasharray="2.5 3" />
+              <IconLegendLine color="#059cfa" width={3} strokeDasharray="2.5 3" />
             </IconWrapper>
             Nebenstraßen mit Asphaltdecke
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="hsl(5, 96%, 52%)" width={3} strokeDasharray="2.5 3" />
+              <IconLegendLine color="#049f9f" width={3} strokeDasharray="2.5 3" />
             </IconWrapper>
             Nebenstraßen mit Oberfläche ok oder gut
           </LegendItem>
