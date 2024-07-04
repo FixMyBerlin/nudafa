@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
 import CommuneLabel from '../CommuneLabel.astro'
 
 type Props = {
@@ -9,6 +10,12 @@ type Props = {
   institution?: string
 }
 const { name, image, position, institution } = Astro.props
+
+const communes = await getCollection('communes')
+
+const commune = communes.find((commune) => {
+  return institution === commune.slug
+})
 ---
 
 <li
@@ -27,6 +34,6 @@ const { name, image, position, institution } = Astro.props
   <div class="flex flex-col items-center gap-2 pr-6 text-center sm:px-4 sm:pb-4">
     <p class="text-center font-bold">{name}</p>
     <p class="text-center text-gray-500">{position}</p>
-    {institution && <CommuneLabel communeId={institution} />}
+    {commune && <CommuneLabel communeName={commune.data.name} communeColor={commune?.data.color} />}
   </div>
 </li>

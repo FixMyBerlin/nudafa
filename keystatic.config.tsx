@@ -62,8 +62,8 @@ export default config({
   collections: {
     subProjects: keystaticSubprojectsConfig,
     subprojectstopics: keystaticSubprojectAndMeasureTopicsConfig,
-    communes: keystaticSubprojectCommunesConfig,
-    partners: keystaticSubprojectPartnersConfig,
+    communes: keystaticSubprojectCommunesConfig, // Verbundpartner
+    partners: keystaticSubprojectPartnersConfig, // Projektpartner
     bicyclenetworkPages: keystaticBicyclenetworkPagesConfig,
     measures: collection({
       label: 'Maßnahmen',

@@ -8,7 +8,7 @@ import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.co
 
 export const keystaticPartnerCommunesPageConfig = singleton({
   entryLayout: 'content',
-  label: 'Partnerkommunen',
+  label: 'Partnerkommunen-Seite',
   format: { contentField: 'content' },
   path: 'src/content/partnercommunespage/',
   schema: {

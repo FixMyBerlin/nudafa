@@ -1,5 +1,4 @@
 // @ts-ignore
-import { number } from 'astro/zod'
 import { defineCollection, z } from 'astro:content'
 
 const newsCollection = defineCollection({
@@ -45,7 +44,7 @@ const communesCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       image: image(),
-      order: number(),
+      order: z.number(),
       name: z.string(),
       website: z.string().optional(),
       color: z.string().optional(),
