@@ -21,20 +21,8 @@ const { Content: ContentMain } = await homepagemain.render()
 
 <LayoutPage>
   <PageHeader title={title} subTitle={subTitle}>
-    <Content
-      components={{
-        ImageSingleHorizontal,
-        ImageSingleSquare,
-        ImageSingleVertical,
-        ImageDouble,
-        TextLinkArrow,
-      }}
-    />
-  </PageHeader>
-  <SubProjectSection />
-  <Section>
     <ProseMarkdown>
-      <ContentMain
+      <Content
         components={{
           ImageSingleHorizontal,
           ImageSingleSquare,
@@ -44,5 +32,19 @@ const { Content: ContentMain } = await homepagemain.render()
         }}
       />
     </ProseMarkdown>
-  </Section>
+    <SubProjectSection />
+    <Section>
+      <ProseMarkdown>
+        <ContentMain
+          components={{
+            ImageSingleHorizontal,
+            ImageSingleSquare,
+            ImageSingleVertical,
+            ImageDouble,
+            TextLinkArrow,
+          }}
+        />
+      </ProseMarkdown>
+    </Section>
+  </PageHeader>
 </LayoutPage>
