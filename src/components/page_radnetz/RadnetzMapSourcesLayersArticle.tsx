@@ -2,6 +2,7 @@ import { useStore } from '@nanostores/react'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Layer, Source } from 'react-map-gl/maplibre'
 import { mapDataAndLegend } from './mapData/mapDataAndLegend.const'
+import { beforeIds } from './utils/beforeIds.const'
 import { $router } from './utils/store'
 
 export const RadnetzMapSourcesLayersArticle = () => {
@@ -24,17 +25,13 @@ export const RadnetzMapSourcesLayersArticle = () => {
             url={`pmtiles://${sourceData.pmTilesUrl}`}
           >
             {sourceData.layers?.map((layer) => {
-              const layerKey = `${sourceKey}-${layer.id}`
-              return (
-                <Layer
-                  key={layerKey}
-                  {...layer}
-                  source-layer="default"
-                  // A static helper layer from https://cloud.maptiler.com/maps/editor?map=fe7d06df-9fbd-43f3-bd9e-8f394e41efd0
-                  // This makes sure this layer always stays below the base layers
-                  beforeId="nudafa-beforeId-pagelayer"
-                />
-              )
+              const layerKey = `${articleSlug}-${sourceId}-${layer.id}`
+              const beforeIdKey = `${sourceId}-${layer.id}`
+              const beforeId = beforeIds[beforeIdKey]
+                ? beforeIds[articleSlug][beforeIdKey].replace(`${sourceId}-`, '')
+                : undefined
+              console.log('layer', { sourceId, beforeIdKey, beforeId: beforeIds[beforeIdKey] })
+              return <Layer key={layerKey} {...layer} source-layer="default" beforeId={beforeId} />
             })}
           </Source>
         )
