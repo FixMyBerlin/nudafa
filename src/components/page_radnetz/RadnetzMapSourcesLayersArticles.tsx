@@ -2,7 +2,6 @@ import { useStore } from '@nanostores/react'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { Layer, Source } from 'react-map-gl/maplibre'
 import { mapDataAndLegend } from './mapData/mapDataAndLegend.const'
-import { beforeIds } from './utils/beforeIds.const'
 import { $router } from './utils/store'
 
 export const RadnetzMapSourcesLayersArticles = () => {
@@ -27,7 +26,7 @@ export const RadnetzMapSourcesLayersArticles = () => {
               type="vector"
               url={`pmtiles://${sourceData.pmTilesUrl}`}
             >
-              {sourceData.layers?.reverse()?.map((layer) => {
+              {sourceData.layers?.map((layer) => {
                 // Layers might have a layout property which we merge here with our visibility property
                 const visibility = layersVisible
                   ? ({ visibility: 'visible' } as const)
@@ -35,12 +34,6 @@ export const RadnetzMapSourcesLayersArticles = () => {
                 const layerLayout = { ...visibility, ...(layer.layout || {}) }
 
                 const layerKey = `${slug}-${sourceId}-${layer.id}`
-                const beforeId = beforeIds[layerKey]
-                // console.log('layer', {
-                //   sourceId,
-                //   layerKey,
-                //   beforeId: beforeIds[layerKey],
-                // })
 
                 return (
                   <Layer
@@ -49,7 +42,6 @@ export const RadnetzMapSourcesLayersArticles = () => {
                     id={layerKey}
                     source-layer="default"
                     layout={layerLayout}
-                    beforeId={beforeId}
                   />
                 )
               })}

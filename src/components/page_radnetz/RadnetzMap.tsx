@@ -14,6 +14,7 @@ import {
 import { MapDebugHelper } from './MapDebugHelper/MapDebugHelper'
 import { RadnetzMapSourcesLayersArticles } from './RadnetzMapSourcesLayersArticles'
 import { RadnetzMapSourcesLayersBase } from './RadnetzMapSourcesLayersBase'
+import { SortLayers } from './sortLayers/SortLayers'
 import { $clickedMapData, $mapLoaded, $router } from './utils/store'
 import { useMapParam, type MapParamObject } from './utils/useMapParam'
 import { useScreenHorizontal } from './utils/useScreenHorizontal'
@@ -116,6 +117,7 @@ export const RadnetzMap = ({ children }: Props) => {
 
           <RadnetzMapSourcesLayersArticles />
           <RadnetzMapSourcesLayersBase />
+          <SortLayers />
 
           <AttributionControl compact={true} position="bottom-left" />
           <NavigationControl

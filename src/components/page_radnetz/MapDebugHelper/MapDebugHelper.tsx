@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import type { MapStyleImageMissingEvent, SourceSpecification } from 'maplibre-gl'
 import { useEffect, useState } from 'react'
 import { useMap, type AnyLayer } from 'react-map-gl/maplibre'
-import { beforeIds } from '../utils/beforeIds.const'
+import { beforeIds } from '../sortLayers/beforeIds.const'
 import { $mapLoaded } from '../utils/store'
 import { showDebugMap } from './showDebugMap'
 
