@@ -1,61 +1,80 @@
-export const beforeIds: Record<string, Record<string, string>> = {
-  einleitung: {
-    'einleitung-places-circle-place-circle': 'poi_park',
-    'einleitung-places-circle-place-names': 'einleitung-places-circle-place-circle',
-  },
-  kontext: {
-    'kontext-vorhandene-netze-Vorhandene-netze_uebergeordnet': 'roadname_major',
-  },
-  todo: {
-    'buildings-buildings-black': 'housenumber',
-    'landuse-landuse_residential-commercial -outlines': 'buildings-buildings-black',
-    'landuse-landuse_residential-commercial': 'landuse-landuse_residential-commercial -outlines',
-    'barrier-areas-poibarriers_water_aerodrome': 'landuse-landuse_residential-commercial',
-    'barrier-lines-railway-rail': 'barrier-areas-poibarriers_water_aerodrome',
-    'barrier-lines-railway_rail-white': 'barrier-lines-railway-rail',
-    'barrier-lines-railway_light_rail': 'barrier-lines-railway_rail-white',
-    'barrier-lines-railway_light_rail-white': 'barrier-lines-railway_light_rail',
-    'barrier-lines-poibarriers_motorway': 'barrier-lines-railway_light_rail-white',
-    'roads-roadclassification-nomainstreet': 'barrier-lines-poibarriers_motorway',
-    'roads-roads-onewaybikeyes-pattern sidestreets': 'roads-roadclassification-nomainstreet',
-    'roads-roads-oneway-pattern sidestreets': 'roads-roads-onewaybikeyes-pattern sidestreets',
-    'bikelanes-needsClarification': 'roadname_major',
-    'bikelanes-Gehweg Rad frei': 'bikelanes-needsClarification',
-    'bikelanes-Fuehrung mit Kfz-explizit': 'bikelanes-Gehweg Rad frei',
-    'bikelanes-Fuehrung mit Fussverkehr': 'bikelanes-Fuehrung mit Kfz-explizit',
-    'bikelanes-Fuehrung eigenstaendig auf Fahrbahn': 'bikelanes-Fuehrung mit Fussverkehr',
-    'bikelanes-fuehrung baul. abgesetzt von Kfz': 'bikelanes-Fuehrung eigenstaendig auf Fahrbahn',
-    'roads-smoothness-roads-all': 'bikelanes-fuehrung baul. abgesetzt von Kfz',
-    'vorhandene-netze-Vorhandene-netze_uebergeordnet': 'roads-smoothness-roads-all',
-    'schulwege-nudafa-schulwege': 'vorhandene-netze-Vorhandene-netze_uebergeordnet',
-    'unfaelle-nudafa-unfaelle': 'schulwege-nudafa-schulwege',
-    'gefahrenstellen-nudafa-gefahrstellen': 'unfaelle-nudafa-unfaelle',
-    'poi-pois-heat copy': 'gefahrenstellen-nudafa-gefahrstellen',
-    'poi-education-classification-edu-names': 'poi-pois-heat copy',
-    'poi-education-classification-edu': 'poi-education-classification-edu-names',
-    'roads-legacy-strassentyp': 'poi-education-classification-edu',
-    'roads-legacy-oneway-road': 'roads-legacy-strassentyp',
-    'roads-legacy-oneway-road-bicycle': 'roads-legacy-oneway-road',
-    'roads-legacy-roads-onewaybikeyes-pattern plus': 'roads-legacy-oneway-road-bicycle',
-    'roads-legacy-roads-oneway-pattern plus': 'roads-legacy-roads-onewaybikeyes-pattern plus',
-    'combined-Luftlinien': 'roads-legacy-roads-oneway-pattern plus',
-    'ziel-zwangspunkte-Zielpunkte': 'combined-Luftlinien',
-    'ziel-zwangspunkte-Zwangspunkte': 'ziel-zwangspunkte-Zielpunkte',
-    'combined-Netzentwurf': 'ziel-zwangspunkte-Zwangspunkte',
-    'netzvorschlaege-buergerinnen-nudafa-netzvorschlaege-buergerinnen': 'combined-Netzentwurf',
-    // "ziel-zwangspunkte-Zwangspunkte":"netzvorschlaege-buergerinnen-nudafa-netzvorschlaege-buergerinnen",
-    'combined-Problemstrecke': 'ziel-zwangspunkte-Zwangspunkte',
-    'combined-Problempunkt': 'combined-Problemstrecke',
-    'combined-Ergaenzungsvorschlag Route': 'combined-Problempunkt',
-    'combined-wichtige Ziele aus Beteiligung': 'combined-Ergaenzungsvorschlag Route',
-    'places-circle-place-circle': 'poi_park',
-    'places-circle-place-names': 'places-circle-place-circle',
-    'poi-poiShopping-heatmap': 'places-circle-place-names',
-    'poi-poiShopCategory': 'poi-poiShopping-heatmap',
-    'poi-poiEducation-schoolsafety': 'poi-poiShopCategory',
-    'poi-poiEducation-label': 'poi-poiEducation-schoolsafety',
-    'public-transport-publictransport': 'poi-poiEducation-label',
-    // "places-circle-place-circle":"public-transport-publictransport",
-    // "places-circle-place-names":"places-circle-place-circle",
-  },
+// How we generated this list:
+// 1. copy /radnetz/admin/
+// 2. order the layer the way they are supposed to be
+//    see https://docs.google.com/spreadsheets/d/1XuY0XBdEUUzFqJJlktIlHOBwHwwtU6Tug0Mg16bRXww/edit?gid=1313799060#gid=1313799060
+// 3. copy the data here
+//
+// How to update the list:
+// 1. check /radnetz/admin/
+// 2. Probably manually change the layer in this file
+export const beforeIds: Record<string, string> = {
+  'quellen-und-ziele-buildings-buildings-black': 'housenumber',
+  'quellen-und-ziele-landuse-landuse_residential-commercial -outlines':
+    'quellen-und-ziele-buildings-buildings-black',
+  'quellen-und-ziele-landuse-landuse_residential-commercial':
+    'quellen-und-ziele-landuse-landuse_residential-commercial -outlines',
+  'quellen-und-ziele-barrier-areas-poibarriers_water_aerodrome':
+    'quellen-und-ziele-landuse-landuse_residential-commercial',
+  'quellen-und-ziele-barrier-lines-railway-rail':
+    'quellen-und-ziele-barrier-areas-poibarriers_water_aerodrome',
+  'quellen-und-ziele-barrier-lines-railway_rail-white':
+    'quellen-und-ziele-barrier-lines-railway-rail',
+  'quellen-und-ziele-barrier-lines-railway_light_rail':
+    'quellen-und-ziele-barrier-lines-railway_rail-white',
+  'quellen-und-ziele-barrier-lines-railway_light_rail-white':
+    'quellen-und-ziele-barrier-lines-railway_light_rail',
+  'quellen-und-ziele-barrier-lines-poibarriers_motorway':
+    'quellen-und-ziele-barrier-lines-railway_light_rail-white',
+  'bestand-roads-roadclassification-nomainstreet':
+    'quellen-und-ziele-barrier-lines-poibarriers_motorway',
+  'bestand-roads-roads-onewaybikeyes-pattern sidestreets':
+    'bestand-roads-roadclassification-nomainstreet',
+  'bestand-roads-roads-oneway-pattern sidestreets':
+    'bestand-roads-roads-onewaybikeyes-pattern sidestreets',
+  'bestand-bikelanes-needsClarification': 'roadname_major',
+  'bestand-bikelanes-Gehweg Rad frei': 'bestand-bikelanes-needsClarification',
+  'bestand-bikelanes-Fuehrung mit Kfz-explizit': 'bestand-bikelanes-Gehweg Rad frei',
+  'bestand-bikelanes-Fuehrung mit Fussverkehr': 'bestand-bikelanes-Fuehrung mit Kfz-explizit',
+  'bestand-bikelanes-Fuehrung eigenstaendig auf Fahrbahn':
+    'bestand-bikelanes-Fuehrung mit Fussverkehr',
+  'bestand-bikelanes-fuehrung baul. abgesetzt von Kfz':
+    'bestand-bikelanes-Fuehrung eigenstaendig auf Fahrbahn',
+  'komfort-roads-smoothness-roads-all': 'bestand-bikelanes-fuehrung baul. abgesetzt von Kfz',
+  'kontext-vorhandene-netze-Vorhandene-netze_uebergeordnet': 'komfort-roads-smoothness-roads-all',
+  'sicherheit-schulwege-nudafa-schulwege':
+    'kontext-vorhandene-netze-Vorhandene-netze_uebergeordnet',
+  'sicherheit-unfaelle-nudafa-unfaelle': 'sicherheit-schulwege-nudafa-schulwege',
+  'sicherheit-gefahrenstellen-nudafa-gefahrstellen': 'sicherheit-unfaelle-nudafa-unfaelle',
+  'sicherheit-poi-pois-heat copy': 'sicherheit-gefahrenstellen-nudafa-gefahrstellen',
+  'sicherheit-poi-education-classification-edu-names': 'sicherheit-poi-pois-heat copy',
+  'sicherheit-poi-education-classification-edu':
+    'sicherheit-poi-education-classification-edu-names',
+  'strassentypen-roads-legacy-strassentyp': 'sicherheit-poi-education-classification-edu',
+  'strassentypen-roads-legacy-oneway-road': 'strassentypen-roads-legacy-strassentyp',
+  'strassentypen-roads-legacy-oneway-road-bicycle': 'strassentypen-roads-legacy-oneway-road',
+  'strassentypen-roads-legacy-roads-onewaybikeyes-pattern plus':
+    'strassentypen-roads-legacy-oneway-road-bicycle',
+  'strassentypen-roads-legacy-roads-oneway-pattern plus':
+    'strassentypen-roads-legacy-roads-onewaybikeyes-pattern plus',
+  'luftliniennetz-combined-Luftlinien': 'strassentypen-roads-legacy-roads-oneway-pattern plus',
+  'luftliniennetz-ziel-zwangspunkte-Zielpunkte': 'luftliniennetz-combined-Luftlinien',
+  'luftliniennetz-ziel-zwangspunkte-Zwangspunkte': 'luftliniennetz-ziel-zwangspunkte-Zielpunkte',
+  'zielnetz-combined-Netzentwurf': 'luftliniennetz-ziel-zwangspunkte-Zwangspunkte',
+  'zielnetz-netzvorschlaege-buergerinnen-nudafa-netzvorschlaege-buergerinnen':
+    'zielnetz-combined-Netzentwurf',
+  'zielnetz-ziel-zwangspunkte-Zwangspunkte':
+    'zielnetz-netzvorschlaege-buergerinnen-nudafa-netzvorschlaege-buergerinnen',
+  'bedarfe-combined-Problemstrecke': 'zielnetz-ziel-zwangspunkte-Zwangspunkte',
+  'bedarfe-combined-Problempunkt': 'bedarfe-combined-Problemstrecke',
+  'bedarfe-combined-Ergaenzungsvorschlag Route': 'bedarfe-combined-Problempunkt',
+  'bedarfe-combined-wichtige Ziele aus Beteiligung': 'bedarfe-combined-Ergaenzungsvorschlag Route',
+  'quellen-und-ziele-places-circle-place-circle': 'poi_park',
+  'quellen-und-ziele-places-circle-place-names': 'quellen-und-ziele-places-circle-place-circle',
+  'quellen-und-ziele-poi-poiShopping-heatmap': 'quellen-und-ziele-places-circle-place-names',
+  'quellen-und-ziele-poi-poiShopCategory': 'quellen-und-ziele-poi-poiShopping-heatmap',
+  'quellen-und-ziele-poi-poiEducation-schoolsafety': 'quellen-und-ziele-poi-poiShopCategory',
+  'quellen-und-ziele-poi-poiEducation-label': 'quellen-und-ziele-poi-poiEducation-schoolsafety',
+  'quellen-und-ziele-public-transport-publictransport': 'quellen-und-ziele-poi-poiEducation-label',
+  'einleitung-places-circle-place-circle': 'quellen-und-ziele-public-transport-publictransport',
+  'einleitung-places-circle-place-names': 'einleitung-places-circle-place-circle',
 }

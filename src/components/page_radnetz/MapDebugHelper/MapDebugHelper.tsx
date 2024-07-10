@@ -1,7 +1,9 @@
 import { useStore } from '@nanostores/react'
+import clsx from 'clsx'
 import type { MapStyleImageMissingEvent, SourceSpecification } from 'maplibre-gl'
 import { useEffect, useState } from 'react'
 import { useMap, type AnyLayer } from 'react-map-gl/maplibre'
+import { beforeIds } from '../utils/beforeIds.const'
 import { $mapLoaded } from '../utils/store'
 import { showDebugMap } from './showDebugMap'
 
@@ -105,27 +107,55 @@ export const MapDebugHelper = () => {
       </button>
 
       <details>
-        <summary className="cursor-pointer">Sources ({cleanSources.length})</summary>
+        <summary className="cursor-pointer hover:underline">
+          Sources ({cleanSources.length})
+        </summary>
         <pre>{JSON.stringify(cleanSources, undefined, 2)}</pre>
       </details>
       <hr className="border-1 my-0.5 border-gray-600" />
 
       <details>
-        <summary className="cursor-pointer">Our Layers ({cleanLayers.length})</summary>
+        <summary className="cursor-pointer hover:underline">
+          Our Layers ({cleanLayers.length})
+        </summary>
         <pre>{JSON.stringify(cleanLayers, undefined, 2)}</pre>
       </details>
       <hr className="border-1 my-0.5 border-gray-600" />
 
       <details>
-        <summary className="cursor-pointer">All Layers ({allLayers.length})</summary>
-        <pre>{JSON.stringify(allLayers, undefined, 2)}</pre>
+        <summary className="cursor-pointer hover:underline">
+          All Layers ({allLayers.length})
+        </summary>
+        {allLayers.map((layer) => {
+          return (
+            <details key={layer.id}>
+              <summary
+                className={clsx(
+                  'cursor-pointer hover:underline',
+                  'layout' in layer && layer.layout?.visibility === 'none'
+                    ? 'text-pink-100'
+                    : 'font-semibold',
+                )}
+              >
+                <small className="inline-block min-w-28">
+                  {'source' in layer ? layer.source : '-'}
+                </small>{' '}
+                {layer.id}
+              </summary>
+              <p>
+                <code>beforeId</code>: {beforeIds[layer.id]}
+              </p>
+              <pre>{JSON.stringify(layer, undefined, 2)}</pre>
+            </details>
+          )
+        })}
       </details>
       <hr className="border-1 my-0.5 border-gray-600" />
 
       {missingImages.length > 0 && (
         <>
           <details>
-            <summary className="cursor-pointer">
+            <summary className="cursor-pointer hover:underline">
               ERROR: {missingImages.length} missing images
             </summary>
             <pre>{JSON.stringify(missingImages, undefined, 2)}</pre>
@@ -137,7 +167,7 @@ export const MapDebugHelper = () => {
       {sprites && Object.keys(sprites)?.length ? (
         <>
           <details>
-            <summary className="cursor-pointer">
+            <summary className="cursor-pointer hover:underline">
               Existing sprites ({Object.keys(sprites)?.length})
             </summary>
             <pre>{JSON.stringify(sprites, undefined, 2)}</pre>

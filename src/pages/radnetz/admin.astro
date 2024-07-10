@@ -5,6 +5,8 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import { MAPTILER_STYLE } from '@components/page_radnetz/RadnetzMap'
 import { mapDataAndLegend } from '@components/page_radnetz/mapData/mapDataAndLegend.const'
+import { beforeIds } from '@components/page_radnetz/utils/beforeIds.const'
+import { clsx } from 'clsx'
 
 // We need a flat data structure to sort the layers by `beforeId`
 const flattenedLayers = Object.entries(mapDataAndLegend).flatMap(([slug, sources]) =>
@@ -12,9 +14,9 @@ const flattenedLayers = Object.entries(mapDataAndLegend).flatMap(([slug, sources
     source.layers.map((layer) => ({
       slug,
       sourceKey: `${slug}-${sourceId}`,
-      layerKey: `${sourceId}-${layer.id}`,
+      layerKey: `${slug}-${sourceId}-${layer.id}`,
       type: layer.type,
-      beforeId: layer.beforeId || 'nudafa-beforeId-pagelayer', // Fallback defined in `src/components/page_radnetz/RadnetzMapSourcesLayersArticle.tsx`
+      beforeId: beforeIds[`${slug}-${sourceId}-${layer.id}`],
     })),
   ),
 )
@@ -50,31 +52,67 @@ maptilerStyleLayers.forEach((layer) => {
 })
 // Handle remaining flattenedLayers (those without a matching beforeId or to be appended at the end)
 resultList = [...resultList, ...flattenedLayersCopy]
+
+// Create a list o flayerKeys to check if our beforIds are valid
+const ourLayerKeys = Object.entries(mapDataAndLegend).flatMap(([slug, pageData]) =>
+  Object.entries(pageData.sources).flatMap(([sourceId, sourceData]) =>
+    sourceData.layers?.flatMap((layer) => `${slug}-${sourceId}-${layer.id}`),
+  ),
+)
+const basemapLayerKeys = maptilerStyleLayers.map((layer) => layer.layerKey)
+const checkLayerKeys = [...ourLayerKeys, ...basemapLayerKeys]
 ---
 
 <LayoutPage title="ADMIN: Alle Layer in Reihenfolge" noindex>
   <PageHeader title="ADMIN: Alle Layer in Reihenfolge" subTitle="" />
 
-  <Section className="bg-[#DBEAFE]" extraPadding>
+  <Section>
+    <p>
+      Liste zuletzte aktualisiert am {new Date().toLocaleDateString()},
+      {new Date().toLocaleTimeString()}
+    </p>
+
     <H2>Liste aller Layer mit <code>beforeId</code></H2>
     <table class="text-xs">
       <thead>
         <tr class="bg-white/50">
           <th class="p-2 text-left">Seite</th>
+          <th class="p-2 text-left">Layer Typ</th>
           <th class="p-2 text-left"><code>sourceKey</code></th>
           <th class="p-2 text-left"><code>layerKey</code></th>
-          <th class="p-2 text-left">Layer Typ</th>
           <th class="p-2 text-left"><code>beforeId</code></th>
+          <th class="p-2 text-left">Check <code>beforeId</code></th>
         </tr>
       </thead>
       {
         resultList.map(({ slug, sourceKey, layerKey, type, beforeId }) => (
-          <tr class="border-b border-white">
+          <tr
+            class={clsx(
+              'border-b border-white',
+              sourceKey === 'openmaptiles'
+                ? 'text-gray-400 hover:text-black'
+                : beforeId
+                  ? 'bg-green-50'
+                  : 'bg-red-50',
+            )}
+          >
             <th class="p-2 text-left">{slug}</th>
+            <td class="p-2">{type}</td>
             <td class="p-2">{sourceKey}</td>
             <td class="p-2">{layerKey}</td>
-            <td class="p-2">{type}</td>
-            <td class="p-2">{beforeId !== 'zzz' ? beforeId : 'NONE'}</td>
+            <td class="p-2">{beforeId}</td>
+            <td
+              class={clsx(
+                'p-2',
+                beforeId
+                  ? checkLayerKeys.includes(beforeId)
+                    ? 'text-green-500'
+                    : 'text-red-500'
+                  : '-',
+              )}
+            >
+              {beforeId ? (checkLayerKeys.includes(beforeId) ? 'ok' : 'error') : '-'}
+            </td>
           </tr>
         ))
       }
