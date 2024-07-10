@@ -4,7 +4,7 @@ import { navHeightClassAsNegativeMarginBottom } from '@components/layouts/navbar
 import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 import { RadnetzArticleWrapper } from '@components/page_radnetz/RadnetzArticleWrapper'
 import { RadnetzImprintPrivacy } from '@components/page_radnetz/RadnetzImprintPrivacy'
-import { RadnetzMap } from '@components/page_radnetz/RadnetzMap'
+import { RadnetzMapConsent } from '@components/page_radnetz/RadnetzMapConsent'
 import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
 import type { RadnetzPage } from '@components/page_radnetz/types'
 import { getCollection } from 'astro:content'
@@ -48,7 +48,7 @@ const { title } = entry.data
     class={clsx('relative h-full w-full md:flex md:flex-row', navHeightClassAsNegativeMarginBottom)}
   >
     <RadnetzNavMobileAndDesktop client:load articleSlug={entry.slug} pages={pages} />
-    <RadnetzMap client:load />
+    <RadnetzMapConsent client:load />
 
     {
       pages.map(({ slug, title, sources, links, Content }) => (

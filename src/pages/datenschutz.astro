@@ -3,6 +3,7 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import PageHeader from '@components/PageHeader.astro'
 import { MailLink } from '@components/links/MailLink.tsx'
 import { TelLink } from '@components/links/TelLink.tsx'
+import { OptOut } from '@components/page_radnetz/MapCookieConsent/OptOut.tsx'
 ---
 
 <LayoutPage title="Datenschutzerklärung">
@@ -172,6 +173,8 @@ import { TelLink } from '@components/links/TelLink.tsx'
       Schweiz ein Angemessenheitsbeschluss erlassen, der das Datenschutzniveau der Schweiz
       gewährleistet.
     </p>
+
+    <OptOut client:visible />
 
     <h3>Zweck der Verarbeitung</h3>
     <p>
