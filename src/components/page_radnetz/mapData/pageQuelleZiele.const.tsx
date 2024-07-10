@@ -1,4 +1,5 @@
 import { LegendQuellenUndZiele } from '../legends/LegendQuellenUndZiele'
+import { formalEducation } from './layerGroups/formalEducation'
 import { placesCirlce } from './layerGroups/placesCircle'
 import type { MapDataAndLegend } from './mapDataAndLegend.const'
 
@@ -194,35 +195,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
               ],
             },
           },
-          {
-            id: 'poiEducation-schoolsafety',
-            type: 'circle',
-            paint: {
-              'circle-color': 'hsl(209, 76%, 38%)',
-              'circle-stroke-color': 'hsl(0, 8%, 97%)',
-              'circle-stroke-width': ['interpolate', ['linear'], ['zoom'], 10, 0.7, 12, 1.3],
-              'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 1.5, 12, 3],
-              'circle-opacity': ['interpolate', ['linear'], ['zoom'], 11.5, 0, 12, 1],
-              'circle-stroke-opacity': ['interpolate', ['linear'], ['zoom'], 10, 0, 11, 1],
-            },
-            filter: ['has', 'formalEducation'],
-          },
-          {
-            id: 'poiEducation-label',
-            beforeId: 'waterway_label',
-            type: 'symbol',
-            minzoom: 14,
-            layout: {
-              'text-field': ['to-string', ['get', 'name']],
-              'text-font': ['Open Sans SemiBold', 'Arial Unicode MS Regular'],
-              'text-size': 13,
-            },
-            paint: {
-              'text-halo-color': 'hsla(0, 6%, 97%, 0.91)',
-              'text-halo-width': 1,
-            },
-            filter: ['has', 'formalEducation'],
-          },
+          ...formalEducation,
         ],
       },
       'public-transport': {
