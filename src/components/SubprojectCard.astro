@@ -20,7 +20,7 @@ const { href, title, teaser, image, teaserImageCopyright } = Astro.props
     ]}
     href={href}
   >
-    <figure class:list={['h-[250px] w-full']}>
+    <figure class="m-0 h-[250px] w-full">
       <Image
         class="h-full w-full overflow-hidden object-cover"
         src={image}
@@ -29,7 +29,7 @@ const { href, title, teaser, image, teaserImageCopyright } = Astro.props
       />
       {
         teaserImageCopyright && (
-          <figcaption class="mr-6 mt-2 text-right text-xs text-gray-400 md:text-sm">
+          <figcaption class="mr-6 mt-1 text-right text-xs text-gray-400 md:text-sm">
             © {teaserImageCopyright}
           </figcaption>
         )
