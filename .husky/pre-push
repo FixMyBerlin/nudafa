@@ -1,1 +1,4 @@
-npm run check
+npm run type-check
+# npm run format
+npx prettier --ignore-path .gitignore "src/**/*.+(ts|js|tsx|astro)" --write
+npm run lint
