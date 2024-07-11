@@ -18,8 +18,10 @@ const { src, alt, caption, imageConfig } = Astro.props
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/**/*.{jpeg,jpg,png,gif,webp,JPG,JPEG,PNG,GIF}',
 )
-if (!images[src])
-  throw new Error(`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
+if (!images[src]) {
+  console.error(`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
+  // throw new Error(`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
+}
 
 const ratio = imageConfig.discriminant
 const width = imageConfig.value?.discriminant
@@ -44,12 +46,16 @@ const position = imageConfig.value?.value
     >
       <!-- quality="high" -->
       <!-- https://docs.astro.build/en/guides/images/#quality -->
-      <Image
-        class="h-full w-full overflow-hidden object-cover"
-        src={images[src]()}
-        alt={alt || ''}
-        loading="lazy"
-      />
+      {
+        images[src] && (
+          <Image
+            class="h-full w-full overflow-hidden object-cover"
+            src={images[src]()}
+            alt={alt || ''}
+            loading="lazy"
+          />
+        )
+      }
     </div>
     <figcaption class="mt-2 text-xs text-gray-500 md:text-sm">{caption}</figcaption>
   </figure>
