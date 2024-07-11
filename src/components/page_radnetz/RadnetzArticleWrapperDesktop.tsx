@@ -45,7 +45,7 @@ export const RadnetzArticleWrapperDesktop = ({
               ? clsx(
                   'absolute right-0 top-0 z-10 flex h-screen flex-col overflow-y-auto',
                   open ? 'w-[480px]' : '',
-                  open ? 'bg-green-50 ' : '',
+                  open ? 'bg-green-50' : '',
                   navHeightClassAsNegativeMarginTop,
                 )
               : 'hidden'

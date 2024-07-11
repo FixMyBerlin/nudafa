@@ -44,7 +44,7 @@ export const NavbarMenuItem = ({ title, menuChildrenItems, path, button }: Props
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <MenuItems className="absolute left-0 top-12 z-10 mt-2 w-52 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
+            <MenuItems className="absolute left-0 top-12 z-10 mt-2 w-52 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               {Object.entries(menuChildrenItems).map(([caption, href]) => (
                 <MenuItem key={caption}>
                   <a
