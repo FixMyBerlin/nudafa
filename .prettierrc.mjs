@@ -18,4 +18,5 @@ export default {
     },
   ],
   tailwindFunctions: ['clsx'],
+  tailwindAttributes: ['className', 'class:list', 'class'],
 }

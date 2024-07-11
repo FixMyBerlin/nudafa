@@ -15,14 +15,14 @@ const { display, external, href } = Astro.props as Props
   external ? (
     <span class="not-prose">
       <a href={href} class={linkStyles} rel="noopener noreferrer" target="_blank">
-        <ArrowUpRightIcon className="h-5 w-5 inline pr-1" />
+        <ArrowUpRightIcon className="inline h-5 w-5 pr-1" />
         {display}
       </a>
     </span>
   ) : (
     <span class="not-prose">
       <a href={href} class={linkStyles}>
-        <ArrowRightIcon className="h-5 w-5 inline pr-1" />
+        <ArrowRightIcon className="inline h-5 w-5 pr-1" />
         {display}
       </a>
     </span>
