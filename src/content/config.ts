@@ -31,6 +31,7 @@ const subprojectsCollection = defineCollection({
       subTitle: z.string().optional(),
       teaser: z.string().optional(),
       showBig: z.boolean(),
+      isPublic: z.boolean(),
       topics: z.array(z.string()),
       start: z.date(),
       end: z.date().optional(),

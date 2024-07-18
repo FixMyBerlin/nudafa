@@ -29,6 +29,11 @@ export const keystaticSubprojectsConfig = collection({
       label: 'Teaser Text',
       validation: { length: { max: 160 } },
     }),
+    isPublic: fields.checkbox({
+      label: 'Teilprojekt veröffentlichen',
+      description: 'Wenn nicht, wird das Teilprojekt zwar gespeichert aber (noch) nicht angezeigt.',
+      defaultValue: true,
+    }),
     showBig: fields.checkbox({
       label: 'Als große Vorschau-Karte auf der Homepage anzeigen?',
       defaultValue: false,

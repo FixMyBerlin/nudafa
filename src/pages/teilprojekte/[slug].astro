@@ -13,10 +13,12 @@ import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 
 export async function getStaticPaths() {
   const projects = await getCollection('subprojects')
-  return projects.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }))
+  return projects
+    .filter((p) => p.data.isPublic)
+    .map((entry) => ({
+      params: { slug: entry.slug },
+      props: { entry },
+    }))
 }
 
 const { entry } = Astro.props

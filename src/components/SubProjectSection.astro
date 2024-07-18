@@ -7,8 +7,8 @@ import SubprojectCard from './SubprojectCard.astro'
 import SubprojectCardWrapper from './SubprojectCardWrapper.astro'
 
 const subProjects = await getCollection('subprojects')
-const subProjectsBig = subProjects.filter((p) => p.data.showBig)
-const subProjectsSmall = subProjects.filter((p) => !p.data.showBig)
+const subProjectsBig = subProjects.filter((p) => p.data.isPublic && p.data.showBig)
+const subProjectsSmall = subProjects.filter((p) => p.data.isPublic && !p.data.showBig)
 ---
 
 <Section className="bg-[#FEF3C7]" extraPadding>

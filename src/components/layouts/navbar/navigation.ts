@@ -3,9 +3,11 @@ import { type TNavigation } from './Navbar.tsx'
 
 const subprojects = await getCollection('subprojects')
 const subprojectsNavigation: Record<string, string> = {}
-subprojects?.forEach((p) => {
-  subprojectsNavigation[p.data.title] = `/teilprojekte/${p.slug}`
-})
+subprojects
+  ?.filter((p) => p.data.isPublic)
+  .forEach((p) => {
+    subprojectsNavigation[p.data.title] = `/teilprojekte/${p.slug}`
+  })
 
 // const measures = await getCollection('measures')
 // const measuresNavigation: Record<string, string> = {};
