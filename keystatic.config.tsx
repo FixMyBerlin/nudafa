@@ -84,7 +84,8 @@ export default config({
           },
         }),
         id: fields.text({
-          label: 'ID',
+          label: 'Nudafa-ID',
+          // todo ggf validation function --> slugify regex
           validation: { length: { min: 1, max: 80 } },
         }),
         geometry: fields.conditional(
