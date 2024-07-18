@@ -12,13 +12,14 @@ const measures = await getCollection('measures')
 ---
 
 <LayoutPage title="Alle Maßnahmen">
-  <PageHeader title="Alle Maßnahmen" subTitle="" />
+  <PageHeader
+    title=""
+    subTitle="Hier werden demnächst alle Maßnahmen zur Radverkehrsförderung in den Gemeinden Eichwalde, Schulzendorf, Wildau und Zeuthen veröffentlicht."
+  />
 
   <Section className="bg-[#DBEAFE]" extraPadding>
-    <H2
-      >Liste aller Maßnahmen in... <H2 />
-      {
-        measures.map((measure) => (
+    <!--
+      {measures.map((measure) => (
           <MeasureCard client:load>
             <MeasureCardButton
               slot="button"
@@ -34,8 +35,11 @@ const measures = await getCollection('measures')
             />
             <MeasureCardPanel slot="panel" measure={measure} />
           </MeasureCard>
-        ))
-      }
-    </H2>
+        ))}
+      --
+    />
   </Section>
 </LayoutPage>
+--></Section
+  ></LayoutPage
+>
