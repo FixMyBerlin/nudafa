@@ -2,9 +2,20 @@
 import '@fontsource-variable/open-sans'
 import '@fontsource/roboto-slab'
 import { ViewTransitions } from 'astro:transitions'
+import { domain } from 'src/utils/domain'
 
-type Props = { title?: string; noindex?: boolean }
-const { title = 'Nudafa', noindex = false }: Props = Astro.props
+const defaultTitle = 'NUDAFA Reallabor - Radverkehrsplanung beschleunigen'
+const defaultDescription =
+  'Das NUDAFA-Reallabor fördert durch innovative Ansätze und interkommunale Zusammenarbeit den Radverkehr in der Region. Entdecken Sie unsere Projekte und erfahren Sie, wie wir die Mobilität revolutionieren.'
+
+type Props = { title?: string; description?: string; noindex?: boolean; image?: string | null }
+const { title, description, noindex = false, image }: Props = Astro.props
+
+const seo = {
+  title: title ? `${title} | ${defaultTitle}` : defaultTitle,
+  description: description || defaultDescription,
+  image: image || `${domain() || ''}/social-sharing/default.jpg`,
+}
 ---
 
 <!doctype html>
@@ -13,11 +24,22 @@ const { title = 'Nudafa', noindex = false }: Props = Astro.props
     <meta charset="UTF-8" />
     {noindex && <meta name="robots" content="noindex" />}
 
-    <meta name="description" content="Astro description" />
+    <title>{seo.title}</title>
+    <meta property="og:title" content={seo.title} />
+    <meta name="twitter:title" content={seo.title} />
+
+    <meta name="description" content={seo.description} />
+    <meta property="og:description" content={seo.description} />
+    <meta name="twitter:description" content={seo.description} />
+
+    <meta name="image" content={seo.image} />
+    <meta property="og:image" content={seo.image} />
+    <meta name="twitter:image" content={seo.image} />
+
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon-32x32.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+
     <ViewTransitions />
   </head>
   <body class="flex min-h-full w-full bg-[#eee] font-sans antialiased">

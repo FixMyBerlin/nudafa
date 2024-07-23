@@ -42,7 +42,7 @@ const { entry } = Astro.props
 const { title } = entry.data
 ---
 
-<LayoutApp title={title}>
+<LayoutApp title={`Radnetz: ${title}`}>
   <!-- navHeightClassAsNegativeMarginBottom makes RadnetzNav 'max h-screen minus height of Navbar' possible -->
   <div
     class={clsx('relative h-full w-full md:flex md:flex-row', navHeightClassAsNegativeMarginBottom)}

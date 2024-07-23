@@ -8,7 +8,7 @@ const { title, subTitle } = page.data
 const { Content } = await page.render()
 ---
 
-<LayoutPage title={title}>
+<LayoutPage noindex title="Impressum">
   <PageHeader title={title} subTitle={subTitle}>
     <Content />
   </PageHeader>

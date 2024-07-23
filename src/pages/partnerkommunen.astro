@@ -13,7 +13,8 @@ const { title, subTitle } = page.data
 const { Content } = await page.render()
 ---
 
-<LayoutPage title={title}>
+<!--IMPORTANT: todo remove noindex  -->
+<LayoutPage noindex title="Partnerkommunen">
   <PageHeader title={title} subTitle={subTitle}>
     <Content
       components={{

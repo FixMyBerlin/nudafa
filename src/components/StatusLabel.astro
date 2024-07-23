@@ -41,7 +41,12 @@ const { state } = Astro.props as Props
     partnersTableData[state].color,
   ]}
 >
-  <Image class="h-6 w-6" src={partnersTableData[state].icon} alt={''} loading="lazy" />
+  <Image
+    class="h-6 w-6"
+    src={partnersTableData[state].icon}
+    alt={`Status: ${state}`}
+    loading="lazy"
+  />
 
   <p>
     {partnersTableData[state].title}

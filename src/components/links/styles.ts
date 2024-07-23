@@ -28,7 +28,7 @@ export const menuButtonStylesForLinkElement = clsx(
 
 export const selectedMenuButtonStylesForLinkElement = clsx(
   buttonBase,
-  'border-beige-600 bg-beige-600 px-4 py-2 text-white',
+  'border-beige-600 bg-beige-600 px-4 py-2 !font-bold text-white',
 )
 
 const hoverTranslateClassNames =
