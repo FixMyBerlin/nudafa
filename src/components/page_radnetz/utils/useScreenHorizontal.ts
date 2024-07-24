@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 
 export const useScreenHorizontal = () => {
   const [isScreenHorizontal, setIsScreenHorizontal] = useState(false)
-
   useEffect(() => {
     // reminder: hard coded breakpoint md tailwind css - has to be changed if tailwind.config.ts is changed
     const mdMediaQuery = window.matchMedia('(min-width: 768px)')
@@ -17,6 +16,7 @@ export const useScreenHorizontal = () => {
       mdMediaQuery.removeEventListener('change', onMediaQueryChange)
     }
   }, [])
-
+  console.log('useScreenHorizontal')
+  console.log('iScreenHorizontal:', isScreenHorizontal)
   return [isScreenHorizontal]
 }

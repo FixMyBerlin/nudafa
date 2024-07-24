@@ -32,11 +32,25 @@ const maxBounds = [
 const minZoom = 7
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxzoom
 const maxZoom = 22
-const initialMapView: MapParamObject = {
-  zoom: 10.4,
-  longitude: 13.622069,
-  latitude: 52.368454,
+const initialMapView: { center: MapParamObject; bounds: { bounds: LngLatBoundsLike } } = {
+  center: {
+    zoom: 11,
+    longitude: 13.610416,
+    latitude: 52.344601,
+  },
+  bounds: {
+    bounds: [
+      [13.557266, 52.301193],
+      [13.662332, 52.3849],
+    ],
+  },
 }
+
+const fitBoundsOptionsInitialMapView = {
+  desktop: { padding: { right: 480, left: 20, top: 20, bottom: 20 } },
+  mobile: { padding: { right: 10, left: 10, top: 10, bottom: 10 } },
+}
+
 const interactiveLayerIds: string[] = []
 
 // Style: https://cloud.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/
@@ -59,7 +73,7 @@ export const RadnetzMap = ({ children }: Props) => {
   useEffect(() => {
     const params = $router.get()
     if (params?.search.map) return
-    setMapParams(initialMapView)
+    setMapParams(initialMapView.center)
   }, [])
 
   const [cursorStyle, setCursorStyle] = useState('grab')
@@ -77,7 +91,16 @@ export const RadnetzMap = ({ children }: Props) => {
       <Map
         id="mainMap"
         // Map View
-        initialViewState={mapParamsObject()}
+        initialViewState={
+          mapParamsObject()
+            ? mapParamsObject()
+            : {
+                ...initialMapView.bounds,
+                fitBoundsOptions: window.matchMedia('(min-width: 768px)').matches
+                  ? fitBoundsOptionsInitialMapView.desktop
+                  : fitBoundsOptionsInitialMapView.mobile,
+              }
+        }
         onMoveEnd={handleMoveEnd}
         // Contain Map
         maxBounds={maxBounds}
