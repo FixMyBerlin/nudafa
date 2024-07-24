@@ -10,26 +10,31 @@ export const LegendBedarfe = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="#F5510A" width={5} />
+              <IconLegendLine color="hsla(24, 87%, 54%, 33%)" width={8} />
             </IconWrapper>
             Handlungsbedarfe Strecke
           </LegendItem>
-
           <LegendItem>
             <IconWrapper>
-              <div className="inline-block w-2.5">
-                <IconLegendCircle color="#0AE7F5" borderWidth={0} size={5} />
-              </div>
+              <IconLegendLine color="hsla(217, 87%, 54%,33%)" width={8} />
             </IconWrapper>
-            Wichtige Ziele aus Beteiligung
+            Impulse fuer die Netzplanung
           </LegendItem>
           <LegendItem>
             <IconWrapper>
               <div className="inline-block w-2.5">
-                <IconLegendCircle color="#F5510A" borderWidth={0} size={5} />
+                <IconLegendCircle color="hsla(24, 87%, 54%, 33%)" borderWidth={0} size={5} />
               </div>
             </IconWrapper>
             Handlungsbedarfe Punkt
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <div className="inline-block w-2.5">
+                <IconLegendCircle color="hsla(217, 87%, 54%,33%)" borderWidth={0} size={5} />
+              </div>
+            </IconWrapper>
+            Wichtige Ziele
           </LegendItem>
         </LegendItems>
       </LegendCol>

@@ -10,7 +10,7 @@ export const LegendItemPoiShop = () => {
         <IconWrapper>
           <Heatmap />
         </IconWrapper>
-        Wichtige Zielorte
+        Weitere Zielorte
       </LegendItem>
       <LegendItem className="mt-2">
         <div>

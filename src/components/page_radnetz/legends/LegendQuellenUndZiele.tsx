@@ -4,9 +4,12 @@ import { Airport } from './icons/Airport'
 import { Ferry } from './icons/Ferry'
 import { IconLegendArea } from './icons/IconLegendArea'
 import { IconLegendCircle } from './icons/IconLegendCircle'
+import { Kita } from './icons/Kita'
 import { Line } from './icons/Line'
 import { Metro } from './icons/Metro'
 import { Sbahn } from './icons/Sbahn'
+import { School } from './icons/School'
+import { Station } from './icons/Station'
 import { Train } from './icons/Train'
 import { Ubahn } from './icons/Ubahn'
 
@@ -62,8 +65,8 @@ export const LegendQuellenUndZiele = () => {
           <LegendItem>
             <IconWrapper>
               <IconLegendCircle
-                color="rgba(33, 134, 196, 40%)"
-                borderColor="rgb(26, 104, 153)"
+                color="rgba(33, 134, 196, 0%)"
+                borderColor="#7407CD"
                 borderWidth={2}
               />
             </IconWrapper>
@@ -76,14 +79,21 @@ export const LegendQuellenUndZiele = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendCircle
-                color="hsl(209, 76%, 38%)"
-                borderColor="white"
-                borderWidth={0.5}
-                size={5}
-              />
+              <Kita />
+            </IconWrapper>
+            Kitas
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <School />
             </IconWrapper>
             Schulen
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <Station />
+            </IconWrapper>
+            Regional- und Fernbahnhöfe
           </LegendItem>
           <LegendItem>
             <IconWrapper>

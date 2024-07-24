@@ -9,15 +9,21 @@ export const LegendZielnetz = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine strokeDasharray="6 2" color="#dd0303" width={3} />
+              <IconLegendLine color="hsl(310, 95%, 39%)" width={4} />
             </IconWrapper>
-            Netzentwurf
+            Hauptrouten
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="#dd0303" width={1} />
+              <IconLegendLine color="hsl(310, 82%, 71%)" width={2} />
             </IconWrapper>
-            Wohnstraßen ohne Oberfläche=schlecht
+            Nebenrouten
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <IconLegendLine color="hsl(133, 74%, 24%)" width={4} />
+            </IconWrapper>
+            Radschnellverbindungen
           </LegendItem>
           <LegendItem>
             <IconWrapper>

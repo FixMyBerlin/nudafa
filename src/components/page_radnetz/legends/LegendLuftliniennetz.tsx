@@ -1,4 +1,4 @@
-import { IconWrapper, Legend, LegendCol, LegendItem, LegendItems } from './Legend'
+import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
 import { IconLegendCircle } from './icons/IconLegendCircle'
 import { IconLegendLine } from './icons/IconLegendLine'
 
@@ -6,30 +6,40 @@ export const LegendLuftliniennetz = () => {
   return (
     <Legend>
       <LegendCol>
+        <LegendHeader>Luftliniennetz</LegendHeader>
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="#1B87EB" width={3} />
+              <IconLegendCircle
+                color="rgba(10, 90, 245, 0)"
+                size={3}
+                borderColor="hsla(220, 71%, 48%, 73%)"
+              />
             </IconWrapper>
-            Luftlinien
+            Zentrum
           </LegendItem>
           <LegendItem>
             <IconWrapper>
               <IconLegendCircle
-                color="rgba(10, 90, 245, 0.24)"
-                borderColor="#0A5AF5"
-                borderWidth={2}
+                borderColor="hsla(220, 76%, 26%, 73%)"
+                color="rgba(10, 90, 245, 0)"
+                size={3}
               />
             </IconWrapper>
-            Zielpunkte
+            Anzubindende Orte
+          </LegendItem>
+
+          <LegendItem>
+            <IconWrapper>
+              <IconLegendLine strokeDasharray="6 2" color="hsla(233, 71%, 56%, 80%)" width={5} />
+            </IconWrapper>
+            Luftlinie
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <div className="inline-block w-2.5">
-                <IconLegendCircle color="#0A5AF5" borderWidth={0} size={5} />
-              </div>
+              <IconLegendLine strokeDasharray="6 2" color="hsla(233, 71%, 56%, 80%)" width={3} />
             </IconWrapper>
-            Zwangspunkte
+            Nahverbindung
           </LegendItem>
         </LegendItems>
       </LegendCol>
