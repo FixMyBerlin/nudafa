@@ -1,18 +1,6 @@
-# Keystatic in Astro
+# About nudafa.de
 
-This template shows how you can use Keystatic in an Astro site.
-
-To setup:
-
-```bash
-npm install
-```
-
-To run:
-
-```
-npm run dev
-```
+Website: [https://www.nudafa.de](https://www.nudafa.de)
 
 Admin UI: [http://127.0.0.1:4321/keystatic](http://127.0.0.1:4321/keystatic)
 
