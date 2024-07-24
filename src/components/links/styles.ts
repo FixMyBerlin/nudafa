@@ -9,7 +9,8 @@ export const menuLinkStylesDefault =
   'no-underline hover:underline hover:decoration-beige-600 text-black'
 export const menuLinkActiveStyles = 'decoration-beige-600 decoration-2 text-black'
 
-const buttonBase = 'inline-block rounded-full border-[1.5px] font-semibold active:border-[#60A5FA]'
+const buttonBase =
+  'inline-block rounded-full border-[1.5px] font-semibold active:border-[#60A5FA] leading-5'
 
 export const buttonStylesForLinkElement = clsx(
   buttonBase,
