@@ -14,7 +14,7 @@ import {
 import { SourcesLayersArticles } from '../Map/SourcesLayersArticles'
 import { SourcesLayersBase } from '../Map/SourcesLayersBase'
 import { MapDebugHelper } from '../MapDebugHelper/MapDebugHelper'
-import { SortLayers } from '../sortLayers/SortLayers'
+import { beforeIds } from '../sortLayers/beforeIds.const'
 import { $clickedMapData, $mapLoaded, $router } from '../utils/store'
 import { useMapParam, type MapParamObject } from '../utils/useMapParam'
 import { useScreenHorizontal } from '../utils/useScreenHorizontal'
@@ -86,6 +86,22 @@ export const RadnetzMap = ({ children }: Props) => {
     setMapParams({ latitude, longitude, zoom })
   }
 
+  const handleMapLoad = (event: maplibregl.MapLibreEvent) => {
+    $mapLoaded.set(true)
+
+    // Sort the layers based on beforeIds.const.ts
+    const layers = event.target.getStyle().layers
+    Object.entries(beforeIds).forEach(([layerId, beforeId]) => {
+      const layerExists = Boolean(layers.find((l) => l.id === layerId))
+      if (!layerExists) return
+      try {
+        event.target.moveLayer(layerId, beforeId)
+      } catch (error) {
+        console.log('ERROR', error)
+      }
+    })
+  }
+
   return (
     <MapProvider>
       <Map
@@ -109,7 +125,7 @@ export const RadnetzMap = ({ children }: Props) => {
         mapStyle={MAPTILER_STYLE}
         style={{ width: '100%', height: '100%' }}
         // Set map state for <MapData>:
-        onLoad={() => $mapLoaded.set(true)}
+        onLoad={(event) => handleMapLoad(event)}
         // "Loading…"
         onData={() => setMapDataLoading(true)}
         onIdle={() => setMapDataLoading(false)}
@@ -139,7 +155,6 @@ export const RadnetzMap = ({ children }: Props) => {
 
         <SourcesLayersArticles />
         <SourcesLayersBase />
-        <SortLayers />
 
         <AttributionControl compact={true} position="bottom-left" />
         <NavigationControl

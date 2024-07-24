@@ -14,11 +14,15 @@ For the same reason, we cannot change the sort order of our layers, because they
 - https://visgl.github.io/react-map-gl/docs/api-reference/layer#beforeid
 - https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#addlayer => `beforeId`
 
-## use `moveLayer()`
+## don't use `mainMap.getMap().on('load', () => {})` with `moveLayer()`
+
+I theory this should work, but it does not. The 'load' event is not tiggered. At least not when I used it in a child component.
+
+## use `onLoad` with `moveLayer()`
 
 **Our solution!**
 
-We now render layers without a beforeId first, then wait for the map to be `loaded` to use `moveLayer` on all layers and order them based on the global layer order.
+We now render layers without a beforeId first, then wait for the map `onLoad` event to use `moveLayer` on all layers and order them based on the global layer order.
 
 This is inspired by https://github.com/visgl/react-map-gl/issues/939#issuecomment-894849612
 

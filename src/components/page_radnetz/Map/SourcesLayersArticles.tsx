@@ -42,6 +42,7 @@ export const SourcesLayersArticles = () => {
                     id={layerKey}
                     source-layer="default"
                     layout={layerLayout}
+                    beforeId="nudafa-beforeId-pagelayer"
                   />
                 )
               })}

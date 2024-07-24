@@ -16,6 +16,13 @@ export default {
         parser: 'astro',
       },
     },
+    {
+      files: 'src/components/page_radnetz/sortLayers/beforeIds.const.ts',
+      options: {
+        // VSCode: Restart extension host to apply changes
+        printWidth: 1000,
+      },
+    },
   ],
   tailwindFunctions: ['clsx'],
   tailwindAttributes: ['className', 'class:list', 'class'],
