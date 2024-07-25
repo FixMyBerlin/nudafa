@@ -4,19 +4,60 @@ import type { MapDataAndLegend } from './mapDataAndLegend.const'
 export const pageZielnetz: MapDataAndLegend = {
   zielnetz: {
     sources: {
-      combined: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-combined',
+      netzentwurf: {
+        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-netzentwurf',
         layers: [
           {
-            id: 'Netzentwurf',
-            filter: ['match', ['get', 'Typ'], ['Zielnetz'], true, false],
+            id: 'nudafa-netzentwurf',
             type: 'line',
             paint: {
-              'line-color': '#c205a2',
               'line-opacity': 0.83,
-              'line-dasharray': [1.5, 0.7],
-              'line-width': 3,
+              'line-color': [
+                'match',
+                ['get', 'radverkehrsatlas'],
+                ['2_hauptroute'],
+                '#c205a2',
+                ['3_radschnellverbindung'],
+                '#106a23',
+                '#f278de',
+              ],
+              'line-width': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                9,
+                [
+                  'match',
+                  ['get', 'radverkehrsatlas'],
+                  ['3_radschnellverbindung'],
+                  3,
+                  ['2_hauptroute'],
+                  2,
+                  1,
+                ],
+                12,
+                [
+                  'match',
+                  ['get', 'radverkehrsatlas'],
+                  ['3_radschnellverbindung'],
+                  5,
+                  ['2_hauptroute'],
+                  4,
+                  2,
+                ],
+              ],
             },
+            filter: [
+              'all',
+              ['match', ['geometry-type'], ['LineString'], true, false],
+              [
+                'match',
+                ['get', 'radverkehrsatlas'],
+                ['2_hauptroute', '1_nebenroute', '3_radschnellverbindung'],
+                true,
+                false,
+              ],
+            ],
           },
         ],
       },
@@ -66,21 +107,6 @@ export const pageZielnetz: MapDataAndLegend = {
                 ['match', ['get', 'layer'], ['', 'Hauptachsen'], 30, 15],
               ],
               'line-dasharray': [2, 0],
-            },
-          },
-        ],
-      },
-      'ziel-zwangspunkte': {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-ziel-zwangspunkte',
-        layers: [
-          {
-            filter: ['match', ['get', 'Zwangspunk'], [1], true, false],
-            type: 'circle',
-            id: 'Zwangspunkte',
-            paint: {
-              'circle-opacity': ['interpolate', ['linear'], ['zoom'], 11.4, 0, 11.8, 0.8],
-              'circle-stroke-opacity': 0.8,
-              'circle-color': '#3f74de',
             },
           },
         ],
