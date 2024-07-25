@@ -1,6 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react'
 import clsx from 'clsx'
-import { linkStyles } from './links/styles'
+import { linkStyles } from '../links/styles'
 
 type Props = {
   button?: React.ReactNode
