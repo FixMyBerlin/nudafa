@@ -80,7 +80,7 @@ export const RadnetzMap = ({ children }: Props) => {
 
   const [cursorStyle, setCursorStyle] = useState('grab')
   const [mapDataLoading, setMapDataLoading] = useState(true)
-  const { mapParamsObject, setMapParams } = useMapParam()
+  const { setMapParams } = useMapParam()
 
   // Update ?map param on zoom or pan of map
   const handleMoveEnd = (event: ViewStateChangeEvent) => {
