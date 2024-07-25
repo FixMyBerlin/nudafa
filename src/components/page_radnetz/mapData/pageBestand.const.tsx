@@ -28,26 +28,6 @@ export const pageBestand: MapDataAndLegend = {
             },
           },
           {
-            id: 'Oberflaeche gut oder sehr gut',
-            filter: [
-              'all',
-              [
-                'match',
-                ['get', 'road'],
-                ['residential', 'living_street', 'bicycle_road'],
-                true,
-                false,
-              ],
-              ['match', ['get', 'smoothness'], ['bad', 'very_bad', 'intermediate'], false, true],
-            ],
-            type: 'line',
-            paint: {
-              'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 1, 22, 5],
-              'line-color': '#75c7fa',
-              'line-dasharray': [2, 2],
-            },
-          },
-          {
             id: 'Oberflaeche schlecht',
             filter: [
               'all',
@@ -64,6 +44,20 @@ export const pageBestand: MapDataAndLegend = {
             paint: {
               'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 1, 22, 5],
               'line-color': '#fa7575',
+              'line-dasharray': [2, 2],
+            },
+          },
+          {
+            id: 'Oberflaeche gut oder sehr gut',
+            filter: [
+              'all',
+              ['match', ['get', 'road'], ['residential', 'bicycle_road'], true, false],
+              ['match', ['get', 'smoothness'], ['bad', 'very_bad', 'intermediate'], false, true],
+            ],
+            type: 'line',
+            paint: {
+              'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 1, 22, 5],
+              'line-color': '#75c7fa',
               'line-dasharray': [2, 2],
             },
           },
