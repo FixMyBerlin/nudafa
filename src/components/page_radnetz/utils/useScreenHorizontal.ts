@@ -16,7 +16,5 @@ export const useScreenHorizontal = () => {
       mdMediaQuery.removeEventListener('change', onMediaQueryChange)
     }
   }, [])
-  console.log('useScreenHorizontal')
-  console.log('iScreenHorizontal:', isScreenHorizontal)
   return [isScreenHorizontal]
 }
