@@ -218,7 +218,8 @@ export const MapDebugHelper = () => {
 
       <details>
         <summary className="cursor-pointer hover:underline">
-          <code>beforeId</code> helper
+          <code>beforeId</code> helper ({layerWithoutBeforeId.length}/
+          {outdatedBeforeIdLayerKeys.length}/{outdatedBeforeIds.length})
         </summary>
 
         <details>
@@ -248,7 +249,7 @@ export const MapDebugHelper = () => {
             {outdatedBeforeIdLayerKeys.map(([layerKey, beforeIdLayerKey]) => (
               <li key={layerKey}>
                 <strong className="text-red-100">{layerKey}</strong> →{' '}
-                <code>{beforeIdLayerKey}</code>
+                <code className="text-white/50">{beforeIdLayerKey}</code>
               </li>
             ))}
           </ul>
@@ -265,7 +266,7 @@ export const MapDebugHelper = () => {
           <ul>
             {outdatedBeforeIds.map(([layerKey, beforeIdLayerKey]) => (
               <li key={layerKey}>
-                <code>{layerKey}</code> →{' '}
+                <code className="text-white/50">{layerKey}</code> →{' '}
                 <strong className="text-red-100">{beforeIdLayerKey}</strong>
               </li>
             ))}
