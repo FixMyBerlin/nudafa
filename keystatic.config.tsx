@@ -190,7 +190,7 @@ export default config({
       label: 'Personen',
       path: 'src/content/persons/*',
       format: {
-        contentField: 'fakeDocument',
+        contentField: 'emptyContent',
       },
       slugField: 'name',
       schema: {
@@ -226,7 +226,7 @@ export default config({
           validation: { length: { min: 1, max: 500 } },
         }),
         email: fields.text({ label: 'Email' }),
-        fakeDocument: fields.emptyDocument(),
+        emptyContent: fields.emptyContent({ extension: 'mdoc' }),
       },
     }),
     // posts: collection({

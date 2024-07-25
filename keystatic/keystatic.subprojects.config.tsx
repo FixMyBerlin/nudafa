@@ -338,7 +338,7 @@ export const keystaticSubprojectCommunesConfig = collection({
   label: 'Verbundpartner',
   path: 'src/content/communes/*',
   format: {
-    contentField: 'fakeDocument',
+    contentField: 'emptyContent',
   },
   columns: ['order'],
   slugField: 'name',
@@ -384,7 +384,7 @@ export const keystaticSubprojectCommunesConfig = collection({
       label: 'Website',
       validation: { isRequired: true },
     }),
-    fakeDocument: fields.emptyDocument(),
+    emptyContent: fields.emptyContent({ extension: 'mdoc' }),
   },
 })
 
@@ -392,7 +392,7 @@ export const keystaticSubprojectPartnersConfig = collection({
   label: 'Projektpartner',
   path: 'src/content/partners/*',
   format: {
-    contentField: 'fakeDocument',
+    contentField: 'emptyContent',
   },
   slugField: 'name',
   schema: {
@@ -424,6 +424,6 @@ export const keystaticSubprojectPartnersConfig = collection({
       ],
       defaultValue: '#FFFBEB',
     }),
-    fakeDocument: fields.emptyDocument(),
+    emptyContent: fields.emptyContent({ extension: 'mdoc' }),
   },
 })
