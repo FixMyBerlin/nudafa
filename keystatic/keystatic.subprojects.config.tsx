@@ -17,6 +17,7 @@ export const keystaticSubprojectsConfig = collection({
         description:
           'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
         label: 'Dateiname / URL-Teil',
+        // @ts-expect-error https://github.com/Thinkmill/keystatic/commit/36ea216c4a473eeab60aff41cb9dfabfb45127b8#r144629665
         validation: { length: { min: 1, max: 80 } },
       },
       name: { label: 'Title', validation: { length: { min: 1, max: 80 } } },
@@ -328,6 +329,7 @@ export const keystaticSubprojectAndMeasureTopicsConfig = collection({
         description:
           'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
         label: 'Dateiname / URL-Teil',
+        // @ts-expect-error https://github.com/Thinkmill/keystatic/commit/36ea216c4a473eeab60aff41cb9dfabfb45127b8#r144629665
         validation: { length: { min: 1, max: 80 } },
       },
     }),
@@ -352,6 +354,7 @@ export const keystaticSubprojectCommunesConfig = collection({
         description:
           'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
         label: 'Dateiname / URL-Teil',
+        // @ts-expect-error https://github.com/Thinkmill/keystatic/commit/36ea216c4a473eeab60aff41cb9dfabfb45127b8#r144629665
         validation: { length: { min: 1, max: 80 } },
       },
     }),
@@ -405,6 +408,7 @@ export const keystaticSubprojectPartnersConfig = collection({
         description:
           'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
         label: 'Dateiname / URL-Teil',
+        // @ts-expect-error https://github.com/Thinkmill/keystatic/commit/36ea216c4a473eeab60aff41cb9dfabfb45127b8#r144629665
         validation: { length: { min: 1, max: 80 } },
       },
     }),
