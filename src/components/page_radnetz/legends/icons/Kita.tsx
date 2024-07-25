@@ -1,7 +1,7 @@
 export const Kita = () => {
   return (
     <svg width="18" height="18" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_2027_5186)">
+      <g clipPath="url(#clip0_2027_5186)">
         <g mask="url(#mask0_2027_5186)">
           <path d="M21.5833 4.08337H6.41663V19.8334H21.5833V4.08337Z" fill="white" />
           <path
