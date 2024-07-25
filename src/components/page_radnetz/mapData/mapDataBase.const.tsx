@@ -30,13 +30,13 @@ export const mapDataBase: MapDataAndLegend[number]['sources'] = {
     pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-boundaries',
     layers: [
       {
-        id: 'nudafa-boundary',
+        id: 'nudafa-boundaries-gemeinden',
         type: 'line',
         paint: {
-          'line-dasharray': [2, 1],
-          'line-width': 2.5,
-          'line-color': 'hsl(0, 0%, 0%)',
-          'line-opacity': 0.8,
+          'line-color': '#be8f74',
+          'line-opacity': ['interpolate', ['linear'], ['zoom'], 12, 0.7, 15, 0.2],
+          'line-dasharray': [2.5, 1, 1, 1],
+          'line-width': ['interpolate', ['linear'], ['zoom'], 9, 1.5, 12, 2.5],
         },
       },
     ],

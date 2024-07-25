@@ -15,7 +15,7 @@ export const beforeIds: Record<LayerKey, BelowLayerKey> = {
   Satellite: 'nudafa-beforeId-pagelayer',
   'dimmlayer-ZES-Betrachtungsraum': 'nudafa-beforeId-maskierung',
   'Border-ZES-Betrachtungsraum': 'dimmlayer-ZES-Betrachtungsraum',
-  'nudafa-boundary': 'Border-ZES-Betrachtungsraum',
+  'nudafa-boundaries-gemeinden': 'Border-ZES-Betrachtungsraum',
   // Pages
   'bedarfe-combined-Impulse fuer die Netzplanung': 'bedarfe-combined-bedarfpunkt',
   'bedarfe-combined-bedarfpunkt': 'bedarfe-combined-bedarfstrecke',
