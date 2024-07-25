@@ -226,7 +226,7 @@ export default config({
           validation: { length: { min: 1, max: 500 } },
         }),
         email: fields.text({ label: 'Email' }),
-        emptyContent: fields.emptyContent({ extension: 'mdoc' }),
+        emptyContent: fields.emptyContent({ extension: 'mdx' }),
       },
     }),
     // posts: collection({

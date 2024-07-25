@@ -384,7 +384,7 @@ export const keystaticSubprojectCommunesConfig = collection({
       label: 'Website',
       validation: { isRequired: true },
     }),
-    emptyContent: fields.emptyContent({ extension: 'mdoc' }),
+    emptyContent: fields.emptyContent({ extension: 'mdx' }),
   },
 })
 
@@ -424,6 +424,6 @@ export const keystaticSubprojectPartnersConfig = collection({
       ],
       defaultValue: '#FFFBEB',
     }),
-    emptyContent: fields.emptyContent({ extension: 'mdoc' }),
+    emptyContent: fields.emptyContent({ extension: 'mdx' }),
   },
 })
