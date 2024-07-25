@@ -32,6 +32,7 @@ const maxBounds = [
 const minZoom = 7
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxzoom
 const maxZoom = 22
+
 const initialMapView: { center: MapParamObject; bounds: { bounds: LngLatBoundsLike } } = {
   center: {
     zoom: 11,
@@ -40,15 +41,16 @@ const initialMapView: { center: MapParamObject; bounds: { bounds: LngLatBoundsLi
   },
   bounds: {
     bounds: [
-      [13.557266, 52.301193],
-      [13.662332, 52.3849],
+      [13.559414556, 52.311013214],
+      [13.653410334, 52.38213296],
     ],
   },
 }
 
+// initialViewState: we add padding right on desktop to make space for the sidebar
 const fitBoundsOptionsInitialMapView = {
-  desktop: { padding: { right: 480, left: 20, top: 20, bottom: 20 } },
-  mobile: { padding: { right: 10, left: 10, top: 10, bottom: 10 } },
+  desktop: { padding: { right: 490, left: 10, top: 10, bottom: 10 } },
+  mobile: { padding: { right: 5, left: 5, top: 5, bottom: 5 } },
 }
 
 const interactiveLayerIds: string[] = []
@@ -107,16 +109,13 @@ export const RadnetzMap = ({ children }: Props) => {
       <Map
         id="mainMap"
         // Map View
-        initialViewState={
-          mapParamsObject()
-            ? mapParamsObject()
-            : {
-                ...initialMapView.bounds,
-                fitBoundsOptions: window.matchMedia('(min-width: 768px)').matches
-                  ? fitBoundsOptionsInitialMapView.desktop
-                  : fitBoundsOptionsInitialMapView.mobile,
-              }
-        }
+        initialViewState={{
+          ...initialMapView.bounds,
+          fitBoundsOptions:
+            typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches
+              ? fitBoundsOptionsInitialMapView.desktop
+              : fitBoundsOptionsInitialMapView.mobile,
+        }}
         onMoveEnd={handleMoveEnd}
         // Contain Map
         maxBounds={maxBounds}
