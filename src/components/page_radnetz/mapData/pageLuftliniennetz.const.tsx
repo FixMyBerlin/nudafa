@@ -19,13 +19,13 @@ export const pageLuftliniennetz: MapDataAndLegend = {
           },
         ],
       },
-      'ziel-zwangspunkte': {
+      zielzwang: {
         pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-ziel-zwangspunkte',
         layers: [
           {
             filter: ['match', ['get', 'Siedlung'], [1], true, false],
             type: 'circle',
-            id: 'Zielpunkte',
+            id: 'zielpunkte',
             paint: {
               'circle-opacity': 0,
               'circle-stroke-opacity': ['interpolate', ['linear'], ['zoom'], 11.7, 1, 13.1, 1],
@@ -38,7 +38,7 @@ export const pageLuftliniennetz: MapDataAndLegend = {
           {
             filter: ['match', ['get', 'Zwangspunk'], [1], true, false],
             type: 'circle',
-            id: 'Zwangspunkte',
+            id: 'zwangspunkte',
             paint: {
               'circle-opacity': 0.8,
               'circle-stroke-opacity': 0.8,

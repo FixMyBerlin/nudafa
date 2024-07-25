@@ -8,10 +8,8 @@ export const pageBedarfe: MapDataAndLegend = {
         pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-combined',
         layers: [
           {
-            id: 'Handlungsbedarfe Strecke',
-            layout: {
-              'line-cap': 'round',
-            },
+            id: 'bedarfstrecke',
+            layout: { 'line-cap': 'round' },
             filter: ['match', ['get', 'Typ'], ['Problem Strecke'], true, false],
             type: 'line',
             paint: {
@@ -21,7 +19,7 @@ export const pageBedarfe: MapDataAndLegend = {
             },
           },
           {
-            id: 'Handlungsbedarfe Punkt',
+            id: 'bedarfpunkt',
             filter: ['match', ['get', 'Typ'], ['Problem Punkt'], true, false],
             type: 'circle',
             paint: {
@@ -41,9 +39,7 @@ export const pageBedarfe: MapDataAndLegend = {
               'line-width': ['interpolate', ['linear'], ['zoom'], 9, 5, 22, 20],
               'line-opacity': 0.33,
             },
-            layout: {
-              'line-cap': 'round',
-            },
+            layout: { 'line-cap': 'round' },
           },
           {
             id: 'Wichtige Ziele',
