@@ -26,11 +26,11 @@ export const mapDataBase: MapDataAndLegend[number]['sources'] = {
       },
     ],
   },
-  'maskierung-boundary': {
-    pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-maskierung-boundary',
+  boundaries: {
+    pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-boundaries',
     layers: [
       {
-        id: 'nudafa-maskierung-boundary',
+        id: 'nudafa-boundary',
         type: 'line',
         paint: {
           'line-dasharray': [2, 1],
