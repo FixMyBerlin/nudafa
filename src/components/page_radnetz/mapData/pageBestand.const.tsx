@@ -2,8 +2,6 @@ import { LegendBestand } from '../legends/LegendBestand'
 import type { MapDataAndLegend } from './mapDataAndLegend.const'
 
 export const pageBestand: MapDataAndLegend = {
-  // todo: check if this matching is correct
-  // "Bestand" in table = "Radinfrastruktur" in map / former website ?
   bestand: {
     sources: {
       roads: {
@@ -28,6 +26,46 @@ export const pageBestand: MapDataAndLegend = {
               'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 0.5, 22, 5],
               'line-opacity': 0.71,
               'line-color': ['match', ['get', 'surface'], ['asphalt'], '#059cfa', '#049f9f'],
+            },
+          },
+          {
+            id: 'Oberflaeche gut oder sehr gut',
+            filter: [
+              'all',
+              [
+                'match',
+                ['get', 'road'],
+                ['residential', 'living_street', 'bicycle_road'],
+                true,
+                false,
+              ],
+              ['match', ['get', 'smoothness'], ['bad', 'very_bad', 'intermediate'], false, true],
+            ],
+            type: 'line',
+            paint: {
+              'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 1, 22, 5],
+              'line-color': '#75c7fa',
+              'line-dasharray': [2, 2],
+            },
+          },
+          {
+            id: 'Oberflaeche schlecht',
+            filter: [
+              'all',
+              [
+                'match',
+                ['get', 'road'],
+                ['residential', 'living_street', 'bicycle_road'],
+                true,
+                false,
+              ],
+              ['match', ['get', 'smoothness'], ['bad', 'very_bad'], true, false],
+            ],
+            type: 'line',
+            paint: {
+              'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 1, 22, 5],
+              'line-color': '#fa7575',
+              'line-dasharray': [2, 2],
             },
           },
         ],
