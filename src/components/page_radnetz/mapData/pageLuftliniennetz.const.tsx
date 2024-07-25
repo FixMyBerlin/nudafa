@@ -56,23 +56,6 @@ export const pageLuftliniennetz: MapDataAndLegend = {
           },
         ],
       },
-      zielzwang: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-ziel-zwangspunkte',
-        layers: [
-          {
-            id: 'nudafa-ramboll-zwangspunkte',
-            type: 'circle',
-            paint: {
-              'circle-stroke-width': 2,
-              'circle-stroke-opacity': 0.8,
-              'circle-color': '#3f74de',
-              'circle-radius': 4,
-              'circle-stroke-color': '#3f74de',
-            },
-            filter: ['match', ['get', 'Zwangspunk'], [1], true, false],
-          },
-        ],
-      },
     },
     legends: <LegendLuftliniennetz />,
     colorClass: 'border-l-[#977214]',
