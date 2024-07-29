@@ -11,4 +11,9 @@ export default defineConfig({
   integrations: [react(), markdoc(), keystatic(), mdx(), tailwind()],
   output: 'hybrid',
   adapter: netlify(),
+  redirects: {
+    '/info': '/',
+    '/forschungsprojekt': '/',
+    '/radnetzplanung': '/radnetz/einleitung',
+  },
 })
