@@ -41,4 +41,19 @@ export const mapDataBase: MapDataAndLegend[number]['sources'] = {
       },
     ],
   },
+  'maskierung-boundary': {
+    pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-maskierung-boundary',
+    layers: [
+      {
+        id: 'nudafa-maskierung-boundary',
+        type: 'line',
+        paint: {
+          'line-dasharray': [2, 1],
+          'line-width': 2.5,
+          'line-color': 'hsl(0, 0%, 0%)',
+          'line-opacity': 0.8,
+        },
+      },
+    ],
+  },
 }
