@@ -6,7 +6,12 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Open Sans Variable', ...defaultTheme.fontFamily.sans],
+        serif: ['Roboto Slab', ...defaultTheme.fontFamily.serif],
+      },
+    },
     colors: {
       white: colors.white,
       black: colors.black,
@@ -49,10 +54,6 @@ module.exports = {
         800: '#9F1239',
         900: '#881337',
       },
-    },
-    fontFamily: {
-      sans: ['Open Sans Variable', ...defaultTheme.fontFamily.sans],
-      serif: ['Roboto Slab', ...defaultTheme.fontFamily.serif],
     },
     fontWeight: {
       normal: '400',
