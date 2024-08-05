@@ -57,7 +57,7 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                             key={secondItem[1]}
                             href={secondItem[1]}
                             className={clsx(
-                              'ml-5',
+                              'ml-5 text-nowrap',
                               secondItem[1] === path
                                 ? selectedMenuButtonStylesForLinkElement
                                 : menuButtonStylesForLinkElement,

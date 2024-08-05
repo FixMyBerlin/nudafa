@@ -22,7 +22,7 @@ export const NavbarMenuItem = ({ title, menuChildrenItems, path, button }: Props
         <>
           <MenuButton
             className={clsx(
-              'flex items-center gap-2',
+              'flex items-center gap-2 text-nowrap',
               button
                 ? Object.values(menuChildrenItems).includes(path)
                   ? selectedMenuButtonStylesForLinkElement
