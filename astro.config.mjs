@@ -6,9 +6,21 @@ import tailwind from '@astrojs/tailwind'
 import keystatic from '@keystatic/astro'
 import { defineConfig } from 'astro/config'
 
+import sitemap from '@astrojs/sitemap'
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), markdoc(), keystatic(), mdx(), tailwind()],
+  site: 'https://www.nudafa.de',
+  integrations: [
+    react(),
+    markdoc(),
+    keystatic(),
+    mdx(),
+    tailwind(),
+    sitemap({
+      filter: (page) => page !== 'https://www.nudafa.de/radnetz/admin/',
+    }),
+  ],
   output: 'hybrid',
   adapter: netlify(),
   redirects: {
