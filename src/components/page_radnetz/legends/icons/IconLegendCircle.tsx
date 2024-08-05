@@ -13,7 +13,12 @@ export const IconLegendCircle = ({
 }: Props) => {
   const radius = size / 2 - borderWidth
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${size} ${size}`}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={`0 0 ${size} ${size}`}
+      height={size}
+      width={size}
+    >
       <circle
         cx="50%"
         cy="50%"

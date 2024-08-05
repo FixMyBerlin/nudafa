@@ -12,7 +12,8 @@ export const LegendLuftliniennetz = () => {
             <IconWrapper>
               <IconLegendCircle
                 color="rgba(10, 90, 245, 0)"
-                size={3}
+                size={25}
+                borderWidth={5}
                 borderColor="hsla(220, 71%, 48%, 73%)"
               />
             </IconWrapper>
@@ -23,7 +24,8 @@ export const LegendLuftliniennetz = () => {
               <IconLegendCircle
                 borderColor="hsla(220, 76%, 26%, 73%)"
                 color="rgba(10, 90, 245, 0)"
-                size={3}
+                size={25}
+                borderWidth={5}
               />
             </IconWrapper>
             Anzubindende Orte

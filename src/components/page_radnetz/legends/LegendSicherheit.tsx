@@ -1,10 +1,6 @@
 import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
 
-import { Icon0 } from './icons/Icon0'
-import { Icon1 } from './icons/Icon1'
-import { Icon2 } from './icons/Icon2'
-import { Icon3 } from './icons/Icon3'
-import { Icon4 } from './icons/Icon4'
+import { IconLegendCircle } from './icons/IconLegendCircle'
 import { School } from './icons/School'
 import { Unsafe } from './icons/Unsafe'
 import { WayToSchool } from './icons/WayToSchool'
@@ -40,25 +36,25 @@ export const LegendSicherheit = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <Icon0 />
+              <IconLegendCircle color="#EB00C7" borderWidth={0} size={15} />
             </IconWrapper>
             mit Getöteten
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <Icon1 />
+              <IconLegendCircle color="#FE2F2F" borderWidth={0} size={15} />
             </IconWrapper>
             mit Schwerverletzten
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <Icon2 />
+              <IconLegendCircle color="#FE7E16" borderWidth={0} size={15} />
             </IconWrapper>
             mit Leichtverletzten
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <Icon3 />
+              <IconLegendCircle color="#FEB816" borderWidth={0} size={15} />
             </IconWrapper>
             mit Sachschaden
           </LegendItem>
@@ -69,7 +65,7 @@ export const LegendSicherheit = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <Icon4 />
+              <IconLegendCircle color="#FE7E16" borderWidth={0} size={15} />
             </IconWrapper>
             Beinaheunfälle⁵
           </LegendItem>
