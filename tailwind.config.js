@@ -11,6 +11,9 @@ module.exports = {
         sans: ['Open Sans Variable', ...defaultTheme.fontFamily.sans],
         serif: ['Roboto Slab', ...defaultTheme.fontFamily.serif],
       },
+      screens: {
+        md: '945px',
+      },
     },
     colors: {
       white: colors.white,

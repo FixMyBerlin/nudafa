@@ -12,7 +12,12 @@ export const IconLegendArea = ({
   size = 24,
 }: Props) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${size} ${size}`}>
+    <svg
+      width={size}
+      height={size}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={`0 0 ${size} ${size}`}
+    >
       <rect
         width="100%"
         height="100%"

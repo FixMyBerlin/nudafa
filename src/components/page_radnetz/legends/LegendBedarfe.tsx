@@ -22,17 +22,13 @@ export const LegendBedarfe = () => {
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <div className="inline-block w-2.5">
-                <IconLegendCircle color="hsla(24, 87%, 54%, 33%)" borderWidth={0} size={5} />
-              </div>
+              <IconLegendCircle color="hsla(24, 87%, 54%, 33%)" borderWidth={0} size={15} />
             </IconWrapper>
             Handlungsbedarfe Punkt
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <div className="inline-block w-2.5">
-                <IconLegendCircle color="hsla(217, 87%, 54%,33%)" borderWidth={0} size={5} />
-              </div>
+              <IconLegendCircle color="hsla(217, 87%, 54%,33%)" borderWidth={0} size={15} />
             </IconWrapper>
             Wichtige Ziele
           </LegendItem>

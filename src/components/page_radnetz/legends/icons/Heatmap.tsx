@@ -1,6 +1,6 @@
 export const Heatmap = () => {
   return (
-    <svg viewBox="0 0 28 29" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 30 30" width={30} height={30} xmlns="http://www.w3.org/2000/svg">
       <defs>
         <radialGradient
           cx="42.627%"
