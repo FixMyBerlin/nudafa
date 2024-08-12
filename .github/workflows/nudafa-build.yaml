@@ -36,6 +36,7 @@ jobs:
         env:
           CI: true
           SITE_URL: ${{ inputs.site-url }}
+          OUTPUTMODE: ${{ secrets.OUTPUTMODE }}
         run: |
           npm ci
           npm run build
