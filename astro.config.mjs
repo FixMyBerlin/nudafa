@@ -7,10 +7,6 @@ import keystatic from '@keystatic/astro'
 import { defineConfig } from 'astro/config'
 
 import sitemap from '@astrojs/sitemap'
-import { loadEnv } from "vite";
-
-// Load environment variables from .env
-const env = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
 const integrations = [
   react(),
@@ -23,14 +19,14 @@ const integrations = [
 ]
 
 // If on environment is hybrid, add keystatic (for netlify), otherwise it's Deploy Now
-if (env.OUTPUTMODE === 'hybrid') {
+if (process.env.OUTPUTMODE === 'hybrid') {
   integrations.push(keystatic());
 }
 
 const config = {
   site: 'https://www.nudafa.de',
   integrations,
-  output: env.OUTPUTMODE,
+  output: process.env.OUTPUTMODE,
   adapter: netlify(),
   redirects: {
     '/info': '/',
@@ -39,7 +35,7 @@ const config = {
   },
 };
 
-if (env.OUTPUTMODE === 'hybrid') {
+if (process.env.OUTPUTMODE === 'hybrid') {
   config.adapter = netlify();
 }
 
