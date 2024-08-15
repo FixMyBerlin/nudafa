@@ -29,8 +29,7 @@ export const beforeIds: Record<LayerKey, BelowLayerKey> = {
   'quellen-und-ziele-barrier-lines-railway_light_rail': 'massnahmen-massnahmen-massnahmen alle',
   'massnahmen-massnahmen-massnahmen alle': 'massnahmen-netzentwurf-nudafa-netzentwurf s_w',
   'massnahmen-netzentwurf-nudafa-netzentwurf s_w': 'sicherheit-unfaelle-nudafa-unfaelle',
-  'sicherheit-unfaelle-nudafa-unfaelle': 'zielnetz-netzvorschlaege-buergerinnen-nudafa-netzvorschlaege-buergerinnen',
-  'zielnetz-netzvorschlaege-buergerinnen-nudafa-netzvorschlaege-buergerinnen': 'luftliniennetz-netzentwurf-nudafa-luftlininien',
+  'sicherheit-unfaelle-nudafa-unfaelle': 'luftliniennetz-netzentwurf-nudafa-luftlininien',
   'luftliniennetz-netzentwurf-nudafa-luftlininien': 'quellen-und-ziele-barrier-lines-poibarriers_motorway',
   'quellen-und-ziele-barrier-lines-poibarriers_motorway': 'Border-ZES-Betrachtungsraum',
   'Border-ZES-Betrachtungsraum': 'bedarfe-combined-bedarfpunkt',
@@ -49,5 +48,6 @@ export const beforeIds: Record<LayerKey, BelowLayerKey> = {
   'bestand-bikelanes-nudafa-bikelanes-fuehrungmitfuss': 'roadname_major',
   'sicherheit-schulwege-nudafa-schulwege': 'roadname_pri',
   'bestand-bikelanes-nudafa-bikelanes-seperateinfra': 'roadname_sec',
+  'zielnetz-netzvorschlaege-buergerinnen-nudafa-netzvorschlaege-buergerinnen': 'quellen-und-ziele-landuse-landuse_residential-commercial',
   'quellen-und-ziele-landuse-landuse_residential-commercial': 'roadname_minor',
 }
