@@ -19,24 +19,24 @@ const integrations = [
 ]
 
 // If on environment is hybrid, add keystatic (for netlify), otherwise it's Deploy Now
-if (process.env.OUTPUTMODE === 'hybrid') {
-  integrations.push(keystatic());
+if (process.env.NODE_ENV === 'development' || process.env.OUTPUTMODE === 'hybrid') {
+  integrations.push(keystatic())
 }
 
 const config = {
   site: 'https://www.nudafa.de',
   integrations,
-  output: process.env.OUTPUTMODE,
+  output: process.env.NODE_ENV === 'development' ? 'hybrid' : process.env.OUTPUTMODE,
   adapter: netlify(),
   redirects: {
     '/info': '/',
     '/forschungsprojekt': '/',
     '/radnetzplanung': '/radnetz/einleitung',
   },
-};
+}
 
-if (process.env.OUTPUTMODE === 'hybrid') {
-  config.adapter = netlify();
+if (process.env.NODE_ENV === 'development' || process.env.OUTPUTMODE === 'hybrid') {
+  config.adapter = netlify()
 }
 
 // https://astro.build/config
