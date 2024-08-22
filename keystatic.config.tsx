@@ -1,4 +1,5 @@
 import { collection, config, fields } from '@keystatic/core'
+import { block } from '@keystatic/core/content-components'
 import { keystaticBicyclenetworkPagesConfig } from 'keystatic/keystatic.bicyclenetworkPages.config'
 import {
   keystaticHomepageIntroConfig,
@@ -18,6 +19,11 @@ import {
   keystaticSubprojectPartnersConfig,
   keystaticSubprojectsConfig,
 } from 'keystatic/keystatic.subprojects.config'
+import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageDefaultDouble'
+import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
+import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
+import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
+import { keystaticTextLinkArrowConfig } from 'keystatic/utils/keystatic.TextLinkArrow.config'
 
 export default config({
   storage: {
@@ -83,50 +89,119 @@ export default config({
             validation: { length: { min: 1, max: 80 } },
           },
         }),
-        id: fields.text({
+        nudafa_id: fields.text({
           label: 'Nudafa-ID',
           // todo ggf validation function --> slugify regex
           validation: { length: { min: 1, max: 80 } },
         }),
-        geometry: fields.conditional(
-          fields.checkbox({
-            label: 'Geometrie vorhanden',
-            defaultValue: false,
-          }),
-          {
-            true: fields.select({
-              label: 'Geometrie Typ',
-              options: [
-                { label: 'Punkt', value: 'point' },
-                { label: 'Linie', value: 'line' },
-              ],
-              defaultValue: 'line',
-            }),
-            false: fields.empty(),
-          },
-        ),
-        type: fields.relationship({
-          label: 'Maßnahmenart',
-          collection: 'measuretypes',
+        geometry: fields.checkbox({
+          label: 'Geometrie vorhanden',
+          defaultValue: false,
+        }),
+        location: fields.text({
+          label: 'Ort / Straße',
+        }),
+        problem: fields.text({
+          label: 'Problem',
         }),
         topics: fields.multiRelationship({
           label: 'Themen/Typ',
           collection: 'subprojectstopics',
         }),
-        urgency: fields.checkbox({
-          label: 'Dringlichkeit',
-          defaultValue: false,
+        project_hidden: fields.text({
+          label: 'Notiz zum Projekt (nicht öffentlich)',
         }),
-        startDate: fields.date({
+        complexity_level: fields.select({
+          label: 'Komplexitätsstufe',
+          options: [
+            { label: 'kurzfristig umsetzbar', value: 'kurzfristig-umsetzbar' },
+            { label: 'mit Eigenmitteln umsetzbar', value: 'mit-eigenmitteln-umsetzbar' },
+            {
+              label: 'Untersuchung und Planung erforderlich',
+              value: 'untersuchung-und-planung-erforderlich',
+            },
+            { label: 'komplexe Investitionsmassnahme', value: 'komplexe-investitionsmassnahme' },
+            { label: 'besondere Herausforderung', value: 'besondere-herausforderung' },
+            { label: 'abhaengig von anderen Akteuren', value: 'abhaengig-von-anderen-akteuren' },
+            { label: 'keine Angabe', value: '' },
+          ],
+          defaultValue: '',
+        }),
+        status: fields.select({
+          label: 'Status',
+          options: [
+            { label: 'Idee', value: 'idee' },
+            { label: 'in Vorbereitung', value: 'in-vorbereitung' },
+            { label: 'in Planung', value: 'in-planung' },
+            { label: 'in Umsetzung', value: 'in-umsetzung' },
+            { label: 'abgeschlossen', value: 'abgeschlossen' },
+            { label: 'zurückgestellt', value: 'zurueckgestellt' },
+            { label: 'archiviert', value: 'archiviert' },
+          ],
+          defaultValue: 'idee',
+        }),
+        urgency: fields.select({
+          label: 'Dringlichkeit',
+          options: [
+            { label: 'sofort', value: 'sofort' },
+            { label: 'sehr hoch', value: 'sehr-hoch' },
+            { label: 'hoch', value: 'hoch' },
+            { label: 'mittel', value: 'mittel' },
+            { label: 'niedrig', value: 'niedrig' },
+            { label: 'zurückgestellt', value: 'zurueckgestellt' },
+          ],
+          defaultValue: 'mittel',
+        }),
+        start: fields.date({
           label: 'Datum Beginn',
         }),
-        realisationDate: fields.date({
+        deadline: fields.date({
           label: 'Datum der Fertigstellung',
         }),
-        cost: fields.number({
+        deadline_hidden: fields.text({
+          label: 'Notiz zur Fertigstellung (nicht öffentlich)',
+        }),
+        length: fields.number({
+          label: 'Länge in m',
+          validation: { min: 0 },
+        }),
+        costs_amount: fields.number({
           label: 'Kosten in €',
           validation: { min: 0 },
         }),
+        costs_remarks: fields.text({
+          label: 'Notiz zu den Kosten (öffentlich)',
+        }),
+        funding_quota: fields.number({
+          label: 'Förderquote in %',
+          validation: { min: 0, max: 100 },
+        }),
+        town: fields.select({
+          label: 'Baulastträger',
+          options: [
+            { label: 'Eichwalde', value: 'eichwalde' },
+            { label: 'Schulzendorf', value: 'schulzendorf' },
+            { label: 'Zeuthen', value: 'zeuthen' },
+            { label: 'Wildau', value: 'wildau' },
+          ],
+          defaultValue: 'eichwalde',
+        }),
+        admin_authority: fields.multiselect({
+          label: 'Baulastträger',
+          options: [
+            { label: 'Eichwalde', value: 'eichwalde' },
+            { label: 'Schulzendorf', value: 'schulzendorf' },
+            { label: 'Zeuthen', value: 'zeuthen' },
+            { label: 'Wildau', value: 'wildau' },
+            { label: 'Königs-Wusterhausen', value: 'koenigs-wusterhausen' },
+            { label: 'Schönefeld', value: 'schoenefeld' },
+            { label: 'Landkreis Dahme-Spreewald', value: 'landkreis-dahme-spreewald' },
+            { label: 'Land Brandenburg', value: 'land-brandenburg' },
+            { label: 'Land Berlin', value: 'land-berlin' },
+            { label: 'unklar', value: 'unklar' },
+          ],
+        }),
+        stakeholders: fields.text({ label: 'Beteiligte' }),
         image: fields.image({
           label: 'Bild',
           description:
@@ -138,33 +213,239 @@ export default config({
           label: 'Copyright Bild',
           validation: { length: { max: 100 } },
         }),
-        state: fields.select({
-          label: 'Status',
-          options: [
-            { label: 'Idee', value: 'idea' },
-            { label: 'Planung', value: 'planning' },
-            { label: 'Umsetzung', value: 'realization' },
-            { label: 'Fertig', value: 'complete' },
-          ],
-          defaultValue: 'idea',
-        }),
-        operators: fields.multiselect({
-          label: 'Baulastträger',
-          options: [
-            { label: 'Eichwalde', value: 'eichwalde' },
-            { label: 'Schulzendorf', value: 'schulzendorf' },
-            { label: 'Zeuthen', value: 'zeuthen' },
-            { label: 'Wildau', value: 'wildau' },
-            { label: 'Königs-Wusterhausen', value: 'kw' },
-            { label: 'Schönefeld', value: 'schoenefeld' },
-          ],
-        }),
         content: fields.mdx({
           label: 'Beschreibung',
+          components: {
+            ...keystaticTextLinkArrowConfig,
+            ImageSingleVertical: block({
+              label: 'Bild: einzeln, Hochformat',
+              schema: {
+                src: fields.image({
+                  label: 'Bild',
+                  directory: 'src/assets/measures',
+                  publicPath: '/src/assets/measures',
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: 'Bildunterschrift',
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: 'Alt-Text' }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: 'Breite',
+                    description:
+                      'Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.',
+                    options: [
+                      { label: 'halbe Breite', value: 'half' },
+                      { label: 'ganze Breite', value: 'full' },
+                    ],
+                    defaultValue: 'half',
+                  }),
+                  {
+                    half: fields.select({
+                      label: 'Position',
+                      options: [
+                        { label: 'links', value: 'left' },
+                        { label: 'zentriert', value: 'center' },
+                        { label: 'rechts', value: 'right' },
+                      ],
+                      defaultValue: 'left',
+                    }),
+                    full: fields.empty(),
+                  },
+                ),
+              },
+              ContentView: contentViewImageVertical,
+            }),
+            ImageSingleHorizontal: block({
+              label: 'Bild: einzeln, Querformat',
+              schema: {
+                src: fields.image({
+                  label: 'Bild',
+                  directory: 'src/assets/measures',
+                  publicPath: '/src/assets/measures',
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: 'Bildunterschrift',
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: 'Alt-Text' }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: 'Seitenverhältnis',
+                    description:
+                      'Breite Formate (16:9 und 9:4) werden immer über die ganze Breite dargestellt.',
+                    options: [
+                      { label: '3:2', value: '3/2' },
+                      { label: '4:3', value: '4/3' },
+                      { label: '9:4', value: '9/4' },
+                      { label: '16:9', value: 'pano' },
+                    ],
+                    defaultValue: '4/3',
+                  }),
+                  {
+                    '3/2': fields.conditional(
+                      fields.select({
+                        label: 'Breite',
+                        description:
+                          'Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.',
+                        options: [
+                          { label: 'halbe Breite', value: 'half' },
+                          { label: 'ganze Breite', value: 'full' },
+                        ],
+                        defaultValue: 'full',
+                      }),
+                      {
+                        half: fields.select({
+                          label: 'Position',
+                          options: [
+                            { label: 'links', value: 'left' },
+                            { label: 'zentriert', value: 'center' },
+                            { label: 'rechts', value: 'right' },
+                          ],
+                          defaultValue: 'left',
+                        }),
+                        full: fields.empty(),
+                      },
+                    ),
+                    '4/3': fields.conditional(
+                      fields.select({
+                        label: 'Breite',
+                        description:
+                          'Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.',
+                        options: [
+                          { label: 'halbe Breite', value: 'half' },
+                          { label: 'ganze Breite', value: 'full' },
+                        ],
+                        defaultValue: 'full',
+                      }),
+                      {
+                        half: fields.select({
+                          label: 'Position',
+                          options: [
+                            { label: 'links', value: 'left' },
+                            { label: 'zentriert', value: 'center' },
+                            { label: 'rechts', value: 'right' },
+                          ],
+                          defaultValue: 'left',
+                        }),
+                        full: fields.empty(),
+                      },
+                    ),
+                    '9/4': fields.empty(),
+                    pano: fields.empty(),
+                  },
+                ),
+              },
+              ContentView: contentViewImageHorizontal,
+            }),
+            ImageSingleSquare: block({
+              label: 'Bild: einzeln, quadratisch',
+              schema: {
+                src: fields.image({
+                  label: 'Bild',
+                  directory: 'src/assets/measures',
+                  publicPath: '/src/assets/measures',
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: 'Bildunterschrift',
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: 'Alt-Text' }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: 'Breite',
+                    description:
+                      'Wieviel Platz soll das Bild im Verhältnis zur Breite des ganzen Textblocks einnehmen? Auf mobilen Screens wird immer die ganze Breite genommen.',
+                    options: [
+                      { label: 'halbe Breite', value: 'half' },
+                      { label: 'ganze Breite', value: 'full' },
+                    ],
+                    defaultValue: 'full',
+                  }),
+                  {
+                    half: fields.select({
+                      label: 'Position',
+                      options: [
+                        { label: 'links', value: 'left' },
+                        { label: 'zentriert', value: 'center' },
+                        { label: 'rechts', value: 'right' },
+                      ],
+                      defaultValue: 'left',
+                    }),
+                    full: fields.empty(),
+                  },
+                ),
+              },
+              ContentView: contentViewImageSquare,
+            }),
+            ImageDouble: block({
+              label: 'Bild: doppelt',
+              description: 'quer / hoch / quadratisch',
+              schema: {
+                src: fields.image({
+                  label: '1. Bild',
+                  directory: 'src/assets/measures',
+                  publicPath: '/src/assets/measures',
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: 'Bildunterschrift',
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                srcSecond: fields.image({
+                  label: '2. Bild',
+                  directory: 'src/assets/measures',
+                  publicPath: '/src/assets/measures',
+                  validation: { isRequired: true },
+                }),
+                captionSecond: fields.text({
+                  label: 'Bildunterschrift',
+                  validation: { length: { min: 1, max: 80 } },
+                }),
+                alt: fields.text({ label: 'Alt-Text' }),
+                imageConfig: fields.conditional(
+                  fields.select({
+                    label: 'Ausrichtung',
+                    description: '',
+                    options: [
+                      { label: 'quer', value: 'horizontal' },
+                      { label: 'hoch', value: 'vertical' },
+                      { label: 'quadratisch', value: 'square' },
+                    ],
+                    defaultValue: 'vertical',
+                  }),
+                  {
+                    vertical: fields.select({
+                      label: 'Seitenverhältnis',
+                      options: [
+                        { label: '3:2', value: '3/2' },
+                        { label: '4:3', value: '4/3' },
+                      ],
+                      defaultValue: '3/2',
+                    }),
+                    horizontal: fields.select({
+                      label: 'Seitenverhältnis',
+                      options: [
+                        { label: '3:2', value: '3/2' },
+                        { label: '4:3', value: '4/3' },
+                      ],
+                      defaultValue: '3/2',
+                    }),
+                    square: fields.empty(),
+                  },
+                ),
+              },
+              ContentView: contentViewImageDefaultDouble,
+            }),
+          },
           options: {
             image: {
-              directory: 'src/assets/images/measures',
-              publicPath: '/src/assets/images/measures/',
+              directory: 'src/assets/measures',
+              publicPath: '/src/assets/measures',
             },
           },
         }),
