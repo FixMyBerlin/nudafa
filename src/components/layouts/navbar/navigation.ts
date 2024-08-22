@@ -12,8 +12,14 @@ subprojects
 // const measures = await getCollection('measures')
 // const measuresNavigation: Record<string, string> = {};
 // measures?.forEach((p) => {
-//   measuresNavigation[p.data.title] = `/teilprojekte/${p.slug}`;
+//   measuresNavigation[p.data.title] = `/massnahmen/${p.slug}`;
 // });
+
+const measuretown = await getCollection('measuretown')
+const measuretownNavigation: Record<string, string> = {}
+measuretown?.forEach((p) => {
+  measuretownNavigation[p.data.title] = `/massnahmen/${p.slug}`
+})
 
 export const mainNavigation: TNavigation = {
   first: {
@@ -31,6 +37,7 @@ export const mainNavigation: TNavigation = {
     'Zum Radnetz': '/radnetz/einleitung',
     'Zu den Maßnahmen': {
       'Alle Maßnahmen': '/massnahmen',
+      ...measuretownNavigation,
       // ...measuresNavigation,
     },
   },

@@ -82,6 +82,16 @@ const measuresCollection = defineCollection({
       urgency: z.boolean(),
     }),
 })
+const measuretownsCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      image: image(),
+      imageCopyright: z.string(),
+      urgency: z.boolean(),
+    }),
+})
 
 export const collections = {
   news: newsCollection,
@@ -90,4 +100,5 @@ export const collections = {
   communes: communesCollection,
   bicyclenetworkpages: bicyclenetworkpagesCollection,
   measures: measuresCollection,
+  measuretown: measuretownsCollection,
 }
