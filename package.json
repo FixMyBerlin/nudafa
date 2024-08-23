@@ -17,7 +17,7 @@
     "updatePackages:minor": "npx taze minor --includeLocked --write && npm install",
     "release": "gh pr create --base main --head develop --title \"Release $(date '+%Y-%m-%d')\" --body \"\"",
     "prepare": "husky",
-    "transformMeasuresCsvToMdx": "node scripts/csvToJson.js ./data/measures/massnahmenliste.csv ./data/measures/massnahmenliste.json && node scripts/measureJsonToMdx.js"
+    "transformMeasuresCsvToMdx": "node scripts/csvToJson.js ./data/measures/massnahmenliste.csv ./data/measures/massnahmenliste.json && node scripts/measureJsonToMdx.js && npm run format:all"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.2",

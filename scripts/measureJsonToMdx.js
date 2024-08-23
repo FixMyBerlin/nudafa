@@ -19,11 +19,16 @@ const jsonFilePath = path.join(__dirname, '../data/measures/massnahmenliste.json
 
 // Read and parse the JSON file
 const jsonData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'))
+const config = jsonData[0]
 
 // list of keys, where the value is a list
-const arrayKeys = ['topics', 'admin_authority']
+const arrayKeys = Object.keys(config).filter((key) => config[key].includes('list'))
 // list of keys, where the value is a date
-const dateKeys = ['start', 'deadline']
+const dateKeys = Object.keys(config).filter((key) => config[key].includes('date'))
+// list of keys, where the value is a number
+const numberKeys = Object.keys(config).filter((key) => config[key].includes('number'))
+// key for markdown content
+const markdownKey = Object.keys(config).filter((key) => config[key] === 'markdown')[0]
 
 // Directory to save the MDX files
 const outputDir = path.join(__dirname, '../src/content/measures')
@@ -42,16 +47,28 @@ jsonData.forEach((item) => {
   // Create the frontmatter string
   const frontmatter = Object.entries(item)
     // Exclude the 'description' key as it is markdwon content
-    .filter(([key]) => !(key === 'description'))
+    .filter(([key]) => !(key === markdownKey))
     .map(([key, value]) => {
       // For list fields, convert the string to a list
       if (arrayKeys.includes(key)) {
         // Split the string by the pipe character to create a list
-        value = value ? value.split('|').map((i) => i.trim()) : '[]'
+        value = value ? value.split('|').map((i) => i.trim()) : []
       }
       if (value && dateKeys.includes(key)) {
         // transform date
         value = transformDate(value)
+      }
+      if (value && numberKeys.includes(key)) {
+        // transform to number
+        console.log({ value })
+        if (typeof value === 'string') {
+          value = value.trim()
+          // Remove all non-numeric characters
+          value = value.replace(/[^\d]/g, '')
+          // Convert to number
+          value = Number(value)
+        }
+        console.log({ value })
       }
       return `${key}: ${JSON.stringify(value)}`
     })
