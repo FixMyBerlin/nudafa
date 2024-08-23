@@ -9,15 +9,24 @@ type Props = {
   type?: string
   topics?: string[]
   operators?: string[]
-  cost: number
-  state: string
+  cost?: number
+  state?: string
   realisationDate?: Date
   startDate?: Date
-  urgency: boolean
+  urgency?: boolean
 }
 
-const { title, type, topics, operators, cost, state, realisationDate, startDate, urgency } =
-  Astro.props
+const {
+  title,
+  type,
+  topics,
+  operators,
+  cost,
+  state,
+  realisationDate,
+  startDate,
+  urgency = false,
+} = Astro.props
 ---
 
 <!-- desktop version -->
@@ -32,7 +41,7 @@ const { title, type, topics, operators, cost, state, realisationDate, startDate,
       />
       {urgency && <p class="rounded-full p-1 text-red-500"> !</p>}
       <div class="flex-shrink-0 flex-col items-end">
-        <StatusLabel state={state} />
+        {state ? <StatusLabel state={state} /> : <p>Kein Status</p>}
       </div>
     </div>
     <MeasureCardTopicsAndOperators topics={topics} operators={operators} />
@@ -56,7 +65,7 @@ const { title, type, topics, operators, cost, state, realisationDate, startDate,
     </div>
     <MeasureCardTopicsAndOperators topics={topics} operators={operators} />
     <div class="mb-5 flex">
-      <StatusLabel state={state} />
+      {state ? <StatusLabel state={state} /> : <p>Kein Status</p>}
     </div>
   </div>
 </div>

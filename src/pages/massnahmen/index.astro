@@ -1,40 +1,40 @@
 ---
+import { MeasureCard } from '@components/MeasureCard'
+import MeasureCardButton from '@components/MeasureCardButton.astro'
+import MeasureCardPanel from '@components/MeasureCardPanel.astro'
 import PageHeader from '@components/PageHeader.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
+import { getCollection } from 'astro:content'
 
-// const measures = await getCollection('measures')
+const measures = await getCollection('measures')
 ---
 
 <LayoutPage title="Maßnahmen">
   <PageHeader
-    title="Alle Maßnahmen"
+    title=`Alle Maßnahmen (${measures.length})`
     subTitle="Alle Maßnahmen zur Radverkehrsförderung in den Gemeinden Eichwalde, Schulzendorf, Wildau und Zeuthen veröffentlicht."
   />
 
   <Section className="bg-[#DBEAFE]" extraPadding>
-    <!--
-      {measures.map((measure) => (
-          <MeasureCard client:load>
-            <MeasureCardButton
-              slot="button"
-              title={measure.data.title}
-              type={measure.data.type}
-              topics={measure.data.topics}
-              operators={measure.data.operators}
-              cost={measure.data.cost}
-              state={measure.data.state}
-              realisationDate={measure.data.realisationDate}
-              startDate={measure.data.startDate}
-              urgency={measure.data.urgency}
-            />
-            <MeasureCardPanel slot="panel" measure={measure} />
-          </MeasureCard>
-        ))}
-      --
-    />
+    {
+      measures.map((measure) => (
+        <MeasureCard client:load>
+          <MeasureCardButton
+            slot="button"
+            title={measure.data.title}
+            type={measure.data.type}
+            topics={measure.data.topics}
+            operators={measure.data.admin_authority}
+            cost={measure.data.costs_amount}
+            state={measure.data.status}
+            realisationDate={measure.data.deadline}
+            startDate={measure.data.start}
+            urgency={measure.data.urgency}
+          />
+          <MeasureCardPanel slot="panel" measure={measure} />
+        </MeasureCard>
+      ))
+    }
   </Section>
 </LayoutPage>
---></Section
-  ></LayoutPage
->

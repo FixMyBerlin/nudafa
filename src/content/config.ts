@@ -68,6 +68,8 @@ const measuresCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      location: z.string().nullish(),
+      problem: z.string().nullish(),
       type: z.string().optional(),
       nudafa_id: z.string(),
       geometry: z.any(),

@@ -9,7 +9,12 @@ const { measure } = Astro.props
 const { Content } = await measure.render()
 ---
 
-<div class="flex flex-col gap-4 md:flex-row">
+<div class="flex flex-col gap-4">
+  <code>
+    <pre>
+      {JSON.stringify(measure, null, 2)}
+    </pre>
+  </code>
   <div>
     {
       measure.data.image && (

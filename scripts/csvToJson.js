@@ -9,7 +9,6 @@ const parsedData = Papa.parse(csvData, {
   header: true,
   delimiter: ';',
   skipEmptyLines: true,
-  dynamicTyping: true,
 })
 
 const jsonData = parsedData.data

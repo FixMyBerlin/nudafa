@@ -15,9 +15,10 @@ subprojects
 //   measuresNavigation[p.data.title] = `/massnahmen/${p.slug}`;
 // });
 
-const measuretown = await getCollection('measuretown')
+const measuretowns = await getCollection('measuretowns')
+console.log({ measuretown: measuretowns })
 const measuretownNavigation: Record<string, string> = {}
-measuretown?.forEach((p) => {
+measuretowns?.forEach((p) => {
   measuretownNavigation[p.data.title] = `/massnahmen/${p.slug}`
 })
 

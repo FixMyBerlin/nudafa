@@ -70,6 +70,18 @@ jsonData.forEach((item) => {
         }
         console.log({ value })
       }
+      // Convert 'true' and 'false' strings to boolean values
+      if (value === 'true' || value === 'false') {
+        if (value.toLowerCase() === 'true') {
+          value = true
+        } else if (value.toLowerCase() === 'false') {
+          value = false
+        }
+      }
+      // Convert empty strings to null
+      if (value === '') {
+        value = null
+      }
       return `${key}: ${JSON.stringify(value)}`
     })
     .join('\n')
