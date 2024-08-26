@@ -1,6 +1,6 @@
 # About
 
-## Import of measures
+## Import of measures - meta data (geometry import see below)
 
 We can import the measures from a table. Markdown and images and all future changes will be done in our Keystatic CMS.
 With Google Sheets you have less control over the export. If something is weird download as xlsx and export with Excel or Numbers.
@@ -16,4 +16,17 @@ All temporary rows and columns in the table have a prefix `_` and are deleted wh
 
 ## What it does
 
-1. The script generates a json file in the same folder one mdx file per row in `src/sontent/measures`.
+1. The script generates one mdx file per row in `src/content/measures` from the CSV file.
+
+## Update measures geometry data from Placemark
+
+## General process
+
+0. update geometry data in Placemark: places.placemark.de
+1. ö
+2. r
+3. run `npm run updateMeasuresGeometry`
+
+## What it does
+
+1. The script generates a json with all geometries in the map in `data/measures/geometry`.
