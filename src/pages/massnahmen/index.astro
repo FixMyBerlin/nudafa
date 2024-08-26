@@ -1,11 +1,11 @@
 ---
-import { MeasureCard } from '@components/MeasureCard'
-import MeasureCardButton from '@components/MeasureCardButton.astro'
-import MeasureCardPanel from '@components/MeasureCardPanel.astro'
+import MeasureCardButton from '@components/page_massnahmen/MeasureCardButton.astro'
+import MeasureCardPanel from '@components/page_massnahmen/MeasureCardPanel.astro'
 import PageHeader from '@components/PageHeader.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import { getCollection } from 'astro:content'
+import { MeasureCard } from '@components/page_massnahmen/MeasureCard'
 
 const measures = await getCollection('measures')
 ---
