@@ -4,13 +4,12 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import { getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
-  const projects = await getCollection('measuretowns')
-  return projects.map((entry) => ({
+  const towns = await getCollection('measuretowns')
+  return towns.map((entry) => ({
     params: { townslug: entry.slug },
     props: { entry },
   }))
 }
-
 const { entry } = Astro.props
 const { title } = entry.data
 ---
