@@ -1,0 +1,29 @@
+---
+import PageHeader from '@components/PageHeader.astro'
+import LayoutPage from '@components/layouts/LayoutPage.astro'
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  const measures = await getCollection('measures')
+  return measures.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+// console.log({ measure })
+// const feature = measure.data.nudafa_id ? getGeometryByNudafaId(measure.data.nudafa_id) : undefined
+// console.log({ feature })
+const { title } = entry.data
+const { Content } = await entry.render()
+---
+
+<LayoutPage title={title}>
+  <PageHeader title={title} subTitle="Zahlen und Ziele" />
+  <div>Dashboard</div>
+  <div>test:</div>
+  <h1>{title}</h1>
+
+  <!-- <MeasureMapAndList client:load /> -->
+</LayoutPage>
