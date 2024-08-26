@@ -60,7 +60,7 @@ export const MeasureMap = ({ geometry }: Props) => {
 
   const geojson: FeatureCollection = {
     type: 'FeatureCollection',
-    features: [geometry],
+    features: [...geometry],
   }
 
   const layerStyle = {
