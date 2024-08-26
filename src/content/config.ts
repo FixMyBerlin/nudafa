@@ -99,7 +99,7 @@ const measuretownsCollection = defineCollection({
       title: z.string(),
       image: image(),
       imageCopyright: z.string(),
-      urgency: z.boolean(),
+      urgency: z.boolean().optional(),
     }),
 })
 
@@ -110,5 +110,5 @@ export const collections = {
   communes: communesCollection,
   bicyclenetworkpages: bicyclenetworkpagesCollection,
   measures: measuresCollection,
-  measuretown: measuretownsCollection,
+  measuretowns: measuretownsCollection,
 }
