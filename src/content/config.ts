@@ -76,7 +76,7 @@ const measuresCollection = defineCollection({
       topics: z.array(z.string()).optional(),
       project_hidden: z.string().nullish(),
       complexity_level: z.string().nullish(),
-      status: z.string().nullish(),
+      status: z.string(),
       urgency: z.string().nullish(),
       start: z.union([z.date(), z.string()]).nullish(),
       deadline: z.union([z.date(), z.string()]).nullish(),

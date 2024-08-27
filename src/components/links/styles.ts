@@ -33,7 +33,7 @@ export const selectedMenuButtonStylesForLinkElement = clsx(
 )
 
 const hoverTranslateClassNames =
-  'hover:-translate-y-0.5 transition-all duration-200 hover:shadow-lg'
+  'hover:-translate-y-0.5 transition-all duration-200 hover:shadow-lg cursor-pointer'
 
 export const cardStylesForLinkElements = clsx(
   hoverTranslateClassNames,

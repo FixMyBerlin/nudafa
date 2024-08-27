@@ -1,4 +1,5 @@
----
+import clsx from 'clsx'
+
 type Props = {
   operatorId: string
 }
@@ -41,11 +42,14 @@ const getColorClass = (operatorId: string) => {
   }
 }
 
-const { operatorId } = Astro.props as Props
----
-
-<span
-  class:list={['list-none rounded-md px-2 py-px text-sm text-black', getColorClass(operatorId)]}
->
-  {getFulloperatorTitle(operatorId)}
-</span>
+export const OperatorLabel = ({ operatorId }: Props) => (
+  <span
+    className={clsx(
+      'list-none rounded-md px-2 py-px text-sm text-black',
+      getColorClass(operatorId),
+    )}
+  >
+    {/* {getFulloperatorTitle(operatorId)} */}
+    {operatorId}
+  </span>
+)

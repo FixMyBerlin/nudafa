@@ -1,13 +1,12 @@
 ---
-import MeasureCardButton from '@components/page_massnahmen/MeasureCardButton.astro'
-import MeasureCardPanel from '@components/page_massnahmen/MeasureCardPanel.astro'
 import PageHeader from '@components/PageHeader.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
-import { getCollection } from 'astro:content'
 import { MeasureCard } from '@components/page_massnahmen/MeasureCard'
+import { getCollection } from 'astro:content'
 
 const measures = await getCollection('measures')
+const subTopics = await getCollection('subprojectstopics')
 ---
 
 <LayoutPage title="Maßnahmen">
@@ -17,24 +16,6 @@ const measures = await getCollection('measures')
   />
 
   <Section className="bg-[#DBEAFE]" extraPadding>
-    {
-      measures.map((measure) => (
-        <MeasureCard client:load>
-          <MeasureCardButton
-            slot="button"
-            title={measure.data.title}
-            type={measure.data.type}
-            topics={measure.data.topics}
-            operators={measure.data.admin_authority}
-            cost={measure.data.costs_amount}
-            state={measure.data.status}
-            realisationDate={measure.data.deadline}
-            startDate={measure.data.start}
-            urgency={measure.data.urgency}
-          />
-          <MeasureCardPanel slot="panel" measure={measure} />
-        </MeasureCard>
-      ))
-    }
+    {measures.map((measure) => <MeasureCard subTopics={subTopics} measure={measure} client:load />)}
   </Section>
 </LayoutPage>

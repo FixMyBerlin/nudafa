@@ -1,7 +1,14 @@
 ---
-import PageHeader from '@components/PageHeader.astro'
+import ProseMarkdown from '@components/ProseMarkdown.astro'
+import H1 from '@components/Text/H1.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
+import Section from '@components/layouts/Section.astro'
+import MeasureTable from '@components/page_massnahmen/MeasureTable.astro'
+import { MeasureMap } from '@components/page_massnahmen/MeasuresMap'
+import { MapPinIcon } from '@heroicons/react/24/outline'
+import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
+import { getGeometryByNudafaId } from 'src/utils/getGeometryByNudafaId'
 
 export async function getStaticPaths() {
   const measures = await getCollection('measures')
@@ -12,18 +19,70 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-// console.log({ measure })
-// const feature = measure.data.nudafa_id ? getGeometryByNudafaId(measure.data.nudafa_id) : undefined
-// console.log({ feature })
-const { title } = entry.data
+const { title, image, imageCopyright, location, problem, nudafa_id } = entry.data
 const { Content } = await entry.render()
+const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
 ---
 
 <LayoutPage title={title}>
-  <PageHeader title={title} subTitle="Zahlen und Ziele" />
-  <div>Dashboard</div>
-  <div>test:</div>
-  <h1>{title}</h1>
-
-  <!-- <MeasureMapAndList client:load /> -->
+  <Section className="mt-12">
+    <H1 transition:name="h1">
+      {title}
+    </H1>
+    {
+      location && (
+        <p class="mb-10 flex items-center gap-2 text-base md:text-xl" transition:name="subtitle">
+          <MapPinIcon className="h-6 w-6" />
+          {location}
+        </p>
+      )
+    }
+  </Section>
+  <Section>
+    {
+      image && (
+        <figure class="m-0 aspect-[4/3] w-full">
+          <Image
+            class="h-full w-full overflow-hidden object-cover"
+            src={image}
+            alt=""
+            loading="lazy"
+          />
+          {imageCopyright && (
+            <figcaption class="mr-6 mt-1 text-right text-xs text-gray-400 md:text-sm">
+              © {imageCopyright}
+            </figcaption>
+          )}
+        </figure>
+      )
+    }
+  </Section>
+  <Section>
+    <p class="font-bold">Bedarfslage / Anlass der Maßnahme</p>
+    <ProseMarkdown>
+      <p>{problem || '-'}</p>
+    </ProseMarkdown>
+  </Section>
+  <Section>
+    <p class="font-bold">Beschreibung der Maßnahme</p>
+    <ProseMarkdown><Content /></ProseMarkdown>
+  </Section>
+  <Section className="mt-16">
+    <MeasureTable measure={entry.data} />
+  </Section>
+  <Section>
+    <div>
+      {
+        features ? (
+          <div>
+            <div class="h-[600px] w-full">
+              <MeasureMap client:load geometry={features} />
+            </div>
+          </div>
+        ) : (
+          <div>k. Geometrie vorhanden</div>
+        )
+      }
+    </div>
+  </Section>
 </LayoutPage>

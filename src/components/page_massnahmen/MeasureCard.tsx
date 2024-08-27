@@ -1,57 +1,36 @@
-import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react'
+import { cardStylesForLinkElements } from '@components/links/styles'
 import clsx from 'clsx'
-import { linkStyles } from '../links/styles'
+import { MeasureCardButton } from './MeasureCardButton'
 
 type Props = {
-  button?: React.ReactNode
-  panel?: React.ReactNode
+  measure: any
+  subTopics: any[]
 }
 
-export const MeasureCard = ({ button, panel }: Props) => {
+export const MeasureCard = ({ measure, subTopics }: Props) => {
   return (
-    <li className={clsx(['mb-8 flex flex-col rounded-sm bg-white shadow-lg'])}>
-      <Disclosure>
-        {({ open }) => (
-          <>
-            <DisclosureButton className="flex w-full flex-col p-4">
-              {button}
-              {!open && (
-                <p
-                  className={clsx(
-                    linkStyles,
-                    'w-full flex-shrink-0 flex-grow text-left text-sm md:-mt-5 md:text-right',
-                  )}
-                >
-                  Mehr Details
-                </p>
-              )}
-            </DisclosureButton>
-
-            <Transition
-              enter="transition duration-100 ease-out"
-              enterFrom="transform scale-95 opacity-0"
-              enterTo="transform scale-100 opacity-100"
-              leave="transition duration-75 ease-out"
-              leaveFrom="transform scale-100 opacity-100"
-              leaveTo="transform scale-95 opacity-0"
-            >
-              <DisclosurePanel className="flex flex-col gap-2 px-4 pb-4">
-                {panel}
-                <DisclosureButton>
-                  <p
-                    className={clsx(
-                      linkStyles,
-                      'flex-shrink-0 flex-grow text-left text-sm md:text-right',
-                    )}
-                  >
-                    Weniger Details
-                  </p>
-                </DisclosureButton>
-              </DisclosurePanel>
-            </Transition>
-          </>
+    <li className="list-none" key={measure.data.nudafa_id}>
+      <a
+        href={`/massnahmen/${measure.slug}`}
+        className={clsx(
+          cardStylesForLinkElements,
+          'mb-8 flex flex-col rounded-md bg-white px-4 py-5 shadow-lg',
         )}
-      </Disclosure>
+      >
+        <MeasureCardButton
+          subTopics={subTopics}
+          title={measure.data.title}
+          town={measure.data.town}
+          topics={measure.data.topics}
+          // operators={measure.data.admin_authority}
+          cost={measure.data.costs_amount}
+          length={measure.data.length}
+          state={measure.data.status}
+          realisationDate={measure.data.deadline}
+          startDate={measure.data.start}
+          urgency={measure.data.urgency}
+        />
+      </a>
     </li>
   )
 }
