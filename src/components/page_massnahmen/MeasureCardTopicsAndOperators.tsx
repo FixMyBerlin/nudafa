@@ -1,13 +1,13 @@
-import { OperatorLabel } from '@components/OperatorLabel'
+import { TownOrAdminAuthorityLabel } from '@components/OperatorLabel'
 import { TopicLabel } from '@components/TopicLabel'
 
 type Props = {
   topics?: string[]
-  operator: string
+  townId: string
   subTopics: any[]
 }
 
-export const MeasureCardTopicsAndOperators = ({ operator, topics, subTopics }: Props) => {
+export const MeasureCardTopicsAndTown = ({ townId, topics, subTopics }: Props) => {
   return (
     <ul className="flex flex-wrap items-end gap-2">
       {topics?.map((topic) => (
@@ -16,7 +16,7 @@ export const MeasureCardTopicsAndOperators = ({ operator, topics, subTopics }: P
         </li>
       ))}
       <li>
-        <OperatorLabel operatorId={operator} />
+        <TownOrAdminAuthorityLabel townOrAdminAuthorityId={townId} />
       </li>
     </ul>
   )

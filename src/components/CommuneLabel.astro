@@ -6,22 +6,36 @@ type Props = {
 
 const { communeName, communeColor } = Astro.props as Props
 
-const getColorClass = (communeColor: string | undefined) => {
+export const getColorClass = (communeColor: string | undefined) => {
   switch (communeColor) {
+    //dunkelgrün
     case '#AED7A0':
       return 'bg-[#AED7A0]'
+    //pink
     case '#F9A8D4':
       return 'bg-[#F9A8D4]'
+    //türkis
     case '#95E8D8':
       return 'bg-[#95E8D8]'
+    //hellblau
     case '#BAE6FD':
       return 'bg-[#BAE6FD]'
+    //dunkelblau
     case '#79C6FD':
       return 'bg-[#79C6FD]'
+    //rot
     case '#FCA5A5':
       return 'bg-[#FCA5A5]'
-    case '#FCA5A5':
-      return 'bg-[#FCA5A5]'
+    //orange
+    case '#FDBA74':
+      return 'bg-[#FDBA74]'
+    //hellgrün
+    case '#DDEBA7':
+      return 'bg-[#DDEBA7]'
+    //lachs
+    case '#FFD1B7':
+      return 'bg-[#FFD1B7]'
+    //hellgelb
     case '#FFFBEB':
       return 'bg-[#FFFBEB]'
     default:

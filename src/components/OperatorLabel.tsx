@@ -1,55 +1,25 @@
 import clsx from 'clsx'
+import {
+  measureAdminAuthorityOptions,
+  measureLabelColorsClasses,
+} from './page_massnahmen/measureCommunes.const'
 
 type Props = {
-  operatorId: string
+  townOrAdminAuthorityId: string
 }
 
-const getFulloperatorTitle = (operatorId: string) => {
-  switch (operatorId) {
-    case 'eichwalde':
-      return 'Eichwalde'
-    case 'schulzendorf':
-      return 'Schulzendorf'
-    case 'zeuthen':
-      return 'Zeuthen'
-    case 'wildau':
-      return 'Wildau'
-    case 'kw':
-      return 'Königs-Wusterhausen'
-    case 'schoenefeld':
-      return 'Schönefeld'
-    default:
-      return 'Wildau'
-  }
+const getTownOrAdminAuthorityTitle = (townOrAdminAuthorityId: string) => {
+  return measureAdminAuthorityOptions.find((option) => option.value === townOrAdminAuthorityId)
+    ?.label
 }
 
-const getColorClass = (operatorId: string) => {
-  switch (operatorId) {
-    case 'eichwalde':
-      return 'bg-[#AED7A0]'
-    case 'schulzendorf':
-      return 'bg-[#F9A8D4]'
-    case 'zeuthen':
-      return 'bg-[#95E8D8]'
-    case 'wildau':
-      return 'bg-[#BAE6FD]'
-    case 'kw':
-      return 'bg-[#DDEBA7]'
-    case 'schoenefeld':
-      return 'bg-[#FFD1B7]'
-    default:
-      return 'bg-[Wildau]'
-  }
-}
-
-export const OperatorLabel = ({ operatorId }: Props) => (
+export const TownOrAdminAuthorityLabel = ({ townOrAdminAuthorityId }: Props) => (
   <span
     className={clsx(
       'list-none rounded-md px-2 py-px text-sm text-black',
-      getColorClass(operatorId),
+      measureLabelColorsClasses[townOrAdminAuthorityId],
     )}
   >
-    {/* {getFulloperatorTitle(operatorId)} */}
-    {operatorId}
+    {getTownOrAdminAuthorityTitle(townOrAdminAuthorityId)}
   </span>
 )

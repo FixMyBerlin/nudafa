@@ -1,3 +1,7 @@
+import {
+  measureAdminAuthorityOptions,
+  measureTownOptions,
+} from '@components/page_massnahmen/measureCommunes.const'
 import { collection, config, fields } from '@keystatic/core'
 import { block } from '@keystatic/core/content-components'
 import { keystaticBicyclenetworkPagesConfig } from 'keystatic/keystatic.bicyclenetworkPages.config'
@@ -178,28 +182,12 @@ export default config({
         }),
         town: fields.select({
           label: 'Baulastträger',
-          options: [
-            { label: 'Eichwalde', value: 'eichwalde' },
-            { label: 'Schulzendorf', value: 'schulzendorf' },
-            { label: 'Zeuthen', value: 'zeuthen' },
-            { label: 'Wildau', value: 'wildau' },
-          ],
+          options: measureTownOptions,
           defaultValue: 'eichwalde',
         }),
         admin_authority: fields.multiselect({
           label: 'Baulastträger',
-          options: [
-            { label: 'Eichwalde', value: 'eichwalde' },
-            { label: 'Schulzendorf', value: 'schulzendorf' },
-            { label: 'Zeuthen', value: 'zeuthen' },
-            { label: 'Wildau', value: 'wildau' },
-            { label: 'Königs-Wusterhausen', value: 'koenigs-wusterhausen' },
-            { label: 'Schönefeld', value: 'schoenefeld' },
-            { label: 'Landkreis Dahme-Spreewald', value: 'landkreis-dahme-spreewald' },
-            { label: 'Land Brandenburg', value: 'land-brandenburg' },
-            { label: 'Land Berlin', value: 'land-berlin' },
-            { label: 'unklar', value: 'unklar' },
-          ],
+          options: measureAdminAuthorityOptions,
         }),
         stakeholders: fields.text({ label: 'Beteiligte' }),
         image: fields.image({

@@ -3,7 +3,7 @@ import { StatusLabel } from '@components/StatusLabel'
 import clsx from 'clsx'
 import { MeasureCardCostDurationLength } from './MeasureCardCostDurationLength'
 import { MeasureCardTitle } from './MeasureCardTitle'
-import { MeasureCardTopicsAndOperators } from './MeasureCardTopicsAndOperators'
+import { MeasureCardTopicsAndTown } from './MeasureCardTopicsAndOperators'
 
 type Props = {
   title: string
@@ -50,7 +50,7 @@ export const MeasureCardButton = ({
             </div>
           </div>
           <div className="flex justify-between">
-            <MeasureCardTopicsAndOperators subTopics={subTopics} topics={topics} operator={town} />
+            <MeasureCardTopicsAndTown subTopics={subTopics} topics={topics} townId={town} />
             <p className={clsx(linkStyles, 'shrink-0 text-sm')}>Mehr Details</p>
           </div>
         </div>
@@ -70,7 +70,7 @@ export const MeasureCardButton = ({
               startDate={startDate}
             />
           </div>
-          <MeasureCardTopicsAndOperators subTopics={subTopics} topics={topics} operator={town} />
+          <MeasureCardTopicsAndTown subTopics={subTopics} topics={topics} townId={town} />
           <div className="flex">{state ? <StatusLabel state={state} /> : <p>Kein Status</p>}</div>
         </div>
       </div>
