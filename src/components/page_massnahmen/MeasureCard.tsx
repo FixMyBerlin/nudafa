@@ -18,6 +18,7 @@ export const MeasureCard = ({ measure, subTopics }: Props) => {
         )}
       >
         <MeasureCardButton
+          id={measure.data.nudafa_id}
           subTopics={subTopics}
           title={measure.data.title}
           town={measure.data.town}

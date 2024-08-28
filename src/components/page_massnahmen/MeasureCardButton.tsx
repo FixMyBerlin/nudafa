@@ -16,6 +16,7 @@ type Props = {
   length?: number
   subTopics: any[]
   town: string
+  id: string
 }
 
 export const MeasureCardButton = ({
@@ -29,13 +30,14 @@ export const MeasureCardButton = ({
   length,
   town,
   subTopics,
+  id,
 }: Props) => {
   return (
     <>
       <div className="hidden w-full flex-row gap-4 md:flex">
         <div className="flex w-full flex-col justify-between">
           <div className="mb-6 flex items-start justify-between">
-            <MeasureCardTitle title={title} />
+            <MeasureCardTitle id={id} title={title} />
             <MeasureCardCostDurationLength
               cost={cost}
               realisationDate={realisationDate}
@@ -56,7 +58,7 @@ export const MeasureCardButton = ({
 
       <div className="flex w-full flex-col gap-4 md:hidden">
         <div className="flex gap-4">
-          <MeasureCardTitle title={title} />
+          <MeasureCardTitle id={id} title={title} />
           {urgency && <p className="rounded-full p-1 text-xs text-red-500"> {urgency}</p>}
         </div>
         <div className="flex w-full flex-col justify-between gap-4">
