@@ -63,19 +63,6 @@ export const keystaticSubprojectsConfig = collection({
       label: 'Projektpartner',
       collection: 'partners',
     }),
-    // fields.multiselect({
-    //   label: "Weitere Projektpartner",
-    //   options: [
-    //     { label: "TH Wildau", value: "th" },
-    //     { label: "Gemeinde Eichwalde", value: "eichwalde" },
-    //     { label: "Gemeinde Zeuthen", value: "zeuthen" },
-    //     { label: "Gemeinde Schulzendorf", value: "schulzendorf" },
-    //     { label: "Stadt Wildau", value: "wildau" },
-    //     { label: "TU Berlin", value: "tu" },
-    //     { label: "FixMyCity", value: "fmc" },
-    //   ],
-    //   defaultValue: ["th"],
-    // }),
     start: fields.date({
       label: 'Projektstart',
       validation: { isRequired: true },
