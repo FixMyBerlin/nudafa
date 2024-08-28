@@ -1,13 +1,16 @@
 import { CalendarDaysIcon } from '@heroicons/react/24/outline'
 import { format } from 'date-fns'
 import { de } from 'date-fns/locale'
+import routeIcon from 'src/assets/icons/route.png'
 
 export const MeasureCardCostDurationLength = ({ realisationDate, startDate, cost, length }) => {
   return (
     <div className="flex flex-shrink-0 flex-grow flex-row items-start text-sm md:justify-center md:px-4">
       <div className="flex flex-row items-center gap-1">
-        {/* <Image src={routeIcon} alt="Länge" className="h-3 w-3 shrink-0 object-cover" />{' '} */}
-        <p className="text-nowrap border-r border-black pr-2 leading-3">{length || '-'} m</p>
+        <img src={routeIcon.src} alt="Länge" className="h-3 w-3 shrink-0 object-cover" />{' '}
+        <p className="text-nowrap border-r border-black pr-2 leading-3">
+          {length ? length + 'm' : '-'}
+        </p>
       </div>
       <div className="ml-2 flex flex-row items-center gap-1">
         <CalendarDaysIcon className="h-[13px] w-[13px]" />

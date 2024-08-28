@@ -15,11 +15,14 @@ import complexity_levelIcon from '@assets/icons/complexity_level.png'
 import stakeholdersIcon from '@assets/icons/stakeholder.png'
 import { Image } from 'astro:assets'
 import TableRowHeadline from '@components/TableRowHeadline.astro'
-import MetaCommuneLabel from '@components/MetaCommuneLabel.astro'
 import { TopicLabel } from '@components/TopicLabel'
 import { getCollection } from 'astro:content'
+import { TownOrAdminAuthorityLabel } from '@components/OperatorLabel'
+import { StatusLabel } from '@components/StatusLabel'
+import { ComplexityLabel } from '@components/ComplexityLabel'
+import { UrgencyLabel } from '@components/UrgencyLabel'
 
-const tableIcons = {
+const tableIcons: Record<string, ImageMetadata> = {
   Status: statusIcon,
   Dringlichkeit: urgencyIcon,
   Themen: topicsIcon,
@@ -64,17 +67,13 @@ const subTopics = await getCollection('subprojectstopics')
     <Image class="h-4 w-4" src={tableIcons['Status']} alt="" />
     <TableRowHeadline>Status</TableRowHeadline>
     <ul class="flex flex-wrap gap-2">
-      <!-- todo icon -->
-      {urgency || <span>-</span>}
+      <StatusLabel state={status} />
     </ul>
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Dringlichkeit']} alt="" />
     <TableRowHeadline>Dringlichkeit</TableRowHeadline>
-    <ul class="flex flex-wrap gap-2">
-      <!-- todo icon -->
-      {status}
-    </ul>
+    {urgency ? <UrgencyLabel urgency={urgency} withText /> : <span>-</span>}
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Themen']} alt="" />
@@ -96,9 +95,7 @@ const subTopics = await getCollection('subprojectstopics')
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Zuständige Kommune']} alt="" />
     <TableRowHeadline>Zuständige Kommune</TableRowHeadline>
-    <ul class="flex flex-wrap gap-2">
-      <MetaCommuneLabel communeName={town} />
-    </ul>
+    <TownOrAdminAuthorityLabel townOrAdminAuthorityId={town} />
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Baulasttäger']} alt="" />
@@ -107,7 +104,9 @@ const subTopics = await getCollection('subprojectstopics')
       <!-- todo icon -->
       {
         !!admin_authority?.length ? (
-          admin_authority.map((admin) => <li>{admin}</li>)
+          admin_authority.map((admin) => (
+            <TownOrAdminAuthorityLabel townOrAdminAuthorityId={admin} />
+          ))
         ) : (
           <span>-</span>
         )
@@ -153,7 +152,15 @@ const subTopics = await getCollection('subprojectstopics')
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Komplexitätsstufe']} alt="" />
     <TableRowHeadline>Komplexitätsstufe</TableRowHeadline>
-    {complexity_level ? <span>{complexity_level} </span> : <span>-</span>}
+    {
+      complexity_level ? (
+        <span>
+          <ComplexityLabel level={complexity_level} />{' '}
+        </span>
+      ) : (
+        <span>-</span>
+      )
+    }
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Wichtige Stakeholder']} alt="" />

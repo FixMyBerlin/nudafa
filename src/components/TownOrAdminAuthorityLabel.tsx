@@ -16,7 +16,7 @@ const getTownOrAdminAuthorityTitle = (townOrAdminAuthorityId: string) => {
 export const TownOrAdminAuthorityLabel = ({ townOrAdminAuthorityId }: Props) => (
   <span
     className={clsx(
-      'list-none rounded-md px-2 py-px text-sm text-black',
+      'TownOrAdminAuthorityLabel list-none rounded-md px-2.5 py-1 text-sm font-normal',
       measureLabelColorsClasses[townOrAdminAuthorityId],
     )}
   >

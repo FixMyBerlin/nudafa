@@ -2,6 +2,7 @@ import {
   measureAdminAuthorityOptions,
   measureTownOptions,
 } from '@components/page_massnahmen/measureCommunes.const'
+import { complexityLevelOptions } from '@components/page_massnahmen/measureComplexityLevels.const'
 import { collection, config, fields } from '@keystatic/core'
 import { block } from '@keystatic/core/content-components'
 import { keystaticBicyclenetworkPagesConfig } from 'keystatic/keystatic.bicyclenetworkPages.config'
@@ -117,18 +118,7 @@ export default config({
         }),
         complexity_level: fields.select({
           label: 'Komplexitätsstufe',
-          options: [
-            { label: 'kurzfristig umsetzbar', value: 'kurzfristig-umsetzbar' },
-            { label: 'mit Eigenmitteln umsetzbar', value: 'mit-eigenmitteln-umsetzbar' },
-            {
-              label: 'Untersuchung und Planung erforderlich',
-              value: 'untersuchung-und-planung-erforderlich',
-            },
-            { label: 'komplexe Investitionsmassnahme', value: 'komplexe-investitionsmassnahme' },
-            { label: 'besondere Herausforderung', value: 'besondere-herausforderung' },
-            { label: 'abhaengig von anderen Akteuren', value: 'abhaengig-von-anderen-akteuren' },
-            { label: 'keine Angabe', value: '' },
-          ],
+          options: complexityLevelOptions,
           defaultValue: '',
         }),
         status: fields.select({

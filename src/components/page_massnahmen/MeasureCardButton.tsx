@@ -1,5 +1,6 @@
 import { linkStyles } from '@components/links/styles'
 import { StatusLabel } from '@components/StatusLabel'
+import { UrgencyLabel } from '@components/UrgencyLabel'
 import clsx from 'clsx'
 import { MeasureCardCostDurationLength } from './MeasureCardCostDurationLength'
 import { MeasureCardTitle } from './MeasureCardTitle'
@@ -34,6 +35,7 @@ export const MeasureCardButton = ({
 }: Props) => {
   return (
     <>
+      {/* desktop */}
       <div className="hidden w-full flex-row gap-4 md:flex">
         <div className="flex w-full flex-col justify-between">
           <div className="mb-6 flex items-start justify-between">
@@ -44,9 +46,9 @@ export const MeasureCardButton = ({
               startDate={startDate}
               length={length}
             />
-            {urgency && <p className="rounded-full p-1 text-xs text-red-500"> {urgency}</p>}
-            <div className="flex-shrink-0 flex-col items-end">
-              {state ? <StatusLabel state={state} /> : <p>Kein Status</p>}
+            <div className="flex gap-2">
+              {urgency && <UrgencyLabel urgency={urgency} />}
+              {state && <StatusLabel state={state} />}
             </div>
           </div>
           <div className="flex justify-between">
@@ -55,11 +57,10 @@ export const MeasureCardButton = ({
           </div>
         </div>
       </div>
-
+      {/* mobile */}
       <div className="flex w-full flex-col gap-4 md:hidden">
         <div className="flex gap-4">
           <MeasureCardTitle id={id} title={title} />
-          {urgency && <p className="rounded-full p-1 text-xs text-red-500"> {urgency}</p>}
         </div>
         <div className="flex w-full flex-col justify-between gap-4">
           <div className="flex justify-between">
@@ -71,7 +72,10 @@ export const MeasureCardButton = ({
             />
           </div>
           <MeasureCardTopicsAndTown subTopics={subTopics} topics={topics} townId={town} />
-          <div className="flex">{state ? <StatusLabel state={state} /> : <p>Kein Status</p>}</div>
+          <div className="flex gap-2">
+            {urgency && <UrgencyLabel urgency={urgency} />}
+            {state && <StatusLabel state={state} />}
+          </div>
         </div>
       </div>
     </>

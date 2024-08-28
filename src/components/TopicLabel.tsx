@@ -11,7 +11,9 @@ export const TopicLabel = ({ topic, subTopics }: Props) => {
     return subTopic ? subTopic.data.title : topic
   }
   return (
-    <span className={clsx('rounded-md border border-black px-2 py-px text-sm text-black')}>
+    <span
+      className={clsx('rounded-md border border-black px-2.5 py-1 text-sm font-normal text-black')}
+    >
       {getFullTopicTitle(topic)}
     </span>
   )
