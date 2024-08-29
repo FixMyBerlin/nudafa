@@ -17,10 +17,11 @@ import { Image } from 'astro:assets'
 import TableRowHeadline from '@components/TableRowHeadline.astro'
 import { TopicLabel } from '@components/TopicLabel'
 import { getCollection } from 'astro:content'
-import { TownOrAdminAuthorityLabel } from '@components/OperatorLabel'
+
 import { StatusLabel } from '@components/StatusLabel'
 import { ComplexityLabel } from '@components/ComplexityLabel'
 import { UrgencyLabel } from '@components/UrgencyLabel'
+import { TownOrAdminAuthorityLabel } from '@components/TownOrAdminAuthorityLabel'
 
 const tableIcons: Record<string, ImageMetadata> = {
   Status: statusIcon,
@@ -66,19 +67,17 @@ const subTopics = await getCollection('subprojectstopics')
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Status']} alt="" />
     <TableRowHeadline>Status</TableRowHeadline>
-    <ul class="flex flex-wrap gap-2">
-      <StatusLabel state={status} />
-    </ul>
+    <StatusLabel slot="info" state={status} />
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Dringlichkeit']} alt="" />
     <TableRowHeadline>Dringlichkeit</TableRowHeadline>
-    {urgency ? <UrgencyLabel urgency={urgency} withText /> : <span>-</span>}
+    {urgency ? <UrgencyLabel slot="info" urgency={urgency} withText /> : <span>-</span>}
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Themen']} alt="" />
     <TableRowHeadline>Themen</TableRowHeadline>
-    <ul class="flex flex-wrap gap-2">
+    <ul slot="info" class="flex flex-wrap gap-2">
       {
         !!topics?.length ? (
           topics.map((topic) => (
@@ -95,20 +94,19 @@ const subTopics = await getCollection('subprojectstopics')
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Zuständige Kommune']} alt="" />
     <TableRowHeadline>Zuständige Kommune</TableRowHeadline>
-    <TownOrAdminAuthorityLabel townOrAdminAuthorityId={town} />
+    <TownOrAdminAuthorityLabel slot="info" townOrAdminAuthorityId={town} />
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Baulasttäger']} alt="" />
     <TableRowHeadline>Baulasttäger</TableRowHeadline>
-    <ul class="flex flex-wrap gap-2">
-      <!-- todo icon -->
+    <ul slot="info" class="flex flex-wrap gap-2">
       {
         !!admin_authority?.length ? (
           admin_authority.map((admin) => (
             <TownOrAdminAuthorityLabel townOrAdminAuthorityId={admin} />
           ))
         ) : (
-          <span>-</span>
+          <>-</>
         )
       }
     </ul>
@@ -116,20 +114,18 @@ const subTopics = await getCollection('subprojectstopics')
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Länge']} alt="" />
     <TableRowHeadline>Länge</TableRowHeadline>
-    <ul class="flex flex-wrap gap-2">
-      {length ? <span>{length} Meter</span> : <span>-</span>}
-    </ul>
+    {length ? <span slot="info">{length} Meter</span> : <span slot="info">-</span>}
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Projektlaufzeit']} alt="" />
     <TableRowHeadline>Projektlaufzeit</TableRowHeadline>
-    <div class="flex w-full flex-col">
+    <div slot="info" class="flex w-full flex-col">
       <div>
-        <span class="font-bold">Maßnahmenbeginn:</span>
+        <span>Maßnahmenbeginn:</span>
         {start ? new Date(start).toLocaleDateString('de-DE') : <span>-</span>}
       </div>
       <div>
-        <span class="font-bold">Geplante Fertigstellung:</span>
+        <span>Geplante Fertigstellung:</span>
         {deadline ? new Date(deadline).toLocaleDateString('de-DE') : <span>-</span>}
       </div>
     </div>
@@ -137,34 +133,34 @@ const subTopics = await getCollection('subprojectstopics')
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Kosten']} alt="" />
     <TableRowHeadline>Kosten</TableRowHeadline>
-    {costs_amount ? <span>{costs_amount} €</span> : <span>-</span>}
+    {costs_amount ? <span slot="info">{costs_amount} €</span> : <span slot="info">-</span>}
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Förderquote']} alt="" />
     <TableRowHeadline>Förderquote</TableRowHeadline>
-    {funding_quota ? <span>{funding_quota} %</span> : <span>-</span>}
+    {funding_quota ? <span slot="info">{funding_quota} %</span> : <span slot="info">-</span>}
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Anmerkung Kosten']} alt="" />
     <TableRowHeadline>Anmerkung Kosten</TableRowHeadline>
-    {costs_remarks ? <span>{costs_remarks} </span> : <span>-</span>}
+    {costs_remarks ? <span slot="info">{costs_remarks} </span> : <span slot="info">-</span>}
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Komplexitätsstufe']} alt="" />
     <TableRowHeadline>Komplexitätsstufe</TableRowHeadline>
     {
       complexity_level ? (
-        <span>
+        <span slot="info">
           <ComplexityLabel level={complexity_level} />{' '}
         </span>
       ) : (
-        <span>-</span>
+        <span slot="info">-</span>
       )
     }
   </TableRow>
   <TableRow>
     <Image class="h-4 w-4" src={tableIcons['Wichtige Stakeholder']} alt="" />
     <TableRowHeadline>Wichtige Stakeholder</TableRowHeadline>
-    {stakeholders ? <span>{stakeholders} </span> : <span>-</span>}
+    {stakeholders ? <span slot="info">{stakeholders} </span> : <span slot="info">-</span>}
   </TableRow>
 </div>

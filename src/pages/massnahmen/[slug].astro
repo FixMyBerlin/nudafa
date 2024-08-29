@@ -5,7 +5,6 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import MeasureTable from '@components/page_massnahmen/MeasureTable.astro'
 import { MeasureMap } from '@components/page_massnahmen/MeasuresMap'
-import { measureAdminAuthorityOptions } from '@components/page_massnahmen/measureCommunes.const'
 import { MapPinIcon } from '@heroicons/react/24/outline'
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
@@ -26,22 +25,19 @@ const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
 ---
 
 <LayoutPage title={title}>
-  <Section className="mt-12">
+  <Section className="mt-0 md:mt-8">
     <H1 transition:name="h1">
       {title}
     </H1>
     {
       location && (
-        <p
-          class="mb-4 mt-4 flex items-center gap-2 text-base md:text-xl"
-          transition:name="subtitle"
-        >
+        <p class="mb-4 mt-4 flex items-center gap-2 text-base" transition:name="subtitle">
           <MapPinIcon className="h-6 w-6" />
           {location}
         </p>
       )
     }
-    <p class="text-gray-600">NUDAFA-ID: {nudafa_id}</p>
+    <p class="text-base text-gray-600">NUDAFA-ID: {nudafa_id}</p>
   </Section>
   <Section>
     {

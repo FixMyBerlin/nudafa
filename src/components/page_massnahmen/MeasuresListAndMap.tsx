@@ -23,7 +23,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, features, townFilter }
   const [selectedLineId, setSelectedLineId] = useState(null)
 
   return (
-    <div className="pt-12">
+    <div className="pb-24 pt-12">
       <h3 className="mb-2 text-lg font-bold md:text-2xl">
         Maßnahmen für den Radverkehr ({measures.length})
       </h3>
@@ -67,6 +67,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, features, townFilter }
             selectedLineId={selectedLineId}
             setSelectedLineId={setSelectedLineId}
             geometry={features}
+            isZielnetzLayer
           />
           {selectedLineId && (
             <MeasureCard
