@@ -5,6 +5,7 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import MeasureTable from '@components/page_massnahmen/MeasureTable.astro'
 import { MeasureMap } from '@components/page_massnahmen/MeasuresMap'
+import { measureAdminAuthorityOptions } from '@components/page_massnahmen/measureCommunes.const'
 import { MapPinIcon } from '@heroicons/react/24/outline'
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
@@ -31,12 +32,16 @@ const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
     </H1>
     {
       location && (
-        <p class="mb-10 flex items-center gap-2 text-base md:text-xl" transition:name="subtitle">
+        <p
+          class="mb-4 mt-4 flex items-center gap-2 text-base md:text-xl"
+          transition:name="subtitle"
+        >
           <MapPinIcon className="h-6 w-6" />
           {location}
         </p>
       )
     }
+    <p class="text-gray-600">NUDAFA-ID: {nudafa_id}</p>
   </Section>
   <Section>
     {
@@ -57,12 +62,16 @@ const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
       )
     }
   </Section>
-  <Section>
-    <p class="font-bold">Bedarfslage / Anlass der Maßnahme</p>
-    <ProseMarkdown>
-      <p>{problem || '-'}</p>
-    </ProseMarkdown>
-  </Section>
+  {
+    problem && (
+      <Section>
+        <p class="font-bold">Bedarfslage / Anlass der Maßnahme</p>
+        <ProseMarkdown>
+          <p>{problem}</p>
+        </ProseMarkdown>
+      </Section>
+    )
+  }
   <Section>
     <p class="font-bold">Beschreibung der Maßnahme</p>
     <ProseMarkdown><Content /></ProseMarkdown>
@@ -73,14 +82,14 @@ const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
   <Section>
     <div>
       {
-        features ? (
+        !!features?.length ? (
           <div>
             <div class="h-[600px] w-full">
-              <MeasureMap client:load geometry={features} />
+              <MeasureMap selectedLineId={entry.data.nudafa_id} client:load geometry={features} />
             </div>
           </div>
         ) : (
-          <div>k. Geometrie vorhanden</div>
+          <div class="text-sm text-gray-600">k. Geometrie vorhanden</div>
         )
       }
     </div>

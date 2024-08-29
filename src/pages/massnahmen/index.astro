@@ -2,20 +2,29 @@
 import PageHeader from '@components/PageHeader.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
-import { MeasureCard } from '@components/page_massnahmen/MeasureCard'
+import { MeasuresListAndMap } from '@components/page_massnahmen/MeasuresListAndMap'
 import { getCollection } from 'astro:content'
+import { getGeometryByNudafaIds } from 'src/utils/getGeometryByNudafaId'
 
 const measures = await getCollection('measures')
 const subTopics = await getCollection('subprojectstopics')
+const measureIds = measures.map((m) => m.data.nudafa_id)
+const features = getGeometryByNudafaIds(measureIds)
+
+export type SubTopics = typeof subTopics
+type Measures = typeof measures
+export type Measure = Measures[number]
 ---
 
 <LayoutPage title="Maßnahmen">
-  <PageHeader
-    title=`Alle Maßnahmen (${measures.length})`
-    subTitle="Alle Maßnahmen zur Radverkehrsförderung in den Gemeinden Eichwalde, Schulzendorf, Wildau und Zeuthen veröffentlicht."
-  />
-
-  <Section className="bg-[#DBEAFE]" extraPadding>
-    {measures.map((measure) => <MeasureCard subTopics={subTopics} measure={measure} client:load />)}
+  <PageHeader title="NUDAFA Region" />
+  <Section className="bg-[#E5ECF2]">
+    <MeasuresListAndMap
+      isZielNetzLayer
+      features={features}
+      client:load
+      measures={measures}
+      subTopics={subTopics}
+    />
   </Section>
 </LayoutPage>

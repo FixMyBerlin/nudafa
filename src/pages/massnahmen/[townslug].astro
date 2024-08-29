@@ -1,7 +1,10 @@
 ---
 import PageHeader from '@components/PageHeader.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
+import Section from '@components/layouts/Section.astro'
+import { MeasuresListAndMap } from '@components/page_massnahmen/MeasuresListAndMap'
 import { getCollection } from 'astro:content'
+import { getGeometryByNudafaIds } from 'src/utils/getGeometryByNudafaId'
 
 export async function getStaticPaths() {
   const towns = await getCollection('measuretowns')
@@ -10,12 +13,27 @@ export async function getStaticPaths() {
     props: { entry },
   }))
 }
+
+const measures = await getCollection('measures')
+const subTopics = await getCollection('subprojectstopics')
+
 const { entry } = Astro.props
-const { title } = entry.data
+
+const measuresFiilteredByTown = measures.filter((m) => m.data.town === entry.slug)
+const measureIds = measuresFiilteredByTown.map((m) => m.data.nudafa_id)
+const features = getGeometryByNudafaIds(measureIds)
 ---
 
-<LayoutPage title={title}>
-  <PageHeader title={title} subTitle="Zahlen und Ziele" />
-  <div>Dashboard</div>
-  <!-- <MeasureMapAndList client:load /> -->
+<LayoutPage title=`Massnahmen ${entry.data.title}`>
+  <PageHeader className="" title={entry.data.title} />
+  <Section className="bg-[#E5ECF2]">
+    <MeasuresListAndMap
+      isZielNetzLayer
+      features={features}
+      client:load
+      measures={measuresFiilteredByTown}
+      subTopics={subTopics}
+      townFilter={entry.data.title}
+    />
+  </Section>
 </LayoutPage>
