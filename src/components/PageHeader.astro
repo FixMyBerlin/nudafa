@@ -1,4 +1,5 @@
 ---
+import clsx from 'clsx'
 import ProseMarkdown from './ProseMarkdown.astro'
 import H1 from './Text/H1.astro'
 import Section from './layouts/Section.astro'
@@ -6,12 +7,13 @@ import Section from './layouts/Section.astro'
 type Props = {
   title: string
   subTitle?: string
+  className?: string
 }
 
-const { title, subTitle } = Astro.props
+const { title, subTitle, className } = Astro.props
 ---
 
-<Section className="mt-12">
+<Section className={clsx('mt-12', className)}>
   <H1 transition:name="h1">
     {title}
   </H1>
