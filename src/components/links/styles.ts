@@ -14,12 +14,12 @@ const buttonBase =
 
 export const buttonStylesForLinkElement = clsx(
   buttonBase,
-  'border-gray-600 bg-white px-4 py-2 text-gray-600 hover:bg-beige-50',
+  'border-gray-600 bg-white px-4 py-2 text-gray-600 sm:hover:bg-beige-50',
 )
 
 export const selectedButtonStylesForLinkElement = clsx(
   buttonBase,
-  'border-beige-600 bg-beige-600 px-4 py-2 text-white hover:bg-beige-50 hover:text-gray-600',
+  'border-beige-600 bg-beige-600 px-4 py-2 text-white sm:hover:bg-beige-50 sm:hover:text-gray-600',
 )
 
 export const menuButtonStylesForLinkElement = clsx(
