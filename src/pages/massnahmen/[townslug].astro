@@ -28,7 +28,6 @@ const features = getGeometryByNudafaIds(measureIds)
   <PageHeader className="" title={entry.data.title} />
   <Section className="bg-[#E5ECF2]">
     <MeasuresListAndMap
-      isZielNetzLayer
       features={features}
       client:load
       measures={measuresFiilteredByTown}

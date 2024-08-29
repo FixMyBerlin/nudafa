@@ -19,12 +19,6 @@ export type Measure = Measures[number]
 <LayoutPage title="Maßnahmen">
   <PageHeader title="NUDAFA Region" />
   <Section className="bg-[#E5ECF2]">
-    <MeasuresListAndMap
-      isZielNetzLayer
-      features={features}
-      client:load
-      measures={measures}
-      subTopics={subTopics}
-    />
+    <MeasuresListAndMap features={features} client:load measures={measures} subTopics={subTopics} />
   </Section>
 </LayoutPage>
