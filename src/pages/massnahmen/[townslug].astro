@@ -14,7 +14,10 @@ export async function getStaticPaths() {
   }))
 }
 
-const measures = await getCollection('measures')
+// all measures including archived measures
+const allMeasures = await getCollection('measures')
+// filter out archived measures
+const measures = allMeasures.filter((m) => !(m.data.status === 'archiviert'))
 const subTopics = await getCollection('subprojectstopics')
 
 const { entry } = Astro.props
