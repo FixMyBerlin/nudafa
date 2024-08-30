@@ -12,31 +12,23 @@ const integrations = [
   react(),
   markdoc(),
   mdx(),
+  keystatic(),
   tailwind(),
   sitemap({
     filter: (page) => page !== 'https://www.nudafa.de/radnetz/admin/',
   }),
 ]
 
-// If on environment is hybrid, add keystatic (for netlify), otherwise it's Deploy Now
-if (process.env.NODE_ENV === 'development' || process.env.OUTPUTMODE === 'hybrid') {
-  integrations.push(keystatic())
-}
-
 const config = {
   site: 'https://www.nudafa.de',
   integrations,
-  output: process.env.NODE_ENV === 'development' ? 'hybrid' : process.env.OUTPUTMODE,
+  output: 'hybrid',
   adapter: netlify(),
   redirects: {
     '/info': '/',
     '/forschungsprojekt': '/',
     '/radnetzplanung': '/radnetz/einleitung',
   },
-}
-
-if (process.env.NODE_ENV === 'development' || process.env.OUTPUTMODE === 'hybrid') {
-  config.adapter = netlify()
 }
 
 // https://astro.build/config
