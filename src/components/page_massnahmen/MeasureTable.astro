@@ -22,6 +22,7 @@ import { StatusLabel } from '@components/StatusLabel'
 import { ComplexityLabel } from '@components/ComplexityLabel'
 import { UrgencyLabel } from '@components/UrgencyLabel'
 import { TownOrAdminAuthorityLabel } from '@components/TownOrAdminAuthorityLabel'
+import type { Measure } from './types'
 
 const tableIcons: Record<string, ImageMetadata> = {
   Status: statusIcon,
@@ -39,7 +40,7 @@ const tableIcons: Record<string, ImageMetadata> = {
 }
 
 type Props = {
-  measure: any
+  measure: Measure['data']
 }
 
 const { measure }: Props = Astro.props

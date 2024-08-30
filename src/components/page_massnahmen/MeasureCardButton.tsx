@@ -5,19 +5,20 @@ import clsx from 'clsx'
 import { MeasureCardCostDurationLength } from './MeasureCardCostDurationLength'
 import { MeasureCardTitle } from './MeasureCardTitle'
 import { MeasureCardTopicsAndTown } from './MeasureCardTopicsAndOperators'
+import type { Measure, SubTopics } from './types'
 
 type Props = {
-  title: string
-  topics?: string[]
-  cost?: number
-  state?: string
-  realisationDate?: Date
-  startDate?: Date
-  urgency?: string
-  length?: number
-  subTopics: any[]
-  town: string
-  id: string
+  title: Measure['data']['title']
+  topics?: Measure['data']['topics']
+  cost?: Measure['data']['costs_amount']
+  state?: Measure['data']['status']
+  realisationDate?: Measure['data']['deadline']
+  startDate?: Measure['data']['start']
+  urgency?: Measure['data']['urgency']
+  length?: Measure['data']['length']
+  town: Measure['data']['town']
+  id: Measure['data']['nudafa_id']
+  subTopics: SubTopics
 }
 
 export const MeasureCardButton = ({
@@ -52,7 +53,7 @@ export const MeasureCardButton = ({
             </div>
           </div>
           <div className="flex justify-between">
-            <MeasureCardTopicsAndTown subTopics={subTopics} topics={topics} townId={town} />
+            <MeasureCardTopicsAndTown subTopics={subTopics} topics={topics} town={town} />
             <p className={clsx(linkStyles, 'shrink-0 text-sm')}>Mehr Details</p>
           </div>
         </div>
@@ -71,7 +72,7 @@ export const MeasureCardButton = ({
               startDate={startDate}
             />
           </div>
-          <MeasureCardTopicsAndTown subTopics={subTopics} topics={topics} townId={town} />
+          <MeasureCardTopicsAndTown subTopics={subTopics} topics={topics} town={town} />
           <div className="flex gap-2">
             {urgency && <UrgencyLabel urgency={urgency} />}
             {state && <StatusLabel state={state} />}

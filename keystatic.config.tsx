@@ -1,8 +1,8 @@
 import {
+  complexityLevelOptions,
   measureAdminAuthorityOptions,
   measureTownOptions,
-} from '@components/page_massnahmen/measureCommunes.const'
-import { complexityLevelOptions } from '@components/page_massnahmen/measureComplexityLevels.const'
+} from '@components/page_massnahmen/measureOptions.const'
 import { collection, config, fields } from '@keystatic/core'
 import { block } from '@keystatic/core/content-components'
 import { keystaticBicyclenetworkPagesConfig } from 'keystatic/keystatic.bicyclenetworkPages.config'

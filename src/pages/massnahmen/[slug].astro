@@ -5,6 +5,7 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import MeasureTable from '@components/page_massnahmen/MeasureTable.astro'
 import { MeasureMap } from '@components/page_massnahmen/MeasuresMap'
+
 import { MapPinIcon } from '@heroicons/react/24/outline'
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
@@ -81,7 +82,7 @@ const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
         !!features?.length ? (
           <div>
             <div class="h-[600px] w-full">
-              <MeasureMap selectedLineId={entry.data.nudafa_id} client:load geometry={features} />
+              <MeasureMap selectedLineId={entry.data.nudafa_id} geometry={features} />
             </div>
           </div>
         ) : (

@@ -1,15 +1,17 @@
 import { cardStylesForLinkElements } from '@components/links/styles'
 import clsx from 'clsx'
-import type { Measure } from 'src/pages/massnahmen/index.astro'
+
 import { MeasureCardButton } from './MeasureCardButton'
+import type { Measure, SubTopics } from './types'
 
 type Props = {
-  measure: Measure
-  subTopics: any[]
+  measure: Measure | undefined
+  subTopics: SubTopics
   className?: string
 }
 
 export const MeasureCard = ({ measure, subTopics, className }: Props) => {
+  if (!measure) return null
   return (
     <a
       target="_blank"

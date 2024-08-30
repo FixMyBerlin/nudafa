@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import {
   measureAdminAuthorityOptions,
   measureLabelColorsClasses,
-} from './page_massnahmen/measureCommunes.const'
+} from './page_massnahmen/measureOptions.const'
 
 type Props = {
   townOrAdminAuthorityId: string

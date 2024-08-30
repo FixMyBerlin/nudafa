@@ -9,7 +9,7 @@ import { getGeometryByNudafaId } from 'src/utils/getGeometryByNudafaId'
 const measures = await getCollection('measures')
 const measuresWithGeometryIds = measures.filter((m) => m.data.geometry).map((m) => m.data.nudafa_id)
 const missingGeometryIds = measuresWithGeometryIds.filter(
-  (id) => getGeometryByNudafaId(id).length === 0
+  (id) => getGeometryByNudafaId(id).length === 0,
 )
 ---
 

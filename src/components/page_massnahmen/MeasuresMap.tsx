@@ -17,12 +17,13 @@ import {
   NavigationControl,
   Source,
 } from 'react-map-gl/maplibre'
+import type { Measure } from './types'
 
 type Props = {
   isZielnetzLayer?: boolean
   geometry: Feature[]
   selectedLineId: string | null
-  setSelectedLineId: (value: (prevState: null) => null | null) => void
+  setSelectedLineId?: any
 }
 
 const selectableLineLayerId = 'layer_selectable_line_features'
@@ -66,6 +67,7 @@ export const MeasureMap = ({
 
   const selectableLines: FeatureCollection = {
     type: 'FeatureCollection',
+    // @ts-expect-error
     features: [...geometry],
   }
 
@@ -114,8 +116,8 @@ export const MeasureMap = ({
   ) : null
 
   const handleClickMap = (e: MapLayerMouseEvent) => {
-    const id = e.features?.at(0)?.properties['NUDAFA_ID']
-    setSelectedLineId(id)
+    const id = e.features?.at(0)?.properties['NUDAFA_ID'] as Measure['data']['nudafa_id']
+    if (id) setSelectedLineId(id)
   }
 
   return (

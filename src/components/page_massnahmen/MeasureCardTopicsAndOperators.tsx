@@ -1,13 +1,14 @@
 import { TopicLabel } from '@components/TopicLabel'
 import { TownOrAdminAuthorityLabel } from '@components/TownOrAdminAuthorityLabel'
+import type { Measure, SubTopics } from './types'
 
 type Props = {
-  topics?: string[]
-  townId: string
-  subTopics: any[]
+  town: Measure['data']['town']
+  topics: Measure['data']['topics']
+  subTopics: SubTopics
 }
 
-export const MeasureCardTopicsAndTown = ({ townId, topics, subTopics }: Props) => {
+export const MeasureCardTopicsAndTown = ({ town, topics, subTopics }: Props) => {
   return (
     <ul className="flex flex-wrap items-end gap-3">
       {topics?.map((topic) => (
@@ -16,7 +17,7 @@ export const MeasureCardTopicsAndTown = ({ townId, topics, subTopics }: Props) =
         </li>
       ))}
       <li>
-        <TownOrAdminAuthorityLabel townOrAdminAuthorityId={townId} />
+        <TownOrAdminAuthorityLabel townOrAdminAuthorityId={town} />
       </li>
     </ul>
   )

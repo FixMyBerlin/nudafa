@@ -1,4 +1,4 @@
-import { complexityLevelOptions } from './page_massnahmen/measureComplexityLevels.const'
+import { complexityLevelOptions } from './page_massnahmen/measureOptions.const'
 
 type Props = {
   level: string

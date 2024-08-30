@@ -7,9 +7,9 @@ import { ListBulletIcon, MapIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import type { Feature } from 'maplibre-gl'
 import { useState } from 'react'
-import type { Measure, SubTopics } from 'src/pages/massnahmen/index.astro'
 import { MeasureCard } from './MeasureCard'
 import { MeasureMap } from './MeasuresMap'
+import type { Measure, SubTopics } from './types'
 
 type Props = {
   measures: Measure[]

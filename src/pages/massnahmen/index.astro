@@ -13,10 +13,6 @@ const measures = allMeasures.filter((m) => !(m.data.status === 'archiviert'))
 const subTopics = await getCollection('subprojectstopics')
 const measureIds = measures.map((m) => m.data.nudafa_id)
 const features = getGeometryByNudafaIds(measureIds)
-
-export type SubTopics = typeof subTopics
-type Measures = typeof measures
-export type Measure = Measures[number]
 ---
 
 <LayoutPage title="Maßnahmen">
