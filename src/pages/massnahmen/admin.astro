@@ -1,0 +1,26 @@
+---
+import PageHeader from '@components/PageHeader.astro'
+import H2 from '@components/Text/H2.astro'
+import LayoutPage from '@components/layouts/LayoutPage.astro'
+import Section from '@components/layouts/Section.astro'
+import { getCollection } from 'astro:content'
+import { getGeometryByNudafaId } from 'src/utils/getGeometryByNudafaId'
+
+const measures = await getCollection('measures')
+const measuresWithGeometryIds = measures.filter((m) => m.data.geometry).map((m) => m.data.nudafa_id)
+const missingGeometryIds = measuresWithGeometryIds.filter(
+  (id) => getGeometryByNudafaId(id).length === 0,
+)
+---
+
+<LayoutPage title="ADMIN: Geo Daten Abgleich" noindex>
+  <PageHeader title="ADMIN: Geo Daten Abgleich" />
+
+  <Section>
+    <H2
+      >Maßnahmen, die zwar "geometry=true" in den Daten haben, unter deren ID jedoch kein feature im
+      Geojson von Placemark gefunden wurde:</H2
+    >
+    {missingGeometryIds.map((id) => <p>{id}</p>)}
+  </Section>
+</LayoutPage>

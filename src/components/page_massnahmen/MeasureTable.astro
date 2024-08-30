@@ -1,0 +1,167 @@
+---
+import TableRow from '@components/TableRow.astro'
+
+import statusIcon from '@assets/icons/status.png'
+import urgencyIcon from '@assets/icons/urgency.png'
+import topicsIcon from '@assets/icons/topics.png'
+import townIcon from '@assets/icons/town.png'
+import admin_authorityIcon from '@assets/icons/admin_authority.png'
+import lengthIcon from '@assets/icons/length.png'
+import calendarIcon from '@assets/icons/date.png'
+import costs_amountIcon from '@assets/icons/costs_amount.png'
+import funding_quotaIcon from '@assets/icons/funding_quota.png'
+import costs_remarksIcon from '@assets/icons/costs_remarks.png'
+import complexity_levelIcon from '@assets/icons/complexity_level.png'
+import stakeholdersIcon from '@assets/icons/stakeholder.png'
+import { Image } from 'astro:assets'
+import TableRowHeadline from '@components/TableRowHeadline.astro'
+import { TopicLabel } from '@components/TopicLabel'
+import { getCollection } from 'astro:content'
+
+import { StatusLabel } from '@components/StatusLabel'
+import { ComplexityLabel } from '@components/ComplexityLabel'
+import { UrgencyLabel } from '@components/UrgencyLabel'
+import { TownOrAdminAuthorityLabel } from '@components/TownOrAdminAuthorityLabel'
+import type { Measure } from './types'
+
+const tableIcons: Record<string, ImageMetadata> = {
+  Status: statusIcon,
+  Dringlichkeit: urgencyIcon,
+  Themen: topicsIcon,
+  'Zuständige Kommune': townIcon,
+  Baulasttäger: admin_authorityIcon,
+  Länge: lengthIcon,
+  Projektlaufzeit: calendarIcon,
+  Kosten: costs_amountIcon,
+  Förderquote: funding_quotaIcon,
+  'Anmerkung Kosten': costs_remarksIcon,
+  Komplexitätsstufe: complexity_levelIcon,
+  'Wichtige Stakeholder': stakeholdersIcon,
+}
+
+type Props = {
+  measure: Measure['data']
+}
+
+const { measure }: Props = Astro.props
+const {
+  status,
+  urgency,
+  topics,
+  town,
+  admin_authority,
+  length,
+  start,
+  deadline,
+  costs_amount,
+  funding_quota,
+  costs_remarks,
+  complexity_level,
+  stakeholders,
+} = measure
+const subTopics = await getCollection('subprojectstopics')
+---
+
+<div
+  class="flex flex-col divide-y divide-gray-200 rounded-sm border border-gray-200 text-gray-500 shadow-lg"
+>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Status']} alt="" />
+    <TableRowHeadline>Status</TableRowHeadline>
+    <StatusLabel slot="info" state={status} />
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Dringlichkeit']} alt="" />
+    <TableRowHeadline>Dringlichkeit</TableRowHeadline>
+    {urgency ? <UrgencyLabel slot="info" urgency={urgency} withText /> : <span>-</span>}
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Themen']} alt="" />
+    <TableRowHeadline>Themen</TableRowHeadline>
+    <ul slot="info" class="flex flex-wrap gap-2">
+      {
+        !!topics?.length ? (
+          topics.map((topic) => (
+            <li>
+              <TopicLabel subTopics={subTopics} topic={topic} />
+            </li>
+          ))
+        ) : (
+          <span>-</span>
+        )
+      }
+    </ul>
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Zuständige Kommune']} alt="" />
+    <TableRowHeadline>Zuständige Kommune</TableRowHeadline>
+    <TownOrAdminAuthorityLabel slot="info" townOrAdminAuthorityId={town} />
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Baulasttäger']} alt="" />
+    <TableRowHeadline>Baulasttäger</TableRowHeadline>
+    <ul slot="info" class="flex flex-wrap gap-2">
+      {
+        !!admin_authority?.length ? (
+          admin_authority.map((admin) => (
+            <TownOrAdminAuthorityLabel townOrAdminAuthorityId={admin} />
+          ))
+        ) : (
+          <>-</>
+        )
+      }
+    </ul>
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Länge']} alt="" />
+    <TableRowHeadline>Länge</TableRowHeadline>
+    {length ? <span slot="info">{length} Meter</span> : <span slot="info">-</span>}
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Projektlaufzeit']} alt="" />
+    <TableRowHeadline>Projektlaufzeit</TableRowHeadline>
+    <div slot="info" class="flex w-full flex-col">
+      <div>
+        <span>Maßnahmenbeginn:</span>
+        {start ? new Date(start).toLocaleDateString('de-DE') : <span>-</span>}
+      </div>
+      <div>
+        <span>Geplante Fertigstellung:</span>
+        {deadline ? new Date(deadline).toLocaleDateString('de-DE') : <span>-</span>}
+      </div>
+    </div>
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Kosten']} alt="" />
+    <TableRowHeadline>Kosten</TableRowHeadline>
+    {costs_amount ? <span slot="info">{costs_amount} €</span> : <span slot="info">-</span>}
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Förderquote']} alt="" />
+    <TableRowHeadline>Förderquote</TableRowHeadline>
+    {funding_quota ? <span slot="info">{funding_quota} %</span> : <span slot="info">-</span>}
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Anmerkung Kosten']} alt="" />
+    <TableRowHeadline>Anmerkung Kosten</TableRowHeadline>
+    {costs_remarks ? <span slot="info">{costs_remarks} </span> : <span slot="info">-</span>}
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Komplexitätsstufe']} alt="" />
+    <TableRowHeadline>Komplexitätsstufe</TableRowHeadline>
+    {
+      complexity_level ? (
+        <span slot="info">
+          <ComplexityLabel level={complexity_level} />{' '}
+        </span>
+      ) : (
+        <span slot="info">-</span>
+      )
+    }
+  </TableRow>
+  <TableRow>
+    <Image class="h-4 w-4" src={tableIcons['Wichtige Stakeholder']} alt="" />
+    <TableRowHeadline>Wichtige Stakeholder</TableRowHeadline>
+    {stakeholders ? <span slot="info">{stakeholders} </span> : <span slot="info">-</span>}
+  </TableRow>
+</div>

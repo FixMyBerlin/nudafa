@@ -1,0 +1,41 @@
+---
+import PageHeader from '@components/PageHeader.astro'
+import LayoutPage from '@components/layouts/LayoutPage.astro'
+import Section from '@components/layouts/Section.astro'
+import { MeasuresListAndMap } from '@components/page_massnahmen/MeasuresListAndMap'
+import { getCollection } from 'astro:content'
+import { getGeometryByNudafaIds } from 'src/utils/getGeometryByNudafaId'
+
+export async function getStaticPaths() {
+  const towns = await getCollection('measuretowns')
+  return towns.map((entry) => ({
+    params: { townslug: entry.slug },
+    props: { entry },
+  }))
+}
+
+// all measures including archived measures
+const allMeasures = await getCollection('measures')
+// filter out archived measures
+const measures = allMeasures.filter((m) => !(m.data.status === 'archiviert'))
+const subTopics = await getCollection('subprojectstopics')
+
+const { entry } = Astro.props
+
+const measuresFiilteredByTown = measures.filter((m) => m.data.town === entry.slug)
+const measureIds = measuresFiilteredByTown.map((m) => m.data.nudafa_id)
+const features = getGeometryByNudafaIds(measureIds)
+---
+
+<LayoutPage title=`Massnahmen ${entry.data.title}`>
+  <PageHeader className="" title={entry.data.title} />
+  <Section className="bg-[#E5ECF2]">
+    <MeasuresListAndMap
+      features={features}
+      client:load
+      measures={measuresFiilteredByTown}
+      subTopics={subTopics}
+      townFilter={entry.data.title}
+    />
+  </Section>
+</LayoutPage>

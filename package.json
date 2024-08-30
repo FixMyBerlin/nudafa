@@ -16,7 +16,9 @@
     "updatePackages:major": "npx taze major --includeLocked --write --exclude eslint && npm run updatePackages:minor && npm install",
     "updatePackages:minor": "npx taze minor --includeLocked --write && npm install",
     "release": "gh pr create --base main --head develop --title \"Release $(date '+%Y-%m-%d')\" --body \"\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "transformMeasuresCsvToMdx": "node scripts/csvToJson.js ./data/measures/massnahmenliste.csv ./data/measures/massnahmenliste.json && node scripts/measureJsonToMdx.js && npm run format:all",
+    "updateMeasuresGeometry": "node scripts/updateMeasuresGeometry.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.2",
@@ -45,6 +47,7 @@
     "heroicons-astro": "^1.0.4",
     "maplibre-gl": "^4.5.0",
     "nanostores": "^0.10.3",
+    "papaparse": "^5.4.1",
     "pmtiles": "^3.0.7",
     "react": "^18.3.1",
     "react-aria-components": "^1.3.1",

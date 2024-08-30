@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
+import { getColorClass } from './CommuneLabel.astro'
 
 type Props = {
   partnerId: string
@@ -9,9 +10,9 @@ const { partnerId }: Props = Astro.props
 const partners = await getCollection('partners')
 const partner = partners.find((partner) => partner.slug === partnerId)
 const partnerTitle = partner?.data?.name || partner
-const partnerColor = `bg-[${partner?.data?.color || '#FFFBE'}]`
+const partnerColorClass = getColorClass(partner?.data.color)
 ---
 
-<span class:list={['list-none rounded-md px-2 py-px text-sm text-black', partnerColor]}>
+<span class:list={['list-none rounded-md px-2.5 py-1 text-sm text-black', partnerColorClass]}>
   {partnerTitle}
 </span>

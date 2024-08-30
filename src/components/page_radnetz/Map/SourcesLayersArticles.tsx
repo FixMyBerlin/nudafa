@@ -4,9 +4,13 @@ import { Layer, Source } from 'react-map-gl/maplibre'
 import { mapDataAndLegend } from '../mapData/mapDataAndLegend.const'
 import { $router } from '../utils/store'
 
-export const SourcesLayersArticles = () => {
+type Props = {
+  article?: string
+}
+
+export const SourcesLayersArticles = ({ article }: Props) => {
   const router = useStore($router)
-  const articleSlug = router?.params.section
+  const articleSlug = article || router?.params.section
   if (!articleSlug) return null
 
   return (

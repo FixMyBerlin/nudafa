@@ -2,39 +2,22 @@
 import PageHeader from '@components/PageHeader.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
+import { MeasuresListAndMap } from '@components/page_massnahmen/MeasuresListAndMap'
+import { getCollection } from 'astro:content'
+import { getGeometryByNudafaIds } from 'src/utils/getGeometryByNudafaId'
 
-// const measures = await getCollection('measures')
+// all measures including archived measures
+const allMeasures = await getCollection('measures')
+// filter out archived measures
+const measures = allMeasures.filter((m) => !(m.data.status === 'archiviert'))
+const subTopics = await getCollection('subprojectstopics')
+const measureIds = measures.map((m) => m.data.nudafa_id)
+const features = getGeometryByNudafaIds(measureIds)
 ---
 
 <LayoutPage title="Maßnahmen">
-  <PageHeader
-    title=""
-    subTitle="Hier werden demnächst alle Maßnahmen zur Radverkehrsförderung in den Gemeinden Eichwalde, Schulzendorf, Wildau und Zeuthen veröffentlicht."
-  />
-
-  <Section className="bg-[#DBEAFE]" extraPadding>
-    <!--
-      {measures.map((measure) => (
-          <MeasureCard client:load>
-            <MeasureCardButton
-              slot="button"
-              title={measure.data.title}
-              type={measure.data.type}
-              topics={measure.data.topics}
-              operators={measure.data.operators}
-              cost={measure.data.cost}
-              state={measure.data.state}
-              realisationDate={measure.data.realisationDate}
-              startDate={measure.data.startDate}
-              urgency={measure.data.urgency}
-            />
-            <MeasureCardPanel slot="panel" measure={measure} />
-          </MeasureCard>
-        ))}
-      --
-    />
+  <PageHeader title="NUDAFA Region" />
+  <Section className="bg-[#E5ECF2]">
+    <MeasuresListAndMap features={features} client:load measures={measures} subTopics={subTopics} />
   </Section>
 </LayoutPage>
---></Section
-  ></LayoutPage
->

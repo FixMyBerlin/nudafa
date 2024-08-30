@@ -68,18 +68,38 @@ const measuresCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      location: z.string().nullish(),
+      problem: z.string().nullish(),
       type: z.string().optional(),
-      id: z.string(),
+      nudafa_id: z.string(),
       geometry: z.any(),
       topics: z.array(z.string()).optional(),
-      realisationDate: z.date().optional(),
-      startDate: z.date().optional(),
-      cost: z.number(),
+      project_hidden: z.string().nullish(),
+      complexity_level: z.string().nullish(),
+      status: z.string(),
+      urgency: z.string().nullish(),
+      start: z.union([z.date(), z.string()]).nullish(),
+      deadline: z.union([z.date(), z.string()]).nullish(),
+      deadline_hidden: z.string().nullish(),
+      length: z.number().nullish(),
+      costs_amount: z.number().nullish(),
+      costs_remarks: z.string().nullish(),
+      funding_quota: z.number().nullish(),
+      admin_authority: z.array(z.string()).optional(),
+      stakeholders: z.string().nullish(),
+      town: z.string(),
       image: image().optional(),
       imageCopyright: z.string().optional(),
-      state: z.string(),
-      operators: z.array(z.string()).optional(),
-      urgency: z.boolean(),
+    }),
+})
+const measuretownsCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      image: image(),
+      imageCopyright: z.string(),
+      urgency: z.boolean().optional(),
     }),
 })
 
@@ -90,4 +110,5 @@ export const collections = {
   communes: communesCollection,
   bicyclenetworkpages: bicyclenetworkpagesCollection,
   measures: measuresCollection,
+  measuretowns: measuretownsCollection,
 }

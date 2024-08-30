@@ -13,6 +13,7 @@ import { pageKomfort } from './pageKomfort.const'
 import { pageKontext } from './pageKontext.const'
 import { pageLuftliniennetz } from './pageLuftliniennetz.const'
 import { pageMassnahmen } from './pageMassnahmen.const'
+import { pageMassnahmenZielnetz } from './pageMassnahmenZielnetz.const'
 import { pageQuelleZiele } from './pageQuelleZiele.const'
 import { pageSicherheit } from './pageSicherheit.const'
 import { pageStrassentypen } from './pageStrassentypen.const'
@@ -61,4 +62,7 @@ export const mapDataAndLegend: MapDataAndLegend = {
   ...pageBedarfe,
   ...pageMassnahmen,
   ...pageInteraktiveKarte,
+  // this is NOT a Radnetz page, but a configuration for /massnahmen maps
+  // it would be cleaner to have this somewhere else but for now it lives here to reduce complexity
+  ...pageMassnahmenZielnetz,
 }

@@ -14,7 +14,7 @@ export const beforeIds: Record<LayerKey, BelowLayerKey> = {
   'kontext-vorhandene-netze-Vorhandene-netze_uebergeordnet': 'quellen-und-ziele-barrier-lines-railway-rail',
   'quellen-und-ziele-barrier-lines-railway-rail': 'dimmlayer-ZES-Betrachtungsraum',
   'dimmlayer-ZES-Betrachtungsraum': 'Satellite',
-  'Satellite': 'bestand-roads-Oberflaeche gut oder sehr gut',
+  Satellite: 'bestand-roads-Oberflaeche gut oder sehr gut',
   'bestand-roads-Oberflaeche gut oder sehr gut': 'quellen-und-ziele-barrier-lines-railway_light_rail-white',
   'quellen-und-ziele-barrier-lines-railway_light_rail-white': 'bedarfe-combined-Wichtige Ziele',
   'bedarfe-combined-Wichtige Ziele': 'strassentypen-roads-legacy-roads-onewaybikeyes-pattern plus',

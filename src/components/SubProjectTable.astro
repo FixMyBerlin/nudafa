@@ -1,8 +1,11 @@
 ---
 import PartnerLabel from '@components/PartnerLabel.astro'
-import TopicLabel from '@components/TopicLabel.astro'
+
 import { format, isPast } from 'date-fns'
 import CommuneLabelList from './CommuneLabelList.astro'
+import TableRow from './TableRow.astro'
+import { getCollection } from 'astro:content'
+import { TopicLabel } from './TopicLabel'
 
 type Props = {
   start: Date
@@ -12,6 +15,7 @@ type Props = {
   funding?: string
   topics: string[]
 }
+const subTopics = await getCollection('subprojectstopics')
 const { start, end, communes, projectPartners, funding, topics } = Astro.props
 const isProjectPast = end && isPast(end)
 ---
@@ -19,51 +23,58 @@ const isProjectPast = end && isPast(end)
 <div
   class="flex flex-col divide-y divide-gray-200 rounded-sm border border-gray-200 text-gray-500 shadow-lg"
 >
-  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 py-4 md:flex-row md:items-center">
-    <p class="min-w-[200px] flex-shrink-0">Themen</p>
-    <ul class="flex flex-wrap gap-2">
-      {
-        !!topics?.length ? (
-          topics.map((topic) => (
-            <li>
-              <TopicLabel topic={topic} />
-            </li>
-          ))
-        ) : (
-          <span>-</span>
-        )
-      }
-    </ul>
-  </div>
-  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 py-4 md:flex-row md:items-center">
-    <p class="min-w-[200px] flex-shrink-0">Beteiligte Projektpartner</p>
-    <ul class="flex flex-wrap gap-2">
-      {!!communes?.length && <CommuneLabelList communeIds={communes} />}
-      {
-        !!projectPartners?.length &&
-          projectPartners.map((partner) => (
-            <li>
-              <PartnerLabel partnerId={partner} />
-            </li>
-          ))
-      }
-    </ul>
-  </div>
-
-  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 py-4 md:flex-row md:items-center">
-    <p class="min-w-[200px] flex-shrink-0">Projektlaufzeit</p>
-    <p class="font-semibold text-black">
-      {
-        isProjectPast
-          ? `Laufzeit: ${format(start, 'MM/yyyy')} bis ${format(end, 'MM/yyyy')}`
-          : 'Beginn ' + format(start, 'MM/yyyy')
-      }
-    </p>
-  </div>
-  <div class="flex min-w-[200px] flex-shrink-0 flex-col gap-2 p-3 py-4 md:flex-row md:items-center">
-    <p class="min-w-[200px] flex-shrink-0 py-4">Finanzierung</p>
-    <p class="font-semibold text-black">
-      {funding || '-'}
-    </p>
-  </div>
+  <TableRow>
+    <p class="min-w-[200px] flex-shrink-0 pb-2">Themen</p>
+    <div slot="info">
+      <ul class="flex flex-wrap gap-2">
+        {
+          !!topics?.length ? (
+            topics.map((topic) => (
+              <li>
+                <TopicLabel subTopics={subTopics} topic={topic} />
+              </li>
+            ))
+          ) : (
+            <span>-</span>
+          )
+        }
+      </ul>
+    </div>
+  </TableRow>
+  <TableRow>
+    <p class="min-w-[200px] flex-shrink-0 pb-2">Beteiligte Projektpartner</p>
+    <div slot="info">
+      <ul class="flex flex-wrap gap-2">
+        {!!communes?.length && <CommuneLabelList communeIds={communes} />}
+        {
+          !!projectPartners?.length &&
+            projectPartners.map((partner) => (
+              <li>
+                <PartnerLabel partnerId={partner} />
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+  </TableRow>
+  <TableRow>
+    <p class="min-w-[200px] flex-shrink-0 pb-2">Projektlaufzeit</p>
+    <div slot="info">
+      <p class="font-semibold text-black">
+        {
+          isProjectPast
+            ? `Laufzeit: ${format(start, 'MM/yyyy')} bis ${format(end, 'MM/yyyy')}`
+            : 'Beginn ' + format(start, 'MM/yyyy')
+        }
+      </p>
+    </div>
+  </TableRow>
+  <TableRow>
+    <p class="min-w-[200px] flex-shrink-0 pb-2">Finanzierung</p>
+    <div slot="info">
+      <p class="font-semibold text-black">
+        {funding || '-'}
+      </p>
+    </div>
+  </TableRow>
 </div>
