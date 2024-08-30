@@ -24,49 +24,57 @@ const isProjectPast = end && isPast(end)
   class="flex flex-col divide-y divide-gray-200 rounded-sm border border-gray-200 text-gray-500 shadow-lg"
 >
   <TableRow>
-    <p class="min-w-[200px] flex-shrink-0">Themen</p>
-    <ul class="flex flex-wrap gap-2">
-      {
-        !!topics?.length ? (
-          topics.map((topic) => (
-            <li>
-              <TopicLabel subTopics={subTopics} topic={topic} />
-            </li>
-          ))
-        ) : (
-          <span>-</span>
-        )
-      }
-    </ul>
+    <p class="min-w-[200px] flex-shrink-0 pb-2">Themen</p>
+    <div slot="info">
+      <ul class="flex flex-wrap gap-2">
+        {
+          !!topics?.length ? (
+            topics.map((topic) => (
+              <li>
+                <TopicLabel subTopics={subTopics} topic={topic} />
+              </li>
+            ))
+          ) : (
+            <span>-</span>
+          )
+        }
+      </ul>
+    </div>
   </TableRow>
   <TableRow>
-    <p class="min-w-[200px] flex-shrink-0">Beteiligte Projektpartner</p>
-    <ul class="flex flex-wrap gap-2">
-      {!!communes?.length && <CommuneLabelList communeIds={communes} />}
-      {
-        !!projectPartners?.length &&
-          projectPartners.map((partner) => (
-            <li>
-              <PartnerLabel partnerId={partner} />
-            </li>
-          ))
-      }
-    </ul>
+    <p class="min-w-[200px] flex-shrink-0 pb-2">Beteiligte Projektpartner</p>
+    <div slot="info">
+      <ul class="flex flex-wrap gap-2">
+        {!!communes?.length && <CommuneLabelList communeIds={communes} />}
+        {
+          !!projectPartners?.length &&
+            projectPartners.map((partner) => (
+              <li>
+                <PartnerLabel partnerId={partner} />
+              </li>
+            ))
+        }
+      </ul>
+    </div>
   </TableRow>
   <TableRow>
-    <p class="min-w-[200px] flex-shrink-0">Projektlaufzeit</p>
-    <p class="font-semibold text-black">
-      {
-        isProjectPast
-          ? `Laufzeit: ${format(start, 'MM/yyyy')} bis ${format(end, 'MM/yyyy')}`
-          : 'Beginn ' + format(start, 'MM/yyyy')
-      }
-    </p>
+    <p class="min-w-[200px] flex-shrink-0 pb-2">Projektlaufzeit</p>
+    <div slot="info">
+      <p class="font-semibold text-black">
+        {
+          isProjectPast
+            ? `Laufzeit: ${format(start, 'MM/yyyy')} bis ${format(end, 'MM/yyyy')}`
+            : 'Beginn ' + format(start, 'MM/yyyy')
+        }
+      </p>
+    </div>
   </TableRow>
   <TableRow>
-    <p class="min-w-[200px] flex-shrink-0 py-4">Finanzierung</p>
-    <p class="font-semibold text-black">
-      {funding || '-'}
-    </p>
+    <p class="min-w-[200px] flex-shrink-0 pb-2">Finanzierung</p>
+    <div slot="info">
+      <p class="font-semibold text-black">
+        {funding || '-'}
+      </p>
+    </div>
   </TableRow>
 </div>
