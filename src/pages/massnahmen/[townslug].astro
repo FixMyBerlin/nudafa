@@ -4,7 +4,6 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import { MeasuresListAndMap } from '@components/page_massnahmen/MeasuresListAndMap'
 import { getCollection } from 'astro:content'
-import { getGeometryByNudafaIds } from 'src/utils/getGeometryByNudafaId'
 
 export async function getStaticPaths() {
   const towns = await getCollection('measuretowns')

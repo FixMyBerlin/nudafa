@@ -4,7 +4,7 @@ import {
 } from '@components/links/styles'
 
 import { statusTableData } from '@components/StatusLabel'
-import { ListBulletIcon, MapIcon } from '@heroicons/react/24/outline'
+import { ListBulletIcon, MapIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { useState } from 'react'
 import { getGeometryByNudafaIds } from 'src/utils/getGeometryByNudafaId'
@@ -42,7 +42,25 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
     return { value: year, label: year }
   })
   deadlineYearOptions.unshift({ value: 'all', label: 'Alle' })
-  deadlineYearOptions.push({ value: null, label: 'keine Angabe' })
+
+  const topics = [
+    ...new Set(
+      measures
+        .map((m: Measure) => {
+          if (m.data.topics) return m.data.topics
+        })
+        .flat()
+        .filter(Boolean),
+    ),
+  ]
+  const topicsOptions = topics.map((topic) => {
+    return {
+      value: topic,
+      label: subTopics.find((subTopic) => subTopic.id === topic)?.data.title || topic,
+    }
+  })
+
+  topicsOptions.unshift({ value: 'all', label: 'Alle' })
 
   const statusOptions = Object.entries(statusTableData).map(([key, value]) => {
     return { value: key, label: value.title }
@@ -51,6 +69,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
 
   const [filterYear, setFilterYear] = useState(deadlineYearOptions[0])
   const [filterStatus, setFilterStatus] = useState(statusOptions[0])
+  const [filterTopics, setFilterTopics] = useState(topicsOptions[0])
 
   const fileterdMeasures = measures.filter((m) => {
     const matchesYear =
@@ -58,7 +77,10 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
       (m.data.deadline && String(new Date(m.data.deadline).getFullYear()) === filterYear.value) ||
       (filterYear.value === null && !m.data.deadline)
     const matchesStatus = filterStatus.value === 'all' || m.data.status === filterStatus.value
-    return matchesYear && matchesStatus
+    const matchesTopics =
+      // @ts-expect-error todo
+      filterTopics.value === 'all' || (m.data.topics && m.data.topics?.includes(filterTopics.value))
+    return matchesYear && matchesStatus && matchesTopics
   })
 
   const filteredMeasureIds = fileterdMeasures.map((m) => m.data.nudafa_id)
@@ -67,29 +89,53 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
   return (
     <div className="pb-24 pt-12">
       <h3 className="mb-2 text-lg font-bold md:text-2xl">
-        Maßnahmen für den Radverkehr ({measures.length})
+        Maßnahmen für den Radverkehr ({fileterdMeasures.length})
       </h3>
       <p>für die {!townFilter ? 'Nudafa Region' : townFilter}</p>
-      <div className="mb-16 mt-4 grid grid-cols-2">
-        <div>
-          <p>Datum der Realisierung</p>
-          <FilterListbox
-            filter={filterYear}
-            setFilter={setFilterYear}
-            options={deadlineYearOptions}
-          />
+      <div className="my-12">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
+          <div>
+            <p>Datum der Realisierung</p>
+            <FilterListbox
+              // @ts-expect-error todo
+              filter={filterYear}
+              setFilter={setFilterYear}
+              // @ts-expect-error todo
+              options={deadlineYearOptions}
+            />
+          </div>
+          <div>
+            <p>Status</p>
+            <FilterListbox
+              filter={filterStatus}
+              setFilter={setFilterStatus}
+              options={statusOptions}
+            />
+          </div>
+          <div>
+            <p>Thema</p>
+            <FilterListbox
+              // @ts-expect-error todo
+              filter={filterTopics}
+              setFilter={setFilterTopics}
+              // @ts-expect-error todo
+              options={topicsOptions}
+            />
+          </div>
         </div>
-        <div>
-          <p>Status</p>
-          <FilterListbox
-            filter={filterStatus}
-            setFilter={setFilterStatus}
-            options={statusOptions}
-          />
-        </div>
+        <button
+          onClick={() => {
+            setFilterYear(deadlineYearOptions[0])
+            setFilterStatus(statusOptions[0])
+            setFilterTopics(topicsOptions[0])
+          }}
+          className="mt-6 flex items-center gap-2 text-beige-600"
+        >
+          <XMarkIcon className="h-4 w-4" /> Filter zurücksetzen
+        </button>
       </div>
 
-      <div className="mb-16 mt-4">
+      <div className="mb-12 mt-4">
         {/* <p>Ansicht der Maßnahmen</p> */}
         <div className="mt-3 flex flex-row justify-start gap-2">
           <button
