@@ -4,10 +4,10 @@ import {
 } from '@components/links/styles'
 
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon, ListBulletIcon, MapIcon } from '@heroicons/react/24/outline'
+import { CheckIcon, ListBulletIcon, MapIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
-import { useState } from 'react'
-import { getGeometryByNudafaIds } from 'src/utils/getGeometryByNudafaId'
+import type { Feature } from 'maplibre-gl'
+import { Fragment, useState } from 'react'
 import { MeasureCard } from './MeasureCard'
 import { MeasureMap } from './MeasuresMap'
 import type { Measure, SubTopics } from './types'
@@ -15,10 +15,11 @@ import type { Measure, SubTopics } from './types'
 type Props = {
   measures: Measure[]
   subTopics: SubTopics
+  features: Feature[]
   townFilter?: string
 }
 
-export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) => {
+export const MeasuresListAndMap = ({ measures, subTopics, features, townFilter }: Props) => {
   const [mapView, setMapView] = useState(true)
   const [selectedLineId, setSelectedLineId] = useState(null)
 
@@ -28,29 +29,17 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
         .map((m: Measure) => {
           if (m.data.deadline) {
             const date = new Date(m.data.deadline)
-            return String(date.getFullYear())
+            return date.getFullYear()
           } else {
             return null
           }
         })
-        .sort((a, b) => Number(a) - Number(b))
         .filter(Boolean),
     ),
   ]
-  deadlineYearOptions.unshift('Alle')
-
+  console.log(measures[0].data)
+  console.log({ deadlineYearOptions })
   const [filter, setFilter] = useState(deadlineYearOptions[0])
-
-  const fileterdMeasures = measures.filter((m) => {
-    if (filter === 'Alle') return true
-    if (!m.data.deadline) return false
-    const date = new Date(m.data.deadline)
-    return String(date.getFullYear()) === filter
-  })
-
-  const filteredMeasureIds = fileterdMeasures.map((m) => m.data.nudafa_id)
-  const features = getGeometryByNudafaIds(filteredMeasureIds)
-
   return (
     <div className="pb-24 pt-12">
       <h3 className="mb-2 text-lg font-bold md:text-2xl">
@@ -59,34 +48,19 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
       <p>für die {!townFilter ? 'Nudafa Region' : townFilter}</p>
       <div className="mb-16 mt-4">
         <Listbox value={filter} onChange={setFilter}>
-          <div className="relative mt-2">
-            <ListboxButton className="relative w-full cursor-pointer rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-beige-600 sm:text-sm sm:leading-6">
-              <span className="block truncate">{filter}</span>
-              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                <ChevronUpDownIcon aria-hidden="true" className="h-5 w-5 text-gray-400" />
-              </span>
-            </ListboxButton>
-            <ListboxOptions
-              transition
-              className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
-            >
-              {deadlineYearOptions.map((year) => (
-                <ListboxOption
-                  key={year}
-                  value={year}
-                  className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-beige-600 data-[focus]:text-white"
-                >
-                  <span className="block truncate font-normal group-data-[selected]:font-semibold">
+          <ListboxButton>{filter}</ListboxButton>
+          <ListboxOptions anchor="bottom">
+            {deadlineYearOptions.map((year) => (
+              <ListboxOption key={year} value={year} as={Fragment}>
+                {({ focus, selected }) => (
+                  <div className={clsx('flex gap-2', focus && 'bg-blue-100')}>
+                    <CheckIcon className={clsx('size-5', !selected && 'invisible')} />
                     {year}
-                  </span>
-
-                  <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-beige-600 group-data-[focus]:text-white [.group:not([data-selected])_&]:hidden">
-                    <CheckIcon aria-hidden="true" className="h-5 w-5" />
-                  </span>
-                </ListboxOption>
-              ))}
-            </ListboxOptions>
-          </div>
+                  </div>
+                )}
+              </ListboxOption>
+            ))}
+          </ListboxOptions>
         </Listbox>
       </div>
 
@@ -116,8 +90,9 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
         </div>
       </div>
       {!mapView ? (
+        <FilteredMeasureCards measures={measures} filter={filter} />
         <ul>
-          {fileterdMeasures.map((m) => (
+          {measures.map((m) => (
             <li className="list-none">
               <MeasureCard key={m.id} measure={m} subTopics={subTopics} />
             </li>
@@ -133,7 +108,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
           />
           {selectedLineId && (
             <MeasureCard
-              measure={fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId)}
+              measure={measures.find((m) => m.data.nudafa_id === selectedLineId)}
               subTopics={subTopics}
               className="absolute inset-x-0 bottom-0 z-10 mx-auto md:max-w-[820px]"
             />
