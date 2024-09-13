@@ -62,9 +62,11 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
 
   topicsOptions.unshift({ value: 'all', label: 'Alle' })
 
-  const statusOptions = Object.entries(statusTableData).map(([key, value]) => {
-    return { value: key, label: value.title }
-  })
+  const statusOptions = Object.entries(statusTableData)
+    .map(([key, value]) => {
+      return { value: key, label: value.title }
+    })
+    .filter((status) => status.value !== 'archiviert')
   statusOptions.unshift({ value: 'all', label: 'Alle' })
 
   const [filterYear, setFilterYear] = useState(deadlineYearOptions[0])
@@ -92,7 +94,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
         Maßnahmen für den Radverkehr ({fileterdMeasures.length})
       </h3>
       <p>für die {!townFilter ? 'Nudafa Region' : townFilter}</p>
-      <div className="my-12">
+      <div className="my-10">
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
           <div>
             <p>Datum der Realisierung</p>
@@ -129,14 +131,20 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
             setFilterStatus(statusOptions[0])
             setFilterTopics(topicsOptions[0])
           }}
-          className="mt-6 flex items-center gap-2 text-beige-600"
+          className={clsx(
+            'mt-3 flex items-center gap-2 text-beige-600',
+            filterYear.value === 'all' &&
+              filterStatus.value === 'all' &&
+              filterTopics.value === 'all'
+              ? 'invisible'
+              : 'visible',
+          )}
         >
           <XMarkIcon className="h-4 w-4" /> Filter zurücksetzen
         </button>
       </div>
 
-      <div className="mb-12 mt-4">
-        {/* <p>Ansicht der Maßnahmen</p> */}
+      <div className="mb-8 mt-4">
         <div className="mt-3 flex flex-row justify-start gap-2">
           <button
             onClick={() => setMapView(true)}
