@@ -4,20 +4,17 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import { MeasuresListAndMap } from '@components/page_massnahmen/MeasuresListAndMap'
 import { getCollection } from 'astro:content'
-import { getGeometryByNudafaIds } from 'src/utils/getGeometryByNudafaId'
 
 // all measures including archived measures
 const allMeasures = await getCollection('measures')
 // filter out archived measures
 const measures = allMeasures.filter((m) => !(m.data.status === 'archiviert'))
 const subTopics = await getCollection('subprojectstopics')
-const measureIds = measures.map((m) => m.data.nudafa_id)
-const features = getGeometryByNudafaIds(measureIds)
 ---
 
 <LayoutPage title="Maßnahmen">
   <PageHeader title="NUDAFA Region" />
   <Section className="bg-[#E5ECF2]">
-    <MeasuresListAndMap features={features} client:load measures={measures} subTopics={subTopics} />
+    <MeasuresListAndMap client:load measures={measures} subTopics={subTopics} />
   </Section>
 </LayoutPage>
