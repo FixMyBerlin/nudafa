@@ -36,6 +36,7 @@ jobs:
         env:
           CI: true
           SITE_URL: ${{ inputs.site-url }}
+          ASTRO_OUTPUT_MODE: ${{ vars.ASTRO_OUTPUT_MODE }}
         run: |
           npm ci
           npm run build
