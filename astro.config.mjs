@@ -23,11 +23,11 @@ const integrations = [
   react(),
   markdoc(),
   mdx(),
-  keystatic(),
   tailwind(),
   sitemap({
     filter: (page) => page !== 'https://www.nudafa.de/radnetz/admin/',
   }),
+  ASTRO_USE_NETLIFY_ADAPTER === 'true' ? keystatic() : undefined,
 ]
 
 const config = {
