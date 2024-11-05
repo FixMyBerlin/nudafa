@@ -22,6 +22,12 @@ export const keystaticPartnerCommunesPageConfig = singleton({
     }),
     content: fields.mdx({
       label: 'Content',
+      options: {
+        image: {
+          directory: 'src/assets/partnercommunespage',
+          publicPath: '/src/assets/partnercommunespage',
+        },
+      },
       components: {
         ...keystaticTextLinkArrowConfig,
         ImageSingleVertical: block({
@@ -248,12 +254,6 @@ export const keystaticPartnerCommunesPageConfig = singleton({
           },
           ContentView: contentViewImageDefaultDouble,
         }),
-      },
-      options: {
-        image: {
-          directory: 'src/assets/partnercommunespage',
-          publicPath: '/src/assets/partnercommunespage',
-        },
       },
     }),
   },

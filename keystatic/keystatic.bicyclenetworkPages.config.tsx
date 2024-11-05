@@ -32,6 +32,7 @@ export const keystaticBicyclenetworkPagesConfig = collection({
     }),
     content: fields.mdx({
       label: 'Content',
+      options: { image: false },
       components: { ...keystaticTextLinkArrowConfig },
     }),
     links: fields.array(

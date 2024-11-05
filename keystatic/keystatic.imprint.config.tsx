@@ -16,6 +16,7 @@ export const keystaticImprintPageConfig = singleton({
     }),
     content: fields.mdx({
       label: 'Content',
+      options: { image: false },
     }),
   },
 })

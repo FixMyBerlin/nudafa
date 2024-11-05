@@ -22,6 +22,12 @@ export const keystaticHomepageIntroConfig = singleton({
     }),
     content: fields.mdx({
       label: 'Content',
+      options: {
+        image: {
+          directory: 'src/assets/homepage',
+          publicPath: '/src/assets/homepage',
+        },
+      },
       components: {
         ...keystaticTextLinkArrowConfig,
         ImageSingleVertical: block({
@@ -248,12 +254,6 @@ export const keystaticHomepageIntroConfig = singleton({
           },
           ContentView: contentViewImageDefaultDouble,
         }),
-      },
-      options: {
-        image: {
-          directory: 'src/assets/homepage',
-          publicPath: '/src/assets/homepage',
-        },
       },
     }),
   },
@@ -267,6 +267,12 @@ export const keystaticHomepageMainConfig = singleton({
   schema: {
     content: fields.mdx({
       label: 'Content',
+      options: {
+        image: {
+          directory: 'src/assets/homepage',
+          publicPath: '/src/assets/homepage',
+        },
+      },
       components: {
         ...keystaticTextLinkArrowConfig,
         ImageSingleVertical: block({
@@ -493,12 +499,6 @@ export const keystaticHomepageMainConfig = singleton({
           },
           ContentView: contentViewImageDefaultDouble,
         }),
-      },
-      options: {
-        image: {
-          directory: 'src/assets/homepage',
-          publicPath: '/src/assets/homepage',
-        },
       },
     }),
   },

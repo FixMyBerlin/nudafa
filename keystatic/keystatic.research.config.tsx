@@ -23,6 +23,7 @@ export const keystaticResearchPageConfig = singleton({
 
     content: fields.mdx({
       label: 'Content',
+      options: { image: false },
       components: {
         ...keystaticTextLinkArrowConfig,
         ImageSingleVertical: block({

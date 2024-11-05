@@ -193,6 +193,12 @@ export default config({
         }),
         content: fields.mdx({
           label: 'Beschreibung',
+          options: {
+            image: {
+              directory: 'src/assets/measures',
+              publicPath: '/src/assets/measures',
+            },
+          },
           components: {
             ...keystaticTextLinkArrowConfig,
             ImageSingleVertical: block({
@@ -419,12 +425,6 @@ export default config({
               },
               ContentView: contentViewImageDefaultDouble,
             }),
-          },
-          options: {
-            image: {
-              directory: 'src/assets/measures',
-              publicPath: '/src/assets/measures',
-            },
           },
         }),
       },
