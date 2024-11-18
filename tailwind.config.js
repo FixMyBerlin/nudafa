@@ -69,5 +69,5 @@ module.exports = {
       extrabold: '800',
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 }

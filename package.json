@@ -48,6 +48,7 @@
     "heroicons-astro": "^1.0.4",
     "maplibre-gl": "^4.7.1",
     "nanostores": "^0.11.3",
+    "nuqs": "^2.2.1",
     "papaparse": "^5.4.1",
     "pmtiles": "^3.2.1",
     "react": "^18.3.1",
@@ -59,6 +60,7 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^22.9.0",
     "@typescript-eslint/parser": "^8.14.0",
