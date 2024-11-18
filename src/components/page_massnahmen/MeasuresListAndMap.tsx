@@ -90,9 +90,9 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
 
   return (
     <div className="pb-24 pt-12">
-      <h3 className="mb-2 text-lg font-bold md:text-2xl">
+      <h2 className="mb-2 text-lg font-bold md:text-2xl">
         Maßnahmen für den Radverkehr ({fileterdMeasures.length})
-      </h3>
+      </h2>
       <p>für die {!townFilter ? 'Nudafa Region' : townFilter}</p>
       <div className="my-10">
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">

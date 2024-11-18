@@ -2,8 +2,10 @@
 import PageHeader from '@components/PageHeader.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
+import MeasuresDashboard from '@components/page_massnahmen/MeasuresDashboard.astro'
 import { MeasuresListAndMap } from '@components/page_massnahmen/MeasuresListAndMap'
 import { getCollection } from 'astro:content'
+import clsx from 'clsx'
 
 export async function getStaticPaths() {
   const towns = await getCollection('measuretowns')
@@ -25,7 +27,14 @@ const measuresFiilteredByTown = measures.filter((m) => m.data.town === entry.slu
 ---
 
 <LayoutPage title=`Massnahmen ${entry.data.title}`>
-  <PageHeader className="" title={entry.data.title} />
+  <!-- Spacing top: For now hacky workaround because our page layout applies a `mt` which we need to overwrite here to apply the background. We could make this a prop of LayoutPage, but lets see … -->
+  <PageHeader
+    className={clsx('!md:pt-20 !-mt-12 !pt-12', '!mb-0 pb-px', 'bg-[#C6E6D5]')}
+    title={entry.data.title}
+  />
+
+  <MeasuresDashboard />
+
   <Section className="bg-[#E5ECF2]">
     <MeasuresListAndMap
       client:load

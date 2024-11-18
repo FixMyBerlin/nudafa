@@ -13,7 +13,7 @@ type Props = {
 const { title, subTitle, className } = Astro.props
 ---
 
-<Section className={clsx('mt-0 md:mt-8', className)}>
+<Section className={clsx('mb-10 md:pt-8', className)} extraMargin={false}>
   <H1 transition:name="h1">
     {title}
   </H1>
