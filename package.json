@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "generate-types": "astro sync --verbose && cat ./.astro/astro/content.d.ts",
     "type-check": "astro check && tsc --skipLibCheck --noEmit",
     "lint": "eslint '{src,keystatic}/**/*.+(ts|js|tsx|astro)' --fix",
     "format": "prettier --ignore-path .gitignore '{src,keystatic}/**/*.+(ts|js|tsx|astro)' --write",
