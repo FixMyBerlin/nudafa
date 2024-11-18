@@ -1,0 +1,53 @@
+{
+  "title": "Gemeinde Zeuthen",
+  "general": {
+    "widgetMarkdown": "",
+    "widgetFahrradklimatest": {
+      "chartHorizontal": {
+        "data": [],
+        "legend": []
+      }
+    },
+    "widgetVerkehrsbelastung": {}
+  },
+  "traffic": {
+    "widgetPentlersaldo": {
+      "chartVertical": {
+        "data": [],
+        "dataUnit": ""
+      }
+    },
+    "widgetFahrzeuge": {
+      "chartVertical": {
+        "data": [],
+        "dataUnit": ""
+      }
+    },
+    "widgetModalsplit": {
+      "chartVertical": {
+        "data": [],
+        "dataUnit": ""
+      }
+    },
+    "widgetStrassennetz": {
+      "chartRelativeVertical": {
+        "data": [],
+        "dataUnit": ""
+      }
+    },
+    "widgetUnfaelle": {
+      "list": []
+    }
+  },
+  "goals": {
+    "widgetMarkdown": "",
+    "widgetPeople": "",
+    "widgetInvestitionen": {
+      "table": [],
+      "chartHorizontal": {
+        "data": [],
+        "legend": []
+      }
+    }
+  }
+}

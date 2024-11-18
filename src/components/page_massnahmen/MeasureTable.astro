@@ -43,7 +43,7 @@ type Props = {
   measure: Measure['data']
 }
 
-const { measure }: Props = Astro.props
+const { measure } = Astro.props
 const {
   status,
   urgency,
@@ -59,6 +59,7 @@ const {
   complexity_level,
   stakeholders,
 } = measure
+
 const subTopics = await getCollection('subprojectstopics')
 ---
 

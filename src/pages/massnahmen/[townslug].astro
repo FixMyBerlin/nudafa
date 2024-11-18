@@ -10,8 +10,8 @@ import clsx from 'clsx'
 export async function getStaticPaths() {
   const towns = await getCollection('measuretowns')
   return towns.map((entry) => ({
-    params: { townslug: entry.slug },
-    props: { entry, slug: entry.slug },
+    params: { townslug: entry.id },
+    props: { entry, slug: entry.id },
   }))
 }
 
@@ -23,7 +23,7 @@ const subTopics = await getCollection('subprojectstopics')
 
 const { entry, slug } = Astro.props
 
-const measuresFiilteredByTown = measures.filter((m) => m.data.town === entry.slug)
+const measuresFilteredByTown = measures.filter((m) => m.data.town === entry.id)
 ---
 
 <LayoutPage title=`Massnahmen ${entry.data.title}`>
@@ -38,7 +38,7 @@ const measuresFiilteredByTown = measures.filter((m) => m.data.town === entry.slu
   <Section className="bg-[#E5ECF2]">
     <MeasuresListAndMap
       client:load
-      measures={measuresFiilteredByTown}
+      measures={measuresFilteredByTown}
       subTopics={subTopics}
       townFilter={entry.data.title}
     />

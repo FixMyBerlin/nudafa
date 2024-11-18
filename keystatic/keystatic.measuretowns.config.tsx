@@ -1,22 +1,102 @@
 import { collection, fields } from '@keystatic/core'
 import { defineCollection, z } from 'astro:content'
+import {
+  astroWidgetChartHorizontal,
+  keystaticWidgetChartHorizontal,
+} from './utils/widgetChartHorizontal'
+import {
+  astroWidgetChartRelativeVertical,
+  keystaticWidgetChartRelativeVertical,
+} from './utils/widgetChartRelativeVertical'
+import { astroWidgetChartVertical, keystaticWidgetChartVertical } from './utils/widgetChartVertical'
 
 export const astroMeasuretownsDefinition = defineCollection({
-  type: 'content',
-  schema: ({ image }) =>
+  type: 'data',
+  schema: () =>
     z.object({
       title: z.string(),
-      image: image(),
-      imageCopyright: z.string(),
-      urgency: z.boolean().optional(),
+      general: z.object({
+        widgetMarkdown: z.string().optional(),
+        widgetFahrradklimatest: z.object({
+          title: z.string().optional(),
+          subText: z.string().optional(),
+          chartHorizontal: astroWidgetChartHorizontal,
+        }),
+        widgetVerkehrsbelastung: z.object({
+          title: z.string().optional(),
+          subText: z.string().optional(),
+          // chartHorizontal: astroWidgetChartHorizontal,
+        }),
+      }),
+      traffic: z.object({
+        widgetPentlersaldo: z.object({
+          chartVertical: astroWidgetChartVertical,
+        }),
+        widgetFahrzeuge: z.object({
+          chartVertical: astroWidgetChartVertical,
+        }),
+        widgetModalsplit: z.object({
+          title: z.string().optional(),
+          subText: z.string().optional(),
+          chartVertical: astroWidgetChartVertical,
+        }),
+        widgetStrassennetz: z.object({
+          chartRelativeVertical: astroWidgetChartRelativeVertical,
+        }),
+        widgetUnfaelle: z.object({
+          title: z.string().optional(),
+          subText: z.string().optional(),
+          list: z.array(
+            z.object({ number: z.number(), label: z.string().optional(), color: z.string() }),
+          ),
+        }),
+      }),
+      goals: z.object({
+        widgetMarkdown: z.string().optional(),
+        widgetPeople: z.string().optional(),
+        widgetInvestitionen: z.object({
+          title: z.string().optional(),
+          population: z.number().optional(),
+          table: z.array(
+            z.object({
+              label: z.string().optional(),
+              ausgaben: z.number(),
+              eigenanteil: z.number(),
+            }),
+          ),
+          chartHorizontal: astroWidgetChartHorizontal,
+        }),
+      }),
     }),
 })
+
+const keystaticWidgetTitleSubtext = {
+  title: fields.text({ label: 'Titel' }),
+  subText: fields.text({
+    label: 'Text below Title',
+    multiline: true,
+    validation: { isRequired: false },
+  }),
+} as const
+
+const keystaticWidgetMarkdown = (context: string) =>
+  fields.mdx.inline({
+    label: `${context}: Widget Content`,
+    options: {
+      image: {
+        directory: 'src/assets/homepage',
+        publicPath: '/src/assets/homepage',
+      },
+    },
+  })
 
 export const keystaticMeasuretownsConfig = collection({
   label: 'Kommunen (Dashboards)',
   slugField: 'title',
   path: 'src/content/measuretowns/*',
-  format: { contentField: 'content' },
+  format: { data: 'json' },
+  entryLayout: 'form',
+  columns: ['title'],
   schema: {
     title: fields.slug({
       name: {
@@ -25,30 +105,112 @@ export const keystaticMeasuretownsConfig = collection({
       },
       slug: {
         description: 'Bitte keine Änderungen!',
-        label: 'Dateiname / URL-Teil',
+        label: 'URL-Teil',
         validation: { length: { min: 1, max: 80 } },
       },
     }),
-    image: fields.image({
-      label: 'Bild',
-      validation: { isRequired: true },
-      description:
-        'Bild bitte im Format 4:3 (quer) hochladen bzw. wird dementsprechend beschnitten.',
-      directory: 'src/assets/measuretowns',
-      publicPath: '/src/assets/measuretowns',
-    }),
-    imageCopyright: fields.text({
-      label: 'Copyright Bild',
-      validation: { length: { min: 1, max: 100 } },
-    }),
-    content: fields.mdx({
-      label: 'Beschreibung',
-      options: {
-        image: {
-          directory: 'src/assets/images/measuretowns',
-          publicPath: '/src/assets/images/measuretowns/',
-        },
+    general: fields.object(
+      {
+        widgetMarkdown: keystaticWidgetMarkdown('ALLGEMEIN'),
+        widgetFahrradklimatest: fields.object(
+          {
+            ...keystaticWidgetTitleSubtext,
+            chartHorizontal: keystaticWidgetChartHorizontal,
+          },
+          { label: 'ALLGEMEIN: Widget Fahrradklimatest' },
+        ),
+        widgetVerkehrsbelastung: fields.object(
+          {
+            ...keystaticWidgetTitleSubtext,
+            // chartHorizontal: keystaticChartHorizontal,
+          },
+          { label: 'ALLGEMEIN: Widget Verkehrsbelastung (TODO)' },
+        ),
       },
-    }),
+      { label: 'WIDGETS ALLGEMEIN' },
+    ),
+    traffic: fields.object(
+      {
+        widgetPentlersaldo: fields.object(
+          { chartVertical: keystaticWidgetChartVertical },
+          { label: 'VERKEHR: Pentlersaldo' },
+        ),
+        widgetFahrzeuge: fields.object(
+          { chartVertical: keystaticWidgetChartVertical },
+          { label: 'VERKEHR: Fahrzeuge' },
+        ),
+        widgetModalsplit: fields.object(
+          { ...keystaticWidgetTitleSubtext, chartVertical: keystaticWidgetChartVertical },
+          { label: 'VERKEHR: Modalsplit' },
+        ),
+        widgetStrassennetz: fields.object(
+          { chartRelativeVertical: keystaticWidgetChartRelativeVertical },
+          { label: 'VERKEHR: Straßennetz' },
+        ),
+        widgetUnfaelle: fields.object({
+          ...keystaticWidgetTitleSubtext,
+          list: fields.array(
+            fields.object({
+              number: fields.number({ label: 'Zahl' }),
+              label: fields.text({ label: 'Text' }),
+              color: fields.text({ label: 'Farbe' }),
+            }),
+            {
+              label: 'Unfälle',
+              itemLabel: (props) => props.fields.label.value,
+            },
+          ),
+          source: fields.text({ label: 'Quellenangabe' }),
+        }),
+      },
+      { label: 'WIDGETS VERKEHR' },
+    ),
+    goals: fields.object(
+      {
+        widgetMarkdown: keystaticWidgetMarkdown('ZIELE: Widget Konzepte'),
+        widgetPeople: keystaticWidgetMarkdown('ZIELE: Widget Menschen'),
+        widgetInvestitionen: fields.object(
+          {
+            title: fields.text({ label: 'Titel' }),
+            population: fields.number({ label: 'Einwohnerzahl' }),
+            table: fields.array(
+              fields.object({
+                label: fields.text({ label: 'Jahr' }),
+                ausgaben: fields.number({ label: 'Ausgaben Gesamt' }),
+                eigenanteil: fields.number({ label: 'Eigenanteil' }),
+              }),
+              {
+                label: 'Zeilen',
+                itemLabel: (props) => props.fields.label.value,
+              },
+            ),
+            chartHorizontal: keystaticWidgetChartHorizontal,
+          },
+          { label: 'ZIELE: Widget Investitionen' },
+        ),
+      },
+      { label: 'WIDGETS ZIELE' },
+    ),
+    // image: fields.image({
+    //   label: 'Bild',
+    //   validation: { isRequired: true },
+    //   description:
+    //     'Bild bitte im Format 4:3 (quer) hochladen bzw. wird dementsprechend beschnitten.',
+    //   directory: 'src/assets/measuretowns',
+    //   publicPath: '/src/assets/measuretowns',
+    // }),
+    // imageCopyright: fields.text({
+    //   label: 'Copyright Bild',
+    //   validation: { length: { min: 1, max: 100 } },
+    // }),
+    // content: fields.mdx({
+    //   label: 'Beschreibung',
+    //   options: {
+    //     image: {
+    //       directory: 'src/assets/images/measuretowns',
+    //       publicPath: '/src/assets/images/measuretowns/',
+    //     },
+    //   },
+    // }),
   },
 })

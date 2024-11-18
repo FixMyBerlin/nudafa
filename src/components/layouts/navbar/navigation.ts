@@ -16,10 +16,9 @@ subprojects
 // });
 
 const measuretowns = await getCollection('measuretowns')
-console.log({ measuretown: measuretowns })
 const measuretownNavigation: Record<string, string> = {}
 measuretowns?.forEach((p) => {
-  measuretownNavigation[p.data.title] = `/massnahmen/${p.slug}`
+  measuretownNavigation[p.data.title] = `/massnahmen/${p.id}`
 })
 
 export const mainNavigation: TNavigation = {

@@ -21,9 +21,9 @@ export const ChartHorizontal = ({ title, height, data, legend, source, className
     <figure className={className}>
       <figcaption className="sr-only">{title}</figcaption>
       <ol className="flex flex-row">
-        {data.map(({ label, values }) => {
+        {data.map(({ label, values }, index) => {
           return (
-            <li key={label} className="flex grow flex-col justify-center gap-1 text-sm">
+            <li key={index} className="flex grow flex-col justify-center gap-1 text-sm">
               <div className="flex h-full flex-row justify-center gap-0.5">
                 {values.map(({ value, color }) => {
                   const legendText = legend.find(

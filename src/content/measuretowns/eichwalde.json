@@ -1,0 +1,187 @@
+{
+  "title": "Gemeinde Eichwalde",
+  "general": {
+    "widgetMarkdown": "### Besondere Herausforderungen (Rad)verkehr\n\nPolitische Beschlüsse&#x20;\n\nHector HeinrichFreitext Markdown Unfälle mit Rdfahrednen, Daten aus 2018-2021 und Unfallatlas, Statistische Ämterdes Bundes und der Länder, Daten aus 2021\\\nPKWs\\\nFahrräder\\\nPolitische Beschlüsse \\\nMarkdownfeld hier \\\nHector HeinrichFreitext Markdown Unfälle mit Rdfahrednen, Daten aus 2018-2021 und Unfallatlas, Statistische Ämterdes Bundes und der Länder, Daten aus 2021\n\n* 2021: Förderungen, ...\n* 2022: ...\n* 2023: Freitext Markdown Unfälle mit Rdfahrednen, Daten aus und Unfallatlas.\n",
+    "widgetFahrradklimatest": {
+      "title": "Fahrradklimatest",
+      "subText": "Verlauf der letzten Jahre ",
+      "chartHorizontal": {
+        "title": "Fahrradklimatest",
+        "height": 110,
+        "data": [
+          {
+            "label": "2021",
+            "values": [
+              {
+                "value": 11,
+                "color": "#98AEF8"
+              }
+            ]
+          },
+          {
+            "label": "2022",
+            "values": [
+              {
+                "value": 13,
+                "color": "#98AEF8"
+              }
+            ]
+          }
+        ],
+        "legend": [
+          {
+            "text": "TODO",
+            "color": "#98AEF8"
+          }
+        ],
+        "source": "Quelle: MID"
+      }
+    },
+    "widgetVerkehrsbelastung": {
+      "title": "Verkehrsbelastung",
+      "subText": "ø Belastung aus Messungen"
+    }
+  },
+  "traffic": {
+    "widgetPentlersaldo": {
+      "chartVertical": {
+        "title": "Pentlersaldo",
+        "data": [
+          {
+            "label": "Einpendler",
+            "value": 21000,
+            "color": "#14B8A6"
+          },
+          {
+            "label": "Auspendler",
+            "value": 44000,
+            "color": "F37575"
+          }
+        ],
+        "dataUnit": "",
+        "source": "Quelle: MID"
+      }
+    },
+    "widgetFahrzeuge": {
+      "chartVertical": {
+        "title": "Fahrzeuge pro Kopf",
+        "data": [
+          {
+            "label": "PKW",
+            "value": 1.7,
+            "color": "#960854"
+          },
+          {
+            "label": "Fahrräder",
+            "value": 4,
+            "color": "#EFC865"
+          }
+        ],
+        "dataUnit": "",
+        "source": "Quelle: MID"
+      }
+    },
+    "widgetModalsplit": {
+      "title": "Modalsplit (innerorts)",
+      "subText": "Jahr 2023",
+      "chartVertical": {
+        "title": "Modalsplit (innerorts)",
+        "data": [
+          {
+            "label": "PKW",
+            "value": 39,
+            "color": "#960854"
+          },
+          {
+            "label": "Öffentlicher Verkehr",
+            "value": 27,
+            "color": "#9C27B0"
+          },
+          {
+            "label": "Fahrrad",
+            "value": 6,
+            "color": "#EFC865"
+          },
+          {
+            "label": "Zu Fuß",
+            "value": 27,
+            "color": "#98AEF8"
+          }
+        ],
+        "dataUnit": "percent",
+        "source": "Quelle: MID"
+      }
+    },
+    "widgetStrassennetz": {
+      "chartRelativeVertical": {
+        "title": "Straßennetz",
+        "data": [
+          {
+            "label": "Hauptverkehrsstraßen",
+            "value": 350
+          },
+          {
+            "label": "Nebenstraßen",
+            "value": 600
+          }
+        ],
+        "dataUnit": "km",
+        "source": "Quelle: OpenStreetMap Beitragende"
+      }
+    },
+    "widgetUnfaelle": {
+      "list": [
+        { "number": 0, "label": "Unfälle mit Getöteten", "color": "#960854" },
+        { "number": 4, "label": "Unfälle mit Schwerverletzten", "color": "#FF2E3B" },
+        { "number": 12, "label": "Unfälle mit Leichtverletzten", "color": "#F59E0B" },
+        { "number": 24, "label": "Unfälle mit Sachschaden", "color": "#F5EC0B" }
+      ],
+      "source": "Quelle: Unfallstatistik der Polizei"
+    }
+  },
+  "goals": {
+    "widgetMarkdown": "asdf\n",
+    "widgetPeople": "asdf\n",
+    "widgetInvestitionen": {
+      "title": "Ausgaben",
+      "population": 12,
+      "table": [
+        { "label": "2023", "ausgaben": 590000, "eigenanteil": 260000 },
+        { "label": "2022", "ausgaben": 900000, "eigenanteil": 540000 },
+        { "label": "2021", "ausgaben": 120000, "eigenanteil": 72000 }
+      ],
+      "chartHorizontal": {
+        "title": "asdf",
+        "height": 70,
+        "data": [
+          {
+            "label": "2023",
+            "values": [
+              { "value": 4.2, "color": "#98AEF8" },
+              { "value": 8.6, "color": "#EFC865" }
+            ]
+          },
+          {
+            "label": "2021",
+            "values": [
+              { "value": 6.9, "color": "#98AEF8" },
+              { "value": 3.9, "color": "#EFC865" }
+            ]
+          },
+          {
+            "label": "2019",
+            "values": [
+              { "value": 4.2, "color": "#98AEF8" },
+              { "value": 2.2, "color": "#EFC865" }
+            ]
+          }
+        ],
+        "legend": [
+          { "text": "pro Kopf insgesamt", "color": "#98AEF8" },
+          { "text": "Eigenanteil", "color": "#EFC865" }
+        ],
+        "source": "Quelle: MID"
+      }
+    }
+  }
+}
