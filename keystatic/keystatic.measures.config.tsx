@@ -6,11 +6,11 @@ import {
 import { collection, fields } from '@keystatic/core'
 import { block } from '@keystatic/core/content-components'
 import { defineCollection, z } from 'astro:content'
-import { contentViewImageDefaultDouble } from './utils/contentViewImageDefaultDouble'
-import { contentViewImageHorizontal } from './utils/contentViewImageHorizontal'
-import { contentViewImageSquare } from './utils/contentViewImageSquare'
-import { contentViewImageVertical } from './utils/contentViewImageVertical'
-import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageDefaultDouble'
+import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
+import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
+import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
+import { keystaticTextLinkArrowConfig } from 'keystatic/utils/keystatic.TextLinkArrow.config'
 
 export const astroMeasuresDefinition = defineCollection({
   type: 'content',

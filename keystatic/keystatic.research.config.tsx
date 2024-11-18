@@ -5,11 +5,11 @@ import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageD
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
-import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+import { keystaticTextLinkArrowConfig } from 'keystatic/utils/keystatic.TextLinkArrow.config'
 
 export const astroResearchPageDefinition = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
       subTitle: z.string().optional(),

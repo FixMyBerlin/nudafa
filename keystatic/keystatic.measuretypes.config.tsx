@@ -2,7 +2,7 @@ import { collection, fields } from '@keystatic/core'
 import { defineCollection, z } from 'astro:content'
 
 export const astroMeasuretypesDefinition = defineCollection({
-  type: 'content',
+  type: 'data',
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -11,6 +11,7 @@ export const astroMeasuretypesDefinition = defineCollection({
 
 export const keystaticMeasuretypesConfig = collection({
   label: 'Maßnahmenart',
+  format: 'yaml',
   slugField: 'title',
   path: 'src/content/measuretypes/*',
   schema: {

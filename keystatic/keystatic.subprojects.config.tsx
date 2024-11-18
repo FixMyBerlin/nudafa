@@ -5,7 +5,7 @@ import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageD
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
-import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+import { keystaticTextLinkArrowConfig } from 'keystatic/utils/keystatic.TextLinkArrow.config'
 
 export const astroSubprojectsDefinition = defineCollection({
   type: 'content',
@@ -332,8 +332,8 @@ export const keystaticSubprojectsConfig = collection({
 })
 
 export const astroSubprojectAndMeasureTopicsDefinition = defineCollection({
-  type: 'content',
-  schema: ({ image }) =>
+  type: 'data',
+  schema: () =>
     z.object({
       title: z.string(),
     }),
@@ -341,6 +341,7 @@ export const astroSubprojectAndMeasureTopicsDefinition = defineCollection({
 
 export const keystaticSubprojectAndMeasureTopicsConfig = collection({
   label: 'Themen',
+  format: 'yaml',
   slugField: 'title',
   path: 'src/content/subprojectstopics/*',
   schema: {
@@ -362,7 +363,7 @@ export const astroSubprojectCommunesDefinition = defineCollection({
     z.object({
       name: z.string(),
       order: z.number(),
-      showInFooter: z.boolean(),
+      showInFooter: z.boolean().optional(),
       color: z.string(),
       image: image(),
       website: z.string(),

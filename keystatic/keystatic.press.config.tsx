@@ -5,14 +5,14 @@ import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageD
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
-import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+import { keystaticTextLinkArrowConfig } from 'keystatic/utils/keystatic.TextLinkArrow.config'
 
 export const astroPressPageDefinition = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
-      teaserImage: image(),
+      subTitle: z.string(),
       mediaLinks: z.array(z.object({ url: z.string(), display: z.string() })),
     }),
 })

@@ -5,18 +5,14 @@ import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageD
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
-import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+import { keystaticTextLinkArrowConfig } from 'keystatic/utils/keystatic.TextLinkArrow.config'
 
 export const astroPartnerCommunesPageDefinition = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
-      image: image(),
-      order: z.number(),
-      name: z.string(),
-      website: z.string().optional(),
-      color: z.string().optional(),
-      showInFooter: z.boolean().optional(),
+      title: z.string(),
+      subTitle: z.string(),
     }),
 })
 

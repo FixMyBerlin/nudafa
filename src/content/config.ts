@@ -7,6 +7,7 @@ import { astroImprintPageDefinition } from 'keystatic/keystatic.imprint.config'
 import { astroMeasuresDefinition } from 'keystatic/keystatic.measures.config'
 import { astroMeasuretownsDefinition } from 'keystatic/keystatic.measuretowns.config'
 import { astroMeasuretypesDefinition } from 'keystatic/keystatic.measuretypes.config'
+import { astroNewsDefinition } from 'keystatic/keystatic.news.config'
 import {
   astroProjectPartnerPageIntroDefinition,
   astroProjectPartnerPageMainDefinition,
@@ -22,7 +23,7 @@ import {
   astroSubprojectsDefinition,
 } from 'keystatic/keystatic.subprojects.config'
 
-export default {
+export const collections = {
   // Singleton
   homepageintro: astroHomepageIntroDefinition,
   homepagemain: astroHomepageMainDefinition,
@@ -42,5 +43,5 @@ export default {
   measuretowns: astroMeasuretownsDefinition,
   measuretypes: astroMeasuretypesDefinition,
   persons: astroPersonsDefinition,
-  // news: astroNewsDefinition,
+  news: astroNewsDefinition,
 }
