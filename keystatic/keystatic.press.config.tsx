@@ -1,10 +1,21 @@
 import { fields, singleton } from '@keystatic/core'
 import { block } from '@keystatic/core/content-components'
+import { defineCollection, z } from 'astro:content'
 import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageDefaultDouble'
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
 import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+
+export const astroPressPageDefinition = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      teaserImage: image(),
+      mediaLinks: z.array(z.object({ url: z.string(), display: z.string() })),
+    }),
+})
 
 export const keystaticPressPageConfig = singleton({
   entryLayout: 'content',

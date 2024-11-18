@@ -1,5 +1,5 @@
 import { config } from '@keystatic/core'
-import { keystaticBicyclenetworkPagesConfig } from 'keystatic/keystatic.bicyclenetworkPages.config'
+import { keystaticBicyclenetworkpagesConfig } from 'keystatic/keystatic.bicyclenetworkPages.config'
 import {
   keystaticHomepageIntroConfig,
   keystaticHomepageMainConfig,
@@ -47,8 +47,8 @@ export default config({
         'researchpage',
         'presspage',
       ],
-      Teilprojekte: ['subProjects', 'subprojectstopics', 'communes', 'partners'],
-      Radnetz: ['bicyclenetworkPages'],
+      Teilprojekte: ['subprojects', 'subprojectstopics', 'communes', 'partners'],
+      Radnetz: ['bicyclenetworkages'],
       Maßnahmen: ['measures', 'measuretypes', 'subprojectstopics', 'measuretowns'],
       'Weitere Seiten': ['imprintpage'],
     },
@@ -64,11 +64,11 @@ export default config({
     communepartnerspage: keystaticPartnerCommunesPageConfig,
   },
   collections: {
-    subProjects: keystaticSubprojectsConfig,
+    subprojects: keystaticSubprojectsConfig,
     subprojectstopics: keystaticSubprojectAndMeasureTopicsConfig,
     communes: keystaticSubprojectCommunesConfig, // Verbundpartner
     partners: keystaticSubprojectPartnersConfig, // Projektpartner
-    bicyclenetworkPages: keystaticBicyclenetworkPagesConfig,
+    bicyclenetworkages: keystaticBicyclenetworkpagesConfig,
     measures: keystaticMeasuresConfig,
     measuretowns: keystaticMeasuretownsConfig,
     measuretypes: keystaticMeasuretypesConfig,

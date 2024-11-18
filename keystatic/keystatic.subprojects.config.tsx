@@ -331,6 +331,14 @@ export const keystaticSubprojectsConfig = collection({
   },
 })
 
+export const astroSubprojectAndMeasureTopicsDefinition = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+    }),
+})
+
 export const keystaticSubprojectAndMeasureTopicsConfig = collection({
   label: 'Themen',
   slugField: 'title',
@@ -346,6 +354,19 @@ export const keystaticSubprojectAndMeasureTopicsConfig = collection({
       },
     }),
   },
+})
+
+export const astroSubprojectCommunesDefinition = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      order: z.number(),
+      showInFooter: z.boolean(),
+      color: z.string(),
+      image: image(),
+      website: z.string(),
+    }),
 })
 
 export const keystaticSubprojectCommunesConfig = collection({
@@ -400,6 +421,15 @@ export const keystaticSubprojectCommunesConfig = collection({
     }),
     emptyContent: fields.emptyContent({ extension: 'mdx' }),
   },
+})
+
+export const astroSubprojectPartnersDefinition = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      color: z.string(),
+    }),
 })
 
 export const keystaticSubprojectPartnersConfig = collection({

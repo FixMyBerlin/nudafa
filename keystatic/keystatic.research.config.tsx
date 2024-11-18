@@ -1,10 +1,20 @@
 import { fields, singleton } from '@keystatic/core'
 import { block } from '@keystatic/core/content-components'
+import { defineCollection, z } from 'astro:content'
 import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageDefaultDouble'
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
 import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+
+export const astroResearchPageDefinition = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      subTitle: z.string().optional(),
+    }),
+})
 
 export const keystaticResearchPageConfig = singleton({
   entryLayout: 'content',
@@ -20,7 +30,6 @@ export const keystaticResearchPageConfig = singleton({
       label: 'Unterüberschrift',
       validation: { length: { max: 160 } },
     }),
-
     content: fields.mdx({
       label: 'Content',
       options: { image: false },

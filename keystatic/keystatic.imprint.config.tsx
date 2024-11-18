@@ -1,4 +1,15 @@
 import { fields, singleton } from '@keystatic/core'
+import { defineCollection, z } from 'astro:content'
+
+export const astroImprintPageDefinition = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      teaserImage: image(),
+      mediaLinks: z.array(z.object({ url: z.string(), display: z.string() })),
+    }),
+})
 
 export const keystaticImprintPageConfig = singleton({
   entryLayout: 'content',
