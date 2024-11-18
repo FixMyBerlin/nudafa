@@ -72,7 +72,7 @@ const DasboardTabsWithNuqs = () => {
           })}
         </nav>
       </div>
-      <article className="gap-5 rounded-b-lg bg-black/20 p-5 sm:grid sm:grid-cols-3">
+      <article className="items-start gap-5 rounded-b-lg bg-black/20 p-5 sm:grid sm:grid-cols-3">
         {dashboards[dashboard].component}
       </article>
     </div>

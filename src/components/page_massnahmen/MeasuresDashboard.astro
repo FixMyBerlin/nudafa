@@ -1,10 +1,18 @@
 ---
 import Section from '@components/layouts/Section.astro'
 import { DasboardTabs } from './dashboard/DasboardTabs'
+import { getEntry } from 'astro:content'
+
+type Props = { townslug: string }
+const { townslug } = Astro.props
+
+const town = await getEntry('measuretowns', townslug)
 ---
 
 <Section extraMargin={false} className="-mb-10 bg-[#C6E6D5] py-5">
   <h2 class="mb-8 text-lg font-bold text-gray-700 md:text-2xl">Ziele und Zahlen</h2>
 
   <DasboardTabs client:load />
+
+  <pre>{JSON.stringify(town,0,2)}</pre>
 </Section>

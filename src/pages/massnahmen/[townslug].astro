@@ -11,7 +11,7 @@ export async function getStaticPaths() {
   const towns = await getCollection('measuretowns')
   return towns.map((entry) => ({
     params: { townslug: entry.slug },
-    props: { entry },
+    props: { entry, slug: entry.slug },
   }))
 }
 
@@ -21,7 +21,7 @@ const allMeasures = await getCollection('measures')
 const measures = allMeasures.filter((m) => !(m.data.status === 'archiviert'))
 const subTopics = await getCollection('subprojectstopics')
 
-const { entry } = Astro.props
+const { entry, slug } = Astro.props
 
 const measuresFiilteredByTown = measures.filter((m) => m.data.town === entry.slug)
 ---
@@ -33,7 +33,7 @@ const measuresFiilteredByTown = measures.filter((m) => m.data.town === entry.slu
     title={entry.data.title}
   />
 
-  <MeasuresDashboard />
+  <MeasuresDashboard townslug={slug} />
 
   <Section className="bg-[#E5ECF2]">
     <MeasuresListAndMap
