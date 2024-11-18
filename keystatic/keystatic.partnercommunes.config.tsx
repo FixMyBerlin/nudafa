@@ -1,10 +1,24 @@
 import { fields, singleton } from '@keystatic/core'
 import { block } from '@keystatic/core/content-components'
+import { defineCollection, z } from 'astro:content'
 import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageDefaultDouble'
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
 import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+
+export const astroPartnerCommunesPageDefinition = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      image: image(),
+      order: z.number(),
+      name: z.string(),
+      website: z.string().optional(),
+      color: z.string().optional(),
+      showInFooter: z.boolean().optional(),
+    }),
+})
 
 export const keystaticPartnerCommunesPageConfig = singleton({
   entryLayout: 'content',

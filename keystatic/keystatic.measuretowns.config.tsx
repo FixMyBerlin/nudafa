@@ -1,4 +1,16 @@
 import { collection, fields } from '@keystatic/core'
+import { defineCollection, z } from 'astro:content'
+
+export const astroMeasuretownsDefinition = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      image: image(),
+      imageCopyright: z.string(),
+      urgency: z.boolean().optional(),
+    }),
+})
 
 export const keystaticMeasuretownsConfig = collection({
   label: 'Kommunen (Dashboards)',

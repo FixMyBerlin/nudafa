@@ -1,10 +1,31 @@
 import { collection, fields } from '@keystatic/core'
 import { block } from '@keystatic/core/content-components'
+import { defineCollection, z } from 'astro:content'
 import { contentViewImageDefaultDouble } from 'keystatic/utils/contentViewImageDefaultDouble'
 import { contentViewImageHorizontal } from 'keystatic/utils/contentViewImageHorizontal'
 import { contentViewImageSquare } from 'keystatic/utils/contentViewImageSquare'
 import { contentViewImageVertical } from 'keystatic/utils/contentViewImageVertical'
 import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+
+export const astroSubprojectsDefinition = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      teaserImage: image(),
+      teaserImageCopyright: z.string().optional(),
+      title: z.string(),
+      subTitle: z.string().optional(),
+      teaser: z.string().optional(),
+      showBig: z.boolean(),
+      isPublic: z.boolean(),
+      topics: z.array(z.string()),
+      start: z.date(),
+      end: z.date().optional(),
+      funding: z.string().optional(),
+      projectCommunes: z.array(z.string()),
+      projectPartners: z.array(z.string()),
+    }),
+})
 
 export const keystaticSubprojectsConfig = collection({
   label: 'Teilprojekte',
