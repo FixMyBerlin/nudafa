@@ -3,6 +3,8 @@ import { Widget } from '../components/Widget'
 import type { TrafficDashboardData } from '../DasboardTabs'
 
 export const WidgetFahrzeuge = ({ data: { widgetFahrzeuge } }: TrafficDashboardData) => {
+  if (!widgetFahrzeuge.chartVertical.data.length) return null
+
   return (
     <Widget headline="Fahrzeuge pro Kopf">
       <ChartVertical

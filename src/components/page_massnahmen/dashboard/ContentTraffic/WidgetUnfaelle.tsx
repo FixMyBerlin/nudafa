@@ -3,6 +3,8 @@ import { Widget } from '../components/Widget'
 import type { TrafficDashboardData } from '../DasboardTabs'
 
 export const WidgetUnfaelle = ({ data: { widgetUnfaelle } }: TrafficDashboardData) => {
+  if (!widgetUnfaelle.list.length) return null
+
   return (
     <Widget headline={widgetUnfaelle.title}>
       <Markdown markdown={widgetUnfaelle.subText} className="mb-3 text-xs" />

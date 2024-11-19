@@ -3,6 +3,8 @@ import { Widget } from '../components/Widget'
 import type { TrafficDashboardData } from '../DasboardTabs'
 
 export const WidgetStrassennetz = ({ data: { widgetStrassennetz } }: TrafficDashboardData) => {
+  if (!widgetStrassennetz.chartRelativeVertical.data.length) return null
+
   return (
     <Widget headline="Straßennetz">
       <ChartRelativeVertical

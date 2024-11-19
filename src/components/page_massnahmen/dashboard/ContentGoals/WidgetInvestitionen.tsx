@@ -7,13 +7,13 @@ export const WidgetInvestitionen = ({ data: { widgetInvestitionen } }: GoalsDash
   const tableData = widgetInvestitionen.table
     .slice(-3)
     .map((item) => [item.label ?? '–', item.ausgaben, item.eigenanteil] satisfies TableRow)
-
   const averageAusgaben = tableData.reduce((sum, item) => sum + item[1], 0) / tableData.length
   const averageEigenanteil = tableData.reduce((sum, item) => sum + item[2], 0) / tableData.length
-
   const averageRow = ['ø 3 Jahre', averageAusgaben, averageEigenanteil] satisfies TableRow
-
   const finalTableData = [...tableData, averageRow]
+
+  if (!widgetInvestitionen.chartHorizontal.data.length) return null
+
   return (
     <Widget headline="WidgetInventionen gemäß NRVP">
       <p className="mb-3">

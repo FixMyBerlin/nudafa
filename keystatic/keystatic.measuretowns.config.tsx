@@ -78,9 +78,10 @@ const keystaticWidgetTitleSubtext = {
   }),
 } as const
 
-const keystaticWidgetMarkdown = (context: string) =>
+const keystaticWidgetMarkdown = (context: string, desc: string | undefined = undefined) =>
   fields.mdx.inline({
     label: `${context}: Widget Content`,
+    description: desc,
     options: {
       image: false,
       heading: [3],
@@ -109,7 +110,10 @@ export const keystaticMeasuretownsConfig = collection({
     }),
     general: fields.object(
       {
-        widgetMarkdown: keystaticWidgetMarkdown('ALLGEMEIN'),
+        widgetMarkdown: keystaticWidgetMarkdown(
+          'ALLGEMEIN',
+          'Sobald dieses Widget gefüllt ist, wird das Modul angezeigt. Die einzelnen Widgets wiederum sind nur sichtbar, wenn sie Text bzw. Chart-Daten enthalten.',
+        ),
         widgetFahrradklimatest: fields.object(
           {
             ...keystaticWidgetTitleSubtext,

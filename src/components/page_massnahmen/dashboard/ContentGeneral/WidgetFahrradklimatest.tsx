@@ -6,6 +6,8 @@ import type { GeneralDashboardData } from '../DasboardTabs'
 export const WidgetFahrradklimatest = ({
   data: { widgetFahrradklimatest },
 }: GeneralDashboardData) => {
+  if (!widgetFahrradklimatest.chartHorizontal.data.length) return null
+
   return (
     <Widget headline={widgetFahrradklimatest.title}>
       <Markdown markdown={widgetFahrradklimatest.subText} className="mb-3 text-xs" />

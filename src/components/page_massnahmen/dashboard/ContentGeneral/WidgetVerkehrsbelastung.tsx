@@ -6,6 +6,8 @@ import type { GeneralDashboardData } from '../DasboardTabs'
 export const WidgetVerkehrsbelastung = ({
   data: { widgetVerkehrsbelastung },
 }: GeneralDashboardData) => {
+  if (!widgetVerkehrsbelastung.chartRelativeVertical.data.length) return null
+
   return (
     <Widget headline={widgetVerkehrsbelastung.title}>
       <Markdown markdown={widgetVerkehrsbelastung.subText} className="mb-3 text-xs" />

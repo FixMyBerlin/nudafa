@@ -4,6 +4,8 @@ import { Widget } from '../components/Widget'
 import type { TrafficDashboardData } from '../DasboardTabs'
 
 export const WidgetModalsplit = ({ data: { widgetModalsplit } }: TrafficDashboardData) => {
+  if (!widgetModalsplit.chartVertical.data.length) return null
+
   return (
     <Widget headline="Modalsplit (innerorts)">
       <Markdown markdown={widgetModalsplit.subText} className="mb-3 text-xs" />

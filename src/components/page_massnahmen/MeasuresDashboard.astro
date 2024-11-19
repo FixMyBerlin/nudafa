@@ -8,13 +8,19 @@ type Props = { townslug: string }
 const { townslug } = Astro.props
 
 const town = await getEntry('measuretowns', townslug)
+
+// NOTE: Remove this `ENV` condition to enable the Dashboard on production
+const visible = ASTRO_ENV !== 'production' && !!town?.data.general.widgetMarkdown
 ---
 
-<Section extraMargin={false} className="-mb-10 bg-[#C6E6D5] py-5">
-  <h2 class="mb-8 text-lg font-bold text-gray-700 md:text-2xl">Ziele und Zahlen</h2>
-
-  {
-    // NOTE: Remove this ENV condition to enable the Dashboard on production
-    ASTRO_ENV !== 'production' && town && <DasboardTabs client:load data={town.data} />
-  }
-</Section>
+{
+  visible ? (
+    <Section extraMargin={false} className="-mb-10 bg-[#C6E6D5] py-5">
+      <h2 class="mb-8 text-lg font-bold text-gray-700 md:text-2xl">Ziele und Zahlen</h2>
+      <DasboardTabs client:load data={town.data} />
+    </Section>
+  ) : (
+    // Spacer to fill the gap with color
+    <Section extraMargin={false} className="-mb-10 bg-[#C6E6D5] py-5" />
+  )
+}
