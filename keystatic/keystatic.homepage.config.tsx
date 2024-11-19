@@ -9,10 +9,10 @@ import { keystaticTextLinkArrowConfig } from 'keystatic/utils/keystatic.TextLink
 
 export const astroHomepageIntroDefinition = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
-      teaserImage: image(),
+      subTitle: z.string(),
     }),
 })
 

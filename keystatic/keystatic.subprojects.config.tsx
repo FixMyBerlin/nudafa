@@ -426,7 +426,7 @@ export const keystaticSubprojectCommunesConfig = collection({
 
 export const astroSubprojectPartnersDefinition = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       name: z.string(),
       color: z.string(),
