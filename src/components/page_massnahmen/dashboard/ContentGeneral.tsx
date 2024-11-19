@@ -1,9 +1,9 @@
 import { WidgetFahrradklimatest } from './ContentGeneral/WidgetFahrradklimatest'
 import { WidgetMarkdown } from './ContentGeneral/WidgetMarkdown'
 import { WidgetVerkehrsbelastung } from './ContentGeneral/WidgetVerkehrsbelastung'
-import type { DashboardData } from './DasboardTabs'
+import type { GeneralDashboardData } from './DasboardTabs'
 
-export const ContentGeneral = ({ data }: DashboardData) => {
+export const ContentGeneral = ({ data }: GeneralDashboardData) => {
   return (
     <>
       <WidgetMarkdown data={data} />

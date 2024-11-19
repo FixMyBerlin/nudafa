@@ -1,8 +1,8 @@
 import { ChartRelativeVertical } from '../components/ChartRelativeVertical'
 import { Widget } from '../components/Widget'
-import type { DashboardData } from '../DasboardTabs'
+import type { TrafficDashboardData } from '../DasboardTabs'
 
-export const WidgetStrassennetz = ({ data }: DashboardData) => {
+export const WidgetStrassennetz = ({ data }: TrafficDashboardData) => {
   return (
     <Widget headline="Straßennetz">
       <ChartRelativeVertical

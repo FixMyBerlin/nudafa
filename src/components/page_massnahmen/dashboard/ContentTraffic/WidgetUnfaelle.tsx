@@ -1,7 +1,7 @@
 import { Widget } from '../components/Widget'
-import type { DashboardData } from '../DasboardTabs'
+import type { TrafficDashboardData } from '../DasboardTabs'
 
-export const WidgetUnfaelle = ({ data }: DashboardData) => {
+export const WidgetUnfaelle = ({ data }: TrafficDashboardData) => {
   return (
     <Widget headline="Unfälle">
       <p className="mb-3 text-sm">Unfälle der letzten drei Jahre mit Radfahrbeteiligung</p>

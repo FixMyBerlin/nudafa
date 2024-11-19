@@ -1,8 +1,8 @@
 import { ChartVertical } from '../components/ChartVertical'
 import { Widget } from '../components/Widget'
-import type { DashboardData } from '../DasboardTabs'
+import type { TrafficDashboardData } from '../DasboardTabs'
 
-export const WidgetPentlersaldo = ({ data }: DashboardData) => {
+export const WidgetPentlersaldo = ({ data }: TrafficDashboardData) => {
   return (
     <Widget headline="Pendlersaldo">
       <ChartVertical

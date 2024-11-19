@@ -1,9 +1,9 @@
 import { ChartHorizontal } from '../components/ChartHorizontal'
 import { Table } from '../components/Table'
 import { Widget } from '../components/Widget'
-import type { DashboardData } from '../DasboardTabs'
+import type { GoalsDashboardData } from '../DasboardTabs'
 
-export const WidgetInvestitionen = ({ data }: DashboardData) => {
+export const WidgetInvestitionen = ({ data }: GoalsDashboardData) => {
   return (
     <Widget headline="WidgetInventionen gemäß NRVP">
       <p className="mb-3">

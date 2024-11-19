@@ -3,9 +3,9 @@ import { WidgetModalsplit } from './ContentTraffic/WidgetModalsplit'
 import { WidgetPentlersaldo } from './ContentTraffic/WidgetPentlersaldo'
 import { WidgetStrassennetz } from './ContentTraffic/WidgetStrassennetz'
 import { WidgetUnfaelle } from './ContentTraffic/WidgetUnfaelle'
-import type { DashboardData } from './DasboardTabs'
+import type { TrafficDashboardData } from './DasboardTabs'
 
-export const ContentTraffic = ({ data }: DashboardData) => {
+export const ContentTraffic = ({ data }: TrafficDashboardData) => {
   return (
     <>
       <div className="flex flex-col gap-5">

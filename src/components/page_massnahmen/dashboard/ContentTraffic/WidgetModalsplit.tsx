@@ -1,8 +1,8 @@
 import { ChartVertical } from '../components/ChartVertical'
 import { Widget } from '../components/Widget'
-import type { DashboardData } from '../DasboardTabs'
+import type { TrafficDashboardData } from '../DasboardTabs'
 
-export const WidgetModalsplit = ({ data }: DashboardData) => {
+export const WidgetModalsplit = ({ data }: TrafficDashboardData) => {
   return (
     <Widget headline="Modalsplit (innerorts)">
       <p className="mb-3">

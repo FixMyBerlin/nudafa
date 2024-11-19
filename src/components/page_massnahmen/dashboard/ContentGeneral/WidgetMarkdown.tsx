@@ -1,7 +1,7 @@
 import { Widget } from '../components/Widget'
-import type { DashboardData } from '../DasboardTabs'
+import type { GeneralDashboardData } from '../DasboardTabs'
 
-export const WidgetMarkdown = ({ data }: DashboardData) => {
+export const WidgetMarkdown = ({ data }: GeneralDashboardData) => {
   return (
     <Widget headline="Besondere Herausforderungen">
       (Rad)verkehr Politische Beschlüsse politische Beschlüsse Hector HeinrichFreitext Markdown

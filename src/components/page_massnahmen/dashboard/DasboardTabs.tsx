@@ -7,20 +7,23 @@ import { ContentGoals } from './ContentGoals'
 import { ContentTraffic } from './ContentTraffic'
 
 export type DashboardData = { data: InferEntrySchema<'measuretowns'> }
+export type GeneralDashboardData = { data: InferEntrySchema<'measuretowns'>['general'] }
+export type TrafficDashboardData = { data: InferEntrySchema<'measuretowns'>['traffic'] }
+export type GoalsDashboardData = { data: InferEntrySchema<'measuretowns'>['goals'] }
 
 const DasboardTabsWithNuqs = ({ data }: DashboardData) => {
   const dashboards = {
     allgemein: {
       name: 'Allgemeine Informationen',
-      component: <ContentGeneral data={data} />,
+      component: <ContentGeneral data={data.general} />,
     },
     verkehr: {
       name: 'Verkehr',
-      component: <ContentTraffic data={data} />,
+      component: <ContentTraffic data={data.traffic} />,
     },
     ziele: {
       name: 'Politische Ziele',
-      component: <ContentGoals data={data} />,
+      component: <ContentGoals data={data.goals} />,
     },
   } as const
   const dashboardValues = Object.keys(dashboards) as (keyof typeof dashboards)[]

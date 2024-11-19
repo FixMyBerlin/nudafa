@@ -1,8 +1,8 @@
 import { ChartHorizontal } from '../components/ChartHorizontal'
 import { Widget } from '../components/Widget'
-import type { DashboardData } from '../DasboardTabs'
+import type { GeneralDashboardData } from '../DasboardTabs'
 
-export const WidgetFahrradklimatest = ({ data }: DashboardData) => {
+export const WidgetFahrradklimatest = ({ data }: GeneralDashboardData) => {
   return (
     <Widget headline="Fahrradklimatest">
       <p className="mb-2">

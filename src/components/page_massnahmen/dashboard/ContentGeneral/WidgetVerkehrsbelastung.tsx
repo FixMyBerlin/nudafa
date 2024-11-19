@@ -1,7 +1,7 @@
 import { Widget } from '../components/Widget'
-import type { DashboardData } from '../DasboardTabs'
+import type { GeneralDashboardData } from '../DasboardTabs'
 
-export const WidgetVerkehrsbelastung = ({ data }: DashboardData) => {
+export const WidgetVerkehrsbelastung = ({ data }: GeneralDashboardData) => {
   return (
     <Widget headline="Verkehrsbelastung">
       <p className="mb-2">
