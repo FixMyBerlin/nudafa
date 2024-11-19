@@ -37,18 +37,55 @@
     },
     "widgetStrassennetz": {
       "chartRelativeVertical": {
-        "data": [],
-        "dataUnit": "none"
+        "title": "Straßennetz",
+        "data": [
+          {
+            "label": "Hauptverkehrsstraßen",
+            "value": 17.05296
+          },
+          {
+            "label": "Nebenstraßen",
+            "value": 63.56787
+          }
+        ],
+        "dataUnit": "km",
+        "source": "Quelle: OpenStreetMap Beitragende"
       }
     },
     "widgetUnfaelle": {
-      "list": []
+      "title": "Unfälle",
+      "subText": "Unfälle der letzten drei Jahre mit Radfahrbeteiligung",
+      "list": [
+        {
+          "number": 26,
+          "label": "Unfälle mit Getöteten",
+          "color": "#960854"
+        },
+        {
+          "number": 5,
+          "label": "Unfälle mit Schwerverletzten",
+          "color": "#FF2E3B"
+        },
+        {
+          "number": 1,
+          "label": "Unfälle mit Leichtverletzten",
+          "color": "#F59E0B"
+        },
+        {
+          "number": 8,
+          "label": "Unfälle mit Sachschaden",
+          "color": "#F5EC0B"
+        }
+      ],
+      "source": "Quelle: Unfallstatistik der Polizei"
     }
   },
   "goals": {
     "widgetMarkdown": "",
     "widgetPeople": "",
     "widgetInvestitionen": {
+      "title": "Ausgaben",
+      "population": 11.578,
       "table": [],
       "chartHorizontal": {
         "data": [],

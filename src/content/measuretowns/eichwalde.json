@@ -137,11 +137,11 @@
         "data": [
           {
             "label": "Hauptverkehrsstraßen",
-            "value": 350
+            "value": 3.03945
           },
           {
             "label": "Nebenstraßen",
-            "value": 600
+            "value": 30.03288
           }
         ],
         "dataUnit": "km",
@@ -153,7 +153,7 @@
       "subText": "Unfälle der letzten drei Jahre mit Radfahrbeteiligung",
       "list": [
         {
-          "number": 0,
+          "number": 16,
           "label": "Unfälle mit Getöteten",
           "color": "#960854"
         },
@@ -163,12 +163,12 @@
           "color": "#FF2E3B"
         },
         {
-          "number": 12,
+          "number": 0,
           "label": "Unfälle mit Leichtverletzten",
           "color": "#F59E0B"
         },
         {
-          "number": 24,
+          "number": 5,
           "label": "Unfälle mit Sachschaden",
           "color": "#F5EC0B"
         }
@@ -181,7 +181,7 @@
     "widgetPeople": "### Personen\n\n* Radverkehrsbeauftragter:\\\n  **Hector Heinrich**\n* Radverkehrsmanager:\\\n  **Maria Kuppelwieser**\n* Klimaschutzmanager:\\\n  **Matthias Schöneweger**\n",
     "widgetInvestitionen": {
       "title": "Ausgaben",
-      "population": 12,
+      "population": 6490,
       "table": [
         {
           "label": "2023",
