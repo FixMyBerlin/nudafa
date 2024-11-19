@@ -7,7 +7,7 @@ export const WidgetUnfaelle = ({ data: { widgetUnfaelle } }: TrafficDashboardDat
     <Widget headline={widgetUnfaelle.title}>
       <Markdown markdown={widgetUnfaelle.subText} className="mb-3 text-xs" />
 
-      <dl className="flex flex-wrap gap-0.5 space-x-5 text-xs">
+      <dl className="flex flex-col gap-2 text-xs md:flex-row md:flex-wrap md:gap-0.5 md:space-x-5">
         {widgetUnfaelle.list.map((item) => {
           return (
             <div key={item.label} className="flex items-center gap-2">

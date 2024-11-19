@@ -11,7 +11,7 @@ type Props = {
 export const Table = ({ heads, rows, className }: Props) => {
   return (
     <div className={clsx('flow-root', className)}>
-      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="inline-block min-w-full py-1.5 align-middle sm:px-6 lg:px-8">
           <div className="overflow-hidden shadow ring-1 ring-black/5 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-300">

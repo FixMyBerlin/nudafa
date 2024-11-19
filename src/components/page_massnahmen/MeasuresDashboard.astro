@@ -17,6 +17,4 @@ const town = await getEntry('measuretowns', townslug)
     // NOTE: Remove this ENV condition to enable the Dashboard on production
     ASTRO_ENV !== 'production' && town && <DasboardTabs client:load data={town.data} />
   }
-
-  {ASTRO_ENV === 'development' && <pre>{JSON.stringify(town, undefined, 2)}</pre>}
 </Section>

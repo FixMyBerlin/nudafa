@@ -14,7 +14,7 @@ export const ContentTraffic = ({ data }: TrafficDashboardData) => {
       </div>
       <WidgetModalsplit data={data} />
       <WidgetStrassennetz data={data} />
-      <div className="col-span-3">
+      <div className="md:col-span-3">
         <WidgetUnfaelle data={data} />
       </div>
     </>
