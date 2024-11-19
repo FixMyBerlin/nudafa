@@ -13,7 +13,10 @@ const town = await getEntry('measuretowns', townslug)
 <Section extraMargin={false} className="-mb-10 bg-[#C6E6D5] py-5">
   <h2 class="mb-8 text-lg font-bold text-gray-700 md:text-2xl">Ziele und Zahlen</h2>
 
-  <DasboardTabs client:load />
+  {
+    // NOTE: Remove this ENV condition to enable the Dashboard on production
+    ASTRO_ENV !== 'production' && town && <DasboardTabs client:load data={town.data} />
+  }
 
   {ASTRO_ENV === 'development' && <pre>{JSON.stringify(town, undefined, 2)}</pre>}
 </Section>
