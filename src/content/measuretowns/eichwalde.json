@@ -39,7 +39,26 @@
     },
     "widgetVerkehrsbelastung": {
       "title": "Verkehrsbelastung",
-      "subText": "ø Belastung aus Messungen"
+      "subText": "ø Belastung aus Messungen",
+      "chartRelativeVertical": {
+        "title": "Verkehrsbelastung",
+        "data": [
+          {
+            "label": "Straße A",
+            "value": 1405
+          },
+          {
+            "label": "Straße B",
+            "value": 3000
+          },
+          {
+            "label": "Typische Belastung in Nebenstraßen (max)",
+            "value": 500
+          }
+        ],
+        "dataUnit": "DTV",
+        "source": "Quelle: MID"
+      }
     }
   },
   "traffic": {
@@ -55,10 +74,10 @@
           {
             "label": "Auspendler",
             "value": 44000,
-            "color": "F37575"
+            "color": "#F37575"
           }
         ],
-        "dataUnit": "",
+        "dataUnit": "none",
         "source": "Quelle: MID"
       }
     },
@@ -77,7 +96,7 @@
             "color": "#EFC865"
           }
         ],
-        "dataUnit": "",
+        "dataUnit": "none",
         "source": "Quelle: MID"
       }
     },
@@ -130,25 +149,55 @@
       }
     },
     "widgetUnfaelle": {
+      "title": "Unfälle",
+      "subText": "Unfälle der letzten drei Jahre mit Radfahrbeteiligung",
       "list": [
-        { "number": 0, "label": "Unfälle mit Getöteten", "color": "#960854" },
-        { "number": 4, "label": "Unfälle mit Schwerverletzten", "color": "#FF2E3B" },
-        { "number": 12, "label": "Unfälle mit Leichtverletzten", "color": "#F59E0B" },
-        { "number": 24, "label": "Unfälle mit Sachschaden", "color": "#F5EC0B" }
+        {
+          "number": 0,
+          "label": "Unfälle mit Getöteten",
+          "color": "#960854"
+        },
+        {
+          "number": 4,
+          "label": "Unfälle mit Schwerverletzten",
+          "color": "#FF2E3B"
+        },
+        {
+          "number": 12,
+          "label": "Unfälle mit Leichtverletzten",
+          "color": "#F59E0B"
+        },
+        {
+          "number": 24,
+          "label": "Unfälle mit Sachschaden",
+          "color": "#F5EC0B"
+        }
       ],
       "source": "Quelle: Unfallstatistik der Polizei"
     }
   },
   "goals": {
-    "widgetMarkdown": "asdf\n",
-    "widgetPeople": "asdf\n",
+    "widgetMarkdown": "### Radverkehrskonzept\n\n✅ Beschlossen, [Konzept (PDF)](https://www.nudafa.de/)\n\n### Klimaschutzkonzept\n\n⏳ In Aufstellung\n\n### Arbeitsgruppe Radverkehr\n\n⏳ In Aufstellung\n\n### Mitglied in AGFK\n\n❌ Kein Mitglied\n",
+    "widgetPeople": "### Personen\n\n* Radverkehrsbeauftragter:\\\n  **Hector Heinrich**\n* Radverkehrsmanager:\\\n  **Maria Kuppelwieser**\n* Klimaschutzmanager:\\\n  **Matthias Schöneweger**\n",
     "widgetInvestitionen": {
       "title": "Ausgaben",
       "population": 12,
       "table": [
-        { "label": "2023", "ausgaben": 590000, "eigenanteil": 260000 },
-        { "label": "2022", "ausgaben": 900000, "eigenanteil": 540000 },
-        { "label": "2021", "ausgaben": 120000, "eigenanteil": 72000 }
+        {
+          "label": "2023",
+          "ausgaben": 590000,
+          "eigenanteil": 260000
+        },
+        {
+          "label": "2022",
+          "ausgaben": 900000,
+          "eigenanteil": 540000
+        },
+        {
+          "label": "2021",
+          "ausgaben": 120000,
+          "eigenanteil": 72000
+        }
       ],
       "chartHorizontal": {
         "title": "asdf",
@@ -157,28 +206,52 @@
           {
             "label": "2023",
             "values": [
-              { "value": 4.2, "color": "#98AEF8" },
-              { "value": 8.6, "color": "#EFC865" }
+              {
+                "value": 4.2,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 8.6,
+                "color": "#EFC865"
+              }
             ]
           },
           {
             "label": "2021",
             "values": [
-              { "value": 6.9, "color": "#98AEF8" },
-              { "value": 3.9, "color": "#EFC865" }
+              {
+                "value": 6.9,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 3.9,
+                "color": "#EFC865"
+              }
             ]
           },
           {
             "label": "2019",
             "values": [
-              { "value": 4.2, "color": "#98AEF8" },
-              { "value": 2.2, "color": "#EFC865" }
+              {
+                "value": 4.2,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 2.2,
+                "color": "#EFC865"
+              }
             ]
           }
         ],
         "legend": [
-          { "text": "pro Kopf insgesamt", "color": "#98AEF8" },
-          { "text": "Eigenanteil", "color": "#EFC865" }
+          {
+            "text": "pro Kopf insgesamt",
+            "color": "#98AEF8"
+          },
+          {
+            "text": "Eigenanteil",
+            "color": "#EFC865"
+          }
         ],
         "source": "Quelle: MID"
       }

@@ -1,23 +1,17 @@
 import { ChartVertical } from '../components/ChartVertical'
+import { Markdown } from '../components/Markdown'
 import { Widget } from '../components/Widget'
 import type { TrafficDashboardData } from '../DasboardTabs'
 
-export const WidgetModalsplit = ({ data }: TrafficDashboardData) => {
+export const WidgetModalsplit = ({ data: { widgetModalsplit } }: TrafficDashboardData) => {
   return (
     <Widget headline="Modalsplit (innerorts)">
-      <p className="mb-3">
-        <small>Jahr 2023</small>
-      </p>
+      <Markdown markdown={widgetModalsplit.subText} className="mb-3 text-xs" />
+
       <ChartVertical
-        title="Modalsplit (innerorts)"
-        data={[
-          { label: 'PKW', value: 39, color: '#960854' },
-          { label: 'Öffentlicher Verkehr', value: 27, color: '#9C27B0' },
-          { label: 'Fahrrad', value: 6, color: '#EFC865' },
-          { label: 'Zu Fuß', value: 27, color: '#98AEF8' },
-        ]}
-        dataUnit="percent"
-        source="Quelle: MID"
+        title={widgetModalsplit.chartVertical.title}
+        data={widgetModalsplit.chartVertical.data}
+        source={widgetModalsplit.chartVertical.source}
       />
     </Widget>
   )

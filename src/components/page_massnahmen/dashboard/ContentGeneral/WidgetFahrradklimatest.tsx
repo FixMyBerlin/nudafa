@@ -1,23 +1,21 @@
 import { ChartHorizontal } from '../components/ChartHorizontal'
+import { Markdown } from '../components/Markdown'
 import { Widget } from '../components/Widget'
 import type { GeneralDashboardData } from '../DasboardTabs'
 
-export const WidgetFahrradklimatest = ({ data }: GeneralDashboardData) => {
+export const WidgetFahrradklimatest = ({
+  data: { widgetFahrradklimatest },
+}: GeneralDashboardData) => {
   return (
-    <Widget headline="Fahrradklimatest">
-      <p className="mb-2">
-        <small>Verlauf der letzten Jahre?</small>
-      </p>
+    <Widget headline={widgetFahrradklimatest.title}>
+      <Markdown markdown={widgetFahrradklimatest.subText} className="mb-3 text-xs" />
+
       <ChartHorizontal
-        title="Fahrradklimatest"
-        height={110}
-        data={[
-          { label: '2023', values: [{ value: 3.6, color: '#98AEF8' }] },
-          { label: '2021', values: [{ value: 3.9, color: '#98AEF8' }] },
-          { label: '2019', values: [{ value: 4.2, color: '#98AEF8' }] },
-        ]}
-        legend={[{ text: 'TODO', color: '#98AEF8' }]}
-        source="Quelle: MID"
+        title={widgetFahrradklimatest.chartHorizontal.title}
+        height={widgetFahrradklimatest.chartHorizontal.height}
+        data={widgetFahrradklimatest.chartHorizontal.data}
+        legend={widgetFahrradklimatest.chartHorizontal.legend}
+        source={widgetFahrradklimatest.chartHorizontal.source}
       />
     </Widget>
   )

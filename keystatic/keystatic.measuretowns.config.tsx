@@ -25,7 +25,7 @@ export const astroMeasuretownsDefinition = defineCollection({
         widgetVerkehrsbelastung: z.object({
           title: z.string().optional(),
           subText: z.string().optional(),
-          // chartHorizontal: astroWidgetChartHorizontal,
+          chartRelativeVertical: astroWidgetChartRelativeVertical,
         }),
       }),
       traffic: z.object({
@@ -46,9 +46,8 @@ export const astroMeasuretownsDefinition = defineCollection({
         widgetUnfaelle: z.object({
           title: z.string().optional(),
           subText: z.string().optional(),
-          list: z.array(
-            z.object({ number: z.number(), label: z.string().optional(), color: z.string() }),
-          ),
+          list: z.array(z.object({ number: z.number(), label: z.string(), color: z.string() })),
+          source: z.string().optional(),
         }),
       }),
       goals: z.object({
@@ -83,10 +82,9 @@ const keystaticWidgetMarkdown = (context: string) =>
   fields.mdx.inline({
     label: `${context}: Widget Content`,
     options: {
-      image: {
-        directory: 'src/assets/homepage',
-        publicPath: '/src/assets/homepage',
-      },
+      image: false,
+      heading: [3],
+      table: false,
     },
   })
 
@@ -122,7 +120,7 @@ export const keystaticMeasuretownsConfig = collection({
         widgetVerkehrsbelastung: fields.object(
           {
             ...keystaticWidgetTitleSubtext,
-            // chartHorizontal: keystaticChartHorizontal,
+            chartRelativeVertical: keystaticWidgetChartRelativeVertical,
           },
           { label: 'ALLGEMEIN: Widget Verkehrsbelastung (TODO)' },
         ),

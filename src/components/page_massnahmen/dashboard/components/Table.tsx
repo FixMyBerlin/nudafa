@@ -1,8 +1,10 @@
 import { clsx } from 'clsx'
 
+export type TableRow = [string, number, number]
+
 type Props = {
   heads: string[]
-  rows: string[][]
+  rows: TableRow[]
   className?: string
 }
 
@@ -49,7 +51,14 @@ export const Table = ({ heads, rows, className }: Props) => {
                               index === columns.length - 1 ? 'pl-0.5 pr-2' : 'px-0.5',
                             )}
                           >
-                            {column}
+                            {typeof column === 'number'
+                              ? column.toLocaleString('de-DE', {
+                                  style: 'currency',
+                                  currency: 'EUR',
+                                  minimumFractionDigits: 0,
+                                  maximumFractionDigits: 0,
+                                })
+                              : column}
                           </td>
                         )
                       })}

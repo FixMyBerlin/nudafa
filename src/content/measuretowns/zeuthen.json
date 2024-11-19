@@ -3,36 +3,42 @@
   "general": {
     "widgetMarkdown": "",
     "widgetFahrradklimatest": {
+      "title": "Fahrradklimatest",
       "chartHorizontal": {
         "data": [],
         "legend": []
       }
     },
-    "widgetVerkehrsbelastung": {}
+    "widgetVerkehrsbelastung": {
+      "chartRelativeVertical": {
+        "data": [],
+        "dataUnit": "none"
+      }
+    }
   },
   "traffic": {
     "widgetPentlersaldo": {
       "chartVertical": {
         "data": [],
-        "dataUnit": ""
+        "dataUnit": "none"
       }
     },
     "widgetFahrzeuge": {
       "chartVertical": {
         "data": [],
-        "dataUnit": ""
+        "dataUnit": "none"
       }
     },
     "widgetModalsplit": {
       "chartVertical": {
         "data": [],
-        "dataUnit": ""
+        "dataUnit": "none"
       }
     },
     "widgetStrassennetz": {
       "chartRelativeVertical": {
         "data": [],
-        "dataUnit": ""
+        "dataUnit": "none"
       }
     },
     "widgetUnfaelle": {

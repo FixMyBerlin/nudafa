@@ -9,7 +9,13 @@ export const astroWidgetChartRelativeVertical = z.object({
       value: z.number(),
     }),
   ),
-  dataUnit: z.union([z.undefined(), z.literal('percent'), z.literal('km'), z.literal('')]),
+  dataUnit: z.union([
+    z.undefined(),
+    z.literal('percent'),
+    z.literal('km'),
+    z.literal('DTV'),
+    z.literal('none'),
+  ]),
   source: z.string().optional(),
 })
 
@@ -27,13 +33,14 @@ export const keystaticWidgetChartRelativeVertical = fields.object(
       },
     ),
     dataUnit: fields.select({
-      label: 'Quellenangabe',
+      label: 'Einheit',
       options: [
-        { label: 'None', value: '' },
+        { label: 'None', value: 'none' },
         { label: 'Percent', value: 'percent' },
         { label: 'Kilometer', value: 'km' },
+        { label: 'DTV', value: 'DTV' },
       ],
-      defaultValue: '',
+      defaultValue: 'none',
     }),
     source: fields.text({ label: 'Quellenangabe' }),
   },

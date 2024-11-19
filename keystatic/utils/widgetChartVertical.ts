@@ -10,7 +10,7 @@ export const astroWidgetChartVertical = z.object({
       color: z.string(),
     }),
   ),
-  dataUnit: z.union([z.undefined(), z.literal('percent'), z.literal('')]),
+  dataUnit: z.union([z.undefined(), z.literal('percent'), z.literal('none')]),
   source: z.string().optional(),
 })
 
@@ -31,12 +31,12 @@ export const keystaticWidgetChartVertical = fields.object(
       },
     ),
     dataUnit: fields.select({
-      label: 'Quellenangabe',
+      label: 'Einheit',
       options: [
-        { label: 'None', value: '' },
+        { label: 'None', value: 'none' },
         { label: 'Percent', value: 'percent' },
       ],
-      defaultValue: '',
+      defaultValue: 'none',
     }),
     source: fields.text({ label: 'Quellenangabe' }),
   },

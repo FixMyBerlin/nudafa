@@ -1,7 +1,9 @@
+import { ASTRO_ENV } from 'astro:env/client'
+
 type Props = {
-  title: string
+  title?: string
   /** @desc value in px */
-  height: number
+  height?: number
   data: {
     label: string
     values: {
@@ -14,8 +16,27 @@ type Props = {
   className?: string
 }
 
-export const ChartHorizontal = ({ title, height, data, legend, source, className }: Props) => {
+export const ChartHorizontal = ({
+  title,
+  height = 100,
+  data,
+  legend,
+  source,
+  className,
+}: Props) => {
   const maxValue = Math.max(...data.map(({ values }) => values.map(({ value }) => value)).flat())
+
+  // QA of the data
+  if (ASTRO_ENV !== 'production') {
+    if (!title) console.log('ChartHorizontal', 'ERROR', 'missing `title`')
+
+    const colorsWithoutLegend = data
+      .map(({ values }) => values.map(({ color }) => color))
+      .flat()
+      .filter((color) => !legend.find(({ color: legendColor }) => legendColor === color))
+    if (!colorsWithoutLegend.length)
+      console.log('ChartHorizontal', 'ERROR', 'missing `legend` for color', colorsWithoutLegend)
+  }
 
   return (
     <figure className={className}>
@@ -34,6 +55,7 @@ export const ChartHorizontal = ({ title, height, data, legend, source, className
                   return (
                     // `gap` is our buffer to 100 %
                     <div
+                      key={[label, value].join()}
                       className="flex flex-col items-start justify-between gap-2"
                       style={{ height: `${height}px` }}
                     >
