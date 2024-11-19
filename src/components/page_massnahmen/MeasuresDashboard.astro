@@ -2,6 +2,7 @@
 import Section from '@components/layouts/Section.astro'
 import { DasboardTabs } from './dashboard/DasboardTabs'
 import { getEntry } from 'astro:content'
+import { ASTRO_ENV } from 'astro:env/client'
 
 type Props = { townslug: string }
 const { townslug } = Astro.props
@@ -14,5 +15,5 @@ const town = await getEntry('measuretowns', townslug)
 
   <DasboardTabs client:load />
 
-  <pre>{JSON.stringify(town,undefined,2)}</pre>
+  {ASTRO_ENV === 'development' && <pre>{JSON.stringify(town, undefined, 2)}</pre>}
 </Section>

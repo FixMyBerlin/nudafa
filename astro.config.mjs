@@ -4,7 +4,7 @@ import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import keystatic from '@keystatic/astro'
-import { defineConfig } from 'astro/config'
+import { defineConfig, envField } from 'astro/config'
 
 // ABOUT:
 // We have to fetch settings from `.env`
@@ -40,5 +40,34 @@ export default defineConfig({
     '/info': '/',
     '/forschungsprojekt': '/',
     '/radnetzplanung': '/radnetz/einleitung',
+  },
+  experimental: {
+    env: {
+      schema: {
+        ASTRO_OUTPUT_MODE: envField.enum({
+          values: ['static', 'hybrid', 'server'],
+          access: 'secret',
+          context: 'server',
+          optional: false,
+        }),
+        ASTRO_USE_NETLIFY_ADAPTER: envField.boolean({
+          access: 'secret',
+          context: 'server',
+          optional: false,
+        }),
+        KEYSTATIC_STORAGE_KIND: envField.enum({
+          values: ['local', 'github'],
+          access: 'public',
+          context: 'client',
+          optional: false,
+        }),
+        ASTRO_ENV: envField.enum({
+          values: ['development', 'staging', 'production'],
+          access: 'public',
+          context: 'client',
+          optional: false,
+        }),
+      },
+    },
   },
 })
