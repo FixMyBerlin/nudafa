@@ -17,7 +17,7 @@ import {
   NavigationControl,
   Source,
 } from 'react-map-gl/maplibre'
-import type { Measure } from './types'
+import type { MeasureData } from './types'
 
 type Props = {
   isZielnetzLayer?: boolean
@@ -116,7 +116,7 @@ export const MeasureMap = ({
   ) : null
 
   const handleClickMap = (e: MapLayerMouseEvent) => {
-    const id = e.features?.at(0)?.properties['NUDAFA_ID'] as Measure['data']['nudafa_id']
+    const id = e.features?.at(0)?.properties['NUDAFA_ID'] as MeasureData['nudafa_id']
     if (id) setSelectedLineId(id)
   }
 

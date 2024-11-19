@@ -1,10 +1,10 @@
 import { TopicLabel } from '@components/TopicLabel'
 import { TownOrAdminAuthorityLabel } from '@components/TownOrAdminAuthorityLabel'
-import type { Measure, SubTopics } from './types'
+import type { MeasureData, SubTopics } from './types'
 
 type Props = {
-  town: Measure['data']['town']
-  topics: Measure['data']['topics']
+  town: MeasureData['town']
+  topics: MeasureData['topics']
   subTopics: SubTopics
 }
 

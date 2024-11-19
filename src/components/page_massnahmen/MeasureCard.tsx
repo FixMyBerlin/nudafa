@@ -2,21 +2,22 @@ import { cardStylesForLinkElements } from '@components/links/styles'
 import clsx from 'clsx'
 
 import { MeasureCardButton } from './MeasureCardButton'
-import type { Measure, SubTopics } from './types'
+import type { MeasureData, SubTopics } from './types'
 
 type Props = {
-  measure: Measure | undefined
+  measureSlug: string
+  measureData: MeasureData
   subTopics: SubTopics
   className?: string
 }
 
-export const MeasureCard = ({ measure, subTopics, className }: Props) => {
-  if (!measure) return null
+export const MeasureCard = ({ measureSlug, measureData, subTopics, className }: Props) => {
+  if (!measureData) return null
   return (
     <a
       target="_blank"
-      href={`/massnahmen/${measure.slug}`}
-      key={measure.data.nudafa_id}
+      href={`/massnahmen/${measureSlug}`}
+      key={measureData.nudafa_id}
       className={clsx(
         cardStylesForLinkElements,
         'mb-8 flex flex-col rounded-md bg-white px-4 py-5 shadow-lg',
@@ -24,17 +25,17 @@ export const MeasureCard = ({ measure, subTopics, className }: Props) => {
       )}
     >
       <MeasureCardButton
-        id={measure.data.nudafa_id}
+        id={measureData.nudafa_id}
         subTopics={subTopics}
-        title={measure.data.title}
-        town={measure.data.town}
-        topics={measure.data.topics}
-        cost={measure.data.costs_amount}
-        length={measure.data.length}
-        state={measure.data.status}
-        realisationDate={measure.data.deadline}
-        startDate={measure.data.start}
-        urgency={measure.data.urgency}
+        title={measureData.title}
+        town={measureData.town}
+        topics={measureData.topics}
+        cost={measureData.costs_amount}
+        length={measureData.length}
+        state={measureData.status}
+        realisationDate={measureData.deadline}
+        startDate={measureData.start}
+        urgency={measureData.urgency}
       />
     </a>
   )

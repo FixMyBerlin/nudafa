@@ -2,7 +2,6 @@ import {
   buttonStylesForLinkElement,
   selectedButtonStylesForLinkElement,
 } from '@components/links/styles'
-
 import { statusTableData } from '@components/StatusLabel'
 import { ListBulletIcon, MapIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
@@ -149,7 +148,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
           <button
             onClick={() => setMapView(true)}
             className={clsx(
-              !mapView ? buttonStylesForLinkElement : selectedButtonStylesForLinkElement,
+              mapView ? selectedButtonStylesForLinkElement : buttonStylesForLinkElement,
               'flex items-center gap-1 px-8',
             )}
           >
@@ -170,15 +169,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
       </div>
       {filteredMeasureIds.length === 0 ? (
         <small>keine Ergebnisse mit diesem Filter</small>
-      ) : !mapView ? (
-        <ul>
-          {fileterdMeasures.map((m) => (
-            <li className="list-none">
-              <MeasureCard key={m.id} measure={m} subTopics={subTopics} />
-            </li>
-          ))}
-        </ul>
-      ) : (
+      ) : mapView ? (
         <div className="relative h-[600px] w-full">
           <MeasureMap
             selectedLineId={selectedLineId}
@@ -186,14 +177,28 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
             geometry={features}
             isZielnetzLayer
           />
-          {selectedLineId && (
+          {selectedLineId && fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId) && (
             <MeasureCard
-              measure={fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId)}
+              measureSlug={fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId)?.slug!}
+              measureData={fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId)?.data!}
               subTopics={subTopics}
               className="absolute inset-x-0 bottom-0 z-10 mx-auto md:max-w-[820px]"
             />
           )}
         </div>
+      ) : (
+        <ul>
+          {fileterdMeasures.map((m) => (
+            <li className="list-none">
+              <MeasureCard
+                key={m.id}
+                measureSlug={m.slug}
+                measureData={m.data}
+                subTopics={subTopics}
+              />
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   )

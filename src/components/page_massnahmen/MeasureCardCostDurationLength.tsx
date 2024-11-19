@@ -2,13 +2,13 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline'
 import { format } from 'date-fns'
 import { de } from 'date-fns/locale'
 import routeIcon from 'src/assets/icons/route.png'
-import type { Measure } from './types'
+import type { MeasureData } from './types'
 
 type Props = {
-  cost?: Measure['data']['costs_amount']
-  length?: Measure['data']['length']
-  realisationDate?: Measure['data']['deadline']
-  startDate?: Measure['data']['start']
+  cost?: MeasureData['costs_amount']
+  length?: MeasureData['length']
+  realisationDate?: MeasureData['deadline']
+  startDate?: MeasureData['start']
 }
 
 export const MeasureCardCostDurationLength = ({

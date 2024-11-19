@@ -1,8 +1,8 @@
-import type { Measure } from './types'
+import type { MeasureData } from './types'
 
 type Props = {
-  title: Measure['data']['title']
-  id: Measure['data']['nudafa_id']
+  title: MeasureData['title']
+  id: MeasureData['nudafa_id']
 }
 
 export const MeasureCardTitle = ({ title, id }: Props) => {

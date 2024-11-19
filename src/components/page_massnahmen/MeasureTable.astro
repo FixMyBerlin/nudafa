@@ -1,28 +1,26 @@
 ---
-import TableRow from '@components/TableRow.astro'
-
+import admin_authorityIcon from '@assets/icons/admin_authority.png'
+import complexity_levelIcon from '@assets/icons/complexity_level.png'
+import costs_amountIcon from '@assets/icons/costs_amount.png'
+import costs_remarksIcon from '@assets/icons/costs_remarks.png'
+import calendarIcon from '@assets/icons/date.png'
+import funding_quotaIcon from '@assets/icons/funding_quota.png'
+import lengthIcon from '@assets/icons/length.png'
+import stakeholdersIcon from '@assets/icons/stakeholder.png'
 import statusIcon from '@assets/icons/status.png'
-import urgencyIcon from '@assets/icons/urgency.png'
 import topicsIcon from '@assets/icons/topics.png'
 import townIcon from '@assets/icons/town.png'
-import admin_authorityIcon from '@assets/icons/admin_authority.png'
-import lengthIcon from '@assets/icons/length.png'
-import calendarIcon from '@assets/icons/date.png'
-import costs_amountIcon from '@assets/icons/costs_amount.png'
-import funding_quotaIcon from '@assets/icons/funding_quota.png'
-import costs_remarksIcon from '@assets/icons/costs_remarks.png'
-import complexity_levelIcon from '@assets/icons/complexity_level.png'
-import stakeholdersIcon from '@assets/icons/stakeholder.png'
-import { Image } from 'astro:assets'
+import urgencyIcon from '@assets/icons/urgency.png'
+import { ComplexityLabel } from '@components/ComplexityLabel'
+import { StatusLabel } from '@components/StatusLabel'
+import TableRow from '@components/TableRow.astro'
 import TableRowHeadline from '@components/TableRowHeadline.astro'
 import { TopicLabel } from '@components/TopicLabel'
-import { getCollection } from 'astro:content'
-
-import { StatusLabel } from '@components/StatusLabel'
-import { ComplexityLabel } from '@components/ComplexityLabel'
-import { UrgencyLabel } from '@components/UrgencyLabel'
 import { TownOrAdminAuthorityLabel } from '@components/TownOrAdminAuthorityLabel'
-import type { Measure } from './types'
+import { UrgencyLabel } from '@components/UrgencyLabel'
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import type { MeasureData } from './types'
 
 const tableIcons: Record<string, ImageMetadata> = {
   Status: statusIcon,
@@ -40,7 +38,7 @@ const tableIcons: Record<string, ImageMetadata> = {
 }
 
 type Props = {
-  measure: Measure['data']
+  measure: MeasureData
 }
 
 const { measure } = Astro.props

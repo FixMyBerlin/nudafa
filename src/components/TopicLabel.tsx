@@ -1,8 +1,9 @@
 import clsx from 'clsx'
+import type { SubTopics } from './page_massnahmen/types'
 
 type Props = {
   topic: string
-  subTopics: any[]
+  subTopics: SubTopics
 }
 
 export const TopicLabel = ({ topic, subTopics }: Props) => {

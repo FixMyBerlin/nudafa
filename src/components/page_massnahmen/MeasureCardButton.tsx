@@ -5,19 +5,19 @@ import clsx from 'clsx'
 import { MeasureCardCostDurationLength } from './MeasureCardCostDurationLength'
 import { MeasureCardTitle } from './MeasureCardTitle'
 import { MeasureCardTopicsAndTown } from './MeasureCardTopicsAndOperators'
-import type { Measure, SubTopics } from './types'
+import type { MeasureData, SubTopics } from './types'
 
 type Props = {
-  title: Measure['data']['title']
-  topics?: Measure['data']['topics']
-  cost?: Measure['data']['costs_amount']
-  state?: Measure['data']['status']
-  realisationDate?: Measure['data']['deadline']
-  startDate?: Measure['data']['start']
-  urgency?: Measure['data']['urgency']
-  length?: Measure['data']['length']
-  town: Measure['data']['town']
-  id: Measure['data']['nudafa_id']
+  title: MeasureData['title']
+  topics?: MeasureData['topics']
+  cost?: MeasureData['costs_amount']
+  state?: MeasureData['status']
+  realisationDate?: MeasureData['deadline']
+  startDate?: MeasureData['start']
+  urgency?: MeasureData['urgency']
+  length?: MeasureData['length']
+  town: MeasureData['town']
+  id: MeasureData['nudafa_id']
   subTopics: SubTopics
 }
 

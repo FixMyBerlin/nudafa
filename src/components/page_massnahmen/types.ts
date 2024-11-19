@@ -1,8 +1,11 @@
-import { getCollection } from 'astro:content'
+import { getCollection, type InferEntrySchema } from 'astro:content'
+
+const subTopics = await getCollection('subprojectstopics')
+export type SubTopics = typeof subTopics
+// export type SubTopics = DataEntryMap['subprojectstopics'] // This is something else
+export type SubTopicData = InferEntrySchema<'subprojectstopics'>
 
 const measures = await getCollection('measures')
-const subTopics = await getCollection('subprojectstopics')
-
-export type SubTopics = typeof subTopics
-type Measures = typeof measures
-export type Measure = Measures[number]
+export type Measure = (typeof measures)[number]
+// export type Measure = ContentEntryMap['measures'] // This is something else
+export type MeasureData = InferEntrySchema<'measures'>
