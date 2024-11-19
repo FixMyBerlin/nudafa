@@ -1,8 +1,7 @@
 import { Widget } from '../components/Widget'
+import type { DashboardData } from '../DasboardTabs'
 
-type Props = { foo: true }
-
-export const WidgetPeople = ({ foo }: Props) => {
+export const WidgetPeople = ({ data }: DashboardData) => {
   return (
     // prettier-ignore
     <Widget headline="Personen)">

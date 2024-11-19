@@ -1,9 +1,8 @@
 import { ChartHorizontal } from '../components/ChartHorizontal'
 import { Widget } from '../components/Widget'
+import type { DashboardData } from '../DasboardTabs'
 
-type Props = { foo: true }
-
-export const WidgetFahrradklimatest = ({ foo }: Props) => {
+export const WidgetFahrradklimatest = ({ data }: DashboardData) => {
   return (
     <Widget headline="Fahrradklimatest">
       <p className="mb-2">

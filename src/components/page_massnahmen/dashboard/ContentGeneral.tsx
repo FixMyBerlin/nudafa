@@ -1,15 +1,14 @@
 import { WidgetFahrradklimatest } from './ContentGeneral/WidgetFahrradklimatest'
 import { WidgetMarkdown } from './ContentGeneral/WidgetMarkdown'
 import { WidgetVerkehrsbelastung } from './ContentGeneral/WidgetVerkehrsbelastung'
+import type { DashboardData } from './DasboardTabs'
 
-type Props = { foo: true }
-
-export const ContentGeneral = ({ foo }: Props) => {
+export const ContentGeneral = ({ data }: DashboardData) => {
   return (
     <>
-      <WidgetMarkdown foo={foo} />
-      <WidgetFahrradklimatest foo={foo} />
-      <WidgetVerkehrsbelastung foo={foo} />
+      <WidgetMarkdown data={data} />
+      <WidgetFahrradklimatest data={data} />
+      <WidgetVerkehrsbelastung data={data} />
     </>
   )
 }

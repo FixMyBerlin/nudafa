@@ -1,8 +1,7 @@
 import { Widget } from '../components/Widget'
+import type { DashboardData } from '../DasboardTabs'
 
-type Props = { foo: true }
-
-export const WidgetUnfaelle = ({ foo }: Props) => {
+export const WidgetUnfaelle = ({ data }: DashboardData) => {
   return (
     <Widget headline="Unfälle">
       <p className="mb-3 text-sm">Unfälle der letzten drei Jahre mit Radfahrbeteiligung</p>

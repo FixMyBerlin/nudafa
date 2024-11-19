@@ -1,8 +1,7 @@
 import { Widget } from '../components/Widget'
+import type { DashboardData } from '../DasboardTabs'
 
-type Props = { foo: true }
-
-export const WidgetMarkdown = ({ foo }: Props) => {
+export const WidgetMarkdown = ({ data }: DashboardData) => {
   // prettier-ignore
   return <Widget>
 Radverkehrskonzept

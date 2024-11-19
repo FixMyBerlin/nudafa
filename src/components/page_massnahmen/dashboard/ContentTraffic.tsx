@@ -3,20 +3,19 @@ import { WidgetModalsplit } from './ContentTraffic/WidgetModalsplit'
 import { WidgetPentlersaldo } from './ContentTraffic/WidgetPentlersaldo'
 import { WidgetStrassennetz } from './ContentTraffic/WidgetStrassennetz'
 import { WidgetUnfaelle } from './ContentTraffic/WidgetUnfaelle'
+import type { DashboardData } from './DasboardTabs'
 
-type Props = { foo: true }
-
-export const ContentTraffic = ({ foo }: Props) => {
+export const ContentTraffic = ({ data }: DashboardData) => {
   return (
     <>
       <div className="flex flex-col gap-5">
-        <WidgetPentlersaldo foo={foo} />
-        <WidgetFahrzeuge foo={foo} />
+        <WidgetPentlersaldo data={data} />
+        <WidgetFahrzeuge data={data} />
       </div>
-      <WidgetModalsplit foo={foo} />
-      <WidgetStrassennetz foo={foo} />
+      <WidgetModalsplit data={data} />
+      <WidgetStrassennetz data={data} />
       <div className="col-span-3">
-        <WidgetUnfaelle foo={foo} />
+        <WidgetUnfaelle data={data} />
       </div>
     </>
   )

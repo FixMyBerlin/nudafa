@@ -1,15 +1,14 @@
 import { WidgetInvestitionen } from './ContentGoals/WidgetInvestitionen'
 import { WidgetMarkdown } from './ContentGoals/WidgetMarkdown'
 import { WidgetPeople } from './ContentGoals/WidgetPeople'
+import type { DashboardData } from './DasboardTabs'
 
-type Props = { foo: true }
-
-export const ContentGoals = ({ foo }: Props) => {
+export const ContentGoals = ({ data }: DashboardData) => {
   return (
     <>
-      <WidgetMarkdown foo={foo} />
-      <WidgetPeople foo={foo} />
-      <WidgetInvestitionen foo={foo} />
+      <WidgetMarkdown data={data} />
+      <WidgetPeople data={data} />
+      <WidgetInvestitionen data={data} />
     </>
   )
 }

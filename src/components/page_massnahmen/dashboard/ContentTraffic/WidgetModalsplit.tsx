@@ -1,9 +1,8 @@
 import { ChartVertical } from '../components/ChartVertical'
 import { Widget } from '../components/Widget'
+import type { DashboardData } from '../DasboardTabs'
 
-type Props = { foo: true }
-
-export const WidgetModalsplit = ({ foo }: Props) => {
+export const WidgetModalsplit = ({ data }: DashboardData) => {
   return (
     <Widget headline="Modalsplit (innerorts)">
       <p className="mb-3">

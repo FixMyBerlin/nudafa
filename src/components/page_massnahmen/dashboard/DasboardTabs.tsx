@@ -1,3 +1,4 @@
+import type { InferEntrySchema } from 'astro:content'
 import { clsx } from 'clsx'
 import { parseAsStringLiteral, useQueryState } from 'nuqs'
 import { NuqsAdapter } from 'nuqs/adapters/react'
@@ -5,14 +6,25 @@ import { ContentGeneral } from './ContentGeneral'
 import { ContentGoals } from './ContentGoals'
 import { ContentTraffic } from './ContentTraffic'
 
-const dashboards = {
-  allgemein: { name: 'Allgemeine Informationen', component: <ContentGeneral foo={true} /> },
-  verkehr: { name: 'Verkehr', component: <ContentTraffic foo={true} /> },
-  ziele: { name: 'Politische Ziele', component: <ContentGoals foo={true} /> },
-} as const
-const dashboardValues = Object.keys(dashboards) as (keyof typeof dashboards)[]
+export type DashboardData = { data: InferEntrySchema<'measuretowns'> }
 
-const DasboardTabsWithNuqs = () => {
+const DasboardTabsWithNuqs = ({ data }: DashboardData) => {
+  const dashboards = {
+    allgemein: {
+      name: 'Allgemeine Informationen',
+      component: <ContentGeneral data={data} />,
+    },
+    verkehr: {
+      name: 'Verkehr',
+      component: <ContentTraffic data={data} />,
+    },
+    ziele: {
+      name: 'Politische Ziele',
+      component: <ContentGoals data={data} />,
+    },
+  } as const
+  const dashboardValues = Object.keys(dashboards) as (keyof typeof dashboards)[]
+
   const [dashboard, setDashboard] = useQueryState(
     'dashboard',
     parseAsStringLiteral(dashboardValues).withDefault('allgemein'),
@@ -79,10 +91,10 @@ const DasboardTabsWithNuqs = () => {
   )
 }
 
-export const DasboardTabs = () => {
+export const DasboardTabs = ({ data }: DashboardData) => {
   return (
     <NuqsAdapter>
-      <DasboardTabsWithNuqs />
+      <DasboardTabsWithNuqs data={data} />
     </NuqsAdapter>
   )
 }

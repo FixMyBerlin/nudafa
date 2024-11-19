@@ -1,8 +1,7 @@
 import { Widget } from '../components/Widget'
+import type { DashboardData } from '../DasboardTabs'
 
-type Props = { foo: true }
-
-export const WidgetVerkehrsbelastung = ({ foo }: Props) => {
+export const WidgetVerkehrsbelastung = ({ data }: DashboardData) => {
   return (
     <Widget headline="Verkehrsbelastung">
       <p className="mb-2">

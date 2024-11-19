@@ -1,9 +1,8 @@
 import { ChartVertical } from '../components/ChartVertical'
 import { Widget } from '../components/Widget'
+import type { DashboardData } from '../DasboardTabs'
 
-type Props = { foo: true }
-
-export const WidgetPentlersaldo = ({ foo }: Props) => {
+export const WidgetPentlersaldo = ({ data }: DashboardData) => {
   return (
     <Widget headline="Pendlersaldo">
       <ChartVertical
