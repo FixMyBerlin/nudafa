@@ -34,6 +34,9 @@ export default defineConfig({
       filter: (page) => page !== 'https://www.nudafa.de/radnetz/admin/',
     }),
   ],
+  // On Netlify and during development we use `hybrid`, on Github Pages we usd `static`.
+  // Using static makes sure features like Astros redirecting work as expected.
+  // Docs https://docs.astro.build/en/basics/rendering-modes/
   output: ASTRO_OUTPUT_MODE,
   adapter: ASTRO_USE_NETLIFY_ADAPTER === 'true' ? netlify() : undefined,
   redirects: {
