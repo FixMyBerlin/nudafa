@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "npm run dev",
     "build": "astro build",
     "build:local": "ASTRO_OUTPUT_MODE=static astro build",
     "preview": "ASTRO_OUTPUT_MODE=static astro preview --open",
@@ -19,7 +19,10 @@
     "check": "npm run type-check && npm run format && npm run lint",
     "updatePackages:major": "npx taze major --includeLocked --write && npm install",
     "updatePackages:minor": "npx taze minor --includeLocked --write && npm install",
-    "release": "gh pr create --base main --head develop --title \"Release $(date '+%Y-%m-%d')\" --body \"\"",
+    "bleach": "rm -rf node_modules/.astro && rm -rf node_modules/.bin && rm -rf node_modules/.vite && rm -rf .astro/ && rm -rf .netlify/ && rm -rf dist/ && npm install && npm run bleach:info",
+    "bleach:info": "echo \"\u001b[43m\u001b[30m(!) Also delete the browser cache, see https://github.com/vitejs/vite/discussions/17738#discussioncomment-10158746\u001b[0m\"",
+    "bleach:all": "rm -rf node_modules/ && npm run bleach",
+    "bleach:full": "rm package-lock.json && npm run bleach:all",
     "prepare": "husky",
     "transformMeasuresCsvToMdx": "node scripts/csvToJson.js ./data/measures/massnahmenliste.csv ./data/measures/massnahmenliste.json && node scripts/measureJsonToMdx.js && npm run format:all",
     "updateMeasuresGeometry": "node scripts/updateMeasuresGeometry.js"
