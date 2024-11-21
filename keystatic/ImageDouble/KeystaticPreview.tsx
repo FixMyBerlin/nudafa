@@ -1,6 +1,6 @@
-import { Uint8Array } from './Unit8Image.tsx'
+import { Uint8Array } from '../utils/Unit8Image.tsx'
 
-export const contentViewImageDefaultDouble = (props: any) => {
+export const KeystaticPreview = (props: any) => {
   if (props.value.src)
     return (
       <div>

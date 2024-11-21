@@ -1,7 +1,6 @@
 ---
 import LayoutApp from '@components/layouts/LayoutApp.astro'
 import { navHeightClassAsNegativeMarginBottom } from '@components/layouts/navbar/Navbar'
-import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 import { RadnetzArticleWrapper } from '@components/page_radnetz/RadnetzArticleWrapper'
 import { RadnetzImprintPrivacy } from '@components/page_radnetz/RadnetzImprintPrivacy'
 import { RadnetzMapConsent } from '@components/page_radnetz/RadnetzMapConsent'
@@ -9,6 +8,7 @@ import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
 import type { RadnetzPage } from '@components/page_radnetz/types'
 import { getCollection } from 'astro:content'
 import clsx from 'clsx'
+import TextLinkArrow from 'keystatic/TextLinkArrow/TextLinkArrow.astro'
 
 const rawPages = await getCollection('bicyclenetworkpages')
 const sortedPages = rawPages.sort((a, b) => a.data.order - b.data.order)
@@ -59,11 +59,7 @@ const { title } = entry.data
           title={title}
           links={links}
         >
-          <Content
-            components={{
-              TextLinkArrow,
-            }}
-          />
+          <Content components={{ TextLinkArrow }} />
         </RadnetzArticleWrapper>
       ))
     }

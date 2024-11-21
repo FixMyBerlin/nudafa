@@ -1,6 +1,6 @@
-import { Uint8Array } from './Unit8Image.tsx'
+import { Uint8Array } from '../utils/Unit8Image.tsx'
 
-export const contentViewImageSquare = (props: any) => {
+export const KeystaticPreview = (props: any) => {
   if (props.value.src)
     return (
       <div>
@@ -8,7 +8,7 @@ export const contentViewImageSquare = (props: any) => {
           *Positionierung und Seitenverhältnis sind in der Vorschau nicht korrekt dargestellt
         </small>
         <figure>
-          <div style={{ height: '200px', width: '200px' }}>
+          <div style={{ height: '200px', width: '300PX' }}>
             <Uint8Array data={props.value.src?.data} />
           </div>
           <figcaption>{props.value.caption}</figcaption>

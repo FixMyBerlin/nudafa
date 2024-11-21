@@ -1,6 +1,6 @@
 import { collection, fields } from '@keystatic/core'
 import { defineCollection, z } from 'astro:content'
-import { keystaticTextLinkArrowConfig } from './utils/keystatic.TextLinkArrow.config'
+import { keystaticTextLinkArrowConfig } from './TextLinkArrow/keystatic.TextLinkArrow.config'
 
 export const astroBicyclenetworkpagesDefinition = defineCollection({
   type: 'content',
@@ -46,7 +46,7 @@ export const keystaticBicyclenetworkpagesConfig = collection({
     content: fields.mdx({
       label: 'Content',
       options: { image: false },
-      components: { ...keystaticTextLinkArrowConfig },
+      components: { TextLinkArrow: keystaticTextLinkArrowConfig },
     }),
     links: fields.array(
       fields.object({

@@ -1,25 +1,15 @@
 ---
-import type { ImageMetadata } from 'astro'
 import { Image } from 'astro:assets'
+import { getImage } from 'keystatic/utils/getImage'
+import type { ImageSingleSquare } from './keystatic.ImageSingleSquare.config'
+import { undefined } from 'astro:schema'
 
-type Props = {
-  src: string
-  alt: string
-  caption: string
-  imageConfig: {
-    discriminant: 'half' | 'full'
-    value: 'center' | 'right' | 'left'
-  }
-}
+type Props = ImageSingleSquare
 const { src, alt, caption, imageConfig } = Astro.props
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/**/*.{jpeg,jpg,png,gif,webp,JPG,JPEG,PNG,GIF}',
-)
-if (!images[src])
-  throw new Error(`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
 
+const image = getImage(src)
 const width = imageConfig.discriminant
-const position = imageConfig.value
+const position = 'value' in imageConfig ? imageConfig.value : undefined
 ---
 
 <div
@@ -32,11 +22,9 @@ const position = imageConfig.value
 >
   <figure class:list={[width === 'half' ? 'w-full md:w-1/2' : 'w-full']}>
     <div class:list={['aspect-[1/1]']}>
-      <!-- quality="high" -->
-      <!-- https://docs.astro.build/en/guides/images/#quality -->
       <Image
         class="h-full w-full overflow-hidden object-cover"
-        src={images[src]()}
+        src={image}
         alt={alt || ''}
         loading="lazy"
       />

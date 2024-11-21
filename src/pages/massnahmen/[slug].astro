@@ -5,10 +5,10 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import MeasureTable from '@components/page_massnahmen/MeasureTable.astro'
 import { MeasureMap } from '@components/page_massnahmen/MeasuresMap'
-
 import { MapPinIcon } from '@heroicons/react/24/outline'
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
+import { mdxComponentsAstro } from 'keystatic/mdxComponents'
 import { getGeometryByNudafaId } from 'src/utils/getGeometryByNudafaId'
 
 export async function getStaticPaths() {
@@ -71,7 +71,7 @@ const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
   }
   <Section>
     <p class="font-bold">Beschreibung der Maßnahme</p>
-    <ProseMarkdown><Content /></ProseMarkdown>
+    <ProseMarkdown><Content components={mdxComponentsAstro} /></ProseMarkdown>
   </Section>
   <Section className="mt-16">
     <MeasureTable measure={entry.data} />

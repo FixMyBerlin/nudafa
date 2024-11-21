@@ -13,7 +13,8 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"]
-    }
+    },
+    "noErrorTruncation": true // https://stackoverflow.com/a/53131824
   },
   "exclude": ["dist"]
 }

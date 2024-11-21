@@ -1,18 +1,10 @@
 ---
 import type { ImageMetadata } from 'astro'
 import { Image } from 'astro:assets'
+import type { ImageDoubleType } from './keystatic.ImageDouble.config'
 
-type Props = {
-  src: string
-  srcSecond: string
-  alt: string
-  caption: string
-  captionSecond: string
-  imageConfig: {
-    discriminant: 'horizontal' | 'vertical' | 'square'
-    value: '3/2' | '4/3'
-  }
-}
+type Props = ImageDoubleType
+
 const { src, srcSecond, alt, caption, captionSecond, imageConfig } = Astro.props
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/**/*.{jpeg,jpg,png,gif,webp,JPG,JPEG,PNG,GIF}',
@@ -21,8 +13,9 @@ if (!images[src])
   throw new Error(`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
 if (!images[srcSecond])
   throw new Error(`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
+
 const orientation = imageConfig.discriminant
-const ratio = imageConfig.value
+const ratio = 'value' in imageConfig ? imageConfig.value : undefined
 const srcs = [
   { src: src, caption: caption },
   { src: srcSecond, caption: captionSecond },
@@ -30,11 +23,9 @@ const srcs = [
 ---
 
 <div class:list={['not-prose my-8 grid w-full grid-cols-1 gap-5 md:grid-cols-2']}>
-  <!-- quality="high" -->
-  <!-- https://docs.astro.build/en/guides/images/#quality -->
   {
     srcs.map((s) => (
-      <figure class:list={[]}>
+      <figure>
         <div
           class:list={[
             orientation === 'square' && 'aspect-[1/1]',
@@ -50,6 +41,7 @@ const srcs = [
             alt={alt || ''}
             loading="lazy"
           />
+          {/* quality="high" // https://docs.astro.build/en/reference/modules/astro-assets/#quality */}
         </div>
         <figcaption class="mt-2 text-xs md:text-sm">{s.caption}</figcaption>
       </figure>

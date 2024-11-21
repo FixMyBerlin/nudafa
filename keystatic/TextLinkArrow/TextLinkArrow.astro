@@ -1,14 +1,11 @@
 ---
+import { linkStyles } from '@components/links/styles'
 import { ArrowRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline'
-import { linkStyles } from './styles'
+import type { TextLinkArrowType } from './keystatic.TextLinkArrow.config'
 
-type Props = {
-  href: string
-  external?: boolean
-  display?: string
-}
+type Props = TextLinkArrowType
 
-const { display, external, href } = Astro.props as Props
+const { display, external, href } = Astro.props
 ---
 
 {

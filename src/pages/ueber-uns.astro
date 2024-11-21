@@ -1,19 +1,15 @@
 ---
 import CommuneCardWrapper from '@components/CommueCardWrapper.astro'
 import CommuneCard from '@components/CommuneCard.astro'
-import ImageDouble from '@components/ImageDouble.astro'
-import ImageSingleHorizontal from '@components/ImageSingleHorizontal.astro'
-import ImageSingleSquare from '@components/ImageSingleSquare.astro'
-import ImageSingleVertical from '@components/ImageSingleVertical.astro'
 import PageHeader from '@components/PageHeader.astro'
 import ProseMarkdown from '@components/ProseMarkdown.astro'
 import H2 from '@components/Text/H2.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
-import TextLinkArrow from '@components/links/TextLinkArrow.astro'
 import PersonCard from '@components/page_ueber_uns/PersonCard.astro'
 import PersonCardWrapper from '@components/page_ueber_uns/PersonCardWrapper.astro'
 import { getCollection, getEntry } from 'astro:content'
+import { mdxComponentsAstro } from 'keystatic/mdxComponents'
 
 const page = await getEntry('projectpartnerpageintro', 'index')
 const pagemain = await getEntry('projectpartnerpagemain', 'index')
@@ -28,15 +24,7 @@ const { Content: ContentMain } = await pagemain.render()
 
 <LayoutPage title="Über uns">
   <PageHeader title={title} subTitle={subTitle}>
-    <Content
-      components={{
-        ImageSingleHorizontal,
-        ImageSingleSquare,
-        ImageSingleVertical,
-        ImageDouble,
-        TextLinkArrow,
-      }}
-    />
+    <Content components={mdxComponentsAstro} />
   </PageHeader>
   <Section className="bg-[#BFDBFE]" extraPadding>
     <H2>Das NUDAFA-Team</H2>
@@ -67,15 +55,7 @@ const { Content: ContentMain } = await pagemain.render()
   </Section>
   <Section>
     <ProseMarkdown>
-      <ContentMain
-        components={{
-          ImageSingleHorizontal,
-          ImageSingleSquare,
-          ImageSingleVertical,
-          ImageDouble,
-          TextLinkArrow,
-        }}
-      />
+      <ContentMain components={mdxComponentsAstro} />
     </ProseMarkdown>
   </Section>
 </LayoutPage>
