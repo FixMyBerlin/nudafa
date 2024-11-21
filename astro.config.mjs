@@ -26,7 +26,7 @@ const { ASTRO_OUTPUT_MODE, ASTRO_USE_NETLIFY_ADAPTER } = loadEnv(
 export default defineConfig({
   site: 'https://www.nudafa.de',
   integrations: [
-    ASTRO_OUTPUT_MODE === 'hybrid' ? keystatic() : undefined,
+    ASTRO_OUTPUT_MODE === 'static' ? undefined : keystatic(),
     tailwind(),
     react(),
     mdx(),
