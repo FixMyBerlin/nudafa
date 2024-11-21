@@ -3,12 +3,15 @@ import { defineCollection, z } from 'astro:content'
 import {
   astroWidgetChartHorizontal,
   keystaticWidgetChartHorizontal,
-} from './utils/widgetChartHorizontal'
+} from './widgets/widgetChartHorizontal'
 import {
   astroWidgetChartRelativeVertical,
   keystaticWidgetChartRelativeVertical,
-} from './utils/widgetChartRelativeVertical'
-import { astroWidgetChartVertical, keystaticWidgetChartVertical } from './utils/widgetChartVertical'
+} from './widgets/widgetChartRelativeVertical'
+import {
+  astroWidgetChartVertical,
+  keystaticWidgetChartVertical,
+} from './widgets/widgetChartVertical'
 
 export const astroMeasuretownsDefinition = defineCollection({
   type: 'data',
