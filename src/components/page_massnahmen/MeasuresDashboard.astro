@@ -1,8 +1,8 @@
 ---
 import Section from '@components/layouts/Section.astro'
-import { DasboardTabs } from './dashboard/DasboardTabs'
 import { getEntry } from 'astro:content'
 import { ASTRO_ENV } from 'astro:env/client'
+import { DasboardTabs } from './dashboard/DasboardTabs'
 
 type Props = { townslug: string }
 const { townslug } = Astro.props

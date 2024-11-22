@@ -1,10 +1,9 @@
 ---
 import PartnerLabel from '@components/PartnerLabel.astro'
-
+import { getCollection } from 'astro:content'
 import { format, isPast } from 'date-fns'
 import CommuneLabelList from './CommuneLabelList.astro'
 import TableRow from './TableRow.astro'
-import { getCollection } from 'astro:content'
 import { TopicLabel } from './TopicLabel'
 
 type Props = {
