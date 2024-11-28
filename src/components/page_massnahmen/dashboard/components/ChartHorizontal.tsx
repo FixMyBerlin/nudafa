@@ -34,8 +34,15 @@ export const ChartHorizontal = ({
       .map(({ values }) => values.map(({ color }) => color))
       .flat()
       .filter((color) => !legend.find(({ color: legendColor }) => legendColor === color))
-    if (!colorsWithoutLegend.length)
-      console.log('ChartHorizontal', 'ERROR', 'missing `legend` for color', colorsWithoutLegend)
+    if (colorsWithoutLegend.length > 0)
+      console.log(
+        'ChartHorizontal',
+        'ERROR',
+        'missing `legend` for color',
+        colorsWithoutLegend,
+        'for Chart',
+        { title, data, legend, source },
+      )
   }
 
   return (
