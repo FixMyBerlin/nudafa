@@ -5,11 +5,11 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import MeasureTable from '@components/page_massnahmen/MeasureTable.astro'
 import { MeasureMap } from '@components/page_massnahmen/MeasuresMap'
+import { getGeometryByNudafaId } from '@components/page_massnahmen/utils/getGeometryByNudafaId'
 import { MapPinIcon } from '@heroicons/react/24/outline'
 import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
-import { getGeometryByNudafaId } from 'src/utils/getGeometryByNudafaId'
 
 export async function getStaticPaths() {
   const measures = await getCollection('measures')
