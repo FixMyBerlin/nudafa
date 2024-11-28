@@ -66,14 +66,14 @@
           }
         ],
         "dataUnit": "DTV",
-        "source": "Quelle: MID"
+        "source": "Quelle: Eigene Erhebung Gemeinde Eichwalde"
       }
     }
   },
   "traffic": {
     "widgetPentlersaldo": {
       "chartVertical": {
-        "title": "Pentlersaldo",
+        "title": "Pendlerzahlen (absolut pro Tag)",
         "data": [
           {
             "label": "Einpendler",
@@ -87,12 +87,12 @@
           }
         ],
         "dataUnit": "none",
-        "source": "Quelle: MID"
+        "source": "Quelle: TODO"
       }
     },
     "widgetFahrzeuge": {
       "chartVertical": {
-        "title": "Fahrzeuge pro Kopf",
+        "title": "Besitz: Fahrzeuge pro Kopf",
         "data": [
           {
             "label": "PKW",
@@ -106,12 +106,12 @@
           }
         ],
         "dataUnit": "none",
-        "source": "Quelle: MID"
+        "source": "Quelle: TODO"
       }
     },
     "widgetModalsplit": {
       "title": "Modalsplit (innerorts)",
-      "subText": "Jahr 2023",
+      "subText": "Jahr 2023, Angaben in Prozent",
       "chartVertical": {
         "title": "Modalsplit (innerorts)",
         "data": [
@@ -121,7 +121,7 @@
             "color": "#960854"
           },
           {
-            "label": "Öffentlicher Verkehr",
+            "label": "Öffentlicher Nahverkehr",
             "value": 27,
             "color": "#9C27B0"
           },
@@ -146,11 +146,11 @@
         "data": [
           {
             "label": "Hauptverkehrsstraßen",
-            "value": 3.03945
+            "value": 3039
           },
           {
             "label": "Nebenstraßen",
-            "value": 30.03288
+            "value": 30033
           }
         ],
         "dataUnit": "km",
@@ -159,7 +159,7 @@
     },
     "widgetUnfaelle": {
       "title": "Unfälle",
-      "subText": "Unfälle der letzten drei Jahre mit Radfahrbeteiligung",
+      "subText": "Unfälle der Jahre 2022-2024 mit Fahrradbeteiligung",
       "list": [
         {
           "number": 16,
@@ -186,10 +186,10 @@
     }
   },
   "goals": {
-    "widgetMarkdown": "### Radverkehrskonzept\n\n✅ Beschlossen, [Konzept (PDF)](https://www.nudafa.de/)\n\n### Klimaschutzkonzept\n\n⏳ In Aufstellung\n\n### Arbeitsgruppe Radverkehr\n\n⏳ In Aufstellung\n\n### Mitglied in AGFK\n\n❌ Kein Mitglied\n",
+    "widgetMarkdown": "### Konzepte und Gremien\n\n### Radverkehrskonzept\n\n✅ Beschlossen, [Konzept (PDF)](https://www.nudafa.de/)\n\n### Klimaschutzkonzept\n\n⏳ In Aufstellung\n\n### Arbeitsgruppe Radverkehr\n\n⏳ In Aufstellung\n\n### Mitglied in AGFK\n\n❌ Kein Mitglied\n",
     "widgetPeople": "### Personen\n\n* Radverkehrsbeauftragter:\\\n  **Hector Heinrich**\n* Radverkehrsmanager:\\\n  **Maria Kuppelwieser**\n* Klimaschutzmanager:\\\n  **Matthias Schöneweger**\n",
     "widgetInvestitionen": {
-      "title": "Ausgaben",
+      "title": "Investitionen",
       "population": 6490,
       "table": [
         {
@@ -216,11 +216,11 @@
             "label": "2023",
             "values": [
               {
-                "value": 4.2,
+                "value": 126,
                 "color": "#98AEF8"
               },
               {
-                "value": 8.6,
+                "value": 13,
                 "color": "#EFC865"
               }
             ]
