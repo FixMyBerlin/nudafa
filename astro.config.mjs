@@ -24,7 +24,9 @@ const { ASTRO_OUTPUT_MODE, ASTRO_USE_NETLIFY_ADAPTER } = loadEnv(
 // CONFIG:
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.nudafa.de',
+  // Take the Netlify Deploy URL or fall back to production (Docs https://docs.netlify.com/configure-builds/environment-variables/#deploy-urls-and-metadata)
+  // Used as `Astro.site!.origin` in <Layout>
+  site: process.env.URL ?? 'https://www.nudafa.de',
   integrations: [
     ASTRO_OUTPUT_MODE === 'static' ? undefined : keystatic(),
     tailwind(),

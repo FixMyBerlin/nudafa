@@ -2,7 +2,7 @@
 import '@fontsource-variable/open-sans'
 import '@fontsource/roboto-slab'
 import { ViewTransitions } from 'astro:transitions'
-import { DOMAIN } from 'src/utils/domain'
+import PngSocialSharingFallback from '../../../public/social-sharing/default.jpg'
 
 const defaultTitle = 'NUDAFA Reallabor - Radverkehrsplanung beschleunigen'
 const defaultDescription =
@@ -14,7 +14,7 @@ const { title, description, noindex = false, image }: Props = Astro.props
 const seo = {
   title: title ? `${title} | ${defaultTitle}` : defaultTitle,
   description: description || defaultDescription,
-  image: image || `${DOMAIN}/social-sharing/default.jpg`,
+  image: image || `${Astro.site!.origin}${PngSocialSharingFallback.src}`,
 }
 ---
 
