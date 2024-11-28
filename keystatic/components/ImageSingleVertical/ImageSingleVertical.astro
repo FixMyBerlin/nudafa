@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets'
-import { getImage } from 'keystatic/utils/getImage'
-import type { ImageSingleSquare } from './keystatic.ImageSingleSquare.config'
+import { getImage } from 'keystatic/components/utils/getImage'
+import type { ImageSingleVerticalType } from './keystatic.ImageSingleVertical.config'
 
-type Props = ImageSingleSquare
+type Props = ImageSingleVerticalType
 const { src, alt, caption, imageConfig } = Astro.props
 
 const image = getImage(src)
@@ -20,7 +20,7 @@ const position = 'value' in imageConfig ? imageConfig.value : undefined
   ]}
 >
   <figure class:list={[width === 'half' ? 'w-full md:w-1/2' : 'w-full']}>
-    <div class:list={['aspect-[1/1]']}>
+    <div class:list={['aspect-[3/4]']}>
       <Image
         class="h-full w-full overflow-hidden object-cover"
         src={image}

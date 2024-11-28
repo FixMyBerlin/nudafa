@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import { undefined } from 'astro:schema'
-import { getImage } from 'keystatic/utils/getImage'
+import { getImage } from 'keystatic/components/utils/getImage'
 import type { ImageSingleHorizontal } from './keystatic.ImageSingleHorizontal.config'
 
 type Props = ImageSingleHorizontal
@@ -37,6 +36,6 @@ const position =
         loading="lazy"
       />
     </div>
-    <figcaption class="mt-2 text-xs text-gray-500 md:text-sm">{caption}</figcaption>
+    {caption && <figcaption class="mt-2 text-xs text-gray-500 md:text-sm">{caption}</figcaption>}
   </figure>
 </div>

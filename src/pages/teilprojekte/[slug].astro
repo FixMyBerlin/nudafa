@@ -5,7 +5,7 @@ import SubProjectTable from '@components/SubProjectTable.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import { getCollection } from 'astro:content'
-import { mdxComponentsAstro } from 'keystatic/mdxComponents'
+import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 export async function getStaticPaths() {
   const projects = await getCollection('subprojects')

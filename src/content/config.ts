@@ -7,12 +7,11 @@ import { astroImprintPageDefinition } from 'keystatic/keystatic.imprint.config'
 import { astroMeasuresDefinition } from 'keystatic/keystatic.measures.config'
 import { astroMeasuretownsDefinition } from 'keystatic/keystatic.measuretowns.config'
 import { astroMeasuretypesDefinition } from 'keystatic/keystatic.measuretypes.config'
-import { astroNewsDefinition } from 'keystatic/keystatic.news.config'
 import {
   astroProjectPartnerPageIntroDefinition,
   astroProjectPartnerPageMainDefinition,
 } from 'keystatic/keystatic.partner.config'
-import { astroPartnerCommunesPageDefinition } from 'keystatic/keystatic.partnercommunes.config'
+import { astroPartnerCommunesPageDefinition } from 'keystatic/keystatic.partnercommunespage.config'
 import { astroPersonsDefinition } from 'keystatic/keystatic.persons.config'
 import { astroPressPageDefinition } from 'keystatic/keystatic.press.config'
 import { astroResearchPageDefinition } from 'keystatic/keystatic.research.config'
@@ -32,7 +31,7 @@ export const collections = {
   projectpartnerpageintro: astroProjectPartnerPageIntroDefinition,
   projectpartnerpagemain: astroProjectPartnerPageMainDefinition,
   imprintpage: astroImprintPageDefinition,
-  communepartnerspage: astroPartnerCommunesPageDefinition,
+  partnercommunespage: astroPartnerCommunesPageDefinition,
   // Collections
   subprojects: astroSubprojectsDefinition,
   subprojectstopics: astroSubprojectAndMeasureTopicsDefinition,
@@ -43,5 +42,5 @@ export const collections = {
   measuretowns: astroMeasuretownsDefinition,
   measuretypes: astroMeasuretypesDefinition,
   persons: astroPersonsDefinition,
-  news: astroNewsDefinition,
+  // news: astroNewsDefinition,
 }

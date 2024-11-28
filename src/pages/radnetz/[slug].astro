@@ -8,7 +8,7 @@ import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
 import type { RadnetzPage } from '@components/page_radnetz/types'
 import { getCollection } from 'astro:content'
 import clsx from 'clsx'
-import TextLinkArrow from 'keystatic/TextLinkArrow/TextLinkArrow.astro'
+import TextLinkArrow from 'keystatic/components/TextLinkArrow/TextLinkArrow.astro'
 
 const rawPages = await getCollection('bicyclenetworkpages')
 const sortedPages = rawPages.sort((a, b) => a.data.order - b.data.order)

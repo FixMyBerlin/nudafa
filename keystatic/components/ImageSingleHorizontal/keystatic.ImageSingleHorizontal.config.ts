@@ -4,8 +4,8 @@ import { KeystaticPreview } from './KeystaticPreview'
 
 export type ImageSingleHorizontal = {
   src: string
-  alt: string
-  caption: string
+  alt?: string
+  caption?: string
   imageConfig:
     | {
         discriminant: '3/2'

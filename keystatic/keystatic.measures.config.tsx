@@ -5,7 +5,7 @@ import {
 } from '@components/page_massnahmen/measureOptions.const'
 import { collection, fields } from '@keystatic/core'
 import { defineCollection, z } from 'astro:content'
-import { mdxComponentsKeystatic } from './mdxComponents'
+import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
 
 export const astroMeasuresDefinition = defineCollection({
   type: 'content',

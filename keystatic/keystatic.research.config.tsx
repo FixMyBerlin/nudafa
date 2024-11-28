@@ -1,6 +1,6 @@
 import { fields, singleton } from '@keystatic/core'
 import { defineCollection, z } from 'astro:content'
-import { mdxComponentsKeystatic } from './mdxComponents'
+import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
 
 export const astroResearchPageDefinition = defineCollection({
   type: 'content',

@@ -3,11 +3,11 @@
 // 2. https://docs.astro.build/en/recipes/dynamically-importing-images/
 
 export const getImage = (src: string) => {
-  const globPattern = '/src/assets/**/*.{jpeg,jpg,png,gif,webp,JPG,JPEG,PNG,GIF}'
-
-  const images = import.meta.glob<{ default: ImageMetadata }>(globPattern)
+  const images = import.meta.glob<{ default: ImageMetadata }>(
+    '/src/assets/**/*.{jpeg,jpg,png,gif,webp,JPG,JPEG,PNG,GIF}',
+  )
   if (!images[src]) {
-    throw new Error(`"${src}" does not exist in glob: ${globPattern}`)
+    throw new Error(`"${src}" does not exist in glob /src/assets/*`)
   }
 
   return images[src]()

@@ -5,7 +5,7 @@ import SubProjectSection from '@components/SubProjectSection.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import { getEntry } from 'astro:content'
-import { mdxComponentsAstro } from 'keystatic/mdxComponents'
+import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 const homepageintro = await getEntry('homepageintro', 'index')
 const homepagemain = await getEntry('homepagemain', 'index')

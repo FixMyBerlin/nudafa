@@ -4,10 +4,11 @@ import { KeystaticPreview } from './KeystaticPreview'
 
 export type ImageDoubleType = {
   src: string
-  caption: string
+  alt?: string
+  caption?: string
   srcSecond: string
-  captionSecond: string
-  alt: string
+  altSecond?: string
+  captionSecond?: string
   imageConfig:
     | {
         discriminant: 'vertical'
@@ -33,8 +34,9 @@ export const keystaticImageDoubleConfig = (imagePath: string) =>
         publicPath: `/src/assets/${imagePath}`,
         validation: { isRequired: true },
       }),
+      alt: fields.text({ label: '1. Bild: Alt-Text' }),
       caption: fields.text({
-        label: 'Bildunterschrift',
+        label: '1. Bild: Bildunterschrift',
         validation: { length: { min: 1, max: 80 } },
       }),
       srcSecond: fields.image({
@@ -43,11 +45,11 @@ export const keystaticImageDoubleConfig = (imagePath: string) =>
         publicPath: `/src/assets/${imagePath}`,
         validation: { isRequired: true },
       }),
+      altSecond: fields.text({ label: '2. Bild: Alt-Text' }),
       captionSecond: fields.text({
-        label: 'Bildunterschrift',
+        label: '2. Bild: Bildunterschrift',
         validation: { length: { min: 1, max: 80 } },
       }),
-      alt: fields.text({ label: 'Alt-Text' }),
       imageConfig: fields.conditional(
         fields.select({
           label: 'Ausrichtung',

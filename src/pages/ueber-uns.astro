@@ -9,7 +9,7 @@ import Section from '@components/layouts/Section.astro'
 import PersonCard from '@components/page_ueber_uns/PersonCard.astro'
 import PersonCardWrapper from '@components/page_ueber_uns/PersonCardWrapper.astro'
 import { getCollection, getEntry } from 'astro:content'
-import { mdxComponentsAstro } from 'keystatic/mdxComponents'
+import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 const page = await getEntry('projectpartnerpageintro', 'index')
 const pagemain = await getEntry('projectpartnerpagemain', 'index')

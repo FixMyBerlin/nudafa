@@ -13,7 +13,7 @@ import {
   keystaticProjectPartnerPageIntroConfig,
   keystaticProjectPartnerPageMainConfig,
 } from 'keystatic/keystatic.partner.config'
-import { keystaticPartnerCommunesPageConfig } from 'keystatic/keystatic.partnercommunes.config'
+import { keystaticPartnerCommunesPageConfig } from 'keystatic/keystatic.partnercommunespage.config'
 import { keystaticPersonsConfig } from 'keystatic/keystatic.persons.config'
 import { keystaticPressPageConfig } from 'keystatic/keystatic.press.config'
 import { keystaticResearchPageConfig } from 'keystatic/keystatic.research.config'
@@ -44,7 +44,7 @@ export default config({
       'Das Reallabor': [
         'projectpartnerpageintro',
         'projectpartnerpagemain',
-        'communepartnerspage',
+        'partnercommunespage',
         'persons',
         'researchpage',
         'presspage',
@@ -63,7 +63,7 @@ export default config({
     projectpartnerpageintro: keystaticProjectPartnerPageIntroConfig,
     projectpartnerpagemain: keystaticProjectPartnerPageMainConfig,
     imprintpage: keystaticImprintPageConfig,
-    communepartnerspage: keystaticPartnerCommunesPageConfig,
+    partnercommunespage: keystaticPartnerCommunesPageConfig,
   },
   collections: {
     subprojects: keystaticSubprojectsConfig,

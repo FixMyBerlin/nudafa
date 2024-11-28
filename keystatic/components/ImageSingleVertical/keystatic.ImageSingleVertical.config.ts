@@ -2,10 +2,10 @@ import { fields } from '@keystatic/core'
 import { block } from '@keystatic/core/content-components'
 import { KeystaticPreview } from './KeystaticPreview'
 
-export type ImageSingleSquare = {
+export type ImageSingleVerticalType = {
   src: string
-  alt: string
-  caption: string
+  alt?: string
+  caption?: string
   imageConfig:
     | {
         discriminant: 'half'
@@ -16,9 +16,9 @@ export type ImageSingleSquare = {
       }
 }
 
-export const keystaticImageSingleSquareConfig = (imagePath: string) =>
+export const keystaticImageSingleVerticalConfig = (imagePath: string) =>
   block({
-    label: 'Bild: einzeln, quadratisch',
+    label: 'Bild: einzeln, Hochformat',
     schema: {
       src: fields.image({
         label: 'Bild',
@@ -40,7 +40,7 @@ export const keystaticImageSingleSquareConfig = (imagePath: string) =>
             { label: 'halbe Breite', value: 'half' },
             { label: 'ganze Breite', value: 'full' },
           ],
-          defaultValue: 'full',
+          defaultValue: 'half',
         }),
         {
           half: fields.select({

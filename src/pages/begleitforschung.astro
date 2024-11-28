@@ -2,7 +2,7 @@
 import PageHeader from '@components/PageHeader.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import { getEntry } from 'astro:content'
-import { mdxComponentsAstro } from 'keystatic/mdxComponents'
+import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 const page = await getEntry('researchpage', 'index')
 const { title, subTitle } = page.data

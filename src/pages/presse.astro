@@ -5,7 +5,7 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import Link from '@components/links/Link.astro'
 import { getEntry } from 'astro:content'
-import { mdxComponentsAstro } from 'keystatic/mdxComponents'
+import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 const page = await getEntry('presspage', 'index')
 const { title, subTitle, mediaLinks } = page.data
