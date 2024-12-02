@@ -17,7 +17,7 @@ type TUrgencyTableData = {
   }
 }
 
-export const urgencyTableData: TUrgencyTableData = {
+const urgencyTableData: TUrgencyTableData = {
   sofort: {
     color: 'bg-[#818CF8]',
     title: 'sofort',

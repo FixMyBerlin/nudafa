@@ -6,7 +6,7 @@ import { ContentGeneral } from './ContentGeneral'
 import { ContentGoals } from './ContentGoals'
 import { ContentTraffic } from './ContentTraffic'
 
-export type DashboardData = { data: InferEntrySchema<'measuretowns'> }
+type DashboardData = { data: InferEntrySchema<'measuretowns'> }
 export type GeneralDashboardData = { data: InferEntrySchema<'measuretowns'>['general'] }
 export type TrafficDashboardData = { data: InferEntrySchema<'measuretowns'>['traffic'] }
 export type GoalsDashboardData = { data: InferEntrySchema<'measuretowns'>['goals'] }

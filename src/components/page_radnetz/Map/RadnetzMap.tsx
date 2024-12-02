@@ -56,7 +56,7 @@ const fitBoundsOptionsInitialMapView = {
 const interactiveLayerIds: string[] = []
 
 // Style: https://cloud.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/
-export const MAPTILER_STYLE =
+const MAPTILER_STYLE =
   'https://api.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/style.json?key=ECOoUBmpqklzSCASXxcu'
 
 export const RadnetzMap = ({ children }: Props) => {

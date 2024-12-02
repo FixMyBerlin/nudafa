@@ -7,17 +7,7 @@ import { beforeIds } from '../sortLayers/beforeIds.const'
 import { $mapLoaded } from '../utils/store'
 import { showDebugMap } from './showDebugMap'
 
-export type MapDebugHelperData = {
-  styleModified: string
-  styleId: string
-  styleName: string
-  ourLayers: AnyLayer[]
-  ourUpdatedLayers: AnyLayer[]
-  source: string
-  zoom: number
-}
-
-export const showMapDebugHelper = showDebugMap('debug')
+const showMapDebugHelper = showDebugMap('debug')
 
 export const MapDebugHelper = () => {
   const { mainMap } = useMap()
