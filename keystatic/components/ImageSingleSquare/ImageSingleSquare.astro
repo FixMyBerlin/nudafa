@@ -19,8 +19,8 @@ const position = 'value' in imageConfig ? imageConfig.value : undefined
     'not-prose',
   ]}
 >
-  <figure class:list={[width === 'half' ? 'w-full md:w-1/2' : 'w-full']}>
-    <div class:list={['aspect-[1/1]']}>
+  <figure class={width === 'half' ? 'w-full md:w-1/2' : 'w-full'}>
+    <div class="aspect-[1/1]">
       <Picture
         class="h-full w-full overflow-hidden object-cover"
         src={image}
