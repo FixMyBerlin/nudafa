@@ -4,43 +4,39 @@ import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
 import MeasuresDashboard from '@components/page_massnahmen/MeasuresDashboard.astro'
 import { MeasuresListAndMap } from '@components/page_massnahmen/MeasuresListAndMap'
-import { getCollection } from 'astro:content'
-import clsx from 'clsx'
+import { getCollection, type CollectionEntry } from 'astro:content'
+import { clsx } from 'clsx'
 
-export async function getStaticPaths() {
-  const towns = await getCollection('measuretowns')
-  return towns.map((entry) => ({
-    params: { townslug: entry.id },
-    props: { entry, slug: entry.id },
-  }))
-}
+type Props = CollectionEntry<'measuretowns'>
 
-// all measures including archived measures
+const {
+  id,
+  data: { title },
+} = Astro.props
+
+// List of non-archived measures for town
 const allMeasures = await getCollection('measures')
-// filter out archived measures
 const measures = allMeasures.filter((m) => !(m.data.status === 'archiviert'))
+const measuresFilteredByTown = measures.filter((m) => m.data.town === id)
+
 const subTopics = await getCollection('subprojectstopics')
-
-const { entry, slug } = Astro.props
-
-const measuresFilteredByTown = measures.filter((m) => m.data.town === entry.id)
 ---
 
-<LayoutPage title=`Massnahmen ${entry.data.title}`>
+<LayoutPage title=`Massnahmen ${title}`>
   <!-- Spacing top: For now hacky workaround because our page layout applies a `mt` which we need to overwrite here to apply the background. We could make this a prop of LayoutPage, but lets see … -->
   <PageHeader
     className={clsx('!md:pt-20 !-mt-12 !pt-12', '!mb-0 pb-px', 'bg-[#C6E6D5]')}
-    title={entry.data.title}
+    title={title}
   />
 
-  <MeasuresDashboard townslug={slug} />
+  <MeasuresDashboard townslug={id} />
 
   <Section className="bg-[#E5ECF2]">
     <MeasuresListAndMap
       client:load
       measures={measuresFilteredByTown}
       subTopics={subTopics}
-      townFilter={entry.data.title}
+      townFilter={title}
     />
   </Section>
 </LayoutPage>

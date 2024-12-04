@@ -1,0 +1,93 @@
+---
+import ProseMarkdown from '@components/ProseMarkdown.astro'
+import H1 from '@components/Text/H1.astro'
+import LayoutPage from '@components/layouts/LayoutPage.astro'
+import Section from '@components/layouts/Section.astro'
+import MeasureTable from '@components/page_massnahmen/MeasureTable.astro'
+import { MeasureMap } from '@components/page_massnahmen/MeasuresMap'
+import { getGeometryByNudafaId } from '@components/page_massnahmen/utils/getGeometryByNudafaId'
+import { MapPinIcon } from '@heroicons/react/24/outline'
+import { Picture } from 'astro:assets'
+import { render, type CollectionEntry } from 'astro:content'
+import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
+
+type Props = CollectionEntry<'measures'>
+
+const { Content } = await render(Astro.props)
+const {
+  data: { title, image, imageCopyright, location, problem, nudafa_id },
+} = Astro.props
+
+const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
+---
+
+<LayoutPage title={title}>
+  <Section className="mt-0 md:mt-8">
+    <H1 transition:name="h1">
+      {title}
+    </H1>
+    {
+      location && (
+        <p class="mb-4 mt-4 flex items-center gap-2 text-base" transition:name="subtitle">
+          <MapPinIcon className="h-6 w-6" />
+          {location}
+        </p>
+      )
+    }
+    <p class="text-base text-gray-600">NUDAFA-ID: {nudafa_id}</p>
+  </Section>
+  <Section>
+    {
+      image && (
+        <figure class="m-0 aspect-[4/3] w-full">
+          <Picture
+            class="h-full w-full overflow-hidden object-cover"
+            src={image}
+            alt=""
+            loading="lazy"
+            width={920}
+            formats={['jpg', 'avif']}
+            densities={[1.5, 2]}
+          />
+          {imageCopyright && (
+            <figcaption class="mr-6 mt-1 text-right text-xs text-gray-400 md:text-sm">
+              © {imageCopyright}
+            </figcaption>
+          )}
+        </figure>
+      )
+    }
+  </Section>
+  {
+    problem && (
+      <Section>
+        <p class="font-bold">Bedarfslage / Anlass der Maßnahme</p>
+        <ProseMarkdown>
+          <p>{problem}</p>
+        </ProseMarkdown>
+      </Section>
+    )
+  }
+  <Section>
+    <p class="font-bold">Beschreibung der Maßnahme</p>
+    <ProseMarkdown><Content components={mdxComponentsAstro} /></ProseMarkdown>
+  </Section>
+  <Section className="mt-16">
+    <MeasureTable measure={Astro.props.data} />
+  </Section>
+  <Section>
+    <div>
+      {
+        !!features?.length ? (
+          <div>
+            <div class="h-[600px] w-full">
+              <MeasureMap selectedLineId={nudafa_id} geometry={features} client:load />
+            </div>
+          </div>
+        ) : (
+          <div class="text-sm text-gray-600">k. Geometrie vorhanden</div>
+        )
+      }
+    </div>
+  </Section>
+</LayoutPage>
