@@ -1,15 +1,5 @@
 import { collection, fields } from '@keystatic/core'
-import { defineCollection, z } from 'astro:content'
 import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
-
-export const astroNewsDefinition = defineCollection({
-  type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      teaserImage: image(),
-    }),
-})
 
 export const keystaticNewsConfig = collection({
   label: 'News',

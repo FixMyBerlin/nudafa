@@ -1,20 +1,7 @@
 import { collection, fields } from '@keystatic/core'
-import { defineCollection, z } from 'astro:content'
 import { keystaticTextLinkArrowConfig } from './components/TextLinkArrow/keystatic.TextLinkArrow.config'
 
-export const astroBicyclenetworkpagesDefinition = defineCollection({
-  type: 'content',
-  schema: () =>
-    z.object({
-      menu: z.string(),
-      order: z.number(),
-      title: z.string(),
-      sources: z.string().optional(),
-      links: z.array(z.object({ url: z.string(), display: z.string() })).optional(),
-    }),
-})
-
-export const keystaticBicyclenetworkpagesConfig = collection({
+export const bicyclenetworkpagesKeystatic = collection({
   label: 'Radnetz Seiten',
   entryLayout: 'content',
   slugField: 'menu',

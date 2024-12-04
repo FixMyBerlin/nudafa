@@ -1,15 +1,5 @@
 import { fields, singleton } from '@keystatic/core'
-import { defineCollection, z } from 'astro:content'
 import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
-
-export const astroProjectPartnerPageIntroDefinition = defineCollection({
-  type: 'content',
-  schema: () =>
-    z.object({
-      title: z.string(),
-      subTitle: z.string(),
-    }),
-})
 
 export const keystaticProjectPartnerPageIntroConfig = singleton({
   entryLayout: 'content',
@@ -31,11 +21,6 @@ export const keystaticProjectPartnerPageIntroConfig = singleton({
       components: mdxComponentsKeystatic('projectpartnerpage'),
     }),
   },
-})
-
-export const astroProjectPartnerPageMainDefinition = defineCollection({
-  type: 'content',
-  schema: () => z.object({}),
 })
 
 export const keystaticProjectPartnerPageMainConfig = singleton({

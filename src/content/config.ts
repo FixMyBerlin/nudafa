@@ -1,31 +1,28 @@
-import { astroBicyclenetworkpagesDefinition } from 'keystatic/keystatic.bicyclenetworkPages.config'
-import {
-  astroHomepageIntroDefinition,
-  astroHomepageMainDefinition,
-} from 'keystatic/keystatic.homepage.config'
-import { astroImprintPageDefinition } from 'keystatic/keystatic.imprint.config'
-import { astroMeasuresDefinition } from 'keystatic/keystatic.measures.config'
-import { astroMeasuretownsDefinition } from 'keystatic/keystatic.measuretowns.config'
-import { astroMeasuretypesDefinition } from 'keystatic/keystatic.measuretypes.config'
+import { astroBicyclenetworkpagesDefinition } from 'keystatic/bicyclenetworkPagesAstro'
+import { homepageIntroAstro, homepageMainAstro } from 'keystatic/homepageAstro'
+import { astroImprintPageDefinition } from 'keystatic/imprintAstro'
+import { astroMeasuresDefinition } from 'keystatic/measuresAstro'
+import { astroMeasuretownsDefinition } from 'keystatic/measuretownsAstro'
+import { astroMeasuretypesDefinition } from 'keystatic/measuretypesAstro'
 import {
   astroProjectPartnerPageIntroDefinition,
   astroProjectPartnerPageMainDefinition,
-} from 'keystatic/keystatic.partner.config'
-import { astroPartnerCommunesPageDefinition } from 'keystatic/keystatic.partnercommunespage.config'
-import { astroPersonsDefinition } from 'keystatic/keystatic.persons.config'
-import { astroPressPageDefinition } from 'keystatic/keystatic.press.config'
-import { astroResearchPageDefinition } from 'keystatic/keystatic.research.config'
+} from 'keystatic/partnerAstro'
+import { astroPartnerCommunesPageDefinition } from 'keystatic/partnercommunespageAstro'
+import { astroPersonsDefinition } from 'keystatic/personsAstro'
+import { astroPressPageDefinition } from 'keystatic/pressAstro'
+import { astroResearchPageDefinition } from 'keystatic/researchAstro'
 import {
   astroSubprojectAndMeasureTopicsDefinition,
   astroSubprojectCommunesDefinition,
   astroSubprojectPartnersDefinition,
   astroSubprojectsDefinition,
-} from 'keystatic/keystatic.subprojects.config'
+} from 'keystatic/subprojectsAstro'
 
 export const collections = {
   // Singleton
-  homepageintro: astroHomepageIntroDefinition,
-  homepagemain: astroHomepageMainDefinition,
+  homepageintro: homepageIntroAstro,
+  homepagemain: homepageMainAstro,
   presspage: astroPressPageDefinition,
   researchpage: astroResearchPageDefinition,
   projectpartnerpageintro: astroProjectPartnerPageIntroDefinition,

@@ -1,16 +1,5 @@
 import { fields, singleton } from '@keystatic/core'
-import { defineCollection, z } from 'astro:content'
 import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
-
-export const astroPressPageDefinition = defineCollection({
-  type: 'content',
-  schema: () =>
-    z.object({
-      title: z.string(),
-      subTitle: z.string(),
-      mediaLinks: z.array(z.object({ url: z.string(), display: z.string() })),
-    }),
-})
 
 export const keystaticPressPageConfig = singleton({
   entryLayout: 'content',

@@ -1,28 +1,25 @@
 import { config } from '@keystatic/core'
 import { KEYSTATIC_STORAGE_KIND } from 'astro:env/client'
-import { keystaticBicyclenetworkpagesConfig } from 'keystatic/keystatic.bicyclenetworkPages.config'
-import {
-  keystaticHomepageIntroConfig,
-  keystaticHomepageMainConfig,
-} from 'keystatic/keystatic.homepage.config'
-import { keystaticImprintPageConfig } from 'keystatic/keystatic.imprint.config'
-import { keystaticMeasuresConfig } from 'keystatic/keystatic.measures.config'
-import { keystaticMeasuretownsConfig } from 'keystatic/keystatic.measuretowns.config'
-import { keystaticMeasuretypesConfig } from 'keystatic/keystatic.measuretypes.config'
+import { bicyclenetworkpagesKeystatic } from 'keystatic/bicyclenetworkPagesKeystatic'
+import { HomepageIntroKeystatic, HomepageMainKeystatic } from 'keystatic/homepageKeystatic'
+import { keystaticImprintPageConfig } from 'keystatic/imprintKeystatic'
+import { keystaticMeasuresConfig } from 'keystatic/measuresKeystatic'
+import { keystaticMeasuretownsConfig } from 'keystatic/measuretownsKeystatic'
+import { keystaticMeasuretypesConfig } from 'keystatic/measuretypesKeystatic'
+import { keystaticPartnerCommunesPageConfig } from 'keystatic/partnercommunespageKeystatic'
 import {
   keystaticProjectPartnerPageIntroConfig,
   keystaticProjectPartnerPageMainConfig,
-} from 'keystatic/keystatic.partner.config'
-import { keystaticPartnerCommunesPageConfig } from 'keystatic/keystatic.partnercommunespage.config'
-import { keystaticPersonsConfig } from 'keystatic/keystatic.persons.config'
-import { keystaticPressPageConfig } from 'keystatic/keystatic.press.config'
-import { keystaticResearchPageConfig } from 'keystatic/keystatic.research.config'
+} from 'keystatic/partnerKeystatic'
+import { keystaticPersonsConfig } from 'keystatic/personsKeystatic'
+import { keystaticPressPageConfig } from 'keystatic/pressKeystatic'
+import { keystaticResearchPageConfig } from 'keystatic/researchKeystatic'
 import {
   keystaticSubprojectAndMeasureTopicsConfig,
   keystaticSubprojectCommunesConfig,
   keystaticSubprojectPartnersConfig,
   keystaticSubprojectsConfig,
-} from 'keystatic/keystatic.subprojects.config'
+} from 'keystatic/subprojectsKeystatic'
 
 export default config({
   storage: {
@@ -56,8 +53,8 @@ export default config({
     },
   },
   singletons: {
-    homepageintro: keystaticHomepageIntroConfig,
-    homepagemain: keystaticHomepageMainConfig,
+    homepageintro: HomepageIntroKeystatic,
+    homepagemain: HomepageMainKeystatic,
     presspage: keystaticPressPageConfig,
     researchpage: keystaticResearchPageConfig,
     projectpartnerpageintro: keystaticProjectPartnerPageIntroConfig,
@@ -70,7 +67,7 @@ export default config({
     subprojectstopics: keystaticSubprojectAndMeasureTopicsConfig,
     communes: keystaticSubprojectCommunesConfig, // Verbundpartner
     partners: keystaticSubprojectPartnersConfig, // Projektpartner
-    bicyclenetworkages: keystaticBicyclenetworkpagesConfig,
+    bicyclenetworkages: bicyclenetworkpagesKeystatic,
     measures: keystaticMeasuresConfig,
     measuretowns: keystaticMeasuretownsConfig,
     measuretypes: keystaticMeasuretypesConfig,

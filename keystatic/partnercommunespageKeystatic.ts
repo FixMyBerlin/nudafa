@@ -1,21 +1,11 @@
 import { fields, singleton } from '@keystatic/core'
-import { defineCollection, z } from 'astro:content'
 import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
 
-export const astroResearchPageDefinition = defineCollection({
-  type: 'content',
-  schema: () =>
-    z.object({
-      title: z.string(),
-      subTitle: z.string().optional(),
-    }),
-})
-
-export const keystaticResearchPageConfig = singleton({
+export const keystaticPartnerCommunesPageConfig = singleton({
   entryLayout: 'content',
-  label: 'Begleitforschung-Seite',
+  label: 'Partnerkommunen-Seite',
   format: { contentField: 'content' },
-  path: 'src/content/researchpage/',
+  path: 'src/content/partnercommunespage/',
   schema: {
     title: fields.text({
       label: 'Überschrift',
@@ -27,8 +17,13 @@ export const keystaticResearchPageConfig = singleton({
     }),
     content: fields.mdx({
       label: 'Content',
-      options: { image: false },
-      components: mdxComponentsKeystatic('researchpage'),
+      options: {
+        image: {
+          directory: 'src/assets/partnercommunespage',
+          publicPath: '/src/assets/partnercommunespage',
+        },
+      },
+      components: mdxComponentsKeystatic('partnercommunespage'),
     }),
   },
 })
