@@ -46,33 +46,31 @@ export default defineConfig({
     '/forschungsprojekt': '/',
     '/radnetzplanung': '/radnetz/einleitung',
   },
-  experimental: {
-    env: {
-      schema: {
-        ASTRO_OUTPUT_MODE: envField.enum({
-          values: ['static', 'hybrid', 'server'],
-          access: 'secret',
-          context: 'server',
-          optional: false,
-        }),
-        ASTRO_USE_NETLIFY_ADAPTER: envField.boolean({
-          access: 'secret',
-          context: 'server',
-          optional: false,
-        }),
-        KEYSTATIC_STORAGE_KIND: envField.enum({
-          values: ['local', 'github'],
-          access: 'public',
-          context: 'client',
-          optional: false,
-        }),
-        ASTRO_ENV: envField.enum({
-          values: ['development', 'staging', 'production'],
-          access: 'public',
-          context: 'client',
-          optional: false,
-        }),
-      },
+  env: {
+    schema: {
+      ASTRO_OUTPUT_MODE: envField.enum({
+        values: ['static', 'server'],
+        access: 'secret',
+        context: 'server',
+        optional: false,
+      }),
+      ASTRO_USE_NETLIFY_ADAPTER: envField.boolean({
+        access: 'secret',
+        context: 'server',
+        optional: false,
+      }),
+      KEYSTATIC_STORAGE_KIND: envField.enum({
+        values: ['local', 'github'],
+        access: 'public',
+        context: 'client',
+        optional: false,
+      }),
+      ASTRO_ENV: envField.enum({
+        values: ['development', 'staging', 'production'],
+        access: 'public',
+        context: 'client',
+        optional: false,
+      }),
     },
   },
 })
