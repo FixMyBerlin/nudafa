@@ -1,4 +1,6 @@
 ---
+export const prerender = true
+
 import PageHeader from '@components/PageHeader.astro'
 import ProseMarkdown from '@components/ProseMarkdown.astro'
 import SubProjectTable from '@components/SubProjectTable.astro'
@@ -9,18 +11,18 @@ import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astr
 
 export async function getStaticPaths() {
   const projects = await getCollection('subprojects')
-  return projects
+  const pages = projects
     .filter((p) => p.data.isPublic)
-    .map((entry) => ({
-      params: { slug: entry.slug },
-      props: { entry },
+    .map((page) => ({
+      params: { slug: page.id },
+      props: { page },
     }))
+  return pages
 }
 
-const { entry } = Astro.props
-const { title, subTitle, topics, projectCommunes, projectPartners, start, end, funding } =
-  entry.data
-const { Content } = await render(entry)
+const { page } = Astro.props
+const { title, subTitle, topics, projectCommunes, projectPartners, start, end, funding } = page.data
+const { Content } = await render(page)
 ---
 
 <LayoutPage title={title}>

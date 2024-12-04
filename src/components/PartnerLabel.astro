@@ -8,7 +8,7 @@ type Props = {
 
 const { partnerId }: Props = Astro.props
 const partners = await getCollection('partners')
-const partner = partners.find((partner) => partner.slug === partnerId)
+const partner = partners.find((partner) => partner.id === partnerId)
 const partnerTitle = partner?.data?.name || partner
 const partnerColorClass = getColorClass(partner?.data.color)
 ---

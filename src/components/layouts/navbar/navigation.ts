@@ -6,13 +6,13 @@ const subprojectsNavigation: Record<string, string> = {}
 subprojects
   ?.filter((p) => p.data.isPublic)
   .forEach((p) => {
-    subprojectsNavigation[p.data.title] = `/teilprojekte/${p.slug}`
+    subprojectsNavigation[p.data.title] = `/teilprojekte/${p.id}`
   })
 
 // const measures = await getCollection('measures')
 // const measuresNavigation: Record<string, string> = {};
 // measures?.forEach((p) => {
-//   measuresNavigation[p.data.title] = `/massnahmen/${p.slug}`;
+//   measuresNavigation[p.data.title] = `/massnahmen/${p.id}`;
 // });
 
 const measuretowns = await getCollection('measuretowns')

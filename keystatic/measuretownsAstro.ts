@@ -1,10 +1,12 @@
 import { defineCollection, z } from 'astro:content'
+import { contentBaseMeasureTowns } from './measuretownsKeystatic'
+import { loader } from './utils/loader'
 import { astroWidgetChartHorizontal } from './widgets/widgetChartHorizontal'
 import { astroWidgetChartRelativeVertical } from './widgets/widgetChartRelativeVertical'
 import { astroWidgetChartVertical } from './widgets/widgetChartVertical'
 
 export const astroMeasuretownsDefinition = defineCollection({
-  type: 'data',
+  loader: loader(contentBaseMeasureTowns, 'json'),
   schema: () =>
     z.object({
       title: z.string(),

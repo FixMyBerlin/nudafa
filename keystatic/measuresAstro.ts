@@ -1,7 +1,9 @@
 import { defineCollection, z } from 'astro:content'
+import { contentBaseMeasures } from './measuresKeystatic'
+import { loader } from './utils/loader'
 
 export const astroMeasuresDefinition = defineCollection({
-  type: 'content',
+  loader: loader(contentBaseMeasures, 'mdx'),
   schema: ({ image }) =>
     z.object({
       title: z.string(),

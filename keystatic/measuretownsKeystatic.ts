@@ -23,10 +23,11 @@ const keystaticWidgetMarkdown = (context: string, desc: string | undefined = und
     },
   })
 
+export const contentBaseMeasureTowns = '/src/content/measuretowns'
 export const keystaticMeasuretownsConfig = collection({
   label: 'Kommunen (Dashboards)',
   slugField: 'title',
-  path: 'src/content/measuretowns/*',
+  path: `${contentBaseMeasureTowns}/*`,
   format: { data: 'json' },
   entryLayout: 'form',
   columns: ['title'],

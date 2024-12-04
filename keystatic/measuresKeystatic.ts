@@ -6,10 +6,11 @@ import {
 import { collection, fields } from '@keystatic/core'
 import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
 
+export const contentBaseMeasures = '/src/content/measures'
 export const keystaticMeasuresConfig = collection({
   label: 'Maßnahmen',
   slugField: 'title',
-  path: 'src/content/measures/*',
+  path: `${contentBaseMeasures}/*`,
   format: { contentField: 'content' },
   schema: {
     title: fields.slug({
