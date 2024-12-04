@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import { Picture } from 'astro:assets'
 import { getImage } from 'keystatic/components/utils/getImage'
 import type { ImageSingleVerticalType } from './keystatic.ImageSingleVertical.config'
 
@@ -20,12 +20,15 @@ const position = 'value' in imageConfig ? imageConfig.value : undefined
   ]}
 >
   <figure class:list={[width === 'half' ? 'w-full md:w-1/2' : 'w-full']}>
-    <div class:list={['aspect-[3/4]']}>
-      <Image
+    <div class="aspect-[3/4]">
+      <Picture
         class="h-full w-full overflow-hidden object-cover"
         src={image}
         alt={alt || ''}
         loading="lazy"
+        width={width === 'half' ? 920 / 2 : 920}
+        formats={['jpg', 'avif']}
+        densities={[1.5, 2]}
       />
     </div>
     <figcaption class="mt-2 text-xs md:text-sm">{caption}</figcaption>

@@ -7,7 +7,7 @@ import MeasureTable from '@components/page_massnahmen/MeasureTable.astro'
 import { MeasureMap } from '@components/page_massnahmen/MeasuresMap'
 import { getGeometryByNudafaId } from '@components/page_massnahmen/utils/getGeometryByNudafaId'
 import { MapPinIcon } from '@heroicons/react/24/outline'
-import { Image } from 'astro:assets'
+import { Picture } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
@@ -44,11 +44,14 @@ const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
     {
       image && (
         <figure class="m-0 aspect-[4/3] w-full">
-          <Image
+          <Picture
             class="h-full w-full overflow-hidden object-cover"
             src={image}
             alt=""
             loading="lazy"
+            width={920}
+            formats={['jpg', 'avif']}
+            densities={[1.5, 2]}
           />
           {imageCopyright && (
             <figcaption class="mr-6 mt-1 text-right text-xs text-gray-400 md:text-sm">

@@ -65,17 +65,17 @@ const subTopics = await getCollection('subprojectstopics')
   class="flex flex-col divide-y divide-gray-200 rounded-sm border border-gray-200 text-gray-500 shadow-lg"
 >
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Status']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Status']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Status</TableRowHeadline>
     <StatusLabel slot="info" state={status} />
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Dringlichkeit']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Dringlichkeit']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Dringlichkeit</TableRowHeadline>
     {urgency ? <UrgencyLabel slot="info" urgency={urgency} withText /> : <span>-</span>}
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Themen']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Themen']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Themen</TableRowHeadline>
     <ul slot="info" class="flex flex-wrap gap-2">
       {
@@ -92,12 +92,12 @@ const subTopics = await getCollection('subprojectstopics')
     </ul>
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Zuständige Kommune']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Zuständige Kommune']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Zuständige Kommune</TableRowHeadline>
     <TownOrAdminAuthorityLabel slot="info" townOrAdminAuthorityId={town} />
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Baulasttäger']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Baulasttäger']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Baulasttäger</TableRowHeadline>
     <ul slot="info" class="flex flex-wrap gap-2">
       {
@@ -112,12 +112,12 @@ const subTopics = await getCollection('subprojectstopics')
     </ul>
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Länge']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Länge']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Länge</TableRowHeadline>
     {length ? <span slot="info">{length} Meter</span> : <span slot="info">-</span>}
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Projektlaufzeit']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Projektlaufzeit']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Projektlaufzeit</TableRowHeadline>
     <div slot="info" class="flex w-full flex-col">
       <div>
@@ -131,22 +131,22 @@ const subTopics = await getCollection('subprojectstopics')
     </div>
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Kosten']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Kosten']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Kosten</TableRowHeadline>
     {costs_amount ? <span slot="info">{costs_amount} €</span> : <span slot="info">-</span>}
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Förderquote']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Förderquote']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Förderquote</TableRowHeadline>
     {funding_quota ? <span slot="info">{funding_quota} %</span> : <span slot="info">-</span>}
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Anmerkung Kosten']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Anmerkung Kosten']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Anmerkung Kosten</TableRowHeadline>
     {costs_remarks ? <span slot="info">{costs_remarks} </span> : <span slot="info">-</span>}
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Komplexitätsstufe']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Komplexitätsstufe']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Komplexitätsstufe</TableRowHeadline>
     {
       complexity_level ? (
@@ -159,7 +159,7 @@ const subTopics = await getCollection('subprojectstopics')
     }
   </TableRow>
   <TableRow>
-    <Image class="h-4 w-4" src={tableIcons['Wichtige Stakeholder']} alt="" />
+    <Image class="h-4 w-4" src={tableIcons['Wichtige Stakeholder']} alt="" densities={[1.5, 2]} />
     <TableRowHeadline>Wichtige Stakeholder</TableRowHeadline>
     {stakeholders ? <span slot="info">{stakeholders} </span> : <span slot="info">-</span>}
   </TableRow>

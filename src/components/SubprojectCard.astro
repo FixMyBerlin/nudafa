@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import { Picture } from 'astro:assets'
 import { cardStylesForLinkElements, linkStyles } from './links/styles'
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 const { href, title, teaser, image, teaserImageCopyright } = Astro.props
 ---
 
-<li class:list={['']}>
+<li>
   <a
     class:list={[
       'h-xs flex w-full flex-col justify-between rounded-sm bg-white shadow-lg',
@@ -21,7 +21,15 @@ const { href, title, teaser, image, teaserImageCopyright } = Astro.props
     href={href}
   >
     <figure class="m-0 h-[250px] w-full">
-      <Image class="h-full w-full overflow-hidden object-cover" src={image} alt="" loading="lazy" />
+      <Picture
+        class="h-full w-full overflow-hidden object-cover"
+        src={image}
+        alt=""
+        loading="lazy"
+        height={250}
+        formats={['jpg', 'avif']}
+        densities={[1.5, 2]}
+      />
       {
         teaserImageCopyright && (
           <figcaption class="mr-6 mt-1 text-right text-xs text-gray-400 md:text-sm">
@@ -41,7 +49,7 @@ const { href, title, teaser, image, teaserImageCopyright } = Astro.props
           </p>
         )
       }
-      <small class:list={[linkStyles]}>Weiterlesen</small>
+      <small class:list={linkStyles}>Weiterlesen</small>
     </div>
   </a>
 </li>

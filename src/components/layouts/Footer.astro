@@ -1,7 +1,7 @@
 ---
 import FonaLogo from '@assets/logos/BMBF_FONA_Logo_rgb.png'
 import BmbfLogo from '@assets/logos/BMBF_gefoerdert_deutsch.png'
-import { Image } from 'astro:assets'
+import { Picture } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import { clsx } from 'clsx'
 import Section from './Section.astro'
@@ -19,8 +19,22 @@ const { footerNavigation } = Astro.props
 <Section>
   <div class="mb-12 mt-56 flex flex-col items-center justify-between gap-8 md:flex-row">
     <div class="flex w-full flex-shrink-0 md:w-auto">
-      <Image class="w-40" src={BmbfLogo} alt="Nudafa Logo" />
-      <Image class="w-40" src={FonaLogo} alt="Nudafa Logo" />
+      <Picture
+        class="w-40"
+        src={BmbfLogo}
+        alt=""
+        width={160}
+        formats={['png', 'avif']}
+        densities={[1.5, 2]}
+      />
+      <Picture
+        class="w-40"
+        src={FonaLogo}
+        alt=""
+        width={160}
+        formats={['png', 'avif']}
+        densities={[1.5, 2]}
+      />
     </div>
     <p class="flex-shrink text-xs">
       Das Bundesministerium für Bildung und Forschung (BMBF) fördert das Projekt NUDAFA im Rahmen

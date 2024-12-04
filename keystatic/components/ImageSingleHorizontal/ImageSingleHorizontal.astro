@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import { Picture } from 'astro:assets'
 import { getImage } from 'keystatic/components/utils/getImage'
 import type { ImageSingleHorizontal } from './keystatic.ImageSingleHorizontal.config'
 
@@ -29,11 +29,14 @@ const position =
         ratio === 'pano' && 'aspect-[16/9]',
       ]}
     >
-      <Image
+      <Picture
         class="h-full w-full overflow-hidden object-cover"
         src={image}
         alt={alt || ''}
         loading="lazy"
+        width={width === 'half' ? 920 / 2 : 920}
+        formats={['jpg', 'avif']}
+        densities={[1.5, 2]}
       />
     </div>
     {caption && <figcaption class="mt-2 text-xs text-gray-500 md:text-sm">{caption}</figcaption>}
