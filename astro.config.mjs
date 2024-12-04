@@ -11,7 +11,7 @@ import { defineConfig, envField } from 'astro/config'
 // Which we have to do manually, see https://docs.astro.build/en/guides/configuring-astro/#environment-variables
 //
 // USAGE:
-// `npm run dev` uses hybrid mode and keystatic()
+// `npm run dev` uses 'static' mode and keystatic()
 // `npm run build` (server) is based on .env and has different settings for Netlify (CMS/Keystatic) vs. IONOS (Static site)
 // `npm run build:local && npm run serve` overwrites the .env settings to have a local test case for what is on IONOS
 import { loadEnv } from 'vite'
