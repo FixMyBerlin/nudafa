@@ -1,7 +1,14 @@
 import { defineCollection, z } from 'astro:content'
+import {
+  contentBaseSubprojectAndMearuetopics,
+  contentBaseSubprojectCommunes,
+  contentBaseSubprojectPartners,
+  contentBaseSubprojects,
+} from './subprojectsKeystatic'
+import { loader } from './utils/loader'
 
 export const astroSubprojectsDefinition = defineCollection({
-  type: 'content',
+  loader: loader(contentBaseSubprojects, 'mdx'),
   schema: ({ image }) =>
     z.object({
       teaserImage: image(),
@@ -21,7 +28,7 @@ export const astroSubprojectsDefinition = defineCollection({
 })
 
 export const astroSubprojectAndMeasureTopicsDefinition = defineCollection({
-  type: 'data',
+  loader: loader(contentBaseSubprojectAndMearuetopics, 'yaml'),
   schema: () =>
     z.object({
       title: z.string(),
@@ -29,7 +36,7 @@ export const astroSubprojectAndMeasureTopicsDefinition = defineCollection({
 })
 
 export const astroSubprojectCommunesDefinition = defineCollection({
-  type: 'content',
+  loader: loader(contentBaseSubprojectCommunes, 'mdx'),
   schema: ({ image }) =>
     z.object({
       name: z.string(),
@@ -42,7 +49,7 @@ export const astroSubprojectCommunesDefinition = defineCollection({
 })
 
 export const astroSubprojectPartnersDefinition = defineCollection({
-  type: 'content',
+  loader: loader(contentBaseSubprojectPartners, 'mdx'),
   schema: () =>
     z.object({
       name: z.string(),

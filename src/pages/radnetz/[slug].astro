@@ -6,7 +6,7 @@ import { RadnetzImprintPrivacy } from '@components/page_radnetz/RadnetzImprintPr
 import { RadnetzMapConsent } from '@components/page_radnetz/RadnetzMapConsent'
 import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
 import type { RadnetzPage } from '@components/page_radnetz/types'
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import clsx from 'clsx'
 import TextLinkArrow from 'keystatic/components/TextLinkArrow/TextLinkArrow.astro'
 
@@ -15,7 +15,7 @@ const sortedPages = rawPages.sort((a, b) => a.data.order - b.data.order)
 const pages: RadnetzPage[] = []
 
 for (const page of sortedPages) {
-  const { Content } = await page.render()
+  const { Content } = await render(page)
   pages.push({
     slug: page.slug,
     menu: page.data.menu,

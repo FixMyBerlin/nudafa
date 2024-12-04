@@ -1,10 +1,11 @@
 import { collection, fields } from '@keystatic/core'
 import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
 
+export const contentBaseSubprojects = '/src/content/subprojects'
 export const keystaticSubprojectsConfig = collection({
   label: 'Teilprojekte',
   slugField: 'title',
-  path: 'src/content/subprojects/*',
+  path: `${contentBaseSubprojects}/*`,
   format: { contentField: 'content' },
   schema: {
     title: fields.slug({
@@ -79,11 +80,12 @@ export const keystaticSubprojectsConfig = collection({
   },
 })
 
+export const contentBaseSubprojectAndMearuetopics = '/src/content/subprojectstopics'
 export const keystaticSubprojectAndMeasureTopicsConfig = collection({
   label: 'Themen',
   format: 'yaml',
   slugField: 'title',
-  path: 'src/content/subprojectstopics/*',
+  path: `${contentBaseSubprojectAndMearuetopics}/*`,
   schema: {
     title: fields.slug({
       name: { label: 'Title' },
@@ -97,9 +99,10 @@ export const keystaticSubprojectAndMeasureTopicsConfig = collection({
   },
 })
 
+export const contentBaseSubprojectCommunes = '/src/content/communes'
 export const keystaticSubprojectCommunesConfig = collection({
   label: 'Verbundpartner',
-  path: 'src/content/communes/*',
+  path: `${contentBaseSubprojectCommunes}/*`,
   format: {
     contentField: 'emptyContent',
   },
@@ -151,9 +154,10 @@ export const keystaticSubprojectCommunesConfig = collection({
   },
 })
 
+export const contentBaseSubprojectPartners = '/src/content/partners'
 export const keystaticSubprojectPartnersConfig = collection({
   label: 'Projektpartner',
-  path: 'src/content/partners/*',
+  path: `${contentBaseSubprojectPartners}/*`,
   format: {
     contentField: 'emptyContent',
   },

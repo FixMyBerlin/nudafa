@@ -1,7 +1,9 @@
 import { defineCollection, z } from 'astro:content'
+import { contentBaseHomepageintro, contentBaseHomepagemain } from './homepageKeystatic'
+import { loader } from './utils/loader'
 
 export const homepageIntroAstro = defineCollection({
-  type: 'content',
+  loader: loader(contentBaseHomepageintro, 'mdx'),
   schema: () =>
     z.object({
       title: z.string(),
@@ -10,6 +12,6 @@ export const homepageIntroAstro = defineCollection({
 })
 
 export const homepageMainAstro = defineCollection({
-  type: 'content',
+  loader: loader(contentBaseHomepagemain, 'mdx'),
   schema: () => z.object({}),
 })

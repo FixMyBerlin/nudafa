@@ -20,7 +20,7 @@ const subProjectsSmall = subProjects.filter((p) => p.data.isPublic && !p.data.sh
           {subProjectsBig.map((project) => (
             <SubprojectCard
               image={project.data.teaserImage}
-              href={`/teilprojekte/${project.slug}`}
+              href={`/teilprojekte/${project.id}`}
               title={project.data.title}
               teaser={project.data.teaser}
               teaserImageCopyright={project.data.teaserImageCopyright}
@@ -35,7 +35,7 @@ const subProjectsSmall = subProjects.filter((p) => p.data.isPublic && !p.data.sh
           {subProjectsSmall.map((project) => (
             <SubprojectCard
               image={project.data.teaserImage}
-              href={`/teilprojekte/${project.slug}`}
+              href={`/teilprojekte/${project.id}`}
               title={project.data.title}
               teaser={project.data.teaser}
               teaserImageCopyright={project.data.teaserImageCopyright}

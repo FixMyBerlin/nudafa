@@ -4,7 +4,7 @@ import ProseMarkdown from '@components/ProseMarkdown.astro'
 import SubProjectTable from '@components/SubProjectTable.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 export async function getStaticPaths() {
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { title, subTitle, topics, projectCommunes, projectPartners, start, end, funding } =
   entry.data
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 ---
 
 <LayoutPage title={title}>

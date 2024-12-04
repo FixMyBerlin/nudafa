@@ -4,15 +4,15 @@ import ProseMarkdown from '@components/ProseMarkdown.astro'
 import SubProjectSection from '@components/SubProjectSection.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
 import Section from '@components/layouts/Section.astro'
-import { getEntry } from 'astro:content'
+import { getEntry, render } from 'astro:content'
 import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 const homepageintro = await getEntry('homepageintro', 'index')
 const homepagemain = await getEntry('homepagemain', 'index')
 
 const { title, subTitle } = homepageintro.data
-const { Content } = await homepageintro.render()
-const { Content: ContentMain } = await homepagemain.render()
+const { Content } = await render(homepageintro)
+const { Content: ContentMain } = await render(homepagemain)
 ---
 
 <LayoutPage>

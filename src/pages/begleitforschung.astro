@@ -1,12 +1,12 @@
 ---
 import PageHeader from '@components/PageHeader.astro'
 import LayoutPage from '@components/layouts/LayoutPage.astro'
-import { getEntry } from 'astro:content'
+import { getEntry, render } from 'astro:content'
 import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 const page = await getEntry('researchpage', 'index')
 const { title, subTitle } = page.data
-const { Content } = await page.render()
+const { Content } = await render(page)
 ---
 
 <LayoutPage title="Begleitforschung">

@@ -8,7 +8,7 @@ import { MeasureMap } from '@components/page_massnahmen/MeasuresMap'
 import { getGeometryByNudafaId } from '@components/page_massnahmen/utils/getGeometryByNudafaId'
 import { MapPinIcon } from '@heroicons/react/24/outline'
 import { Picture } from 'astro:assets'
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 export async function getStaticPaths() {
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props
 const { title, image, imageCopyright, location, problem, nudafa_id } = entry.data
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
 ---
 

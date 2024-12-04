@@ -1,11 +1,12 @@
 import { fields, singleton } from '@keystatic/core'
 import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
 
+export const contentBaseHomepageintro = '/src/content/homepageintro/'
 export const HomepageIntroKeystatic = singleton({
   entryLayout: 'content',
   label: 'Homepage Einführung (Über Teilprojekte-Teasern)',
   format: { contentField: 'content' },
-  path: 'src/content/homepageintro/',
+  path: contentBaseHomepageintro,
   schema: {
     title: fields.text({
       label: 'Überschrift',
@@ -28,11 +29,12 @@ export const HomepageIntroKeystatic = singleton({
   },
 })
 
+export const contentBaseHomepagemain = '/src/content/homepagemain//'
 export const HomepageMainKeystatic = singleton({
   entryLayout: 'content',
   label: 'Homepage Hauptteil (Unter Teilprojekte-Teasern)',
   format: { contentField: 'content' },
-  path: 'src/content/homepagemain/',
+  path: contentBaseHomepagemain,
   schema: {
     content: fields.mdx({
       label: 'Content',
