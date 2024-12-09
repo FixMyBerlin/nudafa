@@ -25,7 +25,7 @@ export const OptIn = ({ consent, setConsent }: Props) => {
                 Datenschutzbestimmungen von MapTiler
               </a>{' '}
               zu. MapTiler speichert nur kurzfristig notwendige Daten zu Deiner IP- Adresse. Du
-              kannst Deine Zustimmung auf unserer <a href="/datenschutz">Datenschutz-Seite</a>{' '}
+              kannst Deine Zustimmung auf unserer <a href="/datenschutz/">Datenschutz-Seite</a>{' '}
               zurückziehen.
             </p>
             Zur Darstellung unserer Karten benutzen wir MapTiler, wodurch wir eine Weitergabe von

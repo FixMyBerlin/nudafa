@@ -31,7 +31,7 @@ const RadnetzNav = ({ currentSection, handleClick, pages, className }: RadnetzNa
             <li key={slug} className="min-h-0">
               <a
                 onClick={(event) => handleClick(event, slug)}
-                href={`/radnetz/${slug}`}
+                href={`/radnetz/${slug}/`}
                 className={clsx(
                   'group block border-b border-gray-100 px-3 py-3 md:p-4',
                   active
@@ -62,7 +62,7 @@ type Props = { articleSlug: string; pages: RadnetzPage[] }
 export const RadnetzNavMobileAndDesktop = ({ articleSlug, pages }: Props) => {
   // SSR: We need to tell the router which page is pre-rendered so there is no hydration mismatch for the `active` state
   if (import.meta.env.SSR) {
-    $router.open(`/radnetz/${articleSlug}`)
+    $router.open(`/radnetz/${articleSlug}/`)
   }
 
   const router = useStore($router)

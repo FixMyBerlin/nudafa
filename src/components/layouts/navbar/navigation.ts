@@ -7,13 +7,13 @@ subprojects
   ?.filter((p) => p.data.isPublic)
   .sort((a, b) => a.id.localeCompare(b.id))
   .forEach((p) => {
-    subprojectsNavigation[p.data.title] = `/teilprojekte/${p.id}`
+    subprojectsNavigation[p.data.title] = `/teilprojekte/${p.id}/`
   })
 
 // const measures = await getCollection('measures')
 // const measuresNavigation: Record<string, string> = {};
 // measures?.forEach((p) => {
-//   measuresNavigation[p.data.title] = `/massnahmen/${p.id}`;
+//   measuresNavigation[p.data.title] = `/massnahmen/${p.id}/`;
 // });
 
 const measuretowns = await getCollection('measuretowns')
@@ -21,32 +21,32 @@ const measuretownNavigation: Record<string, string> = {}
 measuretowns
   .sort((a, b) => a.id.localeCompare(b.id))
   .forEach((p) => {
-    measuretownNavigation[p.data.title] = `/massnahmen/${p.id}`
+    measuretownNavigation[p.data.title] = `/massnahmen/${p.id}/`
   })
 
 export const mainNavigation: TNavigation = {
   first: {
     'Das Reallabor': {
       Start: '/',
-      'Über uns': '/ueber-uns',
-      Begleitforschung: '/begleitforschung',
-      Presse: '/presse',
+      'Über uns': '/ueber-uns/',
+      Begleitforschung: '/begleitforschung/',
+      Presse: '/presse/',
     },
     Teilprojekte: {
       ...subprojectsNavigation,
     },
   },
   second: {
-    'Zum Radnetz': '/radnetz/einleitung',
+    'Zum Radnetz': '/radnetz/einleitung/',
     'Zu den Maßnahmen': {
-      'Alle Maßnahmen': '/massnahmen',
+      'Alle Maßnahmen': '/massnahmen/',
       ...measuretownNavigation,
       // ...measuresNavigation,
     },
   },
   //   Veranstaltungen: {
-  //     "Aktuelle Veranstaltungen": "/veranstaltungen/aktuelle-veranstaltungen",
-  //     Veranstaltungsarchiv: "/veranstaltungen/archiv",
+  //     "Aktuelle Veranstaltungen": "/veranstaltungen/aktuelle-veranstaltungen/",
+  //     Veranstaltungsarchiv: "/veranstaltungen/archiv/",
   //   },
 }
 

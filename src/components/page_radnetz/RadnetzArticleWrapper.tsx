@@ -24,7 +24,7 @@ type Props = {
 export const RadnetzArticleWrapper = ({ articleSlug, title, children, links, sources }: Props) => {
   // SSR: We need to tell the router which page is pre-rendered so there is no hydration mismatch
   if (import.meta.env.SSR) {
-    $router.open(`/radnetz/${articleSlug}`)
+    $router.open(`/radnetz/${articleSlug}/`)
   }
   // SSR: We have to use this weird useEffect roundtrip in order to work around hydration mismatches
   const router = useStore($router)

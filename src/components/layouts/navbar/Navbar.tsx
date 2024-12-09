@@ -58,7 +58,7 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                             href={secondItem[1]}
                             className={clsx(
                               'ml-5 text-nowrap',
-                              secondItem[1] === path
+                              path.startsWith(secondItem[1])
                                 ? selectedMenuButtonStylesForLinkElement
                                 : menuButtonStylesForLinkElement,
                             )}
@@ -67,7 +67,6 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                           </a>
                         )
                       }
-
                       const [title, menuChildrenItems] = secondItem
                       return (
                         <NavbarMenuItem

@@ -24,7 +24,7 @@ const subProjectsSmall = subProjects
           {subProjectsBig.map((project) => (
             <SubprojectCard
               image={project.data.teaserImage}
-              href={`/teilprojekte/${project.id}`}
+              href={`/teilprojekte/${project.id}/`}
               title={project.data.title}
               teaser={project.data.teaser}
               teaserImageCopyright={project.data.teaserImageCopyright}
@@ -39,7 +39,7 @@ const subProjectsSmall = subProjects
           {subProjectsSmall.map((project) => (
             <SubprojectCard
               image={project.data.teaserImage}
-              href={`/teilprojekte/${project.id}`}
+              href={`/teilprojekte/${project.id}/`}
               title={project.data.title}
               teaser={project.data.teaser}
               teaserImageCopyright={project.data.teaserImageCopyright}

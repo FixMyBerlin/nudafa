@@ -15,7 +15,7 @@ export const MeasureCard = ({ measureSlug, measureData, subTopics, className }: 
   return (
     <a
       target="_blank"
-      href={`/massnahmen/${measureSlug}`}
+      href={`/massnahmen/${measureSlug}/`}
       key={measureData.nudafa_id}
       className={clsx(
         cardStylesForLinkElements,
