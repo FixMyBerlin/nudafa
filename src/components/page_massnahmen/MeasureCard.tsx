@@ -1,6 +1,5 @@
 import { cardStylesForLinkElements } from '@components/links/styles'
-import clsx from 'clsx'
-
+import { clsx } from 'clsx'
 import { MeasureCardButton } from './MeasureCardButton'
 import type { MeasureData, SubTopics } from './types'
 

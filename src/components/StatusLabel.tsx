@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import buildingImg from 'src/assets/icons/building.png'
 import bulbImg from 'src/assets/icons/bulb.png'
 import checkmarkImg from 'src/assets/icons/checkmark.png'

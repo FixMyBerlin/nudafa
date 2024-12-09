@@ -1,6 +1,5 @@
 import { IconWrapper, LegendItem } from '../Legend'
 import { IconLegendCircle } from '../icons/IconLegendCircle'
-
 import { Heatmap } from './../icons/Heatmap'
 
 export const LegendItemPoiShop = () => {

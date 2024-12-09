@@ -1,6 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { Fragment } from 'react'
 
 type Props = {

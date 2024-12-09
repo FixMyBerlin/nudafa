@@ -1,5 +1,5 @@
 import { useStore } from '@nanostores/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import type { MapStyleImageMissingEvent, SourceSpecification } from 'maplibre-gl'
 import { useEffect, useState } from 'react'
 import { useMap, type AnyLayer } from 'react-map-gl/maplibre'

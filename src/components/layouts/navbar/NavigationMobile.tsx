@@ -1,5 +1,5 @@
 import { DisclosurePanel } from '@headlessui/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import type { TNavigation } from './Navbar'
 import { NavigationDisclosureItemMobile } from './NavigationDisclosureItemMobile'
 

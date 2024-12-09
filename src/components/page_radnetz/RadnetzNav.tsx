@@ -2,7 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@head
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import { useStore } from '@nanostores/react'
 import { openPage } from '@nanostores/router'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { RadnetzImprintPrivacy } from './RadnetzImprintPrivacy'
 import { mapDataAndLegend } from './mapData/mapDataAndLegend.const'

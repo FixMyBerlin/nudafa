@@ -1,5 +1,4 @@
 import { IconWrapper, Legend, LegendCol, LegendHeader, LegendItem, LegendItems } from './Legend'
-
 import { IconLegendCircle } from './icons/IconLegendCircle'
 import { School } from './icons/School'
 import { Unsafe } from './icons/Unsafe'

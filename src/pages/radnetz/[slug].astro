@@ -1,6 +1,6 @@
 ---
 export const prerender = true
-
+//
 import LayoutApp from '@components/layouts/LayoutApp.astro'
 import { navHeightClassAsNegativeMarginBottom } from '@components/layouts/navbar/Navbar'
 import { RadnetzArticleWrapper } from '@components/page_radnetz/RadnetzArticleWrapper'
@@ -9,7 +9,7 @@ import { RadnetzMapConsent } from '@components/page_radnetz/RadnetzMapConsent'
 import { RadnetzNavMobileAndDesktop } from '@components/page_radnetz/RadnetzNav'
 import type { RadnetzPage } from '@components/page_radnetz/types'
 import { getCollection, render } from 'astro:content'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import TextLinkArrow from 'keystatic/components/TextLinkArrow/TextLinkArrow.astro'
 
 const rawPages = await getCollection('bicyclenetworkpages')

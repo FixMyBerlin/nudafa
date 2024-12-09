@@ -1,6 +1,6 @@
 import { buttonStylesForLinkElement } from '@components/links/styles'
 import { markdownProseClasses } from '@components/proseClasses'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 type Props = {
   links?: { display: string; url: string }[]

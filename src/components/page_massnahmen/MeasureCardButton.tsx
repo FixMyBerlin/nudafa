@@ -1,7 +1,7 @@
 import { linkStyles } from '@components/links/styles'
 import { StatusLabel } from '@components/StatusLabel'
 import { UrgencyLabel } from '@components/UrgencyLabel'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { MeasureCardCostDurationLength } from './MeasureCardCostDurationLength'
 import { MeasureCardTitle } from './MeasureCardTitle'
 import { MeasureCardTopicsAndTown } from './MeasureCardTopicsAndOperators'

@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 export const markdownProseClasses = clsx(
   'prose prose-sm md:prose-base', // responsive sizes

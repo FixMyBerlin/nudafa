@@ -6,7 +6,7 @@ import { buttonStylesForLinkElement } from '@components/links/styles'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/20/solid'
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { RadnetzInfo } from './RadnetzInfo'
 import { RadnetzLegend } from './RadnetzLegend'
 

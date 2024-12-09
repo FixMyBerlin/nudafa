@@ -1,12 +1,11 @@
-import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
-
 import {
   menuButtonStylesForLinkElement,
   selectedMenuButtonStylesForLinkElement,
 } from '@components/links/styles'
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
+import { Fragment } from 'react'
 
 type Props = {
   title: string

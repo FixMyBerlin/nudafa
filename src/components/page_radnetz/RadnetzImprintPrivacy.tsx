@@ -1,5 +1,5 @@
 import { linkStyles } from '@components/links/styles'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 type Props = { className?: string }
 

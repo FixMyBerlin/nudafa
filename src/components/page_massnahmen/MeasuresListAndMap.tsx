@@ -5,7 +5,7 @@ import {
 import { getGeometryByNudafaIds } from '@components/page_massnahmen/utils/getGeometryByNudafaId'
 import { statusTableData } from '@components/StatusLabel'
 import { ListBulletIcon, MapIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { useState } from 'react'
 import { FilterListbox } from './FilterListbox'
 import { MeasureCard } from './MeasureCard'

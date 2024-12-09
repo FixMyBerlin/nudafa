@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import type { SubTopics } from './page_massnahmen/types'
 
 type Props = {
