@@ -1,13 +1,13 @@
 {
   "title": "Gemeinde Eichwalde",
   "general": {
-    "widgetMarkdown": "Politische Beschlüsse&#x20;\n\nHector HeinrichFreitext Markdown Unfälle mit Rdfahrednen, Daten aus 2018-2021 und Unfallatlas, Statistische Ämterdes Bundes und der Länder, Daten aus 2021\\\nPKWs\\\nFahrräder\\\nPolitische Beschlüsse \\\nMarkdownfeld hier \\\nHector HeinrichFreitext Markdown Unfälle mit Rdfahrednen, Daten aus 2018-2021 und Unfallatlas, Statistische Ämterdes Bundes und der Länder, Daten aus 2021\n\n* 2021: Förderungen, ...\n* 2022: ...\n* 2023: Freitext Markdown Unfälle mit Rdfahrednen, Daten aus und Unfallatlas.\n",
+    "widgetMarkdown": "Politische Beschlüsse&#x20;\n\n* 2021: Förderungen, ...\n* 2022: ...\n* 2023: Freitext Markdown Unfälle mit Rdfahrednen, Daten aus und Unfallatlas.\n",
     "widgetFahrradklimatest": {
       "title": "Fahrradklimatest",
       "subText": "Ergebnisse der letzten Jahre ",
       "chartHorizontal": {
         "title": "Fahrradklimatest",
-        "height": 110,
+        "height": 6,
         "data": [
           {
             "label": "2021",
@@ -33,6 +33,10 @@
               {
                 "value": 15,
                 "color": "#98AEF8"
+              },
+              {
+                "value": 12,
+                "color": "00000"
               }
             ]
           }
