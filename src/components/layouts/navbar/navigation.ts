@@ -5,6 +5,7 @@ const subprojects = await getCollection('subprojects')
 const subprojectsNavigation: Record<string, string> = {}
 subprojects
   ?.filter((p) => p.data.isPublic)
+  .sort((a, b) => a.id.localeCompare(b.id))
   .forEach((p) => {
     subprojectsNavigation[p.data.title] = `/teilprojekte/${p.id}`
   })
@@ -17,9 +18,11 @@ subprojects
 
 const measuretowns = await getCollection('measuretowns')
 const measuretownNavigation: Record<string, string> = {}
-measuretowns?.forEach((p) => {
-  measuretownNavigation[p.data.title] = `/massnahmen/${p.id}`
-})
+measuretowns
+  .sort((a, b) => a.id.localeCompare(b.id))
+  .forEach((p) => {
+    measuretownNavigation[p.data.title] = `/massnahmen/${p.id}`
+  })
 
 export const mainNavigation: TNavigation = {
   first: {
