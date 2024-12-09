@@ -8,7 +8,9 @@ import { getEntry, render } from 'astro:content'
 import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 const homepageintro = await getEntry('homepageintro', 'index')
+if (homepageintro === undefined) return Astro.redirect('/404')
 const homepagemain = await getEntry('homepagemain', 'index')
+if (homepagemain === undefined) return Astro.redirect('/404')
 
 const { title, subTitle } = homepageintro.data
 const { Content } = await render(homepageintro)

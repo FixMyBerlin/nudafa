@@ -11,10 +11,9 @@ type Props = {
 }
 const { name, image, position, institution } = Astro.props
 
-const communes = await getCollection('communes')
-
-const commune = communes.find((commune) => {
-  return institution === commune.slug
+const _communes = await getCollection('communes')
+const commune = _communes.find((commune) => {
+  return institution === commune.id
 })
 ---
 
@@ -24,6 +23,7 @@ const commune = communes.find((commune) => {
   <figure class="w-full">
     <Picture
       class="mx-auto h-[128px] w-[128px] overflow-hidden rounded-full object-cover"
+      pictureAttributes={{ class: 'not-prose w-full' }}
       src={image}
       alt=""
       loading="lazy"

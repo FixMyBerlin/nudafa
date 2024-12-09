@@ -1,7 +1,7 @@
 ---
 import '@fontsource-variable/open-sans'
 import '@fontsource/roboto-slab'
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 import PngSocialSharingFallback from '../../../public/social-sharing/default.jpg'
 
 const defaultTitle = 'NUDAFA Reallabor - Radverkehrsplanung beschleunigen'
@@ -41,7 +41,7 @@ const seo = {
     <meta name="generator" content={Astro.generator} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="flex min-h-full w-full bg-[#eee] font-sans antialiased">
     <div class="relative flex-auto">

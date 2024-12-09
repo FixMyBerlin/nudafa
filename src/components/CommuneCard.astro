@@ -16,6 +16,7 @@ const { name, image, website } = Astro.props
   <figure class="w-full">
     <Picture
       class="mx-auto h-[160px] w-auto overflow-hidden object-cover"
+      pictureAttributes={{ class: 'not-prose w-full' }}
       src={image}
       alt={`Logo der Kommune ${name}`}
       loading="lazy"

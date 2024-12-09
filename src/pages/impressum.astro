@@ -4,6 +4,8 @@ import PageHeader from '@components/PageHeader.astro'
 import { getEntry, render } from 'astro:content'
 
 const page = await getEntry('imprintpage', 'index')
+if (page === undefined) return Astro.redirect('/404')
+
 const { title, subTitle } = page.data
 const { Content } = await render(page)
 ---

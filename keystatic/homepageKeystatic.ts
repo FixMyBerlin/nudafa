@@ -1,7 +1,7 @@
 import { fields, singleton } from '@keystatic/core'
 import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
 
-export const contentBaseHomepageintro = '/src/content/homepageintro/'
+export const contentBaseHomepageintro = '/src/content/homepageintro'
 export const HomepageIntroKeystatic = singleton({
   entryLayout: 'content',
   label: 'Homepage Einführung (Über Teilprojekte-Teasern)',
@@ -29,7 +29,7 @@ export const HomepageIntroKeystatic = singleton({
   },
 })
 
-export const contentBaseHomepagemain = '/src/content/homepagemain//'
+export const contentBaseHomepagemain = '/src/content/homepagemain'
 export const HomepageMainKeystatic = singleton({
   entryLayout: 'content',
   label: 'Homepage Hauptteil (Unter Teilprojekte-Teasern)',

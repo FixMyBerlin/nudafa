@@ -5,6 +5,7 @@
     "jsxImportSource": "react",
     "plugins": [
       {
+        // https://docs.astro.build/en/guides/typescript/#setup
         "name": "@astrojs/ts-plugin"
       }
     ],
@@ -16,5 +17,6 @@
     },
     "noErrorTruncation": true // https://stackoverflow.com/a/53131824
   },
+  "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]
 }

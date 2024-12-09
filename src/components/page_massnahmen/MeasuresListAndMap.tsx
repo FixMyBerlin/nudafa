@@ -92,7 +92,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
       <h2 className="mb-2 text-lg font-bold md:text-2xl">
         Maßnahmen für den Radverkehr ({fileterdMeasures.length})
       </h2>
-      <p>für die {!townFilter ? 'Nudafa Region' : townFilter}</p>
+      <p>für die {townFilter ? townFilter : 'Nudafa Region'}</p>
       <div className="my-10">
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
           <div>
@@ -179,7 +179,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
           />
           {selectedLineId && fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId) && (
             <MeasureCard
-              measureSlug={fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId)?.slug!}
+              measureSlug={fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId)?.id!}
               measureData={fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId)?.data!}
               subTopics={subTopics}
               className="absolute inset-x-0 bottom-0 z-10 mx-auto md:max-w-[820px]"
@@ -192,7 +192,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
             <li className="list-none">
               <MeasureCard
                 key={m.id}
-                measureSlug={m.slug}
+                measureSlug={m.id}
                 measureData={m.data}
                 subTopics={subTopics}
               />

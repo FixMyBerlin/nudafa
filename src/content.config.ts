@@ -4,13 +4,13 @@ import { astroImprintPageDefinition } from 'keystatic/imprintAstro'
 import { astroMeasuresDefinition } from 'keystatic/measuresAstro'
 import { astroMeasuretownsDefinition } from 'keystatic/measuretownsAstro'
 import { astroMeasuretypesDefinition } from 'keystatic/measuretypesAstro'
-import {
-  astroProjectPartnerPageIntroDefinition,
-  astroProjectPartnerPageMainDefinition,
-} from 'keystatic/partnerAstro'
 import { astroPartnerCommunesPageDefinition } from 'keystatic/partnercommunespageAstro'
 import { astroPersonsDefinition } from 'keystatic/personsAstro'
 import { astroPressPageDefinition } from 'keystatic/pressAstro'
+import {
+  astroProjectPartnerPageIntroDefinition,
+  astroProjectPartnerPageMainDefinition,
+} from 'keystatic/projectpartnerpageAstro'
 import { astroResearchPageDefinition } from 'keystatic/researchAstro'
 import {
   astroSubprojectAndMeasureTopicsDefinition,

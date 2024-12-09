@@ -49,6 +49,7 @@ const MapLayerOrderTable = () => {
   const { dragAndDropHooks } = useDragAndDrop({
     getItems: (keys) =>
       [...keys].map((key) => ({
+        // @ts-expect-error this worked before, should still work…
         'text/plain': list.getItem(key).layerKey,
       })),
     onReorder(e) {

@@ -42,6 +42,7 @@ const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
         <figure class="m-0 aspect-[4/3] w-full">
           <Picture
             class="h-full w-full overflow-hidden object-cover"
+            pictureAttributes={{ class: 'not-prose w-full' }}
             src={image}
             alt=""
             loading="lazy"

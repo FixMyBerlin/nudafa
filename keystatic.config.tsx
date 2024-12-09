@@ -7,12 +7,12 @@ import { keystaticMeasuresConfig } from 'keystatic/measuresKeystatic'
 import { keystaticMeasuretownsConfig } from 'keystatic/measuretownsKeystatic'
 import { keystaticMeasuretypesConfig } from 'keystatic/measuretypesKeystatic'
 import { keystaticPartnerCommunesPageConfig } from 'keystatic/partnercommunespageKeystatic'
+import { keystaticPersonsConfig } from 'keystatic/personsKeystatic'
+import { keystaticPressPageConfig } from 'keystatic/pressKeystatic'
 import {
   keystaticProjectPartnerPageIntroConfig,
   keystaticProjectPartnerPageMainConfig,
-} from 'keystatic/partnerKeystatic'
-import { keystaticPersonsConfig } from 'keystatic/personsKeystatic'
-import { keystaticPressPageConfig } from 'keystatic/pressKeystatic'
+} from 'keystatic/projectpartnerpageKeystatic'
 import { keystaticResearchPageConfig } from 'keystatic/researchKeystatic'
 import {
   keystaticSubprojectAndMeasureTopicsConfig,

@@ -5,6 +5,8 @@ import { getEntry, render } from 'astro:content'
 import { mdxComponentsAstro } from 'keystatic/components/mdxComponentsAstro.astro'
 
 const page = await getEntry('partnercommunespage', 'index')
+if (page === undefined) return Astro.redirect('/404')
+
 const { title, subTitle } = page.data
 const { Content } = await render(page)
 ---
