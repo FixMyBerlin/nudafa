@@ -36,7 +36,7 @@
               },
               {
                 "value": 12,
-                "color": "00000"
+                "color": "#E32636"
               }
             ]
           }
@@ -45,6 +45,10 @@
           {
             "text": "Gesamtergebnis aus allen Bewertungen",
             "color": "#98AEF8"
+          },
+          {
+            "text": "Bundesweit",
+            "color": "#E32636"
           }
         ],
         "source": "Quelle: ADFC"
