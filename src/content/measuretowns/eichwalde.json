@@ -1,57 +1,12 @@
 {
   "title": "Gemeinde Eichwalde",
   "general": {
-    "widgetMarkdown": "### Politische Beschlüsse&#x20;\n\n\n\n\n\n* Benotung im Fahrradklimatest: [2022](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://fkt.object-manager.com/data/2022/Eichwalde_12061112_FKT2022.pdf)&#x20;\n",
+    "widgetMarkdown": "### Politische Beschlüsse&#x20;\n\n* Benotung im Fahrradklimatest: [2022](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://fkt.object-manager.com/data/2022/Eichwalde_12061112_FKT2022.pdf)&#x20;\n",
     "widgetFahrradklimatest": {
-      "title": "Fahrradklimatest",
-      "subText": "Ergebnisse der letzten Jahre ",
       "chartHorizontal": {
-        "title": "Fahrradklimatest",
         "height": 30,
-        "data": [
-          {
-            "label": "2021",
-            "values": [
-              {
-                "value": 11,
-                "color": "#98AEF8"
-              }
-            ]
-          },
-          {
-            "label": "2022",
-            "values": [
-              {
-                "value": 13,
-                "color": "#98AEF8"
-              }
-            ]
-          },
-          {
-            "label": "2023",
-            "values": [
-              {
-                "value": 15,
-                "color": "#98AEF8"
-              },
-              {
-                "value": 12,
-                "color": "#E32636"
-              }
-            ]
-          }
-        ],
-        "legend": [
-          {
-            "text": "Gesamtergebnis aus allen Bewertungen",
-            "color": "#98AEF8"
-          },
-          {
-            "text": "Bundesweit",
-            "color": "#E32636"
-          }
-        ],
-        "source": "Quelle: ADFC"
+        "data": [],
+        "legend": []
       }
     },
     "widgetVerkehrsbelastung": {
