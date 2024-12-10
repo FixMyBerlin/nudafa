@@ -1,6 +1,5 @@
 ---
 import { Image, Picture } from 'astro:assets'
-import { ASTRO_USE_NETLIFY_ADAPTER } from 'astro:env/server'
 import { getImage } from 'keystatic/components/utils/getImage'
 import type { ImageSingleHorizontal } from './keystatic.ImageSingleHorizontal.config'
 
@@ -31,7 +30,7 @@ const position =
       ]}
     >
       {
-        (await image).default.format === 'gif' && ASTRO_USE_NETLIFY_ADAPTER === true ? (
+        (await image).default.format === 'gif' ? (
           <Image
             class="h-full w-full overflow-hidden object-cover"
             src={image}
