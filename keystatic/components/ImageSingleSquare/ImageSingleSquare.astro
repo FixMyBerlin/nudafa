@@ -28,7 +28,7 @@ const position = 'value' in imageConfig ? imageConfig.value : undefined
         alt={alt || ''}
         loading="lazy"
         width={width === 'half' ? 920 / 2 : 920}
-        formats={['jpg', 'avif']}
+        formats={(await image).default.format === 'gif' ? ['gif'] : ['jpg', 'avif']}
         densities={[1.5, 2]}
       />
     </div>
