@@ -1,5 +1,6 @@
 ---
-import { Picture } from 'astro:assets'
+import { Image, Picture } from 'astro:assets'
+import { ASTRO_USE_NETLIFY_ADAPTER } from 'astro:env/server'
 import { getImage } from 'keystatic/components/utils/getImage'
 import type { ImageSingleHorizontal } from './keystatic.ImageSingleHorizontal.config'
 
@@ -29,16 +30,27 @@ const position =
         ratio === 'pano' && 'aspect-[16/9]',
       ]}
     >
-      <Picture
-        class="h-full w-full overflow-hidden object-cover"
-        pictureAttributes={{ class: 'not-prose w-full' }}
-        src={image}
-        alt={alt || ''}
-        loading="lazy"
-        width={width === 'half' ? 920 / 2 : 920}
-        formats={['jpg', 'avif']}
-        densities={[1.5, 2]}
-      />
+      {
+        (await image).default.format === 'gif' && ASTRO_USE_NETLIFY_ADAPTER === true ? (
+          <Image
+            class="h-full w-full overflow-hidden object-cover"
+            src={image}
+            alt={alt || ''}
+            loading="lazy"
+          />
+        ) : (
+          <Picture
+            class="h-full w-full overflow-hidden object-cover"
+            pictureAttributes={{ class: 'not-prose w-full' }}
+            src={image}
+            alt={alt || ''}
+            loading="lazy"
+            width={width === 'half' ? 920 / 2 : 920}
+            formats={['jpg', 'avif']}
+            densities={[1.5, 2]}
+          />
+        )
+      }
     </div>
     {caption && <figcaption class="mt-2 text-xs text-gray-500 md:text-sm">{caption}</figcaption>}
   </figure>
