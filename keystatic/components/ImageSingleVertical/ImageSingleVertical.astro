@@ -20,18 +20,16 @@ const position = 'value' in imageConfig ? imageConfig.value : undefined
   ]}
 >
   <figure class:list={[width === 'half' ? 'w-full md:w-1/2' : 'w-full']}>
-    <div class="aspect-[3/4]">
-      <Picture
-        class="h-full w-full overflow-hidden object-cover"
-        pictureAttributes={{ class: 'not-prose w-full' }}
-        src={image}
-        alt={alt || ''}
-        loading="lazy"
-        width={width === 'half' ? 920 / 2 : 920}
-        formats={['jpg', 'avif']}
-        densities={[1.5, 2]}
-      />
-    </div>
+    <Picture
+      class="h-full w-full overflow-hidden object-cover"
+      pictureAttributes={{ class: 'not-prose w-full aspect-[3/4]' }}
+      src={image}
+      alt={alt || ''}
+      loading="lazy"
+      width={width === 'half' ? 920 / 2 : 920}
+      formats={['jpg', 'avif']}
+      densities={[1.5, 2]}
+    />
     <figcaption class="mt-2 text-xs md:text-sm">{caption}</figcaption>
   </figure>
 </div>
