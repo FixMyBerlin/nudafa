@@ -1,9 +1,8 @@
 {
   "title": "Gemeinde Schulzendorf",
   "general": {
-    "widgetMarkdown": "",
+    "widgetMarkdown": "Dieses Dashboard befindet sich derzeit im Aufbau.&#x20;\n\nIn Kürze erfahren Sie hier mehr!\n",
     "widgetFahrradklimatest": {
-      "title": "Fahrradklimatest",
       "chartHorizontal": {
         "data": [],
         "legend": []
