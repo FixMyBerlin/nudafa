@@ -19,7 +19,7 @@ const images = [
 
 <div class="not-prose my-8 grid w-full grid-cols-1 gap-5 md:grid-cols-2">
   {
-    images.map(async (image) => (
+    images.map((image) => (
       <figure>
         <div
           class:list={[
@@ -37,7 +37,7 @@ const images = [
             alt={alt || ''}
             loading="lazy"
             width={920 / 2 - 20}
-            formats={(await image.image).default.format === 'gif' ? ['gif'] : ['jpg', 'avif']}
+            formats={['jpg', 'avif']}
             densities={[1.5, 2]}
           />
         </div>

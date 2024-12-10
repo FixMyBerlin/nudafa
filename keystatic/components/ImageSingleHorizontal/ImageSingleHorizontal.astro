@@ -36,7 +36,7 @@ const position =
         alt={alt || ''}
         loading="lazy"
         width={width === 'half' ? 920 / 2 : 920}
-        formats={(await image).default.format === 'gif' ? ['gif'] : ['jpg', 'avif']}
+        formats={['jpg', 'avif']}
         densities={[1.5, 2]}
       />
     </div>
