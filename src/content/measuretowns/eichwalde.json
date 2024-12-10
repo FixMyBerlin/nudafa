@@ -1,7 +1,7 @@
 {
   "title": "Gemeinde Eichwalde",
   "general": {
-    "widgetMarkdown": "Politische Beschlüsse&#x20;\n\n* 2021: Förderungen, ...\n* 2022: ...\n* 2023: Freitext Markdown Unfälle mit Rdfahrednen, Daten aus und Unfallatlas.\n",
+    "widgetMarkdown": "### Politische Beschlüsse&#x20;\n\n\n\n\n\n* Benotung im Fahrradklimatest: [2022](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://fkt.object-manager.com/data/2022/Eichwalde_12061112_FKT2022.pdf)&#x20;\n",
     "widgetFahrradklimatest": {
       "title": "Fahrradklimatest",
       "subText": "Ergebnisse der letzten Jahre ",
@@ -194,7 +194,7 @@
     }
   },
   "goals": {
-    "widgetMarkdown": "### Konzepte und Gremien\n\n### Radverkehrskonzept\n\n✅ Beschlossen, [Konzept (PDF)](https://www.nudafa.de/)\n\n### Klimaschutzkonzept\n\n⏳ In Aufstellung\n\n### Arbeitsgruppe Radverkehr\n\n⏳ In Aufstellung\n\n### Mitglied in AGFK\n\n❌ Kein Mitglied\n",
+    "widgetMarkdown": "### Konzepte und Gremien\n\n### Radverkehrskonzept\n\n✅ Beschlossen, [Konzept (PDF)](https://www.nudafa.de/)\n\n### Klimaschutzkonzept\n\n✅ Beschlossen\n\n### Arbeitsgruppe Radverkehr\n\n⏳ In Aufstellung\n\n### Mitglied in AGFK\n\n❌ Kein Mitglied\n",
     "widgetPeople": "### Personen\n\n* Radverkehrsbeauftragter:\\\n  **Hector Heinrich**\n* Radverkehrsmanager:\\\n  **Maria Kuppelwieser**\n* Klimaschutzmanager:\\\n  **Matthias Schöneweger**\n",
     "widgetInvestitionen": {
       "title": "Investitionen",
@@ -217,7 +217,7 @@
         }
       ],
       "chartHorizontal": {
-        "title": "todo",
+        "title": "Diesdas",
         "height": 70,
         "data": [
           {
