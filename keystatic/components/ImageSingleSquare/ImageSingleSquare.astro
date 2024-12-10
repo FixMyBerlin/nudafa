@@ -27,7 +27,7 @@ const position = 'value' in imageConfig ? imageConfig.value : undefined
         src={image}
         alt={alt || ''}
         loading="lazy"
-        height={width === 'half' ? 920 / 2 : 920}
+        width={width === 'half' ? 920 / 2 : 920}
         formats={['jpg', 'avif']}
         densities={[1.5, 2]}
       />
