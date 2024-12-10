@@ -73,34 +73,34 @@
       }
     },
     "widgetModalsplit": {
-      "title": "Modalsplit (innerorts)",
-      "subText": "Jahr 2023, Angaben in Prozent",
+      "title": "Verkehrsmittelwahl innerorts (Modal Split)",
+      "subText": "Jahr 2018, Angaben in Prozent",
       "chartVertical": {
         "title": "Modalsplit (innerorts)",
         "data": [
           {
             "label": "PKW",
-            "value": 40,
+            "value": 41,
             "color": "#960854"
           },
           {
             "label": "Öffentlicher Nahverkehr",
-            "value": 27,
+            "value": 0,
             "color": "#9C27B0"
           },
           {
             "label": "Fahrrad",
-            "value": 6,
+            "value": 25,
             "color": "#EFC865"
           },
           {
             "label": "Zu Fuß",
-            "value": 27,
+            "value": 34,
             "color": "#98AEF8"
           }
         ],
         "dataUnit": "percent",
-        "source": "Quelle: MID"
+        "source": "Quelle: SrV 2018 (Zeuthen und Eichwalde als statistische Einheit betrachtet)"
       }
     },
     "widgetStrassennetz": {
@@ -150,11 +150,16 @@
   },
   "goals": {
     "widgetMarkdown": "### Konzepte und Gremien\n\n### Radverkehrskonzept\n\n✅ Beschlossen, [Konzept (PDF)](https://www.nudafa.de/)\n\n### Klimaschutzkonzept\n\n✅ Beschlossen\n\n### Arbeitsgruppe Radverkehr\n\n⏳ In Aufstellung\n\n### Mitglied in AGFK\n\n❌ Kein Mitglied\n",
-    "widgetPeople": "### Personen\n\n* Radverkehrsbeauftragter:\\\n  **Hector Heinrich**\n* Radverkehrsmanager:\\\n  **Maria Kuppelwieser**\n* Klimaschutzmanager:\\\n  **Matthias Schöneweger**\n",
+    "widgetPeople": "### Ansprechpartner zum Thema Radverkehr\n\n* Bürgermeister:\\\n  **Jörg Jenoch**\n* Interkommunaler Radverkehrsmanager:\\\n  **Tim Zander**\n* Ansprechpartner NUDAFA-Reallabor für interkommunale Radverkehrsförderung:\\\n  **Christoph Kollert**\n* Klimaschutzmanagerin:\\\n  **Uta Thieme**\n",
     "widgetInvestitionen": {
       "title": "Investitionen",
       "population": 6490,
       "table": [
+        {
+          "label": "2024",
+          "ausgaben": 2100000,
+          "eigenanteil": 550000
+        },
         {
           "label": "2023",
           "ausgaben": 590000,
