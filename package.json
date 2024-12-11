@@ -27,6 +27,11 @@
     "transformMeasuresCsvToMdx": "node scripts/csvToJson.js ./data/measures/massnahmenliste.csv ./data/measures/massnahmenliste.json && node scripts/measureJsonToMdx.js && npm run format:all",
     "updateMeasuresGeometry": "node scripts/updateMeasuresGeometry.js"
   },
+  "browserslist": [
+    "defaults",
+    "last 2 IE major versions",
+    "last 4 Edge major versions"
+  ],
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.0.2",
