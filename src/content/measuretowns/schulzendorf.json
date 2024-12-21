@@ -37,8 +37,14 @@
     },
     "widgetFahrzeuge": {
       "chartVertical": {
-        "data": [],
-        "dataUnit": "none"
+        "data": [
+          {
+            "label": "Fahrrad / Pedelec ",
+            "value": 96,
+            "color": "#14B8A6"
+          }
+        ],
+        "dataUnit": "percent"
       }
     },
     "widgetModalsplit": {
