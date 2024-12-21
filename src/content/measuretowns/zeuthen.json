@@ -1,7 +1,7 @@
 {
   "title": "Gemeinde Zeuthen",
   "general": {
-    "widgetMarkdown": "Dieses Dashboard befindet sich derzeit im Aufbau.&#x20;\n\nIn Kürze erfahren Sie hier mehr!\n\n\n\nErgebnisse im Fahrradklimatest&#x20;\n\n2022: 4,2 \\\n2020: 4,1\\\n2018: 4,1\n\n[Quelle: ADFC](https://fkt.object-manager.com/data/2022/Zeuthen_12061572_FKT2022.pdf)\n",
+    "widgetMarkdown": "Dieses Dashboard befindet sich derzeit im Aufbau.&#x20;\n\nIn Kürze erfahren Sie hier mehr!\n\nErgebnisse im Fahrradklimatest&#x20;\n\n2022: 4,2 \\\n2020: 4,1\\\n2018: 4,1\n\n[Quelle: ADFC](https://fkt.object-manager.com/data/2022/Zeuthen_12061572_FKT2022.pdf)\n",
     "widgetFahrradklimatest": {
       "title": "Fahrradklimatest",
       "chartHorizontal": {
@@ -19,8 +19,21 @@
   "traffic": {
     "widgetPentlersaldo": {
       "chartVertical": {
-        "data": [],
-        "dataUnit": "none"
+        "title": "Pendlersaldo",
+        "data": [
+          {
+            "label": "Einpendler",
+            "value": 1392,
+            "color": "#14B8A6"
+          },
+          {
+            "label": "Auspendler",
+            "value": 4047,
+            "color": "F37575"
+          }
+        ],
+        "dataUnit": "none",
+        "source": "Quelle: www.pendleratlas.de"
       }
     },
     "widgetFahrzeuge": {
