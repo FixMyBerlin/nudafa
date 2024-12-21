@@ -42,7 +42,7 @@
           {
             "label": "Fahrrad oder Pedelec ",
             "value": 96,
-            "color": "#14B8A6"
+            "color": "#960854"
           },
           {
             "label": "⌀ Kommunen <20.000",
@@ -50,7 +50,9 @@
             "color": "#adadad"
           },
           {
-            "label": "Auto"
+            "label": "Auto",
+            "value": 94,
+            "color": "#F37575"
           },
           {
             "label": "⌀ Kommunen <20.000",
