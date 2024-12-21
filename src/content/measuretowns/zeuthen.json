@@ -38,8 +38,31 @@
     },
     "widgetFahrzeuge": {
       "chartVertical": {
-        "data": [],
-        "dataUnit": "none"
+        "title": "Verkehrsmittel im Haushalt",
+        "data": [
+          {
+            "label": "Fahrrad oder Pedelec ",
+            "value": 96,
+            "color": "#960854"
+          },
+          {
+            "label": "⌀ Kommunen <20.000",
+            "value": 81,
+            "color": "#adadad"
+          },
+          {
+            "label": "Auto",
+            "value": 94,
+            "color": "#F37575"
+          },
+          {
+            "label": "⌀ Kommunen <20.000",
+            "value": 92,
+            "color": "#adadad"
+          }
+        ],
+        "dataUnit": "percent",
+        "source": "Quelle: Fahrrad Monitor 2023"
       }
     },
     "widgetModalsplit": {
