@@ -88,17 +88,17 @@
         "data": [
           {
             "label": "Einpendler",
-            "value": 21000,
+            "value": 605,
             "color": "#14B8A6"
           },
           {
             "label": "Auspendler",
-            "value": 44000,
+            "value": 2471,
             "color": "#F37575"
           }
         ],
         "dataUnit": "none",
-        "source": "Quelle: TODO"
+        "source": "Quelle: www.pendleratlas.de"
       }
     },
     "widgetFahrzeuge": {
