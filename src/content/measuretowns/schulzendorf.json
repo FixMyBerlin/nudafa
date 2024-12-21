@@ -18,8 +18,21 @@
   "traffic": {
     "widgetPentlersaldo": {
       "chartVertical": {
-        "data": [],
-        "dataUnit": "none"
+        "title": "Pendlersaldo",
+        "data": [
+          {
+            "label": "Einpendler",
+            "value": 562,
+            "color": "#14B8A6"
+          },
+          {
+            "label": "Auspendler",
+            "value": 3768,
+            "color": "#F37575"
+          }
+        ],
+        "dataUnit": "none",
+        "source": "Quelle: www.pendleratlas.de"
       }
     },
     "widgetFahrzeuge": {
