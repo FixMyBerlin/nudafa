@@ -106,18 +106,28 @@
         "title": "Besitz: Fahrzeuge pro Kopf",
         "data": [
           {
-            "label": "PKW",
-            "value": 1.7,
+            "label": "Fahrrad oder Pedelec ",
+            "value": 96,
             "color": "#960854"
           },
           {
-            "label": "Fahrräder",
-            "value": 4,
-            "color": "#EFC865"
+            "label": "⌀ Kommunen <20.000",
+            "value": 81,
+            "color": "#adadad"
+          },
+          {
+            "label": "Auto",
+            "value": 94,
+            "color": "#F37575"
+          },
+          {
+            "label": "⌀ Kommunen <20.000",
+            "value": 92,
+            "color": "#adadad"
           }
         ],
-        "dataUnit": "none",
-        "source": "Quelle: TODO"
+        "dataUnit": "percent",
+        "source": "Quelle: Fahrrad Monitor 2023"
       }
     },
     "widgetModalsplit": {
