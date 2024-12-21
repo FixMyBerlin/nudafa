@@ -51,21 +51,29 @@
     },
     "widgetVerkehrsbelastung": {
       "title": "Typische Verkehrsbelastung",
-      "subText": "ø Belastung aus Messungen",
+      "subText": "in der Spitzenstunde",
       "chartRelativeVertical": {
         "title": "Verkehrsbelastung",
         "data": [
           {
-            "label": "Straße A",
-            "value": 1405
+            "label": "Stadionstraße",
+            "value": 6500
           },
           {
-            "label": "Straße B",
-            "value": 3000
+            "label": "Grünauer Straße ",
+            "value": 3800
           },
           {
-            "label": "Typische Belastung in Nebenstraßen (max)",
-            "value": 500
+            "label": "Bahnhofstraße",
+            "value": 2700
+          },
+          {
+            "label": "Neben-/Wohnstraße",
+            "value": 1500
+          },
+          {
+            "label": "L401 Zeuthener Str.",
+            "value": 9000
           }
         ],
         "dataUnit": "DTV",
