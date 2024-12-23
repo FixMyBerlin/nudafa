@@ -1,7 +1,7 @@
 {
   "title": "Gemeinde Eichwalde",
   "general": {
-    "widgetMarkdown": "**Wichtigste Herausforderungen:**&#x20;\n\n* Abstellanlagen am S-Bahnhof\n* Viele Straßen mit Kopfsteinpflaster\n* Anschlüsse nach Zeuthen, Schulzendorf und Berlin\n* Nebenstraßen mit T50 und schlechter Fahrbanhqualität\n* Fahren auf dem Gehweg teils angeordnet, teils nur geduldet\n",
+    "widgetMarkdown": "* Abstellanlagen am S-Bahnhof\n* Viele Straßen mit Kopfsteinpflaster\n* Anschlüsse nach Zeuthen, Schulzendorf und Berlin\n* Nebenstraßen mit T50 und schlechter Fahrbahnqualität\n* Fahren auf dem Gehweg teils angeordnet, teils nur geduldet\n",
     "widgetFahrradklimatest": {
       "title": "ADFC Fahrradklimatest",
       "subText": "\n",
