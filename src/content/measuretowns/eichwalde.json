@@ -238,40 +238,40 @@
         "height": 70,
         "data": [
           {
-            "label": "2023",
+            "label": "2025",
             "values": [
               {
-                "value": 126,
+                "value": 2000000,
                 "color": "#98AEF8"
               },
               {
-                "value": 13,
+                "value": 55000,
                 "color": "#EFC865"
               }
             ]
           },
           {
-            "label": "2021",
+            "label": "2024",
             "values": [
               {
-                "value": 6.9,
+                "value": 280000,
                 "color": "#98AEF8"
               },
               {
-                "value": 3.9,
+                "value": 50000,
                 "color": "#EFC865"
               }
             ]
           },
           {
-            "label": "2019",
+            "label": "2022",
             "values": [
               {
-                "value": 4.2,
+                "value": 30000,
                 "color": "#98AEF8"
               },
               {
-                "value": 2.2,
+                "value": 12000,
                 "color": "#EFC865"
               }
             ]
