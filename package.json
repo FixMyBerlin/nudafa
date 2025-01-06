@@ -56,7 +56,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "heroicons-astro": "^1.0.4",
-    "maplibre-gl": "^5.0.0",
+    "maplibre-gl": "^4.7.1",
     "micromark": "^4.0.1",
     "nanostores": "^0.11.3",
     "nuqs": "^2.3.0",
