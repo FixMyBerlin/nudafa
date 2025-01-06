@@ -1,14 +1,20 @@
 import { WidgetFahrradklimatest } from './ContentGeneral/WidgetFahrradklimatest'
 import { WidgetMarkdown } from './ContentGeneral/WidgetMarkdown'
-import { WidgetVerkehrsbelastung } from './ContentGeneral/WidgetVerkehrsbelastung'
 import type { GeneralDashboardData } from './DasboardTabs'
 
 export const ContentGeneral = ({ data }: GeneralDashboardData) => {
   return (
     <>
-      <WidgetMarkdown data={data} />
+      <div
+        className={
+          data.widgetFahrradklimatest.chartHorizontal.data.length
+            ? 'md:col-span-2'
+            : 'md:col-span-3'
+        }
+      >
+        <WidgetMarkdown data={data} />
+      </div>
       <WidgetFahrradklimatest data={data} />
-      <WidgetVerkehrsbelastung data={data} />
     </>
   )
 }
