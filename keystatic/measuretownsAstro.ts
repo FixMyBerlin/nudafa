@@ -17,15 +17,15 @@ export const astroMeasuretownsDefinition = defineCollection({
           subText: z.string().optional(),
           chartHorizontal: astroWidgetChartHorizontal,
         }),
-        widgetVerkehrsbelastung: z.object({
-          title: z.string().optional(),
-          subText: z.string().optional(),
-          chartRelativeVertical: astroWidgetChartRelativeVertical,
-        }),
       }),
       traffic: z.object({
         widgetPentlersaldo: z.object({
           chartVertical: astroWidgetChartVertical,
+        }),
+        widgetVerkehrsbelastung: z.object({
+          title: z.string().optional(),
+          subText: z.string().optional(),
+          chartRelativeVertical: astroWidgetChartRelativeVertical,
         }),
         widgetFahrzeuge: z.object({
           chartVertical: astroWidgetChartVertical,

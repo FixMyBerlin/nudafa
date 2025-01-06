@@ -8,23 +8,6 @@
         "data": [],
         "legend": []
       }
-    },
-    "widgetVerkehrsbelastung": {
-      "chartRelativeVertical": {
-        "title": "Straßennetz",
-        "data": [
-          {
-            "label": "Hauptverkehrsstraßen",
-            "value": 15.38638
-          },
-          {
-            "label": "Nebenstraßen",
-            "value": 47.73795
-          }
-        ],
-        "dataUnit": "km",
-        "source": "Quelle: OpenStreetMap Beitragende"
-      }
     }
   },
   "traffic": {
@@ -45,6 +28,23 @@
         ],
         "dataUnit": "none",
         "source": "Quelle: www.pendleratlas.de"
+      }
+    },
+    "widgetVerkehrsbelastung": {
+      "chartRelativeVertical": {
+        "title": "Straßennetz",
+        "data": [
+          {
+            "label": "Hauptverkehrsstraßen",
+            "value": 15.38638
+          },
+          {
+            "label": "Nebenstraßen",
+            "value": 47.73795
+          }
+        ],
+        "dataUnit": "km",
+        "source": "Quelle: OpenStreetMap Beitragende"
       }
     },
     "widgetFahrzeuge": {

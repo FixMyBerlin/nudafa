@@ -1,11 +1,11 @@
 import { ChartRelativeVertical } from '../components/ChartRelativeVertical'
 import { Markdown } from '../components/Markdown'
 import { Widget } from '../components/Widget'
-import type { GeneralDashboardData } from '../DasboardTabs'
+import type { TrafficDashboardData } from '../DasboardTabs'
 
 export const WidgetVerkehrsbelastung = ({
   data: { widgetVerkehrsbelastung },
-}: GeneralDashboardData) => {
+}: TrafficDashboardData) => {
   if (!widgetVerkehrsbelastung.chartRelativeVertical.data.length) return null
 
   return (

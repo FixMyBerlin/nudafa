@@ -56,13 +56,6 @@ export const keystaticMeasuretownsConfig = collection({
           },
           { label: 'ALLGEMEIN: Widget Fahrradklimatest' },
         ),
-        widgetVerkehrsbelastung: fields.object(
-          {
-            ...keystaticWidgetTitleSubtext,
-            chartRelativeVertical: keystaticWidgetChartRelativeVertical,
-          },
-          { label: 'ALLGEMEIN: Widget Verkehrsbelastung (TODO)' },
-        ),
       },
       { label: 'WIDGETS ALLGEMEIN' },
     ),
@@ -71,6 +64,13 @@ export const keystaticMeasuretownsConfig = collection({
         widgetPentlersaldo: fields.object(
           { chartVertical: keystaticWidgetChartVertical },
           { label: 'VERKEHR: Pentlersaldo' },
+        ),
+        widgetVerkehrsbelastung: fields.object(
+          {
+            ...keystaticWidgetTitleSubtext,
+            chartRelativeVertical: keystaticWidgetChartRelativeVertical,
+          },
+          { label: 'ALLGEMEIN: Widget Verkehrsbelastung (TODO)' },
         ),
         widgetFahrzeuge: fields.object(
           { chartVertical: keystaticWidgetChartVertical },

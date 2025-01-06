@@ -48,6 +48,27 @@
         ],
         "source": "ADFC"
       }
+    }
+  },
+  "traffic": {
+    "widgetPentlersaldo": {
+      "chartVertical": {
+        "title": "Pendlerzahlen (absolut pro Tag)",
+        "data": [
+          {
+            "label": "Einpendler",
+            "value": 605,
+            "color": "#14B8A6"
+          },
+          {
+            "label": "Auspendler",
+            "value": 2471,
+            "color": "#F37575"
+          }
+        ],
+        "dataUnit": "none",
+        "source": "Quelle: www.pendleratlas.de"
+      }
     },
     "widgetVerkehrsbelastung": {
       "title": "Typische Verkehrsbelastung",
@@ -78,27 +99,6 @@
         ],
         "dataUnit": "DTV",
         "source": "Quelle: Eigene Erhebung Gemeinde Eichwalde"
-      }
-    }
-  },
-  "traffic": {
-    "widgetPentlersaldo": {
-      "chartVertical": {
-        "title": "Pendlerzahlen (absolut pro Tag)",
-        "data": [
-          {
-            "label": "Einpendler",
-            "value": 605,
-            "color": "#14B8A6"
-          },
-          {
-            "label": "Auspendler",
-            "value": 2471,
-            "color": "#F37575"
-          }
-        ],
-        "dataUnit": "none",
-        "source": "Quelle: www.pendleratlas.de"
       }
     },
     "widgetFahrzeuge": {

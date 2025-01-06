@@ -8,12 +8,6 @@
         "data": [],
         "legend": []
       }
-    },
-    "widgetVerkehrsbelastung": {
-      "chartRelativeVertical": {
-        "data": [],
-        "dataUnit": "none"
-      }
     }
   },
   "traffic": {
@@ -34,6 +28,12 @@
         ],
         "dataUnit": "none",
         "source": "Quelle: www.pendleratlas.de"
+      }
+    },
+    "widgetVerkehrsbelastung": {
+      "chartRelativeVertical": {
+        "data": [],
+        "dataUnit": "none"
       }
     },
     "widgetFahrzeuge": {
