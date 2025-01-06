@@ -35,7 +35,7 @@ export const ChartVertical = ({ title, data, dataUnit, source, className }: Prop
               className="flex w-full flex-row items-center justify-between gap-5 leading-none"
             >
               <div
-                style={{ width: `${relativeWidth}%`, backgroundColor: color }}
+                style={{ width: `max(1px, ${relativeWidth}%)`, backgroundColor: color }}
                 className="h-3"
                 aria-label={`${label}: ${value} %`}
               />

@@ -44,7 +44,7 @@ export const ChartRelativeVertical = ({ title, data, dataUnit, source, className
 
               <div style={{ backgroundColor: '#E8EAED' }} className="w-full rounded-sm">
                 <div
-                  style={{ width: `${relativeWidth}%`, backgroundColor: '#6D8CF7' }}
+                  style={{ width: `max(1px, ${relativeWidth}%)`, backgroundColor: '#6D8CF7' }}
                   className="h-1.5 rounded-sm"
                   aria-label={`${label}: ${value} %`}
                 />
