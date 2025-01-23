@@ -45,6 +45,7 @@ export default defineConfig({
     '/info': '/',
     '/forschungsprojekt': '/',
     '/radnetzplanung': '/radnetz/einleitung',
+    '/massnahmen/admin': '/massnahmen/admin/geodata-check',
   },
   env: {
     schema: {
