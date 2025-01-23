@@ -1,0 +1,49 @@
+---
+import PageHeader from '@components/PageHeader.astro'
+import LayoutApp from '@components/layouts/LayoutApp.astro'
+import Link from '@components/links/Link.astro'
+import { getMeasuresCsvData } from '@components/utils/getMeasureCsvData'
+import { getCollection } from 'astro:content'
+
+const measures = await getCollection('measures')
+export type Measure = (typeof measures)[]
+
+const tableClasses = {
+  table: 'text-xs border border-gray-200',
+  thead: 'bg-gray-50',
+  th: 'px-1 py-1 text-left font-medium text-gray-500 uppercase tracking-wider border border-gray-200',
+  tbody: 'bg-white divide-y divide-x divide-gray-200',
+  td: 'px-1 py-1 border border-gray-200',
+}
+
+const { csvHeader, csvData } = getMeasuresCsvData(measures)
+---
+
+<LayoutApp title="Maßnahmen Export" noindex>
+  <PageHeader title="Maßnahmen Export" />
+  <div class="p-4">
+    <Link href="/massnahmen.csv">Daten als CSV herunterladen</Link>
+  </div>
+
+  <div class="max-h-[500px] overflow-x-auto overflow-y-auto px-2">
+    <table class={tableClasses.table}>
+      <thead class={`${tableClasses.thead} sticky top-0`}>
+        <tr>
+          {csvHeader.map((key) => <th class={tableClasses.th}>{key}</th>)}
+        </tr>
+      </thead>
+      <tbody class={tableClasses.tbody}>
+        {
+          csvData.map((measure) => (
+            <tr>
+              {csvHeader.map((key) => (
+                // @ts-expect-error
+                <td class={tableClasses.td}>{measure[key]}</td>
+              ))}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</LayoutApp>
