@@ -3,13 +3,13 @@ import Layout from './Layout.astro'
 import { Navbar } from './navbar/Navbar.tsx'
 import { mainNavigation } from './navbar/navigation'
 
-type Props = { title?: string }
-const { title }: Props = Astro.props
+type Props = { title?: string; noindex?: boolean }
+const { title, noindex }: Props = Astro.props
 
 const pathname = new URL(Astro.request.url).pathname
 ---
 
-<Layout title={title}>
+<Layout title={title} noindex={noindex}>
   <div class="mx-auto flex max-w-[1440px] flex-col bg-white md:h-screen">
     <Navbar path={pathname} mainNavigation={mainNavigation} client:load />
     <main class="z-0 flex-grow">
