@@ -42,7 +42,7 @@
             "color": "#008B00"
           },
           {
-            "text": "Bundesweiter Durchschnitt von Kommunen <20.000",
+            "text": "⌀ aller Kommunen <20.000",
             "color": "#EE7621"
           }
         ],
@@ -111,7 +111,7 @@
             "color": "#960854"
           },
           {
-            "label": "⌀ Kommunen <20.000",
+            "label": "⌀ aller Kommunen <20.000",
             "value": 81,
             "color": "#adadad"
           },
@@ -121,7 +121,7 @@
             "color": "#F37575"
           },
           {
-            "label": "⌀ Kommunen <20.000",
+            "label": "⌀ aller Kommunen <20.000",
             "value": 92,
             "color": "#adadad"
           }
