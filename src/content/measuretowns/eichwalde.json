@@ -1,10 +1,10 @@
 {
   "title": "Gemeinde Eichwalde",
   "general": {
-    "widgetMarkdown": "* Kapazität der Abstellanlagen am S-Bahnhof\n* Anschlüsse nach Zeuthen, Schulzendorf und Berlin\n* Viele Straßen durch Kopfsteinpflaster nicht befahrbar\n* Nebenstraßen mit T50 und schlechter Fahrbahnqualität\n* Fahren auf dem Gehweg teils angeordnet, teils nur geduldet\n",
+    "widgetMarkdown": "* In Eichwalde existieren kaum Radverkehrsanlagen.&#x20;\n* Viele Nebenstraßen sind mit Tempo-50 befahrbar und weisen eine schlechte Fahrbahnqualität auf, bzw. sind [durch Kopfsteinpflaster nicht befahrbar](https://www.nudafa.de/radnetz/komfort).\n* An den Hauptachsen [ist der Gehweg für den Radverkehr freigegeben](https://www.nudafa.de/radnetz/bestand), entspricht jedoch nicht den vorgegebenen Mindestbreiten.&#x20;\n* Fast überall wird regelwidrig auf dem Gehweg gefahren. Dies wird als „ortsüblich“ wahrgenommen und weitestgehend gedultet. Insb. in der [Bahnhofstraße](https://www.nudafa.de/massnahmen/eichwalde-29/) erzeugt dies jedoch Konflikte mit dem Fußverkehr.&#x20;\n* Die Abstellanlagen am S-Bahnhof sind nicht zeitgemäß und zu klein, auf der [Osteite](https://www.nudafa.de/massnahmen/eichwalde-23/) sowie auf der [Westseite](https://www.nudafa.de/massnahmen/eichwalde-24/) werden daher neue Abstellanlagen errichtet.\n* Es fehlen attraktive überörtliche Radverkehrsverbindungen nach [Zeuthen](https://www.nudafa.de/massnahmen/eichwalde-1/), [Schulzendorf](https://www.nudafa.de/massnahmen/eichwalde-5/) und [Berlin](https://www.nudafa.de/massnahmen/eichwalde-10/).&#x20;\n* Es liegt ein Entwurf für ein Radverkehrsnetz vor, was mittelfristig die Herstellung von innerörtlichen Achsen für den Radverkehr vorsieht (Maßnahmen [6](https://www.nudafa.de/massnahmen/eichwalde-6/), [7](https://www.nudafa.de/massnahmen/eichwalde-7/), [8](https://www.nudafa.de/massnahmen/eichwalde-8/), [9](https://www.nudafa.de/massnahmen/eichwalde-9/))\n",
     "widgetFahrradklimatest": {
-      "title": "ADFC Fahrradklimatest",
-      "subText": "\n",
+      "title": "Ergebnis im ADFC Fahrradklimatest",
+      "subText": "Für folgende Jahre liegen Bewertungen vor:\n",
       "chartHorizontal": {
         "title": "Ergebnisse im ADFC Fahrradklimatest",
         "height": 110,
@@ -42,11 +42,11 @@
             "color": "#008B00"
           },
           {
-            "text": "⌀ Kommunen <20.000",
+            "text": "Bundesweiter Durchschnitt von Kommunen <20.000",
             "color": "#EE7621"
           }
         ],
-        "source": "ADFC"
+        "source": "ADFC Fahrradklimatest"
       }
     }
   },
