@@ -171,12 +171,16 @@
         "title": "Straßennetz",
         "data": [
           {
+            "label": "Nebenstraßen",
+            "value": 30033
+          },
+          {
             "label": "Hauptverkehrsstraßen",
             "value": 3039
           },
           {
-            "label": "Nebenstraßen",
-            "value": 30033
+            "label": "Straßen mit Kopfsteinpflaster",
+            "value": 6000
           }
         ],
         "dataUnit": "km",
