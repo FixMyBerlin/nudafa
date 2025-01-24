@@ -99,11 +99,11 @@
           },
           {
             "label": "typische Nebenstraße",
-            "value": 1500
+            "value": 700
           },
           {
             "label": "typische Wohnstraße",
-            "value": 700
+            "value": 500
           }
         ],
         "dataUnit": "DTV",
