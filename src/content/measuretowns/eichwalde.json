@@ -77,20 +77,20 @@
     },
     "widgetVerkehrsbelastung": {
       "title": "Typische Verkehrsbelastung",
-      "subText": "Gerundetes Verkehrsaufkommen in der Spitzenstunde",
+      "subText": "Gerundetes tägliches Verkehrsaufkommen",
       "chartRelativeVertical": {
         "title": "Verkehrsbelastung",
         "data": [
           {
-            "label": "L401 Zeuthener Str. (Landstraße)",
+            "label": "L401 Zeuthener Str. ",
             "value": 9000
           },
           {
-            "label": "Stadionstraße (Kreisstraße)",
+            "label": "Stadionstraße",
             "value": 6500
           },
           {
-            "label": "Grünauer Straße (Sammelstraße)",
+            "label": "Grünauer Straße",
             "value": 3800
           },
           {
@@ -98,8 +98,12 @@
             "value": 2700
           },
           {
-            "label": "typische Neben-/Wohnstraße",
+            "label": "typische Nebenstraße",
             "value": 1500
+          },
+          {
+            "label": "typische Wohnstraße",
+            "value": 700
           }
         ],
         "dataUnit": "DTV",
@@ -171,12 +175,12 @@
         "title": "Straßennetz",
         "data": [
           {
-            "label": "Nebenstraßen",
-            "value": 30033
-          },
-          {
             "label": "Hauptverkehrsstraßen",
             "value": 3039
+          },
+          {
+            "label": "Nebenstraßen",
+            "value": 30033
           },
           {
             "label": "Straßen mit Kopfsteinpflaster",
