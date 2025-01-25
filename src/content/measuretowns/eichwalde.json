@@ -237,9 +237,9 @@
       "population": 6490,
       "table": [
         {
-          "label": "Vorgabe gemäß NRVP 3.0",
-          "ausgaben": 195,
-          "eigenanteil": 65
+          "label": "Vorgabe aus NRVP 3.0",
+          "ausgaben": 195000,
+          "eigenanteil": 65000
         },
         {
           "label": "Haushaltsplan 2025",
