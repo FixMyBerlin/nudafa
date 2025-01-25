@@ -237,11 +237,6 @@
       "population": 6490,
       "table": [
         {
-          "label": "Vorgabe aus NRVP 3.0",
-          "ausgaben": 195000,
-          "eigenanteil": 65000
-        },
-        {
           "label": "2025",
           "ausgaben": 2100000,
           "eigenanteil": 550000
