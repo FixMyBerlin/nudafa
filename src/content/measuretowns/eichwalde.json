@@ -4,7 +4,7 @@
     "widgetMarkdown": "In Eichwalde...\n\n* … existiert ein hohes Radverkehrsaufkommen, jedoch kaum zeitgemäße Radverkehrsanlagen.&#x20;\n* … nutzt der Radverkehr daher entweder die Gehwege oder die Fahrbahn (Mischverkehr), wobei vielen  Straßen mit Tempo-50 befahrbar sind.&#x20;\n* ... weisen viele Straßen eine schlechte Fahrbahnqualität auf oder sind [durch Kopfsteinpflaster nicht befahrbar](https://www.nudafa.de/radnetz/komfort). Es fehlt eine Möglichkeit, [diese Straßen befahrbar zu machen](https://www.nudafa.de/teilprojekte/komfortables-kopfsteinpflaster/).\n* … sind einige Gehwege [für den Radverkehr freigegeben](https://www.nudafa.de/radnetz/bestand), ohne dafür breit genug zu sein.&#x20;\n* … wird vornehmlich regelwidrig auf dem Gehweg gefahren. Dies wird als „ortsüblich“ wahrgenommen und weitestgehend geduldet. In der [Bahnhofstraße](https://www.nudafa.de/massnahmen/eichwalde-29/) erzeugt dies jedoch Konflikte mit dem Fußverkehr.&#x20;\n* … sind die Abstellanlagen am S-Bahnhof sind nicht zeitgemäß und zu klein. Daher werden nun neue Abstellanlagen errichtet ([Ostseite](https://www.nudafa.de/massnahmen/eichwalde-23/) / [Westseite](https://www.nudafa.de/massnahmen/eichwalde-24/)).\n* ... fehlen attraktive Radverkehrsverbindungen in die Nachbarkommunen (bspw. nach [Zeuthen](https://www.nudafa.de/massnahmen/eichwalde-1/), [Schulzendorf](https://www.nudafa.de/massnahmen/eichwalde-5/) oder [Berlin](https://www.nudafa.de/massnahmen/eichwalde-10/)).&#x20;\n* … wurde ein Radverkehrsnetz erarbeitet, was mittelfristig die Herstellung von innerörtlichen Achsen für den Radverkehr vorsieht (Maßnahmen [6](https://www.nudafa.de/massnahmen/eichwalde-6/), [7](https://www.nudafa.de/massnahmen/eichwalde-7/), [8](https://www.nudafa.de/massnahmen/eichwalde-8/), [9](https://www.nudafa.de/massnahmen/eichwalde-9/)).\n* … fahren viele Kinder mit dem Rad zur Schule. [Sichere Schulwege](https://www.nudafa.de/massnahmen/eichwalde-34/) und Schulisches Mobilitätsmanagement sind daher wichtig.&#x20;\n* … sind Unfallschwerpunkte vorwiegend die Knotenpunkte an Hauptverkehrsstraßen ([30](https://www.nudafa.de/massnahmen/eichwalde-30/), [32](https://www.nudafa.de/massnahmen/eichwalde-32/), [33](https://www.nudafa.de/massnahmen/eichwalde-33/))\n",
     "widgetFahrradklimatest": {
       "title": "Ergebnis im ADFC Fahrradklimatest",
-      "subText": "Für folgende Jahre liegen Bewertungen vor:\n",
+      "subText": "Für folgende Jahre liegen Bewertungen vor:",
       "chartHorizontal": {
         "title": "Ergebnisse im ADFC Fahrradklimatest",
         "height": 110,
@@ -115,6 +115,11 @@
         "title": "Besitz: Fahrzeuge pro Kopf",
         "data": [
           {
+            "label": " ",
+            "value": 100,
+            "color": "#FFFFFF"
+          },
+          {
             "label": "Fahrrad / Pedelec ",
             "value": 96,
             "color": "#960854"
@@ -183,7 +188,7 @@
             "value": 30033
           },
           {
-            "label": "Straßen mit Kopfsteinpflaster",
+            "label": "Straßen mit Kopfsteinpflaster (nicht befahrbar)",
             "value": 15200
           }
         ],
