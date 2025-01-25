@@ -115,11 +115,6 @@
         "title": "Besitz: Fahrzeuge pro Kopf",
         "data": [
           {
-            "label": " ",
-            "value": 100,
-            "color": "#fffefa"
-          },
-          {
             "label": "Fahrrad / Pedelec ",
             "value": 96,
             "color": "#960854"
@@ -138,6 +133,11 @@
             "label": "⌀ aller Kommunen <20.000",
             "value": 92,
             "color": "#adadad"
+          },
+          {
+            "label": " ",
+            "value": 100,
+            "color": "#fffefa"
           }
         ],
         "dataUnit": "percent",
@@ -169,6 +169,11 @@
             "label": "Zu Fuß",
             "value": 34,
             "color": "#98AEF8"
+          },
+          {
+            "label": " ",
+            "value": 100,
+            "color": "#fffefa"
           }
         ],
         "dataUnit": "percent",
