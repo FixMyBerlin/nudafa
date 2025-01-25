@@ -262,15 +262,23 @@
         "height": 150,
         "data": [
           {
-            "label": "2025",
+            "label": "2022",
             "values": [
               {
-                "value": 309,
+                "value": 5,
                 "color": "#98AEF8"
               },
               {
-                "value": 84,
+                "value": 30,
+                "color": "#14B8A6"
+              },
+              {
+                "value": 2,
                 "color": "#EFC865"
+              },
+              {
+                "value": 10,
+                "color": "#F37575"
               }
             ]
           },
@@ -282,21 +290,37 @@
                 "color": "#98AEF8"
               },
               {
+                "value": 30,
+                "color": "#14B8A6"
+              },
+              {
                 "value": 8,
                 "color": "#EFC865"
+              },
+              {
+                "value": 10,
+                "color": "#F37575"
               }
             ]
           },
           {
-            "label": "2022",
+            "label": "2025",
             "values": [
               {
-                "value": 5,
+                "value": 309,
                 "color": "#98AEF8"
               },
               {
-                "value": 2,
+                "value": 30,
+                "color": "#14B8A6"
+              },
+              {
+                "value": 84,
                 "color": "#EFC865"
+              },
+              {
+                "value": 10,
+                "color": "#F37575"
               }
             ]
           }
@@ -309,6 +333,14 @@
           {
             "text": "Eigenanteil pro Kopf",
             "color": "#EFC865"
+          },
+          {
+            "text": "NRVP: Gesamtausgaben",
+            "color": "#14B8A6"
+          },
+          {
+            "text": "NRVP: Kommunaler Eigenanteil",
+            "color": "#F37575"
           }
         ],
         "source": "Quelle: Haushalt Gemeinde Eichwalde"
