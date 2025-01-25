@@ -112,7 +112,7 @@
     },
     "widgetFahrzeuge": {
       "chartVertical": {
-        "title": "Besitz: Fahrzeuge pro Kopf",
+        "title": "Anteil der Haushalte mit Fahrrädern / Pedelec und Autos",
         "data": [
           {
             "label": "Fahrrad / Pedelec ",
