@@ -48,12 +48,15 @@ export const getMeasuresCsvData = (measures: Measure[]) => {
               measure.data[key]
       return acc
     }, {}),
+    image: measure.data.image
+      ? `https://github.com/FixMyBerlin/nudafa/blob/main/src/assets/measures/${measure.slug}`
+      : '',
     slug: measure.slug,
     // @ts-expect-error
     geometry_data: JSON.stringify(measure.data.geometry_data),
   }))
 
-  const csvHeader = [...measureDataKeys, 'slug', 'geometry_data']
+  const csvHeader = [...measureDataKeys, 'image', 'slug', 'geometry_data']
 
   return { csvData, csvHeader }
 }
