@@ -206,7 +206,7 @@
       "subText": "Unfälle der Jahre 2022-2024 mit Fahrradbeteiligung",
       "list": [
         {
-          "number": 16,
+          "number": 0,
           "label": "Unfälle mit Getöteten",
           "color": "#960854"
         },
@@ -216,7 +216,7 @@
           "color": "#FF2E3B"
         },
         {
-          "number": 0,
+          "number": 16,
           "label": "Unfälle mit Leichtverletzten",
           "color": "#F59E0B"
         },
