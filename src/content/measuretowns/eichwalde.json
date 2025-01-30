@@ -185,6 +185,10 @@
         "title": "Straßennetz",
         "data": [
           {
+            "label": "Länge des Straßennetzes",
+            "value": 33
+          },
+          {
             "label": "Hauptverkehrsstraßen",
             "value": 3039
           },
@@ -193,7 +197,7 @@
             "value": 30033
           },
           {
-            "label": "Straßen mit Kopfsteinpflaster (nicht befahrbar)",
+            "label": "nicht befahrbar / Kopfsteinpflaster ",
             "value": 15.2
           }
         ],
