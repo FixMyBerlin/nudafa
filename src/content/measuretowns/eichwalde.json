@@ -194,7 +194,7 @@
           },
           {
             "label": "Straßen mit Kopfsteinpflaster (nicht befahrbar)",
-            "value": 15200
+            "value": 15.2
           }
         ],
         "dataUnit": "km",
