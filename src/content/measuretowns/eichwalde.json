@@ -115,7 +115,7 @@
         "title": "Anteil der Haushalte mit Fahrrädern / Pedelec und Autos",
         "data": [
           {
-            "label": "Fahrrad / Pedelec ",
+            "label": "Haushalte mit Fahrrad / Pedelec ",
             "value": 96,
             "color": "#960854"
           },
@@ -125,7 +125,7 @@
             "color": "#adadad"
           },
           {
-            "label": "Auto",
+            "label": "Haushalte mit Auto",
             "value": 94,
             "color": "#F37575"
           },
