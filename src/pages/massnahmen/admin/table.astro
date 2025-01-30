@@ -17,6 +17,7 @@ const tableClasses = {
 }
 
 const { csvHeader, csvData } = getMeasuresCsvData(measures)
+const csvHeaderWithoutGeometry = csvHeader.filter((item) => item !== 'geometry_data')
 ---
 
 <LayoutApp title="Maßnahmen Export" noindex>
@@ -29,14 +30,14 @@ const { csvHeader, csvData } = getMeasuresCsvData(measures)
     <table class={tableClasses.table}>
       <thead class={`${tableClasses.thead} sticky top-0`}>
         <tr>
-          {csvHeader.map((key) => <th class={tableClasses.th}>{key}</th>)}
+          {csvHeaderWithoutGeometry.map((key) => <th class={tableClasses.th}>{key}</th>)}
         </tr>
       </thead>
       <tbody class={tableClasses.tbody}>
         {
           csvData.map((measure) => (
             <tr>
-              {csvHeader.map((key) => (
+              {csvHeaderWithoutGeometry.map((key) => (
                 // @ts-expect-error
                 <td class={tableClasses.td}>{measure[key]}</td>
               ))}
