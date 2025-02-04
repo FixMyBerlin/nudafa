@@ -124,13 +124,8 @@ export const keystaticMeasuresConfig = collection({
     }),
     content: fields.mdx({
       label: 'Beschreibung',
-      options: {
-        image: {
-          directory: 'src/assets/measures',
-          publicPath: '/src/assets/measures',
-        },
-      },
       components: mdxComponentsKeystatic('measures'),
+      options: { image: false },
     }),
   },
 })

@@ -18,8 +18,8 @@ export const keystaticProjectPartnerPageIntroConfig = singleton({
     }),
     content: fields.mdx({
       label: 'Content',
-      options: { image: false },
       components: mdxComponentsKeystatic('projectpartnerpage'),
+      options: { image: false },
     }),
   },
 })
@@ -33,8 +33,8 @@ export const keystaticProjectPartnerPageMainConfig = singleton({
   schema: {
     content: fields.mdx({
       label: 'Content',
-      options: { image: false },
       components: mdxComponentsKeystatic('projectpartnerpage'),
+      options: { image: false },
     }),
   },
 })

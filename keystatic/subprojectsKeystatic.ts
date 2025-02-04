@@ -69,13 +69,8 @@ export const keystaticSubprojectsConfig = collection({
     funding: fields.text({ label: 'Finanzierung' }),
     content: fields.mdx({
       label: 'Content',
-      options: {
-        image: {
-          directory: 'src/assets/subprojects',
-          publicPath: '/src/assets/subprojects',
-        },
-      },
       components: mdxComponentsKeystatic('subprojects'),
+      options: { image: false },
     }),
   },
 })

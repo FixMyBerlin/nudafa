@@ -18,13 +18,8 @@ export const keystaticPartnerCommunesPageConfig = singleton({
     }),
     content: fields.mdx({
       label: 'Content',
-      options: {
-        image: {
-          directory: 'src/assets/partnercommunespage',
-          publicPath: '/src/assets/partnercommunespage',
-        },
-      },
       components: mdxComponentsKeystatic('partnercommunespage'),
+      options: { image: false },
     }),
   },
 })

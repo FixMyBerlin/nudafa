@@ -18,13 +18,8 @@ export const HomepageIntroKeystatic = singleton({
     }),
     content: fields.mdx({
       label: 'Content',
-      options: {
-        image: {
-          directory: 'src/assets/homepage',
-          publicPath: '/src/assets/homepage',
-        },
-      },
       components: mdxComponentsKeystatic('homepage'),
+      options: { image: false },
     }),
   },
 })
@@ -38,13 +33,8 @@ export const HomepageMainKeystatic = singleton({
   schema: {
     content: fields.mdx({
       label: 'Content',
-      options: {
-        image: {
-          directory: 'src/assets/homepage',
-          publicPath: '/src/assets/homepage',
-        },
-      },
       components: mdxComponentsKeystatic('homepage'),
+      options: { image: false },
     }),
   },
 })

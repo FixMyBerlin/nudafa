@@ -16,6 +16,7 @@ export const keystaticNewsConfig = collection({
     content: fields.mdx({
       label: 'Rich text',
       components: mdxComponentsKeystatic('news'),
+      options: { image: false },
     }),
   },
 })

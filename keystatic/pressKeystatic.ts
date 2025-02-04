@@ -33,8 +33,8 @@ export const keystaticPressPageConfig = singleton({
     ),
     content: fields.mdx({
       label: 'Content',
-      options: { image: false },
       components: mdxComponentsKeystatic('presspage'),
+      options: { image: false },
     }),
   },
 })
