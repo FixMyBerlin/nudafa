@@ -3,7 +3,7 @@ const fs = require('node:fs')
 const getMeasureDataAndWriteToFile = async () => {
   const getMeasures = async () => {
     const response = await fetch(
-      'https://places.nudafa.de/api/v1/map/Gql8uDGIY4SLZJ8suUPzB/featurecollection',
+      'https://placemark.fixmycity.de/api/v1/map/Gql8uDGIY4SLZJ8suUPzB/featurecollection',
     )
     const data = await response.json()
     return JSON.stringify(data)

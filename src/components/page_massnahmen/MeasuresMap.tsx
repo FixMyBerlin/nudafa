@@ -26,8 +26,6 @@ type Props = {
   setSelectedLineId?: any
 }
 
-const selectableLineLayerId = 'layer_selectable_line_features'
-
 // https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxbounds
 const maxBounds = [
   [13.247683121825787, 52.05970889348518],
@@ -71,15 +69,6 @@ export const MeasureMap = ({
     features: [...geometry],
   }
 
-  const bbox = turf.bbox(selectableLines)
-
-  const initialMapViewCustom: { bounds: LngLatBoundsLike } = {
-    bounds: [
-      [bbox[0], bbox[1]],
-      [bbox[2], bbox[3]],
-    ],
-  }
-
   const selectedLine = selectedLineId
     ? {
         type: 'FeatureCollection',
@@ -87,30 +76,74 @@ export const MeasureMap = ({
       }
     : null
 
+  const bbox = turf.bbox(selectableLines)
+  const initialMapViewCustom: { bounds: LngLatBoundsLike } = {
+    bounds: [
+      [bbox[0], bbox[1]],
+      [bbox[2], bbox[3]],
+    ],
+  }
+
   const selectableLineFeaturesSource = selectableLines ? (
-    <Source key={selectableLineLayerId} type="geojson" data={selectableLines}>
+    <Source id="layer_selectable_features" type="geojson" data={selectableLines}>
       <Layer
-        id={selectableLineLayerId}
+        // See also  `interactiveLayerIds`
+        id="layer_selectable_features--lines"
         type="line"
         paint={{
           'line-width': 7,
-          'line-color': ['case', ['has', 'color'], ['get', 'color'], '#977214'],
-          'line-opacity': ['case', ['has', 'opacity'], ['get', 'opacity'], 0.6],
+          'line-color': '#977214',
+          'line-opacity': 0.6,
         }}
+        filter={['==', '$type', 'LineString']}
+      />
+      <Layer
+        // See also  `interactiveLayerIds`
+        id="layer_selectable_features--points"
+        type="symbol"
+        layout={{
+          'icon-image': 'punktmassnahme',
+          'icon-size': ['interpolate', ['linear'], ['zoom'], 10, 0, 11, 0.07, 12.5, 0.2, 15, 0.3],
+        }}
+        filter={['==', '$type', 'Point']}
       />
     </Source>
   ) : null
 
   const selectedLineFeaturesSource = selectedLine ? (
-    <Source key="selected-line" type="geojson" data={selectedLine}>
+    <Source id="selected-geometry" type="geojson" data={selectedLine}>
       <Layer
-        id="selected-line"
+        id="selected-geometry--lines"
+        beforeId="layer_selectable_features--points"
         type="line"
         paint={{
           'line-width': 7.5,
-          'line-color': ['case', ['has', 'color'], ['get', 'color'], '#EF4444'],
-          'line-opacity': ['case', ['has', 'opacity'], ['get', 'opacity'], 1],
+          'line-color': '#EF4444',
+          'line-opacity': 1,
         }}
+        filter={['==', '$type', 'LineString']}
+      />
+      <Layer
+        id="selected-geometry--point"
+        beforeId="layer_selectable_features--points"
+        type="circle"
+        paint={{
+          'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 0, 11.5, 3, 12.5, 6, 15, 7.5],
+          'circle-color': '#EF4444',
+          'circle-opacity': 1,
+          'circle-translate': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            10,
+            ['literal', [0, 0]],
+            12.5,
+            ['literal', [0, 11]],
+            15,
+            ['literal', [0, 15]],
+          ],
+        }}
+        filter={['==', '$type', 'Point']}
       />
     </Source>
   ) : null
@@ -143,7 +176,10 @@ export const MeasureMap = ({
         cursor={cursorStyle}
         onMouseEnter={() => setCursorStyle('pointer')}
         onMouseLeave={() => setCursorStyle('grab')}
-        interactiveLayerIds={[selectableLines && selectableLineLayerId].flat().filter(Boolean)}
+        interactiveLayerIds={[
+          'layer_selectable_features--lines',
+          'layer_selectable_features--points',
+        ]}
         // Inspector
         // UNUSED at the moment
         // Some defaults
@@ -156,8 +192,10 @@ export const MeasureMap = ({
         <SourcesLayersBase />
         {isZielnetzLayer && <SourcesLayersArticles article="massnahmenZielnetz" />}
         {/* <SourcesLayersArticles article="massnahmenZielnetz" /> */}
-        {selectableLineFeaturesSource}
+
         {selectedLineFeaturesSource}
+        {selectableLineFeaturesSource}
+
         <AttributionControl compact={true} position="bottom-left" />
         <NavigationControl
           showCompass={false}
