@@ -262,9 +262,22 @@
         }
       ],
       "chartHorizontal": {
-        "title": "tatsächliche Ausgaben: pro Kopf",
+        "title": "Tatsächliche Ausgaben pro Kopf",
         "height": 150,
         "data": [
+          {
+            "label": "NRVP-Ziel",
+            "values": [
+              {
+                "value": 30,
+                "color": "#737373"
+              },
+              {
+                "value": 10,
+                "color": "#959595"
+              }
+            ]
+          },
           {
             "label": "2022",
             "values": [
@@ -301,19 +314,6 @@
               {
                 "value": 84,
                 "color": "#EFC865"
-              }
-            ]
-          },
-          {
-            "label": "Referenz",
-            "values": [
-              {
-                "value": 30,
-                "color": "#asfgre"
-              },
-              {
-                "value": 5,
-                "color": "#asfsdf"
               }
             ]
           }
