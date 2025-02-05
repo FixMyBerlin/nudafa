@@ -1,5 +1,5 @@
 import type { Measure } from '@components/page_massnahmen/types'
-import { getGeometryByNudafaId } from 'src/utils/getGeometryByNudafaId'
+import { getGeometryByNudafaId } from '@components/page_massnahmen/utils/getGeometryByNudafaId'
 
 export const getMeasuresCsvData = (measures: Measure[]) => {
   for (const measure of measures) {
@@ -7,6 +7,13 @@ export const getMeasuresCsvData = (measures: Measure[]) => {
       // @ts-expect-error
       measure.data.geometry_data = getGeometryByNudafaId(measure.data.nudafa_id)
     }
+  }
+
+  const extractPart = (str: string | undefined): string => {
+    if (!str) return ''
+    const parts = str.split('/')
+    const lastPart = parts.pop() || ''
+    return lastPart.split('.')[0]
   }
 
   const measureDataKeys = [
@@ -49,14 +56,13 @@ export const getMeasuresCsvData = (measures: Measure[]) => {
       return acc
     }, {}),
     image: measure.data.image
-      ? `https://github.com/FixMyBerlin/nudafa/blob/main/src/assets/measures/${measure.slug}`
+      ? `https://github.com/FixMyBerlin/nudafa/blob/main/src/assets/measures/${extractPart(measure.filePath)}`
       : '',
-    slug: measure.slug,
     // @ts-expect-error
     geometry_data: JSON.stringify(measure.data.geometry_data),
   }))
 
-  const csvHeader = [...measureDataKeys, 'image', 'slug', 'geometry_data']
+  const csvHeader = [...measureDataKeys, 'image', 'geometry_data']
 
   return { csvData, csvHeader }
 }
