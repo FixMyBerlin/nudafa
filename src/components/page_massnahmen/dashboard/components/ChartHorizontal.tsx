@@ -104,7 +104,7 @@ export const ChartHorizontal = ({
         </ul>
       )}
 
-      {source && <p className="mt-2 text-right text-xs text-gray-500">{source}</p>}
+      {source && <p className="mt-2 text-xs text-gray-500">{source}</p>}
     </figure>
   )
 }

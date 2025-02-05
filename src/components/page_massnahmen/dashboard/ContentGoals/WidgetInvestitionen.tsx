@@ -1,5 +1,3 @@
-import { linkStyles } from '@components/links/styles'
-import clsx from 'clsx'
 import { ChartHorizontal } from '../components/ChartHorizontal'
 import { Table, type TableRow } from '../components/Table'
 import { Widget } from '../components/Widget'
@@ -37,7 +35,10 @@ export const WidgetInvestitionen = ({ data: { widgetInvestitionen } }: GoalsDash
         legend={widgetInvestitionen.chartHorizontal.legend}
         source={widgetInvestitionen.chartHorizontal.source}
       />
-      <a className={clsx(linkStyles, 'break-all')} href={widgetInvestitionen.sourceLink}>
+      <a
+        className="break-all text-xs text-gray-500 underline hover:text-gray-800"
+        href={widgetInvestitionen.sourceLink}
+      >
         {widgetInvestitionen.sourceLink}
       </a>
     </Widget>
