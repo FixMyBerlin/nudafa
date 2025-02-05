@@ -16,17 +16,18 @@ export const WidgetInvestitionen = ({ data: { widgetInvestitionen } }: GoalsDash
 
   return (
     <Widget headline={widgetInvestitionen.title}>
-      <p className="mb-3">
-        Einwohnerzahl: <strong>{widgetInvestitionen.population}</strong>
-      </p>
-
+      <p className="mb-2 text-sm text-gray-500">{widgetInvestitionen.tableTitle}</p>
       <Table
         heads={['', 'Ausgaben gesamt', 'Eigenanteil']}
         rows={finalTableData}
         className="mb-6"
       />
-
-      <h3 className="mb-3 text-sm text-gray-500">Ausgaben</h3>
+      <div className="mb-3">
+        <h3 className="mb-3 font-serif font-bold">{widgetInvestitionen.chartHorizontal.title}</h3>
+        <p className="text-sm text-gray-500">
+          Einwohnerzahl: <strong>{widgetInvestitionen.population}</strong>
+        </p>
+      </div>
       <ChartHorizontal
         title={widgetInvestitionen.chartHorizontal.title}
         height={widgetInvestitionen.chartHorizontal.height}

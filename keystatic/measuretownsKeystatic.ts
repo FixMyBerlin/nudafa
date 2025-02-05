@@ -109,6 +109,7 @@ export const keystaticMeasuretownsConfig = collection({
         widgetInvestitionen: fields.object(
           {
             title: fields.text({ label: 'Titel' }),
+            tableTitle: fields.text({ label: 'Titel für die Tabelle' }),
             population: fields.number({ label: 'Einwohnerzahl' }),
             table: fields.array(
               fields.object({
