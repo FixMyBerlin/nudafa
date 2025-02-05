@@ -45,9 +45,9 @@ export const pageMassnahmen: MapDataAndLegend = {
                 'match',
                 ['get', 'radverkehrsatlas'],
                 ['2_hauptroute'],
-                '#000000',
+                '#d60abf',
                 ['3_radschnellverbindung'],
-                '#000000',
+                '#d60abf',
                 '#7d7d7d',
               ],
               'line-width': [

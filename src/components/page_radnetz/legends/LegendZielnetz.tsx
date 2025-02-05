@@ -33,6 +33,17 @@ export const LegendZielnetz = () => {
           </LegendItem>
         </LegendItems>
       </LegendCol>
+      <LegendCol>
+        <LegendHeader>Fahrradeignung Nebenstraßen</LegendHeader>
+        <LegendItems>
+          <LegendItem>
+            <IconWrapper>
+              <IconLegendLine color="hsl(203, 93%, 72%)" width={3} />
+            </IconWrapper>
+            Oberfläche gut oder sehr gut
+          </LegendItem>
+        </LegendItems>
+      </LegendCol>
       {/* <LegendSources>
           Quellen: -
         </LegendSources> */}

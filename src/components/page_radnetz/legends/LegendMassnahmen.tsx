@@ -33,6 +33,17 @@ export const LegendMassnahmen = () => {
           </LegendItem>
         </LegendItems>
       </LegendCol>
+      <LegendCol>
+        <LegendHeader>Zielnetz</LegendHeader>
+        <LegendItems>
+          <LegendItem>
+            <IconWrapper>
+              <IconLegendLine color="#d60abf" width={2.5} strokeDasharray="4 2" />
+            </IconWrapper>
+            Zielnetz
+          </LegendItem>
+        </LegendItems>
+      </LegendCol>
     </Legend>
   )
 }

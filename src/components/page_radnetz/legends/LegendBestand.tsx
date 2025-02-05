@@ -25,6 +25,12 @@ export const LegendBestand = () => {
             </IconWrapper>
             verkehrsberuhigte Bereiche
           </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <IconLegendLine color="#a46bfa" width={3} strokeDasharray="3 2" />
+            </IconWrapper>
+            Führungsform unklar
+          </LegendItem>
         </LegendItems>
       </LegendCol>
       <LegendCol>
@@ -32,7 +38,7 @@ export const LegendBestand = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="hsl(203, 93%, 72%)" width={3} strokeDasharray="2.5 3" />
+              <IconLegendLine color="hsl(203, 93%, 72%)" width={3} />
             </IconWrapper>
             Oberfläche gut oder sehr gut
           </LegendItem>
