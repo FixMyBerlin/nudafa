@@ -11,13 +11,12 @@ import {
   NavigationControl,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre'
-import { SourcesLayersArticles } from '../Map/SourcesLayersArticles'
-import { SourcesLayersBase } from '../Map/SourcesLayersBase'
 import { MapDebugHelper } from '../MapDebugHelper/MapDebugHelper'
 import { beforeIds } from '../sortLayers/beforeIds.const'
 import { $clickedMapData, $mapLoaded, $router } from '../utils/store'
 import { useMapParam, type MapParamObject } from '../utils/useMapParam'
 import { useScreenHorizontal } from '../utils/useScreenHorizontal'
+import { AllLayers } from './AllLayers'
 import { AllSources } from './AllSources'
 
 type Props = {
@@ -154,8 +153,7 @@ export const RadnetzMap = ({ children }: Props) => {
         )}
 
         <AllSources />
-        <SourcesLayersArticles />
-        <SourcesLayersBase />
+        <AllLayers />
 
         <AttributionControl compact={true} position="bottom-left" />
         <NavigationControl

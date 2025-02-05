@@ -1,4 +1,4 @@
-import { SourcesLayersArticles } from '@components/page_radnetz/Map/SourcesLayersArticles'
+import { AllLayers } from '@components/page_radnetz/Map/AllLayers'
 import { SourcesLayersBase } from '@components/page_radnetz/Map/SourcesLayersBase'
 import { MapDebugHelper } from '@components/page_radnetz/MapDebugHelper/MapDebugHelper'
 import { useScreenHorizontal } from '@components/page_radnetz/utils/useScreenHorizontal'
@@ -190,7 +190,7 @@ export const MeasureMap = ({
         RTLTextPlugin={null}
       >
         <SourcesLayersBase />
-        {isZielnetzLayer && <SourcesLayersArticles article="massnahmenZielnetz" />}
+        {isZielnetzLayer && <AllLayers article="massnahmenZielnetz" />}
         {/* <SourcesLayersArticles article="massnahmenZielnetz" /> */}
 
         {selectedLineFeaturesSource}
