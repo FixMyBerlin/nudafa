@@ -8,7 +8,7 @@ export const LegendSicherheit = () => {
   return (
     <Legend>
       <LegendCol>
-        <LegendHeader>Schulwegsicherheit</LegendHeader>
+        <LegendHeader>Schulwege mit dem Fahrrad</LegendHeader>
         <LegendItems>
           <LegendItem>
             <IconWrapper>
