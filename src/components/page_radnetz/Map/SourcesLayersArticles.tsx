@@ -1,7 +1,6 @@
 import { useStore } from '@nanostores/react'
-import 'maplibre-gl/dist/maplibre-gl.css'
 import React from 'react'
-import { Layer, Source } from 'react-map-gl/maplibre'
+import { Layer } from 'react-map-gl/maplibre'
 import { mapDataAndLegend } from '../mapData/mapDataAndLegend.const'
 import { $router } from '../utils/store'
 
@@ -26,7 +25,6 @@ export const SourcesLayersArticles = ({ article }: Props) => {
 
           return (
             <React.Fragment key={sourceKey}>
-              <Source id={sourceKey} type="vector" url={`pmtiles://${sourceData.pmTilesUrl}`} />
               {sourceData.layers?.map((layer) => {
                 // Layers might have a layout property which we merge here with our visibility property
                 const visibility = layersVisible
@@ -39,7 +37,7 @@ export const SourcesLayersArticles = ({ article }: Props) => {
                 return (
                   <Layer
                     {...layer}
-                    source={sourceKey}
+                    source={sourceData.pmTilesUrl}
                     key={layerKey}
                     id={layerKey}
                     source-layer="default"

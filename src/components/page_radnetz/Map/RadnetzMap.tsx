@@ -18,6 +18,7 @@ import { beforeIds } from '../sortLayers/beforeIds.const'
 import { $clickedMapData, $mapLoaded, $router } from '../utils/store'
 import { useMapParam, type MapParamObject } from '../utils/useMapParam'
 import { useScreenHorizontal } from '../utils/useScreenHorizontal'
+import { AllSources } from './AllSources'
 
 type Props = {
   children?: React.ReactNode
@@ -152,6 +153,7 @@ export const RadnetzMap = ({ children }: Props) => {
           </div>
         )}
 
+        <AllSources />
         <SourcesLayersArticles />
         <SourcesLayersBase />
 
