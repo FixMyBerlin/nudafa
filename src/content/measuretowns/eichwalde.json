@@ -273,16 +273,8 @@
                 "color": "#98AEF8"
               },
               {
-                "value": 30,
-                "color": "#14B8A6"
-              },
-              {
                 "value": 2,
                 "color": "#EFC865"
-              },
-              {
-                "value": 10,
-                "color": "#F37575"
               }
             ]
           },
@@ -294,16 +286,8 @@
                 "color": "#98AEF8"
               },
               {
-                "value": 30,
-                "color": "#14B8A6"
-              },
-              {
                 "value": 8,
                 "color": "#EFC865"
-              },
-              {
-                "value": 10,
-                "color": "#F37575"
               }
             ]
           },
@@ -315,16 +299,21 @@
                 "color": "#98AEF8"
               },
               {
-                "value": 30,
-                "color": "#14B8A6"
-              },
-              {
                 "value": 84,
                 "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "Referenz",
+            "values": [
+              {
+                "value": 30,
+                "color": "#asfgre"
               },
               {
-                "value": 10,
-                "color": "#F37575"
+                "value": 5,
+                "color": "#asfsdf"
               }
             ]
           }
