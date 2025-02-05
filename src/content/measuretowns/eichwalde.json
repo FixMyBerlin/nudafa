@@ -329,11 +329,11 @@
           },
           {
             "text": "Zielstellung NRVP: Gesamt",
-            "color": "#14B8A6"
+            "color": "#737373"
           },
           {
             "text": "Zielstellung NRVP: Eigenanteil",
-            "color": "#F37575"
+            "color": "#959595"
           }
         ],
         "source": "Quelle: Haushalt Gemeinde Eichwalde"
