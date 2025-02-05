@@ -123,6 +123,7 @@ export const keystaticMeasuretownsConfig = collection({
               },
             ),
             chartHorizontal: keystaticWidgetChartHorizontal,
+            sourceLink: fields.text({ label: 'Link zur Quelle der Daten' }),
           },
           { label: 'ZIELE: Widget Investitionen' },
         ),

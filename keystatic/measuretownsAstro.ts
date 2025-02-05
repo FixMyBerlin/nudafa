@@ -51,6 +51,7 @@ export const astroMeasuretownsDefinition = defineCollection({
         widgetInvestitionen: z.object({
           title: z.string().optional(),
           tableTitle: z.string().optional(),
+          sourceLink: z.string().optional(),
           population: z.number().optional(),
           table: z.array(
             z.object({

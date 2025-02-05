@@ -1,3 +1,5 @@
+import { linkStyles } from '@components/links/styles'
+import clsx from 'clsx'
 import { ChartHorizontal } from '../components/ChartHorizontal'
 import { Table, type TableRow } from '../components/Table'
 import { Widget } from '../components/Widget'
@@ -13,7 +15,7 @@ export const WidgetInvestitionen = ({ data: { widgetInvestitionen } }: GoalsDash
   const finalTableData = [...tableData, averageRow]
 
   if (!widgetInvestitionen.chartHorizontal.data.length) return null
-
+  console.log({ widgetInvestitionen })
   return (
     <Widget headline={widgetInvestitionen.title}>
       <p className="mb-2 text-sm text-gray-500">{widgetInvestitionen.tableTitle}</p>
@@ -25,7 +27,7 @@ export const WidgetInvestitionen = ({ data: { widgetInvestitionen } }: GoalsDash
       <div className="mb-3">
         <h3 className="mb-3 font-serif font-bold">{widgetInvestitionen.chartHorizontal.title}</h3>
         <p className="text-sm text-gray-500">
-          Einwohnerzahl: <strong>{widgetInvestitionen.population}</strong>
+          Einwohnerzahl: <strong>{widgetInvestitionen.population?.toLocaleString('de-DE')}</strong>
         </p>
       </div>
       <ChartHorizontal
@@ -35,6 +37,9 @@ export const WidgetInvestitionen = ({ data: { widgetInvestitionen } }: GoalsDash
         legend={widgetInvestitionen.chartHorizontal.legend}
         source={widgetInvestitionen.chartHorizontal.source}
       />
+      <a className={clsx(linkStyles, 'break-all')} href={widgetInvestitionen.sourceLink}>
+        {widgetInvestitionen.sourceLink}
+      </a>
     </Widget>
   )
 }
