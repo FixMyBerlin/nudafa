@@ -6,7 +6,7 @@ export const WidgetMarkdown = ({ data: { widgetMarkdown } }: GeneralDashboardDat
   if (!widgetMarkdown) return null
 
   return (
-    <Widget headline="Besondere Herausforderungen">
+    <Widget>
       <Markdown markdown={widgetMarkdown} />
     </Widget>
   )
