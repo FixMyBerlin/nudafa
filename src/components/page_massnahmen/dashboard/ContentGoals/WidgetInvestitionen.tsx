@@ -15,7 +15,7 @@ export const WidgetInvestitionen = ({ data: { widgetInvestitionen } }: GoalsDash
   if (!widgetInvestitionen.chartHorizontal.data.length) return null
 
   return (
-    <Widget headline="WidgetInventionen gemäß NRVP">
+    <Widget headline={widgetInvestitionen.title}>
       <p className="mb-3">
         Einwohnerzahl: <strong>{widgetInvestitionen.population}</strong>
       </p>

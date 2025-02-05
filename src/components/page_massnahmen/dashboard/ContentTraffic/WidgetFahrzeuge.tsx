@@ -6,7 +6,7 @@ export const WidgetFahrzeuge = ({ data: { widgetFahrzeuge } }: TrafficDashboardD
   if (!widgetFahrzeuge.chartVertical.data.length) return null
 
   return (
-    <Widget headline="Fahrzeuge pro Kopf">
+    <Widget headline={widgetFahrzeuge.chartVertical.title}>
       <ChartVertical
         title={widgetFahrzeuge.chartVertical.title}
         data={widgetFahrzeuge.chartVertical.data}

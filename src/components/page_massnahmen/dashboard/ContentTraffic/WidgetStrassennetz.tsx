@@ -6,7 +6,7 @@ export const WidgetStrassennetz = ({ data: { widgetStrassennetz } }: TrafficDash
   if (!widgetStrassennetz.chartRelativeVertical.data.length) return null
 
   return (
-    <Widget headline="Straßennetz">
+    <Widget headline={widgetStrassennetz.chartRelativeVertical.title}>
       <ChartRelativeVertical
         title={widgetStrassennetz.chartRelativeVertical.title}
         data={widgetStrassennetz.chartRelativeVertical.data}

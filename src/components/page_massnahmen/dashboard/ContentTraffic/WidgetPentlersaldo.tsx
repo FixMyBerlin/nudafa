@@ -6,7 +6,7 @@ export const WidgetPentlersaldo = ({ data: { widgetPentlersaldo } }: TrafficDash
   if (!widgetPentlersaldo.chartVertical.data.length) return null
 
   return (
-    <Widget headline="Pendlersaldo">
+    <Widget headline={widgetPentlersaldo.chartVertical.title}>
       <ChartVertical
         title={widgetPentlersaldo.chartVertical.title}
         data={widgetPentlersaldo.chartVertical.data}

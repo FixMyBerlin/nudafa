@@ -7,7 +7,7 @@ export const WidgetModalsplit = ({ data: { widgetModalsplit } }: TrafficDashboar
   if (!widgetModalsplit.chartVertical.data.length) return null
 
   return (
-    <Widget headline="Modalsplit (innerorts)">
+    <Widget headline={widgetModalsplit.chartVertical.title}>
       <Markdown markdown={widgetModalsplit.subText} className="mb-3 text-xs" />
 
       <ChartVertical
