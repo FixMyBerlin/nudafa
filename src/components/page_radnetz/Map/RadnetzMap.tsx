@@ -1,3 +1,4 @@
+import { MAPTILER_STYLE, MAX_BOUNDS, MAXZOOM, MINZOOM } from '@components/maps/constants'
 import { SmallSpinner } from '@components/spinner/SmallSpinner'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
@@ -23,16 +24,6 @@ type Props = {
   children?: React.ReactNode
 }
 
-// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxbounds
-const maxBounds = [
-  [13.247683121825787, 52.05970889348518],
-  [14.057293817329509, 52.517318654366335],
-] satisfies LngLatBoundsLike
-// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setminzoom
-const minZoom = 7
-// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxzoom
-const maxZoom = 22
-
 const initialMapView: { center: MapParamObject; bounds: { bounds: LngLatBoundsLike } } = {
   center: {
     zoom: 11,
@@ -54,10 +45,6 @@ const fitBoundsOptionsInitialMapView = {
 }
 
 const interactiveLayerIds: string[] = []
-
-// Style: https://cloud.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/
-const MAPTILER_STYLE =
-  'https://api.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/style.json?key=ECOoUBmpqklzSCASXxcu'
 
 export const RadnetzMap = ({ children }: Props) => {
   const [isScreenHorizontal] = useScreenHorizontal()
@@ -118,9 +105,9 @@ export const RadnetzMap = ({ children }: Props) => {
         }}
         onMoveEnd={handleMoveEnd}
         // Contain Map
-        maxBounds={maxBounds}
-        minZoom={minZoom}
-        maxZoom={maxZoom}
+        maxBounds={MAX_BOUNDS}
+        minZoom={MINZOOM}
+        maxZoom={MAXZOOM}
         mapStyle={MAPTILER_STYLE}
         style={{ width: '100%', height: '100%' }}
         // Set map state for <MapData>:

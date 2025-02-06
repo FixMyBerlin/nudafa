@@ -1,3 +1,4 @@
+import { MAPTILER_STYLE, MAX_BOUNDS, MAXZOOM, MINZOOM } from '@components/maps/constants'
 import { AllLayers } from '@components/page_radnetz/Map/AllLayers'
 import { SourcesLayersBase } from '@components/page_radnetz/Map/SourcesLayersBase'
 import { MapDebugHelper } from '@components/page_radnetz/MapDebugHelper/MapDebugHelper'
@@ -26,24 +27,10 @@ type Props = {
   setSelectedLineId?: any
 }
 
-// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxbounds
-const maxBounds = [
-  [13.247683121825787, 52.05970889348518],
-  [14.057293817329509, 52.517318654366335],
-] satisfies LngLatBoundsLike
-// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setminzoom
-const minZoom = 7
-// https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#setmaxzoom
-const maxZoom = 22
-
 // initialViewState: we add padding right on desktop to make space for the sidebar
 const fitBoundsOptionsInitialMapView = {
   mobile: { padding: { right: 15, left: 15, top: 15, bottom: 15 } },
 }
-
-// Style: https://cloud.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/
-const MAPTILER_STYLE =
-  'https://api.maptiler.com/maps/fe7d06df-9fbd-43f3-bd9e-8f394e41efd0/style.json?key=ECOoUBmpqklzSCASXxcu'
 
 export const MeasureMap = ({
   geometry,
@@ -164,9 +151,9 @@ export const MeasureMap = ({
         }}
         // onMoveEnd={handleMoveEnd}
         // Contain Map
-        maxBounds={maxBounds}
-        minZoom={minZoom}
-        maxZoom={maxZoom}
+        maxBounds={MAX_BOUNDS}
+        minZoom={MINZOOM}
+        maxZoom={MAXZOOM}
         mapStyle={MAPTILER_STYLE}
         style={{ width: '100%', height: '100%' }}
         // Set map state for <MapData>:
