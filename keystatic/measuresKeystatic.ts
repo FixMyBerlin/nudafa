@@ -12,6 +12,7 @@ export const keystaticMeasuresConfig = collection({
   slugField: 'title',
   path: `${contentBaseMeasures}/*`,
   format: { contentField: 'content' },
+  columns: ['title'],
   schema: {
     title: fields.slug({
       name: {

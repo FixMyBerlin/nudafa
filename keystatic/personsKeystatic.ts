@@ -7,6 +7,7 @@ export const keystaticPersonsConfig = collection({
     contentField: 'emptyContent',
   },
   slugField: 'name',
+  columns: ['name'],
   schema: {
     name: fields.slug({
       name: {

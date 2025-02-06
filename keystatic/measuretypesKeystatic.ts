@@ -5,6 +5,7 @@ export const keystaticMeasuretypesConfig = collection({
   format: 'yaml',
   slugField: 'title',
   path: 'src/content/measuretypes/*',
+  columns: ['title'],
   schema: {
     title: fields.slug({
       name: { label: 'Title' },

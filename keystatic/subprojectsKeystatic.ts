@@ -7,6 +7,7 @@ export const keystaticSubprojectsConfig = collection({
   slugField: 'title',
   path: `${contentBaseSubprojects}/*`,
   format: { contentField: 'content' },
+  columns: ['title'],
   schema: {
     title: fields.slug({
       slug: {
@@ -81,6 +82,7 @@ export const keystaticSubprojectAndMeasureTopicsConfig = collection({
   format: 'yaml',
   slugField: 'title',
   path: `${contentBaseSubprojectAndMearuetopics}/*`,
+  columns: ['title'],
   schema: {
     title: fields.slug({
       name: { label: 'Title' },
@@ -101,7 +103,7 @@ export const keystaticSubprojectCommunesConfig = collection({
   format: {
     contentField: 'emptyContent',
   },
-  columns: ['order'],
+  columns: ['order', 'name'],
   slugField: 'name',
   schema: {
     name: fields.slug({
@@ -157,6 +159,7 @@ export const keystaticSubprojectPartnersConfig = collection({
     contentField: 'emptyContent',
   },
   slugField: 'name',
+  columns: ['name'],
   schema: {
     name: fields.slug({
       name: {
