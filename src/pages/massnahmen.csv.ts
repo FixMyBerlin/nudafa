@@ -2,9 +2,10 @@ import { getMeasuresCsvData } from '@components/utils/getMeasureCsvData'
 import type { APIRoute } from 'astro'
 import { getCollection } from 'astro:content'
 
-export const GET: APIRoute = async ({ params, request }) => {
+// export const GET: APIRoute = async ({ params, request }) => {
+export const GET: APIRoute = async () => {
   const measures = await getCollection('measures')
-  const { csvHeader, csvData } = await getMeasuresCsvData(measures)
+  const { csvHeader, csvData } = getMeasuresCsvData(measures)
 
   const escapeCsvValue = (value: any) => {
     if (value === null || value === undefined) {
