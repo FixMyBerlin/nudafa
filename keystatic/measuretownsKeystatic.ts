@@ -56,6 +56,25 @@ export const keystaticMeasuretownsConfig = collection({
           },
           { label: 'ALLGEMEIN: Widget Fahrradklimatest' },
         ),
+        widgetBilder: fields.array(
+          fields.object({
+            image: fields.image({
+              label: 'Bild',
+              validation: { isRequired: true },
+              description:
+                'Bild bitte im Format 4:3 (quer) hochladen bzw. wird dementsprechend beschnitten.',
+              directory: 'src/assets/measuretowns',
+              publicPath: '/src/assets/measuretowns',
+            }),
+            imageCopyright: fields.text({
+              label: 'Copyright Bild',
+            }),
+            alt: fields.text({
+              label: 'Alt Text',
+            }),
+          }),
+          { label: 'ALLGEMEIN: Widget Bilder' },
+        ),
       },
       { label: 'WIDGETS ALLGEMEIN' },
     ),
@@ -130,26 +149,5 @@ export const keystaticMeasuretownsConfig = collection({
       },
       { label: 'WIDGETS ZIELE' },
     ),
-    // image: fields.image({
-    //   label: 'Bild',
-    //   validation: { isRequired: true },
-    //   description:
-    //     'Bild bitte im Format 4:3 (quer) hochladen bzw. wird dementsprechend beschnitten.',
-    //   directory: 'src/assets/measuretowns',
-    //   publicPath: '/src/assets/measuretowns',
-    // }),
-    // imageCopyright: fields.text({
-    //   label: 'Copyright Bild',
-    //   validation: { length: { min: 1, max: 100 } },
-    // }),
-    // content: fields.mdx({
-    //   label: 'Beschreibung',
-    //   options: {
-    //     image: {
-    //       directory: 'src/assets/images/measuretowns',
-    //       publicPath: '/src/assets/images/measuretowns/',
-    //     },
-    //   },
-    // }),
   },
 })

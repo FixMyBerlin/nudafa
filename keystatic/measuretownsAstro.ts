@@ -7,7 +7,7 @@ import { astroWidgetChartVertical } from './widgets/widgetChartVertical'
 
 export const astroMeasuretownsDefinition = defineCollection({
   loader: loader(contentBaseMeasureTowns, 'json'),
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       general: z.object({
@@ -17,6 +17,15 @@ export const astroMeasuretownsDefinition = defineCollection({
           subText: z.string().optional(),
           chartHorizontal: astroWidgetChartHorizontal,
         }),
+        widgetBilder: z
+          .array(
+            z.object({
+              image: image(),
+              imageCopyright: z.string().optional(),
+              alt: z.string().optional(),
+            }),
+          )
+          .optional(),
       }),
       traffic: z.object({
         widgetPentlersaldo: z.object({
