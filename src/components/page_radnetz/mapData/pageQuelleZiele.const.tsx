@@ -219,7 +219,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
                 ['ferry_station'],
                 'ferry',
                 ['railway_station'],
-                'rail-metro',
+                'singapore-mrt-1',
                 ['light_rail_station'],
                 'S-Bahn_MB',
                 ['tram_station'],
