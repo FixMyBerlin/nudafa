@@ -48,7 +48,8 @@
         ],
         "source": "ADFC Fahrradklimatest"
       }
-    }
+    },
+    "widgetBilder": []
   },
   "traffic": {
     "widgetPentlersaldo": {
@@ -238,6 +239,7 @@
     "widgetPeople": "### Ansprechpartner\n\n**Bürgermeister:** \\\n→ Jörg Jenoch&#x20;\n\n**Interkommunaler Radverkehrsmanager:** \\\n→ Tim Zander\n\n**NUDAFA-Reallabor:** \\\n→ Christoph Kollert&#x20;\n\n**Klimaschutzmanagement:** \\\n→ Uta Thieme\n",
     "widgetInvestitionen": {
       "title": "Investitionen",
+      "tableTitle": "Hier ist eine Erläuterung, was die Tabelle bedeutet",
       "population": 6490,
       "table": [
         {
