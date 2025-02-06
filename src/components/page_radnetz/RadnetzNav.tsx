@@ -5,7 +5,7 @@ import { openPage } from '@nanostores/router'
 import { clsx } from 'clsx'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { RadnetzImprintPrivacy } from './RadnetzImprintPrivacy'
-import { mapDataAndLegend } from './mapData/mapDataAndLegend.const'
+import { mapDataAndLegendMassnahmen } from './mapData/mapDataAndLegend.const'
 import type { RadnetzPage } from './types'
 import { $router } from './utils/store'
 
@@ -42,7 +42,7 @@ const RadnetzNav = ({ currentSection, handleClick, pages, className }: RadnetzNa
                 <span
                   className={clsx(
                     'border-l-2 pl-2',
-                    active ? 'border-l-beige-50' : mapDataAndLegend[slug]?.colorClass,
+                    active ? 'border-l-beige-50' : mapDataAndLegendMassnahmen[slug]?.colorClass,
                   )}
                 >
                   {menu}

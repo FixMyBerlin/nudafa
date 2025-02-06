@@ -1,9 +1,11 @@
 import { Source } from 'react-map-gl/maplibre'
-import { mapDataAndLegend } from '../mapData/mapDataAndLegend.const'
+import { type MapDataAndLegend } from '../mapData/mapDataAndLegend.const'
 import { mapDataBase } from '../mapData/mapDataBase.const'
 
-export const AllSources = () => {
-  const pageSourceUrls = Object.values(mapDataAndLegend)
+type Props = { pageMapData: MapDataAndLegend }
+
+export const AllSources = ({ pageMapData }: Props) => {
+  const pageSourceUrls = Object.values(pageMapData)
     .map((pageData) => Object.values(pageData.sources).map((source) => source.pmTilesUrl))
     .flat()
 

@@ -82,11 +82,16 @@ const features = nudafa_id ? getGeometryByNudafaId(nudafa_id) : undefined
         !!features?.length ? (
           <div>
             <div class="h-[600px] w-full">
-              <MeasureMap selectedLineId={nudafa_id} geometry={features} client:load />
+              <MeasureMap
+                selectedLineId={nudafa_id}
+                geometry={features}
+                showAllMeasures={false}
+                client:load
+              />
             </div>
           </div>
         ) : (
-          <div class="text-sm text-gray-600">k. Geometrie vorhanden</div>
+          <div class="text-sm text-gray-600">keine Geometrie vorhanden</div>
         )
       }
     </div>

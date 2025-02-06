@@ -1,6 +1,11 @@
 import { MAPTILER_STYLE, MAX_BOUNDS, MAXZOOM, MINZOOM } from '@components/maps/constants'
 import { AllLayers } from '@components/page_radnetz/Map/AllLayers'
-import { SourcesLayersBase } from '@components/page_radnetz/Map/SourcesLayersBase'
+import { AllSources } from '@components/page_radnetz/Map/AllSources'
+import {
+  generateArticleLayers,
+  mapDataAndLegendMeasures,
+} from '@components/page_radnetz/mapData/mapDataAndLegend.const'
+import { generateBaseLayers } from '@components/page_radnetz/mapData/mapDataBase.const'
 import { MapDebugHelper } from '@components/page_radnetz/MapDebugHelper/MapDebugHelper'
 import { useScreenHorizontal } from '@components/page_radnetz/utils/useScreenHorizontal'
 import * as turf from '@turf/turf'
@@ -21,10 +26,10 @@ import {
 import type { MeasureData } from './types'
 
 type Props = {
-  isZielnetzLayer?: boolean
   geometry: Feature[]
   selectedLineId: string | null
   setSelectedLineId?: any
+  showAllMeasures: boolean
 }
 
 // initialViewState: we add padding right on desktop to make space for the sidebar
@@ -36,7 +41,7 @@ export const MeasureMap = ({
   geometry,
   selectedLineId,
   setSelectedLineId,
-  isZielnetzLayer,
+  showAllMeasures,
 }: Props) => {
   const [isScreenHorizontal] = useScreenHorizontal()
   const [cursorStyle, setCursorStyle] = useState('grab')
@@ -50,20 +55,21 @@ export const MeasureMap = ({
     }
   }, [])
 
-  const selectableLines: FeatureCollection = {
+  const selectableGeometries: FeatureCollection = {
     type: 'FeatureCollection',
     // @ts-expect-error
     features: [...geometry],
   }
 
-  const selectedLine = selectedLineId
-    ? {
-        type: 'FeatureCollection',
-        features: geometry.filter((f) => f.properties['NUDAFA_ID'] === selectedLineId),
-      }
-    : null
+  const selectedGeometries: FeatureCollection = {
+    type: 'FeatureCollection',
+    // @ts-expect-error
+    features: selectedLineId
+      ? geometry.filter((f) => f.properties['NUDAFA_ID'] === selectedLineId)
+      : [],
+  }
 
-  const bbox = turf.bbox(selectableLines)
+  const bbox = turf.bbox(selectableGeometries)
   const initialMapViewCustom: { bounds: LngLatBoundsLike } = {
     bounds: [
       [bbox[0], bbox[1]],
@@ -71,8 +77,8 @@ export const MeasureMap = ({
     ],
   }
 
-  const selectableLineFeaturesSource = selectableLines ? (
-    <Source id="layer_selectable_features" type="geojson" data={selectableLines}>
+  const selectableLineFeaturesSource = (
+    <Source id="layer_selectable_features" type="geojson" data={selectableGeometries}>
       <Layer
         // See also  `interactiveLayerIds`
         id="layer_selectable_features--lines"
@@ -95,10 +101,10 @@ export const MeasureMap = ({
         filter={['==', '$type', 'Point']}
       />
     </Source>
-  ) : null
+  )
 
-  const selectedLineFeaturesSource = selectedLine ? (
-    <Source id="selected-geometry" type="geojson" data={selectedLine}>
+  const selectedLineFeaturesSource = (
+    <Source id="selected-geometry" type="geojson" data={selectedGeometries}>
       <Layer
         id="selected-geometry--lines"
         beforeId="layer_selectable_features--points"
@@ -133,7 +139,7 @@ export const MeasureMap = ({
         filter={['==', '$type', 'Point']}
       />
     </Source>
-  ) : null
+  )
 
   const handleClickMap = (e: MapLayerMouseEvent) => {
     const id = e.features?.at(0)?.properties['NUDAFA_ID'] as MeasureData['nudafa_id']
@@ -176,12 +182,18 @@ export const MeasureMap = ({
         // @ts-expect-error: See https://github.com/visgl/react-map-gl/issues/2310
         RTLTextPlugin={null}
       >
-        <SourcesLayersBase />
-        {isZielnetzLayer && <AllLayers article="massnahmenZielnetz" />}
-        {/* <SourcesLayersArticles article="massnahmenZielnetz" /> */}
+        <AllSources pageMapData={mapDataAndLegendMeasures} />
+        <AllLayers
+          layers={[
+            ...generateBaseLayers(),
+            ...(showAllMeasures
+              ? generateArticleLayers(mapDataAndLegendMeasures, 'massnahmenZielnetz')
+              : []),
+          ]}
+        />
 
-        {selectedLineFeaturesSource}
         {selectableLineFeaturesSource}
+        {selectedLineFeaturesSource}
 
         <AttributionControl compact={true} position="bottom-left" />
         <NavigationControl

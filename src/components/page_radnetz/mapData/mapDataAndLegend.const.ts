@@ -49,7 +49,7 @@ export type MapDataAndLegend = {
   }
 }
 
-export const mapDataAndLegend: MapDataAndLegend = {
+export const mapDataAndLegendMassnahmen: MapDataAndLegend = {
   ...pageEinleitung,
   ...pageKontext,
   ...pageQuelleZiele,
@@ -62,7 +62,26 @@ export const mapDataAndLegend: MapDataAndLegend = {
   ...pageBedarfe,
   ...pageMassnahmen,
   ...pageInteraktiveKarte,
-  // this is NOT a Radnetz page, but a configuration for /massnahmen maps
-  // it would be cleaner to have this somewhere else but for now it lives here to reduce complexity
+}
+
+export const mapDataAndLegendMeasures: MapDataAndLegend = {
   ...pageMassnahmenZielnetz,
+}
+
+export const generateArticleLayers = (
+  layers: MapDataAndLegend,
+  articleSlug: string | undefined,
+) => {
+  return Object.entries(layers)
+    .map(([pageSlug, pageData]) => {
+      // We render all layer, but show only those that belong to the current article
+      // This way we can manage one beforIds list for all layers
+      const layersVisible = pageSlug === articleSlug
+      return Object.entries(pageData.sources).map(([sourceId, sources]) => {
+        return sources.layers.map((layer) => {
+          return { pageSlug, sourceId, pmTilesUrl: sources.pmTilesUrl, layersVisible, layer }
+        })
+      })
+    })
+    .flat(2)
 }

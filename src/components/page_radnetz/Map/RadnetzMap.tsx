@@ -1,5 +1,6 @@
 import { MAPTILER_STYLE, MAX_BOUNDS, MAXZOOM, MINZOOM } from '@components/maps/constants'
 import { SmallSpinner } from '@components/spinner/SmallSpinner'
+import { useStore } from '@nanostores/react'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import * as pmtiles from 'pmtiles'
@@ -12,6 +13,11 @@ import {
   NavigationControl,
   type ViewStateChangeEvent,
 } from 'react-map-gl/maplibre'
+import {
+  generateArticleLayers,
+  mapDataAndLegendMassnahmen,
+} from '../mapData/mapDataAndLegend.const'
+import { generateBaseLayers } from '../mapData/mapDataBase.const'
 import { MapDebugHelper } from '../MapDebugHelper/MapDebugHelper'
 import { beforeIds } from '../sortLayers/beforeIds.const'
 import { $clickedMapData, $mapLoaded, $router } from '../utils/store'
@@ -91,6 +97,9 @@ export const RadnetzMap = ({ children }: Props) => {
     })
   }
 
+  const articleSlug = useStore($router)?.params.section
+  if (!articleSlug) return null
+
   return (
     <MapProvider>
       <Map
@@ -139,8 +148,13 @@ export const RadnetzMap = ({ children }: Props) => {
           </div>
         )}
 
-        <AllSources />
-        <AllLayers />
+        <AllSources pageMapData={mapDataAndLegendMassnahmen} />
+        <AllLayers
+          layers={[
+            ...generateBaseLayers(),
+            ...generateArticleLayers(mapDataAndLegendMassnahmen, articleSlug),
+          ]}
+        />
 
         <AttributionControl compact={true} position="bottom-left" />
         <NavigationControl

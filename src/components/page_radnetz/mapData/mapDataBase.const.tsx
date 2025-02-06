@@ -57,3 +57,21 @@ export const mapDataBase: MapDataAndLegend[number]['sources'] = {
     ],
   },
 }
+
+export type MapDataLayers = ReturnType<typeof generateBaseLayers>
+
+export const generateBaseLayers = () => {
+  return Object.entries(mapDataBase)
+    .map(([sourceId, sourceData]) => {
+      return sourceData.layers.map((layer) => {
+        return {
+          pageSlug: 'base',
+          sourceId,
+          pmTilesUrl: sourceData.pmTilesUrl,
+          layersVisible: true,
+          layer,
+        }
+      })
+    })
+    .flat()
+}

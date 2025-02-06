@@ -175,7 +175,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
             selectedLineId={selectedLineId}
             setSelectedLineId={setSelectedLineId}
             geometry={features}
-            isZielnetzLayer
+            showAllMeasures
           />
           {selectedLineId && fileterdMeasures.find((m) => m.data.nudafa_id === selectedLineId) && (
             <MeasureCard

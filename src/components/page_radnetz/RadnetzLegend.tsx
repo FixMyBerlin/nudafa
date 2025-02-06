@@ -1,5 +1,5 @@
 import { LegendSources } from './legends/Legend'
-import { mapDataAndLegend } from './mapData/mapDataAndLegend.const'
+import { mapDataAndLegendMassnahmen } from './mapData/mapDataAndLegend.const'
 
 type Props = {
   articleSlug: string
@@ -7,7 +7,7 @@ type Props = {
 }
 
 export const RadnetzLegend = ({ articleSlug, sources }: Props) => {
-  const legends = mapDataAndLegend[articleSlug]?.legends
+  const legends = mapDataAndLegendMassnahmen[articleSlug]?.legends
   if (!legends) return null
 
   return (
