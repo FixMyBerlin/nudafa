@@ -7,12 +7,12 @@ type Props = {
     value: number
     color: string
   }[]
-  dataUnit?: 'percent'
+  dataUnit?: 'percent' | 'none'
   source?: string
   className?: string
 }
 
-const unitsString: Record<NonNullable<Props['dataUnit']>, string> = { percent: '%' }
+const unitsString: Record<NonNullable<Props['dataUnit']>, string> = { percent: '%', none: '' }
 
 export const ChartVertical = ({ title, data, dataUnit, source, className }: Props) => {
   const maxValue = Math.max(...data.map(({ value }) => value))
@@ -39,7 +39,6 @@ export const ChartVertical = ({ title, data, dataUnit, source, className }: Prop
                 className="h-3"
                 aria-label={`${label}: ${value} %`}
               />
-
               <span style={{ color }}>
                 {value.toLocaleString('de-DE')}&nbsp;{dataUnit ? unitsString[dataUnit] : ''}
               </span>

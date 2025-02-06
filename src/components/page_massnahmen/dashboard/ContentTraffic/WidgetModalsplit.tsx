@@ -14,6 +14,7 @@ export const WidgetModalsplit = ({ data: { widgetModalsplit } }: TrafficDashboar
         title={widgetModalsplit.chartVertical.title}
         data={widgetModalsplit.chartVertical.data}
         source={widgetModalsplit.chartVertical.source}
+        dataUnit={widgetModalsplit.chartVertical.dataUnit}
       />
     </Widget>
   )

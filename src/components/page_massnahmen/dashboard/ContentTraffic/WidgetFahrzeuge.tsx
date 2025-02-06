@@ -11,6 +11,7 @@ export const WidgetFahrzeuge = ({ data: { widgetFahrzeuge } }: TrafficDashboardD
         title={widgetFahrzeuge.chartVertical.title}
         data={widgetFahrzeuge.chartVertical.data}
         source={widgetFahrzeuge.chartVertical.source}
+        dataUnit={widgetFahrzeuge.chartVertical.dataUnit}
       />
     </Widget>
   )

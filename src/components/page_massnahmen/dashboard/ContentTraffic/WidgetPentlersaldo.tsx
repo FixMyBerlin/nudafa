@@ -11,6 +11,7 @@ export const WidgetPentlersaldo = ({ data: { widgetPentlersaldo } }: TrafficDash
         title={widgetPentlersaldo.chartVertical.title}
         data={widgetPentlersaldo.chartVertical.data}
         source={widgetPentlersaldo.chartVertical.source}
+        dataUnit={widgetPentlersaldo.chartVertical.dataUnit}
       />
     </Widget>
   )
