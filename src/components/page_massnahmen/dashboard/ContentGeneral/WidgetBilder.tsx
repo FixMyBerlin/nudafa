@@ -8,7 +8,7 @@ export const WidgetBilder = ({ data: { widgetBilder } }: GeneralDashboardData) =
     <Widget>
       <div className="flex flex-col gap-2">
         {widgetBilder.map((bild) => (
-          <figure className={'w-full'}>
+          <figure className="w-full">
             <div className="aspect-[4/3]">
               <img
                 className="h-full w-full overflow-hidden object-cover"

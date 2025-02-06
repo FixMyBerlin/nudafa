@@ -62,7 +62,7 @@ export const keystaticMeasuretownsConfig = collection({
               label: 'Bild',
               validation: { isRequired: true },
               description:
-                'Bild bitte im Format 4:3 (quer) hochladen bzw. wird dementsprechend beschnitten.',
+                '⚠️ Bilder in diesem Widget werden nicht automatisch optimiert. Sie müssen also bereits in der richtigen Größe (max. 300px Breite, 4:3 Querformat) und Zuschnitt hochgeladen werden. Größere Bilder oder andere Formate werden optisch verkleinert und eingepasst aber beeinflussen die Ladegeschwindigkeit der Seite nachteilig.',
               directory: 'src/assets/measuretowns',
               publicPath: '/src/assets/measuretowns',
             }),
