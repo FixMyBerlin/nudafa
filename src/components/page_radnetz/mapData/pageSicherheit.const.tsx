@@ -25,7 +25,7 @@ export const pageSicherheit: MapDataAndLegend = {
             id: 'nudafa-unfaelle',
             type: 'circle',
             paint: {
-              'circle-radius': ['match', ['get', 'Kat'], ['1'], 5, ['2'], 4, 2],
+              'circle-radius': ['match', ['get', 'Kat'], ['1'], 5, ['2'], 4, 3],
               'circle-color': [
                 'match',
                 ['get', 'Kat'],
