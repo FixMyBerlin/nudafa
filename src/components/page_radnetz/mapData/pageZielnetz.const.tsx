@@ -8,13 +8,13 @@ export const pageZielnetz: MapDataAndLegend = {
         pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-roads',
         layers: [
           {
-            id: 'fahradgeeigneteNebenstrassen',
-            type: 'line',
             filter: [
               'all',
               ['match', ['get', 'road'], ['residential', 'bicycle_road'], true, false],
               ['match', ['get', 'smoothness'], ['bad', 'very_bad', 'intermediate'], false, true],
             ],
+            type: 'line',
+            id: 'Oberflaeche gut oder sehr gut',
             paint: {
               'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 0.5, 22, 5],
               'line-opacity': 0.71,

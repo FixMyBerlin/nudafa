@@ -38,15 +38,9 @@ export const LegendZielnetz = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="rgba(5, 156, 250, 0.71)" width={3} />
+              <IconLegendLine color="#059cfa" width={2.5} />
             </IconWrapper>
-            Asphalt mit guter Oberflächenqualität
-          </LegendItem>
-          <LegendItem>
-            <IconWrapper>
-              <IconLegendLine color="rgba(4, 159, 159, 0.71)" width={3} />
-            </IconWrapper>
-            Andere Oberflächen mit guter Oberflächenqualität
+            Oberfläche gut oder sehr gut
           </LegendItem>
         </LegendItems>
       </LegendCol>
