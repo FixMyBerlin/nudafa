@@ -91,7 +91,19 @@ export const MeasureMap = ({
         type="symbol"
         layout={{
           'icon-image': 'punktmassnahme',
-          'icon-size': ['interpolate', ['linear'], ['zoom'], 10, 0, 11, 0.07, 12.5, 0.2, 15, 0.3],
+          'icon-size': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            10,
+            0.1,
+            11,
+            0.15,
+            12.5,
+            0.25,
+            15,
+            0.3,
+          ],
         }}
         filter={['==', '$type', 'Point']}
       />
