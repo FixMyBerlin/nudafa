@@ -38,7 +38,7 @@ export const LegendZielnetz = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="hsl(203, 93%, 72%)" width={3} />
+              <IconLegendLine color="#059cfa" width={2.5} />
             </IconWrapper>
             Oberfläche gut oder sehr gut
           </LegendItem>

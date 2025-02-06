@@ -56,9 +56,9 @@ export const pageBestand: MapDataAndLegend = {
             ],
             type: 'line',
             paint: {
-              'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 1, 22, 5],
-              'line-color': '#75c7fa',
-              'line-dasharray': [2, 2],
+              'line-width': ['interpolate', ['linear'], ['zoom'], 0, 0.5, 11.36, 0.5, 22, 5],
+              'line-opacity': 0.71,
+              'line-color': '#059cfa',
             },
           },
         ],
