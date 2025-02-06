@@ -58,18 +58,18 @@ export const pageMassnahmen: MapDataAndLegend = {
         pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-netzentwurf',
         layers: [
           {
-            id: 'nudafa-netzentwurf s_w',
+            id: 'nudafa-netzentwurf',
             type: 'line',
             paint: {
-              'line-opacity': 0.7,
+              'line-opacity': 0.3,
               'line-color': [
                 'match',
                 ['get', 'radverkehrsatlas'],
                 ['2_hauptroute'],
-                '#d60abf',
+                '#c205a2',
                 ['3_radschnellverbindung'],
-                '#d60abf',
-                '#7d7d7d',
+                '#106a23',
+                '#f278de',
               ],
               'line-width': [
                 'interpolate',
@@ -80,9 +80,9 @@ export const pageMassnahmen: MapDataAndLegend = {
                   'match',
                   ['get', 'radverkehrsatlas'],
                   ['3_radschnellverbindung'],
-                  2,
+                  3,
                   ['2_hauptroute'],
-                  1.5,
+                  2,
                   1,
                 ],
                 12,

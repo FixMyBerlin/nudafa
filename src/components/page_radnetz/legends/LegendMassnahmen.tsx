@@ -38,9 +38,21 @@ export const LegendMassnahmen = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="#d60abf" width={2.5} strokeDasharray="4 2" />
+              <IconLegendLine color="rgba(214, 10, 191, 0.3)" width={5} />
             </IconWrapper>
-            Zielnetz
+            Hauptrouten
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <IconLegendLine color="rgba(242, 120, 222, 0.3)" width={5} />
+            </IconWrapper>
+            Nebenrouten
+          </LegendItem>
+          <LegendItem>
+            <IconWrapper>
+              <IconLegendLine color="rgba(16, 106, 35, 0.3)" width={5} />
+            </IconWrapper>
+            Radschnellverbindungen
           </LegendItem>
         </LegendItems>
       </LegendCol>
