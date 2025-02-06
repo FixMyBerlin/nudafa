@@ -12,7 +12,7 @@ export const formalEducation: MapDataAndLegend[number]['sources'][number]['layer
         'match',
         ['get', 'formalEducation'],
         ['school', 'college', 'university'],
-        'school-pin-nudafa 1',
+        'school-pin-nudafa',
         ['childcare', 'kindergarten'],
         'kita-pin-nudafa 2',
         '',
