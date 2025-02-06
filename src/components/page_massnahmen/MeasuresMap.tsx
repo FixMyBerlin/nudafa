@@ -32,11 +32,6 @@ type Props = {
   showAllMeasures: boolean
 }
 
-// initialViewState: we add padding right on desktop to make space for the sidebar
-const fitBoundsOptionsInitialMapView = {
-  mobile: { padding: { right: 15, left: 15, top: 15, bottom: 15 } },
-}
-
 export const MeasureMap = ({
   geometry,
   selectedLineId,
@@ -153,7 +148,11 @@ export const MeasureMap = ({
         // Map View
         initialViewState={{
           ...initialMapViewCustom,
-          fitBoundsOptions: fitBoundsOptionsInitialMapView.mobile,
+          fitBoundsOptions: {
+            padding: showAllMeasures
+              ? { right: 15, left: 15, top: 15, bottom: 15 }
+              : { right: 100, left: 100, top: 100, bottom: 100 },
+          },
         }}
         // onMoveEnd={handleMoveEnd}
         // Contain Map
@@ -169,10 +168,11 @@ export const MeasureMap = ({
         cursor={cursorStyle}
         onMouseEnter={() => setCursorStyle('pointer')}
         onMouseLeave={() => setCursorStyle('grab')}
-        interactiveLayerIds={[
-          'layer_selectable_features--lines',
-          'layer_selectable_features--points',
-        ]}
+        interactiveLayerIds={
+          showAllMeasures
+            ? ['layer_selectable_features--lines', 'layer_selectable_features--points']
+            : []
+        }
         // Inspector
         // UNUSED at the moment
         // Some defaults
