@@ -38,13 +38,13 @@ export const LegendBestand = () => {
         <LegendItems>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="#059cfa" width={2.5} />
+              <IconLegendLine color="#75c7fa" width={3} strokeDasharray="2.5 3" />
             </IconWrapper>
             Oberfläche gut oder sehr gut
           </LegendItem>
           <LegendItem>
             <IconWrapper>
-              <IconLegendLine color="hsl(0, 93%, 72%)" width={3} strokeDasharray="2.5 3" />
+              <IconLegendLine color="#fa7575" width={3} strokeDasharray="2.5 3" />
             </IconWrapper>
             Oberfläche schlecht
           </LegendItem>
