@@ -10,7 +10,7 @@ export const Markdown = ({ markdown, className }: Props) => {
     <div
       dangerouslySetInnerHTML={{ __html: micromark(markdown) }}
       className={clsx(
-        'prose prose-headings:font-serif prose-headings:text-base prose-headings:font-bold',
+        'prose-sm prose-headings:font-serif prose-headings:text-base prose-headings:font-bold',
         className,
       )}
     />
