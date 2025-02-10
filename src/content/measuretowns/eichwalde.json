@@ -248,7 +248,7 @@
     "widgetPeople": "### Ansprechpartner\n\n**Bürgermeister:** \\\n→ Jörg Jenoch&#x20;\n\n**Interkommunaler Radverkehrsmanager:** \\\n→ Tim Zander\n\n**NUDAFA-Reallabor:** \\\n→ Christoph Kollert&#x20;\n\n**Klimaschutzmanagement:** \\\n→ Uta Thieme\n",
     "widgetInvestitionen": {
       "title": "Investitionen",
-      "tableTitle": "Hier ist eine Erläuterung, was die Tabelle bedeutet",
+      "tableTitle": "Höhe der im Haushalt eingestellten Mittel für den Radverkehr",
       "population": 6490,
       "table": [
         {
@@ -290,7 +290,7 @@
             ]
           },
           {
-            "label": "2022",
+            "label": "2023",
             "values": [
               {
                 "value": 5,
@@ -298,6 +298,19 @@
               },
               {
                 "value": 2,
+                "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "2023",
+            "values": [
+              {
+                "value": 309,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 84,
                 "color": "#EFC865"
               }
             ]
@@ -316,15 +329,15 @@
             ]
           },
           {
-            "label": "2025",
+            "label": "2025*",
             "values": [
               {
-                "value": 309,
-                "color": "#98AEF8"
+                "value": 12,
+                "color": "888888"
               },
               {
-                "value": 84,
-                "color": "#EFC865"
+                "value": 30,
+                "color": "666666"
               }
             ]
           }
@@ -347,8 +360,9 @@
             "color": "#959595"
           }
         ],
-        "source": "Quelle: Haushalt Gemeinde Eichwalde, NRVP 3.0 (S. 25)"
-      }
+        "source": "Quelle: Haushalt Gemeinde Eichwalde, NRVP 3.0 (S. 25). *= geplant"
+      },
+      "sourceLink": "https://session.dikom-bb.de/gemeindeeichwalde_bi/vo0050.asp?__kvonr=49"
     }
   }
 }
