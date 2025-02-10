@@ -49,7 +49,16 @@
         "source": "ADFC Fahrradklimatest"
       }
     },
-    "widgetBilder": []
+    "widgetBilder": [
+      {
+        "image": "/src/assets/measuretowns/eichwalde/general/widgetBilder/0/image.jpg",
+        "imageCopyright": "Kopfsteinpflaster erfordert das Fahren auf dem Gehweg"
+      },
+      {
+        "image": "/src/assets/measuretowns/eichwalde/general/widgetBilder/1/image.jpg",
+        "imageCopyright": "Einige Gehwege sind nicht ausreichend breit bzw. befestigt."
+      }
+    ]
   },
   "traffic": {
     "widgetPentlersaldo": {
