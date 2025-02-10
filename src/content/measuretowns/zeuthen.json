@@ -1,7 +1,7 @@
 {
   "title": "Gemeinde Zeuthen",
   "general": {
-    "widgetMarkdown": "Dieses Dashboard befindet sich derzeit im Aufbau.&#x20;\n\nIn Kürze erfahren Sie hier mehr!\n\nErgebnisse im Fahrradklimatest&#x20;\n\n2022: 4,2 \\\n2020: 4,1\\\n2018: 4,1\n\n[Quelle: ADFC](https://fkt.object-manager.com/data/2022/Zeuthen_12061572_FKT2022.pdf)\n",
+    "widgetMarkdown": "Dieses Dashboard befindet sich derzeit im Aufbau.&#x20;\n\nIn Kürze erfahren Sie hier mehr!\n\n",
     "widgetFahrradklimatest": {
       "title": "ADFC-Fahrradklimatest",
       "subText": "Für folgende Jahre liegen Bewertungen vor:",
