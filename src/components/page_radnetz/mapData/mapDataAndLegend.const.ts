@@ -79,7 +79,15 @@ export const generateArticleLayers = (
       const layersVisible = pageSlug === articleSlug
       return Object.entries(pageData.sources).map(([sourceId, sources]) => {
         return sources.layers.map((layer) => {
-          return { pageSlug, sourceId, pmTilesUrl: sources.pmTilesUrl, layersVisible, layer }
+          const layerKey = `${pageSlug}-${sourceId}-${layer.id}`
+          return {
+            pageSlug,
+            sourceId,
+            pmTilesUrl: sources.pmTilesUrl,
+            layerKey,
+            layersVisible,
+            layer,
+          }
         })
       })
     })

@@ -18,7 +18,7 @@ export default {
       },
     },
     {
-      files: 'src/components/page_radnetz/sortLayers/beforeIds.const.ts',
+      files: 'src/components/page_radnetz/sortLayers/beforeIdEntries.const.ts',
       options: {
         // VSCode: Restart extension host to apply changes
         printWidth: 1000,

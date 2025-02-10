@@ -1,4 +1,7 @@
+import { buttonStylesForLinkElement } from '@components/links/styles'
 import { RadnetzMap } from '@components/page_radnetz/Map/RadnetzMap'
+import type { LayerSpecification } from 'maplibre-gl'
+import { useState } from 'react'
 import {
   Button,
   Cell,
@@ -15,7 +18,7 @@ import { useListData } from 'react-stately'
 
 export const MapLayerOrder = () => {
   return (
-    <div className="relative" style={{ height: '5000px' }}>
+    <div className="relative" style={{ height: '8000px' }}>
       <RadnetzMap>
         <MapLayerOrderTable />
       </RadnetzMap>
@@ -24,23 +27,25 @@ export const MapLayerOrder = () => {
 }
 
 const MapLayerOrderTable = () => {
+  const [layers, setLayers] = useState<LayerSpecification[]>([])
   const { mainMap } = useMap()
-  if (!mainMap) return null
-  const orderedLayers = mainMap.getLayersOrder().reverse()
-  const layers = mainMap.getStyle()?.layers
+
+  const handleInitLayers = () => {
+    const layers = mainMap?.getStyle()?.layers?.reverse()
+    setLayers(layers || [])
+  }
 
   // Docs: https://react-spectrum.adobe.com/react-stately/useListData.html
   const list = useListData<{ id: number; layerKey: string; source: string | undefined }>({
     initialItems: [],
   })
-  if (list.items.length === 0 && orderedLayers.length > 0 && layers.length > 0) {
+  if (list.items.length === 0 && layers.length > 0 && layers.length > 0) {
     // Empty on first render…
-    orderedLayers.forEach((layerKey, index) => {
-      const layerDetails = layers.find((l) => l.id === layerKey)
+    layers.forEach((layer, index) => {
       list.append({
         id: index,
-        layerKey,
-        source: layerDetails && 'source' in layerDetails ? layerDetails.source : undefined,
+        layerKey: layer.id,
+        source: layer && 'source' in layer ? layer.source : undefined,
       })
     })
   }
@@ -77,60 +82,137 @@ const MapLayerOrderTable = () => {
     },
   })
 
+  // We pick the beforeId when it is not our own layer but one from openmaptiles
+  // All our layer sources are not the pmtiles URL
+  const validBeforeId = (layer: (typeof list.items)[number]) => {
+    if (!layer?.source) {
+      console.log('ERROR showBeforeId', 'Layer was missing or did not have a `source`', layer)
+      return false
+    }
+    return !layer.source.includes('https://radverkehrsatlas.de')
+  }
+  const isMaptilerLayer = (layer: (typeof list.items)[number]) => {
+    return validBeforeId(layer) || layer.source === undefined
+  }
+
+  const layerOrder = list.items
+    .map((listLayer, index) => {
+      const beforeListLayer = list.items[index - 1] // normall -1 but we list layers.reverse()
+
+      // Initialize the beforeId
+      let beforeId: string | undefined =
+        beforeListLayer?.layerKey && validBeforeId(beforeListLayer)
+          ? beforeListLayer.layerKey
+          : undefined
+
+      // Search the last (openmaptiles) beforeId
+      if (!beforeId) {
+        const reversedArray = list.items.slice(0, index)
+        for (const innerItem of reversedArray) {
+          if (validBeforeId(innerItem)) {
+            beforeId = innerItem.layerKey
+          }
+        }
+      }
+
+      // Remove all maptiler layer
+      if (isMaptilerLayer(listLayer)) return undefined
+
+      return { key: listLayer.layerKey, beforeId }
+    })
+    .filter(Boolean)
+
   // Docs no `beforeId`: "The ID of an existing layer to insert the new layer before, resulting in the new layer appearing visually beneath the existing layer. If this argument is not specified, the layer will be appended to the end of the layers array and appear visually above all other layers." https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#addlayer
-  const output = `// This file is only ever updated with the result from /radnetz/admin.
+  const output = `// The file \`src/components/page_radnetz/sortLayers/beforeIdEntries.const.ts\` is only ever updated with the result from /radnetz/admin.
 type LayerKey = string
-type BelowLayerKey = string
-export const beforeIds: Record<LayerKey, BelowLayerKey> = {
-${list.items
-  .map((item, index) => {
-    const checkItem = list.items[index - 1]
-    if (!checkItem) return null
-    if (checkItem.source === 'openmaptiles' || !checkItem.source) return null
-    return `  '${checkItem.layerKey}': '${item.layerKey}',`
-  })
-  .filter(Boolean)
-  .join('\n')}
-}
+type BelowLayerKey = string | undefined
+export const beforeIdEntries: Array<{key: LayerKey, beforeId?: BelowLayerKey}> = [
+// BOTTOM LAYERS OF THE MAP
+${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
+// TOP LAYERS OF THE MAP
+]
 `
+
+  if (layers.length === 0) {
+    return (
+      <div className="border-xl absolute inset-0 z-[100] overflow-y-auto rounded bg-pink-500 p-1 text-xs text-white shadow-2xl print:hidden">
+        <button className={buttonStylesForLinkElement} onClick={handleInitLayers}>
+          INIT LAYERS
+        </button>
+      </div>
+    )
+  }
 
   return (
     <div className="border-xl absolute inset-0 z-[100] overflow-y-auto rounded bg-pink-500 p-1 text-xs text-white shadow-2xl print:hidden">
-      <div className="grid gap-4 lg:grid-cols-2">
-        <Table
-          className="mt-10 w-full"
-          dragAndDropHooks={dragAndDropHooks}
-          aria-label="Ordered Map Layers"
-        >
-          <TableHeader>
-            <Column className="bg-white/40 text-left" />
-            <Column isRowHeader className="bg-white/40 text-left">
-              layerKey
-            </Column>
-            <Column isRowHeader className="bg-white/40 text-left">
-              source
-            </Column>
-          </TableHeader>
-          <TableBody items={list.items}>
-            {(item) => (
-              <Row>
-                <Cell className="p-2">
-                  <Button slot="drag">≡</Button>
-                </Cell>
-                <Cell className="py-2">
-                  <code>{item.layerKey}</code>
-                </Cell>
-                <Cell className="py-2">
-                  <code className="text-white/50">{item.source}</code>
-                </Cell>
-              </Row>
-            )}
-          </TableBody>
-        </Table>
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div>
+          <strong>TOP LAYER</strong>
+          <Table
+            className="my-3 w-full"
+            dragAndDropHooks={dragAndDropHooks}
+            aria-label="Order map layers"
+          >
+            <TableHeader>
+              <Column className="bg-white/40 text-left" />
+              <Column isRowHeader className="bg-white/40 text-left">
+                layerKey
+              </Column>
+              <Column isRowHeader className="bg-white/40 text-left">
+                source
+              </Column>
+            </TableHeader>
+            <TableBody items={list.items}>
+              {(item) => (
+                <Row>
+                  <Cell className="p-2">
+                    <Button slot="drag">≡</Button>
+                  </Cell>
+                  <Cell className="py-2">
+                    <code>{item.layerKey}</code>
+                  </Cell>
+                  <Cell className="py-2">
+                    <code className="text-white/50">{item.source}</code>
+                  </Cell>
+                </Row>
+              )}
+            </TableBody>
+          </Table>
+          <strong>BOTTOM LAYER</strong>
+        </div>
 
         <div>
+          <strong>
+            <code>beforeId:undefined</code> is added on top in order of render
+          </strong>
+          <Table className="my-3 w-full" aria-label="Result of ordering">
+            <TableHeader>
+              <Column className="bg-white/40 text-left" />
+              <Column isRowHeader className="bg-white/40 text-left">
+                layerKey
+              </Column>
+              <Column isRowHeader className="bg-white/40 text-left">
+                beforeId
+              </Column>
+            </TableHeader>
+            <TableBody items={layerOrder}>
+              {(item) => (
+                <Row>
+                  <Cell className="p-2">
+                    <Button slot="drag">≡</Button>
+                  </Cell>
+                  <Cell className="py-2">
+                    <code>{item.key}</code>
+                  </Cell>
+                  <Cell className="py-2">
+                    <code className="text-white/50">{item.beforeId}</code>
+                  </Cell>
+                </Row>
+              )}
+            </TableBody>
+          </Table>
           <textarea
-            className="my-5 h-full w-full rounded bg-gray-50 p-1 font-mono text-black"
+            className="my-3 h-full w-full rounded bg-gray-50 p-1 font-mono text-xs leading-5 text-black"
             value={output}
             readOnly
           />

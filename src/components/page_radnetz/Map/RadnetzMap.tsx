@@ -19,7 +19,6 @@ import {
 } from '../mapData/mapDataAndLegend.const'
 import { generateBaseLayers } from '../mapData/mapDataBase.const'
 import { MapDebugHelper } from '../MapDebugHelper/MapDebugHelper'
-import { beforeIds } from '../sortLayers/beforeIds.const'
 import { $clickedMapData, $mapLoaded, $router } from '../utils/store'
 import { useMapParam, type MapParamObject } from '../utils/useMapParam'
 import { useScreenHorizontal } from '../utils/useScreenHorizontal'
@@ -54,6 +53,7 @@ const interactiveLayerIds: string[] = []
 
 export const RadnetzMap = ({ children }: Props) => {
   const [isScreenHorizontal] = useScreenHorizontal()
+  const articleSlug = useStore($router)?.params.section
 
   // Setup pmtiles
   useEffect(() => {
@@ -81,24 +81,9 @@ export const RadnetzMap = ({ children }: Props) => {
     setMapParams({ latitude, longitude, zoom })
   }
 
-  const handleMapLoad = (event: maplibregl.MapLibreEvent) => {
+  const handleMapLoad = (_: maplibregl.MapLibreEvent) => {
     $mapLoaded.set(true)
-
-    // Sort the layers based on beforeIds.const.ts
-    const layers = event.target.getStyle().layers
-    Object.entries(beforeIds).forEach(([layerId, beforeId]) => {
-      const layerExists = Boolean(layers.find((l) => l.id === layerId))
-      if (!layerExists) return
-      try {
-        event.target.moveLayer(layerId, beforeId)
-      } catch (error) {
-        console.log('ERROR', error)
-      }
-    })
   }
-
-  const articleSlug = useStore($router)?.params.section
-  if (!articleSlug) return null
 
   return (
     <MapProvider>

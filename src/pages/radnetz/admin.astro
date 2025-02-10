@@ -1,37 +1,37 @@
 ---
-import PageHeader from '@components/PageHeader.astro'
-import LayoutPage from '@components/layouts/LayoutPage.astro'
-import Section from '@components/layouts/Section.astro'
+import Layout from '@components/layouts/Layout.astro'
 import { linkStyles } from '@components/links/styles'
 import { MapLayerOrder } from '@components/page_radnetz_admin/MapLayerOrder'
 ---
 
-<LayoutPage title="ADMIN: Alle Layer in Reihenfolge" noindex>
-  <PageHeader title="ADMIN: Alle Layer in Reihenfolge" />
-
-  <Section className="prose prose-sm">
-    <h2>Vorgehen</h2>
-    <ol>
-      <li>
-        Reihenfolge ändern (drag&drop). Der oberste Eintrag der Liste ist auch der oberste Layer in
-        der Karte.
-      </li>
-      <li>Inhalt des Textfeldes (rechts) kopieren.</li>
-      <li>
-        <a
-          href="https://github.com/FixMyBerlin/nudafa/edit/main/src/components/page_radnetz/sortLayers/beforeIds.const.ts"
-          target="_blank"
-          class={linkStyles}
-        >
-          <code>beforeIds.const.ts</code> auf Github öffnen
-        </a>.
-      </li>
-      <li>
-        Inhalt von <code>beforeIds.const.ts</code>
-        mit dem Inhalt des Textfeldes ersetzten und committen.
-      </li>
-      <li>Nach dem folgenden Deploy sind die Änderungen sichtbar.</li>
-    </ol>
-  </Section>
+<Layout title="ADMIN: Alle Layer in Reihenfolge" noindex>
+  <section class="prose prose-sm">
+    <h1>ADMIN: Alle Layer in Reihenfolge</h1>
+    <details>
+      <summary class="cursor-pointer font-bold underline hover:underline-offset-2">Vorgehen</summary
+      >
+      <ol>
+        <li>
+          Reihenfolge ändern (drag&drop). Der oberste Eintrag der Liste ist auch der oberste Layer
+          in der Karte.
+        </li>
+        <li>Inhalt des Textfeldes (unten rechts) kopieren.</li>
+        <li>
+          <a
+            href="https://github.com/FixMyBerlin/nudafa/edit/main/src/components/page_radnetz/sortLayers/beforeIdEntries.const.ts"
+            target="_blank"
+            class={linkStyles}
+          >
+            <code>beforeIdEntries.const.ts</code> auf Github öffnen
+          </a>.
+        </li>
+        <li>
+          Inhalt von <code>beforeIdEntries.const.ts</code>
+          mit dem Inhalt des Textfeldes ersetzten und committen.
+        </li>
+        <li>Nach dem folgenden Deploy sind die Änderungen sichtbar.</li>
+      </ol>
+    </details>
+  </section>
   <MapLayerOrder client:load />
-</LayoutPage>
+</Layout>

@@ -79,7 +79,6 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
       (filterYear.value === null && !m.data.deadline)
     const matchesStatus = filterStatus.value === 'all' || m.data.status === filterStatus.value
     const matchesTopics =
-      // @ts-expect-error todo
       filterTopics.value === 'all' || (m.data.topics && m.data.topics?.includes(filterTopics.value))
     return matchesYear && matchesStatus && matchesTopics
   })
@@ -98,10 +97,8 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
           <div>
             <p>Datum der Realisierung</p>
             <FilterListbox
-              // @ts-expect-error todo
               filter={filterYear}
               setFilter={setFilterYear}
-              // @ts-expect-error todo
               options={deadlineYearOptions}
             />
           </div>
@@ -116,10 +113,8 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
           <div>
             <p>Thema</p>
             <FilterListbox
-              // @ts-expect-error todo
               filter={filterTopics}
               setFilter={setFilterTopics}
-              // @ts-expect-error todo
               options={topicsOptions}
             />
           </div>

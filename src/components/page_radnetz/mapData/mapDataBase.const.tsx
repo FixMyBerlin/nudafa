@@ -64,10 +64,12 @@ export const generateBaseLayers = () => {
   return Object.entries(mapDataBase)
     .map(([sourceId, sourceData]) => {
       return sourceData.layers.map((layer) => {
+        const layerKey = `base-${sourceId}-${layer.id}`
         return {
           pageSlug: 'base',
           sourceId,
           pmTilesUrl: sourceData.pmTilesUrl,
+          layerKey,
           layersVisible: true,
           layer,
         }

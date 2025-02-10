@@ -3,7 +3,7 @@ import { clsx } from 'clsx'
 import type { MapStyleImageMissingEvent, SourceSpecification } from 'maplibre-gl'
 import { useEffect, useState } from 'react'
 import { useMap, type AnyLayer } from 'react-map-gl/maplibre'
-import { beforeIds } from '../sortLayers/beforeIds.const'
+import { beforeIdEntries } from '../sortLayers/beforeIdEntries.const'
 import { $mapLoaded } from '../utils/store'
 import { showDebugMap } from './showDebugMap'
 
@@ -19,7 +19,7 @@ export const MapDebugHelper = () => {
   // mainMap is not available on first render, so we need to catch the erros
   let allLayers: AnyLayer[] = []
   let cleanLayers: AnyLayer[] = []
-  let orderedLayers: string[] = []
+  let orderedLayerKeys: string[] = []
   let cleanSources: [string, SourceSpecification][] = []
   try {
     allLayers = mainMap.getStyle().layers
@@ -29,7 +29,7 @@ export const MapDebugHelper = () => {
         !layer.source.includes('maptiler') &&
         !layer.source.includes('openmaptiles'),
     )
-    orderedLayers = mainMap.getLayersOrder()
+    orderedLayerKeys = allLayers.map((l) => l.id)
 
     const sources = mainMap.getStyle().sources
     cleanSources = Object.entries(sources).filter(
@@ -39,25 +39,18 @@ export const MapDebugHelper = () => {
     // console.info('MapDebugHelper', error)
   }
 
-  const layerWithoutBeforeId = cleanLayers.filter((layer) => !beforeIds[layer.id])
-  const outdatedBeforeIdLayerKeys = Object.entries(beforeIds).filter(
-    ([layerKey, _]) => !allLayers.map((l) => l.id).includes(layerKey),
-  )
-  const outdatedBeforeIds = Object.entries(beforeIds).filter(
-    ([_, beforeIdLayerKey]) => !allLayers.map((l) => l.id).includes(beforeIdLayerKey),
-  )
-
   // Fetch existing the sprites
   const [sprites, setSprites] = useState<string | undefined>(undefined)
   useEffect(() => {
     if (!mapLoaded) return
     try {
       const url = mainMap?.getSprite()?.at(0)?.url
-      console.log('url', url)
       if (url) {
         fetch(`${url}@2x.json?key=ECOoUBmpqklzSCASXxcu`)
           .then((response) => response.json())
+          // @ts-expect-error ignore "unkown" type
           .then((data) => setSprites(data))
+          // @ts-expect-error ignore "unkown" type
           .catch((error) => setSprites(error.toString()))
       }
     } catch (error) {
@@ -142,7 +135,8 @@ export const MapDebugHelper = () => {
                 {layer.id}
               </summary>
               <p>
-                <code>beforeId</code>: {beforeIds[layer.id] || 'MISSING'}
+                <code>beforeId</code>:{' '}
+                {beforeIdEntries.find((l) => l.key === layer.id)?.key || 'MISSING'}
               </p>
               <pre>{JSON.stringify(layer, undefined, 2)}</pre>
             </details>
@@ -177,9 +171,9 @@ export const MapDebugHelper = () => {
 
       <details>
         <summary className="cursor-pointer hover:underline">
-          Ordered Layers ({orderedLayers.length})
+          Ordered Layers ({orderedLayerKeys.length})
         </summary>
-        {orderedLayers.map((layer, index) => (
+        {orderedLayerKeys.map((layer, index) => (
           <details key={layer} className="mt-0.5">
             <summary className="flex cursor-pointer items-center gap-2 hover:underline">
               <div className="flex min-w-6 items-center justify-center rounded bg-white/20 px-0.5">
@@ -188,7 +182,8 @@ export const MapDebugHelper = () => {
               {layer}
             </summary>
             <div className="text-white/60">
-              <em>beforeId</em>: {beforeIds[layer] || 'NO BEFORE ID'}
+              <em>beforeId</em>:{' '}
+              {beforeIdEntries.find((l) => l.key === layer)?.beforeId || 'NO BEFORE ID'}
               <br />
               <em>style</em>:{' '}
               <pre>
@@ -203,65 +198,6 @@ export const MapDebugHelper = () => {
             </div>
           </details>
         ))}
-      </details>
-      <hr className="border-1 my-0.5 border-gray-600" />
-
-      <details>
-        <summary className="cursor-pointer hover:underline">
-          <code>beforeId</code> helper ({layerWithoutBeforeId.length}/
-          {outdatedBeforeIdLayerKeys.length}/{outdatedBeforeIds.length})
-        </summary>
-
-        <details>
-          <summary className="cursor-pointer hover:underline">
-            Layer without a <code>beforeId</code> ({layerWithoutBeforeId.length}):
-          </summary>
-          About: This checks if all map layers are included in our <code>beforeIds</code> list.
-          <br />
-          <strong>Add all layer keys from here to the list.</strong>
-          <ul>
-            {layerWithoutBeforeId.map(({ id }) => (
-              <li key={id}>
-                <code className="text-red-100">{id}</code>
-              </li>
-            ))}
-          </ul>
-        </details>
-
-        <details>
-          <summary className="cursor-pointer hover:underline">
-            <code>beforeIds</code> to remove ({outdatedBeforeIdLayerKeys.length}):
-          </summary>
-          About: This checks if all keys in our <code>beforeIds</code> list still match a layer key.
-          <br />
-          <strong>Remove all entries from our list if no current layer key is found.</strong>
-          <ul>
-            {outdatedBeforeIdLayerKeys.map(([layerKey, beforeIdLayerKey]) => (
-              <li key={layerKey}>
-                <strong className="text-red-100">{layerKey}</strong> →{' '}
-                <code className="text-white/50">{beforeIdLayerKey}</code>
-              </li>
-            ))}
-          </ul>
-        </details>
-
-        <details>
-          <summary className="cursor-pointer hover:underline">
-            <code>beforeIds</code> to update ({outdatedBeforeIds.length}):
-          </summary>
-          About: This checks if all <code>beforeId</code> layer keys in our <code>beforeIds</code>{' '}
-          list still match a layer key.
-          <br />
-          <strong>Update all entries from our list to an existing layer key.</strong>
-          <ul>
-            {outdatedBeforeIds.map(([layerKey, beforeIdLayerKey]) => (
-              <li key={layerKey}>
-                <code className="text-white/50">{layerKey}</code> →{' '}
-                <strong className="text-red-100">{beforeIdLayerKey}</strong>
-              </li>
-            ))}
-          </ul>
-        </details>
       </details>
       <hr className="border-1 my-0.5 border-gray-600" />
 
