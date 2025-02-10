@@ -1,7 +1,6 @@
 ---
 import Section from '@components/layouts/Section.astro'
 import { getEntry } from 'astro:content'
-import { ASTRO_ENV } from 'astro:env/client'
 import { DasboardTabs } from './dashboard/DasboardTabs'
 
 type Props = { townslug: string }
@@ -9,8 +8,7 @@ const { townslug } = Astro.props
 
 const town = await getEntry('measuretowns', townslug)
 
-// NOTE: Remove this `ENV` condition to enable the Dashboard on production
-const visible = ASTRO_ENV !== 'production' && !!town?.data.general.widgetMarkdown
+const visible = !!town?.data.general.widgetMarkdown
 ---
 
 {
