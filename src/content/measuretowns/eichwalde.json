@@ -63,7 +63,7 @@
   "traffic": {
     "widgetPentlersaldo": {
       "chartVertical": {
-        "title": "Pendlerzahlen (absolut pro Tag)",
+        "title": "Ein- und Auspendler (pro Tag)",
         "data": [
           {
             "label": "Einwohner",
@@ -166,9 +166,9 @@
             "color": "#960854"
           },
           {
-            "label": "Öffentlicher Nahverkehr",
-            "value": 0,
-            "color": "#9C27B0"
+            "label": "Zu Fuß",
+            "value": 34,
+            "color": "#98AEF8"
           },
           {
             "label": "Fahrrad",
@@ -176,9 +176,9 @@
             "color": "#EFC865"
           },
           {
-            "label": "Zu Fuß",
-            "value": 34,
-            "color": "#98AEF8"
+            "label": "Öffentlicher Nahverkehr",
+            "value": 0,
+            "color": "#9C27B0"
           },
           {
             "label": " ",
@@ -339,15 +339,15 @@
             "color": "#EFC865"
           },
           {
-            "text": "Zielstellung NRVP: Gesamt",
+            "text": "Vorgabe des NRVP: Gesamtausgaben",
             "color": "#737373"
           },
           {
-            "text": "Zielstellung NRVP: Eigenanteil",
+            "text": "Vorgabe des NRVP: Eigenanteil",
             "color": "#959595"
           }
         ],
-        "source": "Quelle: Haushalt Gemeinde Eichwalde"
+        "source": "Quelle: Haushalt Gemeinde Eichwalde, NRVP 3.0 (S. 25)"
       }
     }
   }
