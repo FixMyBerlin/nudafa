@@ -1,7 +1,7 @@
 {
   "title": "Gemeinde Zeuthen",
   "general": {
-    "widgetMarkdown": "Dieses Dashboard befindet sich derzeit im Aufbau.&#x20;\n\nIn Kürze erfahren Sie hier mehr!\n\n",
+    "widgetMarkdown": "Dieses Dashboard befindet sich derzeit im Aufbau.&#x20;\n\nIn Kürze erfahren Sie hier mehr!\n",
     "widgetFahrradklimatest": {
       "title": "ADFC-Fahrradklimatest",
       "subText": "Für folgende Jahre liegen Bewertungen vor:",
@@ -179,7 +179,7 @@
             "color": "#fffefa"
           }
         ],
-        "dataUnit": "none",
+        "dataUnit": "percent",
         "source": "Quelle: SrV 2018 (Zeuthen und Eichwalde als statistische Einheit betrachtet)"
       }
     },
@@ -285,7 +285,7 @@
             "color": "#737373"
           }
         ],
-        "source": "Quelle: Haushalt Gemeinde Zeuthen, NRVP 3.0 (S. 25). *= geplant"
+        "source": "Quelle: Haushalt Gemeinde Zeuthen, NRVP 3.0 (S. 25). 2025 = geplant"
       }
     }
   }
