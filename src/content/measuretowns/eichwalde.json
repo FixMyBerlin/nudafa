@@ -3,7 +3,7 @@
   "general": {
     "widgetMarkdown": "**In Eichwalde...**\n\n* … existiert ein hohes Radverkehrsaufkommen, jedoch kaum zeitgemäße Radverkehrsanlagen.&#x20;\n* … nutzt der Radverkehr daher entweder die Gehwege oder die Fahrbahn (Mischverkehr), wobei vielen  Straßen mit Tempo-50 befahrbar sind.&#x20;\n* ... weisen viele Straßen eine schlechte Fahrbahnqualität auf oder sind [durch Kopfsteinpflaster nicht befahrbar](https://www.nudafa.de/radnetz/komfort). Es fehlt eine Möglichkeit, [diese Straßen befahrbar zu machen](https://www.nudafa.de/teilprojekte/komfortables-kopfsteinpflaster/).\n* … sind einige Gehwege [für den Radverkehr freigegeben](https://www.nudafa.de/radnetz/bestand), ohne dafür breit genug zu sein.&#x20;\n* … wird vornehmlich regelwidrig auf dem Gehweg gefahren. Dies wird als „ortsüblich“ wahrgenommen und weitestgehend geduldet. In der [Bahnhofstraße](https://www.nudafa.de/massnahmen/eichwalde-29/) erzeugt dies jedoch Konflikte mit dem Fußverkehr.&#x20;\n* … sind die Abstellanlagen am S-Bahnhof sind nicht zeitgemäß und zu klein. Daher werden nun neue Abstellanlagen errichtet ([Ostseite](https://www.nudafa.de/massnahmen/eichwalde-23/) / [Westseite](https://www.nudafa.de/massnahmen/eichwalde-24/)).\n* ... fehlen attraktive Radverkehrsverbindungen in die Nachbarkommunen (bspw. nach [Zeuthen](https://www.nudafa.de/massnahmen/eichwalde-1/), [Schulzendorf](https://www.nudafa.de/massnahmen/eichwalde-5/) oder [Berlin](https://www.nudafa.de/massnahmen/eichwalde-10/)).&#x20;\n* … wurde ein Radverkehrsnetz erarbeitet, was mittelfristig die Herstellung von innerörtlichen Achsen für den Radverkehr vorsieht (Maßnahmen [6](https://www.nudafa.de/massnahmen/eichwalde-6/), [7](https://www.nudafa.de/massnahmen/eichwalde-7/), [8](https://www.nudafa.de/massnahmen/eichwalde-8/), [9](https://www.nudafa.de/massnahmen/eichwalde-9/)).\n* … fahren viele Kinder mit dem Rad zur Schule. [Sichere Schulwege](https://www.nudafa.de/massnahmen/eichwalde-34/) und Schulisches Mobilitätsmanagement sind daher wichtig.&#x20;\n* … sind Unfallschwerpunkte vorwiegend die Knotenpunkte an Hauptverkehrsstraßen ([30](https://www.nudafa.de/massnahmen/eichwalde-30/), [32](https://www.nudafa.de/massnahmen/eichwalde-32/), [33](https://www.nudafa.de/massnahmen/eichwalde-33/))\n",
     "widgetFahrradklimatest": {
-      "title": "Ergebnis im ADFC Fahrradklimatest",
+      "title": "ADFC-Fahrradklimatest",
       "subText": "Für folgende Jahre liegen Bewertungen vor:",
       "chartHorizontal": {
         "title": "Ergebnisse im ADFC Fahrradklimatest",
@@ -87,7 +87,7 @@
     },
     "widgetVerkehrsbelastung": {
       "title": "Typische Verkehrsbelastung",
-      "subText": "Gerundetes tägliches Verkehrsaufkommen",
+      "subText": "Gerundetes tägliches Verkehrsaufkommen als Vergleichswert",
       "chartRelativeVertical": {
         "title": "Verkehrsbelastung",
         "data": [
@@ -247,7 +247,7 @@
     "widgetMarkdown": "### Konzepte und Gremien\n\n**Klimaschutzkonzept**\\\n✅ 2023 Beschlossen [Konzept](https://klimaschutz.eichwalde.de/wp-content/uploads/2023/06/Integriertes-Klimaschutzkonzept_Eichwalde_Endfassung.pdf) | [Website](https://klimaschutz.eichwalde.de/)\n\n**Radverkehrskonzept**\\\n🛠 In Aufstellung, siehe [www.nudafa.de](www.nudafa.de)\n\n**Arbeitsgruppe Radverkehr**\\\n👍 [Radnetz LDS-Nord](https://www.radnetz-lds.de/)\n\n**Beitritt in die AGFK**\\\n👍 2021 ([AGFK Brandenburg](https://www.agfk-brandenburg.de/))\n\nSTADTRADELN \\\n🏅 2021: [13.773 km](https://www.stadtradeln.de/eichwalde)\\\n🏅 2022: [11.849 km](https://www.stadtradeln.de/eichwalde)\\\n🏅 2023: [12.057 km](https://www.stadtradeln.de/eichwalde)\\\n🏅 2024: [15.295 km](https://www.stadtradeln.de/eichwalde)\n",
     "widgetPeople": "### Ansprechpartner\n\n**Bürgermeister:** \\\n→ Jörg Jenoch&#x20;\n\n**Interkommunaler Radverkehrsmanager:** \\\n→ Tim Zander\n\n**NUDAFA-Reallabor:** \\\n→ Christoph Kollert&#x20;\n\n**Klimaschutzmanagement:** \\\n→ Uta Thieme\n",
     "widgetInvestitionen": {
-      "title": "Investitionen",
+      "title": "Finanzierung des Radverkehrs",
       "tableTitle": "Höhe der im Haushalt eingestellten Mittel für den Radverkehr",
       "population": 6490,
       "table": [
