@@ -332,12 +332,12 @@
             "label": "2025*",
             "values": [
               {
-                "value": 12,
-                "color": "888888"
+                "value": 305,
+                "color": "#5c6994"
               },
               {
-                "value": 30,
-                "color": "666666"
+                "value": 95,
+                "color": "#87713a"
               }
             ]
           }
@@ -349,7 +349,7 @@
           },
           {
             "text": "Eigenanteil pro Kopf",
-            "color": "#EFC865"
+            "color": "#87713a"
           },
           {
             "text": "Vorgabe des NRVP: Gesamtausgaben",
@@ -361,8 +361,7 @@
           }
         ],
         "source": "Quelle: Haushalt Gemeinde Eichwalde, NRVP 3.0 (S. 25). *= geplant"
-      },
-      "sourceLink": "https://session.dikom-bb.de/gemeindeeichwalde_bi/vo0050.asp?__kvonr=49"
+      }
     }
   }
 }
