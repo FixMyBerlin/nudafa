@@ -3,18 +3,77 @@
   "general": {
     "widgetMarkdown": "Dieses Dashboard befindet sich derzeit im Aufbau.&#x20;\n\nIn Kürze erfahren Sie hier mehr!\n\nErgebnisse im Fahrradklimatest&#x20;\n\n2022: 4,2 \\\n2020: 4,1\\\n2018: 4,1\n\n[Quelle: ADFC](https://fkt.object-manager.com/data/2022/Zeuthen_12061572_FKT2022.pdf)\n",
     "widgetFahrradklimatest": {
-      "title": "Fahrradklimatest",
+      "title": "ADFC-Fahrradklimatest",
+      "subText": "Für folgende Jahre liegen Bewertungen vor:",
       "chartHorizontal": {
-        "data": [],
-        "legend": []
+        "title": "Ergebnisse im ADFC Fahrradklimatest",
+        "height": 110,
+        "data": [
+          {
+            "label": "2022",
+            "values": [
+              {
+                "value": 4.2,
+                "color": "#008B00"
+              },
+              {
+                "value": 3.9,
+                "color": "#EE7621"
+              }
+            ]
+          },
+          {
+            "label": "2018",
+            "values": [
+              {
+                "value": 3.75,
+                "color": "#EE7621"
+              },
+              {
+                "value": 4.1,
+                "color": "#008B00"
+              }
+            ]
+          },
+          {
+            "label": "2020",
+            "values": [
+              {
+                "value": 4.1,
+                "color": "#008B00"
+              },
+              {
+                "value": 3.82,
+                "color": "#EE7621"
+              }
+            ]
+          }
+        ],
+        "legend": [
+          {
+            "text": "Zeuthen",
+            "color": "#008B00"
+          },
+          {
+            "text": "⌀ aller Kommunen <20.000",
+            "color": "#EE7621"
+          }
+        ],
+        "source": "ADFC Fahrradklimatest"
       }
-    }
+    },
+    "widgetBilder": []
   },
   "traffic": {
     "widgetPentlersaldo": {
       "chartVertical": {
         "title": "Pendlersaldo",
         "data": [
+          {
+            "label": "Einwohner",
+            "value": 11578,
+            "color": "#EFC865"
+          },
           {
             "label": "Einpendler",
             "value": 1392,
@@ -31,9 +90,33 @@
       }
     },
     "widgetVerkehrsbelastung": {
+      "title": "Typische Verkehrsbelastung",
+      "subText": "Gerundetes tägliches Verkehrsaufkommen als Vergleichswert",
       "chartRelativeVertical": {
-        "data": [],
-        "dataUnit": "none"
+        "data": [
+          {
+            "label": "L401 Lindenallee",
+            "value": 3000
+          },
+          {
+            "label": "Forstweg",
+            "value": 100
+          },
+          {
+            "label": "Miersdorfer Straße ",
+            "value": 100
+          },
+          {
+            "label": "typische Wohnstraße",
+            "value": 500
+          },
+          {
+            "label": "typische Nebenstraße",
+            "value": 700
+          }
+        ],
+        "dataUnit": "DTV",
+        "source": "Gemeinde Zeuthen"
       }
     },
     "widgetFahrzeuge": {
@@ -62,13 +145,42 @@
           }
         ],
         "dataUnit": "percent",
-        "source": "Quelle: Fahrrad Monitor 2023"
+        "source": "Quelle: SINUS Fahrrad Monitor 2023"
       }
     },
     "widgetModalsplit": {
+      "title": "Verkehrsmittelwahl innerorts (Modal Split)",
+      "subText": "Jahr 2018, Angaben in Prozent",
       "chartVertical": {
-        "data": [],
-        "dataUnit": "none"
+        "title": "Modalsplit (innerorts)",
+        "data": [
+          {
+            "label": "PKW",
+            "value": 41,
+            "color": "#960854"
+          },
+          {
+            "label": "Zu Fuß",
+            "value": 34,
+            "color": "#98AEF8"
+          },
+          {
+            "label": "Fahrrad",
+            "value": 25,
+            "color": "#EFC865"
+          },
+          {
+            "label": "Öffentlicher Nahverkehr",
+            "value": 0,
+            "color": "#9C27B0"
+          },
+          {
+            "value": 100,
+            "color": "#fffefa"
+          }
+        ],
+        "dataUnit": "none",
+        "source": "Quelle: SrV 2018 (Zeuthen und Eichwalde als statistische Einheit betrachtet)"
       }
     },
     "widgetStrassennetz": {
@@ -90,7 +202,7 @@
     },
     "widgetUnfaelle": {
       "title": "Unfälle",
-      "subText": "Unfälle der letzten drei Jahre mit Radfahrbeteiligung",
+      "subText": "Unfälle der Jahre 2022-2024 mit Fahrradbeteiligung",
       "list": [
         {
           "number": 26,
@@ -117,8 +229,8 @@
     }
   },
   "goals": {
-    "widgetMarkdown": "",
-    "widgetPeople": "",
+    "widgetMarkdown": "### Konzepte und Gremien\n\n**Klimaschutzkonzept**\\\n✅ [2024 Beschlossen]([https://www.zeuthen.de/Klimaschutzkonzept-691501.html]\\(https://www.zeuthen.de/Klimaschutzkonzept-691501.html\\))\n\n**Radverkehrskonzept**\\\n✅ [2022 Beschlossen](https://www.zeuthen.de/Zeuthen-Radverkehrskonzept-Stand_Juni-2022-pdf-680949.pdf)\n\n**Arbeitsgruppe Radverkehr**\\\n👍 [Fahrradfreundliches Zeuthen](https://www.zeuthen.de/FahrradfreundlichesZeuthenStand1642020-pdf-664646.pdf)\n\n**Beitritt in die AGFK**\\\n🛠 nicht Mitglied der AGFK&#x20;\n\n**STADTRADELN** \\\n🏅 2021: [21.928 km](https://www.stadtradeln.de/zeuthen)\\\n🏅 2022: [48.347 km](https://www.stadtradeln.de/zeuthen)\\\n🏅 2023: [72.568 km](https://www.stadtradeln.de/zeuthen)\\\n🏅 2024: [88.145 km](https://www.stadtradeln.de/zeuthen)\n",
+    "widgetPeople": "### Ansprechpartner\n\n**Bürgermeister:** \\\n→ [Philipp Martens](https://www.zeuthen.de/Der-Buergermeister-621914.html)\n\n**Klimaschutzmanagement:** \\\n→ Magdalena Schmittlein\n",
     "widgetInvestitionen": {
       "title": "Ausgaben",
       "population": 11.578,
