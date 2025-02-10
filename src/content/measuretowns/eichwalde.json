@@ -329,7 +329,7 @@
             ]
           },
           {
-            "label": "2025*",
+            "label": "2025",
             "values": [
               {
                 "value": 305,
@@ -360,7 +360,7 @@
             "color": "#959595"
           }
         ],
-        "source": "Quelle: Haushalt Gemeinde Eichwalde, NRVP 3.0 (S. 25). *= geplant"
+        "source": "Quelle: Haushalt Gemeinde Eichwalde, NRVP 3.0 (S. 25). 2025 = geplant"
       }
     }
   }
