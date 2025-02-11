@@ -111,6 +111,11 @@
           "number": 13,
           "label": "Unfälle mit Sachschaden",
           "color": "#F5EC0B"
+        },
+        {
+          "number": 81,
+          "label": "Unfälle mit Fahrradbeteiligung",
+          "color": "#f24d47"
         }
       ],
       "source": "Quelle: Unfallstatistik der Polizei"
