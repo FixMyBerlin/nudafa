@@ -217,7 +217,7 @@
     },
     "widgetUnfaelle": {
       "title": "Unfälle",
-      "subText": "Unfälle in den Jahren 2020, 2021 und 2022\n(mit und ohne Fahrradbeteiligung) \n",
+      "subText": "mit Fahrradbeteiligung, in den Jahren 2020, 2021 und 2022\n",
       "list": [
         {
           "number": 0,
@@ -230,7 +230,7 @@
           "color": "#FF2E3B"
         },
         {
-          "number": 16,
+          "number": 29,
           "label": "Unfälle mit Leichtverletzten",
           "color": "#F59E0B"
         },
@@ -238,6 +238,11 @@
           "number": 5,
           "label": "Unfälle mit Sachschaden",
           "color": "#F5EC0B"
+        },
+        {
+          "number": 33,
+          "label": "Unfälle mit Fahrradbeteiligung (83%)",
+          "color": "#f24d47"
         }
       ],
       "source": "Quelle: Unfallstatistik der Polizei"
