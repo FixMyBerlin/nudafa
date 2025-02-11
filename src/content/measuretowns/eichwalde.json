@@ -220,22 +220,22 @@
       "subText": "Unfälle in den Jahren 2020, 2021 und 2022\n(mit und ohne Fahrradbeteiligung) \n",
       "list": [
         {
-          "number": 1,
+          "number": 0,
           "label": "Unfälle mit Getöteten",
           "color": "#960854"
         },
         {
-          "number": 5,
+          "number": 4,
           "label": "Unfälle mit Schwerverletzten",
           "color": "#FF2E3B"
         },
         {
-          "number": 26,
+          "number": 16,
           "label": "Unfälle mit Leichtverletzten",
           "color": "#F59E0B"
         },
         {
-          "number": 8,
+          "number": 5,
           "label": "Unfälle mit Sachschaden",
           "color": "#F5EC0B"
         }
