@@ -338,11 +338,11 @@
             "values": [
               {
                 "value": 305,
-                "color": "#5c6994"
+                "color": "#c6d1f7"
               },
               {
                 "value": 95,
-                "color": "#87713a"
+                "color": "#f0dba8"
               }
             ]
           }
@@ -354,7 +354,7 @@
           },
           {
             "text": "Eigenanteil pro Kopf",
-            "color": "#87713a"
+            "color": "#EFC865"
           },
           {
             "text": "Vorgabe des NRVP: Gesamtausgaben",
