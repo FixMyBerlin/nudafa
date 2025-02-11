@@ -211,7 +211,7 @@
           "color": "#960854"
         },
         {
-          "number": 9,
+          "number": 4,
           "label": "Unfälle mit Schwerverletzten",
           "color": "#FF2E3B"
         },
@@ -222,7 +222,7 @@
         },
         {
           "number": 55,
-          "label": "Unfälle mit Fahrradbeteiligung (92%)",
+          "label": "in Summe (=92% aller Unfälle)",
           "color": "#f24d47"
         }
       ],
