@@ -217,25 +217,25 @@
     },
     "widgetUnfaelle": {
       "title": "Unfälle",
-      "subText": "Unfälle der Jahre 2022-2024 mit Fahrradbeteiligung",
+      "subText": "Unfälle in den Jahren 2020, 2021 und 2022\n(mit und ohne Fahrradbeteiligung) \n",
       "list": [
         {
-          "number": 16,
+          "number": 1,
           "label": "Unfälle mit Getöteten",
           "color": "#960854"
         },
         {
-          "number": 4,
+          "number": 5,
           "label": "Unfälle mit Schwerverletzten",
           "color": "#FF2E3B"
         },
         {
-          "number": 0,
+          "number": 26,
           "label": "Unfälle mit Leichtverletzten",
           "color": "#F59E0B"
         },
         {
-          "number": 5,
+          "number": 8,
           "label": "Unfälle mit Sachschaden",
           "color": "#F5EC0B"
         }
