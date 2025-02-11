@@ -98,27 +98,22 @@
           "color": "#960854"
         },
         {
-          "number": 9,
+          "number": 20,
           "label": "Unfälle mit Schwerverletzten",
           "color": "#FF2E3B"
         },
         {
-          "number": 51,
+          "number": 102,
           "label": "Unfälle mit Leichtverletzten",
           "color": "#F59E0B"
         },
         {
-          "number": 13,
-          "label": "Unfälle mit Sachschaden",
-          "color": "#F5EC0B"
-        },
-        {
-          "number": 81,
-          "label": "davon mit Fahrradbeteiligung",
+          "number": 116,
+          "label": "davon mit Fahrradbeteiligung (94%)",
           "color": "#f24d47"
         }
       ],
-      "source": "Quelle: Unfallstatistik der Polizei"
+      "source": "Quelle: unfallatlas.de "
     }
   },
   "goals": {
