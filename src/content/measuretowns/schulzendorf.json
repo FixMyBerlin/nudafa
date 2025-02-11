@@ -7,7 +7,8 @@
         "data": [],
         "legend": []
       }
-    }
+    },
+    "widgetBilder": []
   },
   "traffic": {
     "widgetPentlersaldo": {
@@ -89,10 +90,10 @@
     },
     "widgetUnfaelle": {
       "title": "Unfälle",
-      "subText": "Unfälle der letzten drei Jahre mit Radfahrbeteiligung",
+      "subText": "Unfälle in den Jahren 2020, 2021 und 2022\n(mit und ohne Fahrradbeteiligung)",
       "list": [
         {
-          "number": 14,
+          "number": 0,
           "label": "Unfälle mit Getöteten",
           "color": "#960854"
         },
@@ -102,7 +103,7 @@
           "color": "#FF2E3B"
         },
         {
-          "number": 0,
+          "number": 14,
           "label": "Unfälle mit Leichtverletzten",
           "color": "#F59E0B"
         },
