@@ -24,8 +24,7 @@
     "bleach:all": "rm -rf node_modules/ && npm run bleach",
     "bleach:full": "rm package-lock.json && npm run bleach:all",
     "prepare": "husky",
-    "transformMeasuresCsvToMdx": "node scripts/csvToJson.js ./data/measures/massnahmenliste.csv ./data/measures/massnahmenliste.json && node scripts/measureJsonToMdx.js && npm run format:all",
-    "updateMeasuresGeometry": "node scripts/updateMeasuresGeometry.js"
+    "transformMeasuresCsvToMdx": "node scripts/csvToJson.js ./data/measures/massnahmenliste.csv ./data/measures/massnahmenliste.json && node scripts/measureJsonToMdx.js && npm run format:all"
   },
   "browserslist": [
     "defaults",

@@ -17,16 +17,3 @@ All temporary rows and columns in the table have a prefix `_` and are deleted wh
 ### What it does
 
 1. The script generates one mdx file per row in `src/content/measures` from the CSV file.
-
-## Update measures geometry data from Placemark
-
-### General process
-
-0. update geometry data in Placemark: `places.placemark.de/map/[map_id]`
-1. run `npm run updateMeasuresGeometry`
-2. check the ADMIN page `/massnahmen/admin` to see a list of measure IDs of measures that have `geometry=true` (CMS) but no matching `nudafa_id` was found in the features.
-3. push changes and trigger deploy
-
-### What it does
-
-1. The script generates a json with all geometries in the map in `data/measures/geometry`.
