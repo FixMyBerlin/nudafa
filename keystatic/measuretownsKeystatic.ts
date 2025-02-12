@@ -49,13 +49,6 @@ export const keystaticMeasuretownsConfig = collection({
           'ALLGEMEIN',
           'Sobald dieses Widget gefüllt ist, wird das Modul angezeigt. Die einzelnen Widgets wiederum sind nur sichtbar, wenn sie Text bzw. Chart-Daten enthalten.',
         ),
-        widgetFahrradklimatest: fields.object(
-          {
-            ...keystaticWidgetTitleSubtext,
-            chartHorizontal: keystaticWidgetChartHorizontal,
-          },
-          { label: 'ALLGEMEIN: Widget Fahrradklimatest' },
-        ),
         widgetBilder: fields.array(
           fields.object({
             image: fields.image({
@@ -148,6 +141,13 @@ export const keystaticMeasuretownsConfig = collection({
             sourceLink: fields.text({ label: 'Link zur Quelle der Daten' }),
           },
           { label: 'ZIELE: Widget Investitionen' },
+        ),
+        widgetFahrradklimatest: fields.object(
+          {
+            ...keystaticWidgetTitleSubtext,
+            chartHorizontal: keystaticWidgetChartHorizontal,
+          },
+          { label: 'ZIELE: Widget Fahrradklimatest' },
         ),
       },
       { label: 'WIDGETS ZIELE' },

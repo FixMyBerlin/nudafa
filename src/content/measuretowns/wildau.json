@@ -2,13 +2,6 @@
   "title": "Stadt Wildau",
   "general": {
     "widgetMarkdown": "Dieses Dashboard befindet sich derzeit noch im Aufbau.&#x20;\n\nIn Kürze erfahren Sie hier mehr!\n",
-    "widgetFahrradklimatest": {
-      "title": "Fahrradklimatest",
-      "chartHorizontal": {
-        "data": [],
-        "legend": []
-      }
-    },
     "widgetBilder": []
   },
   "traffic": {
@@ -123,6 +116,13 @@
       "title": "Ausgaben",
       "population": 10.994,
       "table": [],
+      "chartHorizontal": {
+        "data": [],
+        "legend": []
+      }
+    },
+    "widgetFahrradklimatest": {
+      "title": "Fahrradklimatest",
       "chartHorizontal": {
         "data": [],
         "legend": []

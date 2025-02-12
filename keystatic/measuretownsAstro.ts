@@ -12,11 +12,6 @@ export const astroMeasuretownsDefinition = defineCollection({
       title: z.string(),
       general: z.object({
         widgetMarkdown: z.string().optional(),
-        widgetFahrradklimatest: z.object({
-          title: z.string().optional(),
-          subText: z.string().optional(),
-          chartHorizontal: astroWidgetChartHorizontal,
-        }),
         widgetBilder: z
           .array(
             z.object({
@@ -70,6 +65,11 @@ export const astroMeasuretownsDefinition = defineCollection({
               eigenanteil: z.number(),
             }),
           ),
+          chartHorizontal: astroWidgetChartHorizontal,
+        }),
+        widgetFahrradklimatest: z.object({
+          title: z.string().optional(),
+          subText: z.string().optional(),
           chartHorizontal: astroWidgetChartHorizontal,
         }),
       }),

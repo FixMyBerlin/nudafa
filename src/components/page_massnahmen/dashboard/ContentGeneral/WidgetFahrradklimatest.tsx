@@ -1,11 +1,11 @@
 import { ChartHorizontal } from '../components/ChartHorizontal'
 import { Markdown } from '../components/Markdown'
 import { Widget } from '../components/Widget'
-import type { GeneralDashboardData } from '../DasboardTabs'
+import type { GoalsDashboardData } from '../DasboardTabs'
 
 export const WidgetFahrradklimatest = ({
   data: { widgetFahrradklimatest },
-}: GeneralDashboardData) => {
+}: GoalsDashboardData) => {
   if (!widgetFahrradklimatest.chartHorizontal.data.length) return null
 
   return (
