@@ -22,7 +22,7 @@ export const keystaticWidgetChartVertical = fields.object(
         label: fields.text({ label: 'Label der Balken' }),
         value: fields.number({ label: 'Balken Wert' }),
         color: fields.text({
-          label: 'Balken Farbe (HEX, muss mit legende übereinstimmen',
+          label: 'Balken Farbe (HEX, muss mit legende übereinstimmen)',
         }),
       }),
       {

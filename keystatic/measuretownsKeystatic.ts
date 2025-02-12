@@ -89,7 +89,7 @@ export const keystaticMeasuretownsConfig = collection({
             ...keystaticWidgetTitleSubtext,
             chartRelativeVertical: keystaticWidgetChartRelativeVertical,
           },
-          { label: 'ALLGEMEIN: Widget Verkehrsbelastung (TODO)' },
+          { label: 'VERKEHR: Widget Verkehrsbelastung' },
         ),
         widgetFahrzeuge: fields.object(
           { chartVertical: keystaticWidgetChartVertical },
