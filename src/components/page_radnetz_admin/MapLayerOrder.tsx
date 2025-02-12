@@ -137,7 +137,7 @@ ${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
     return (
       <div className="border-xl absolute inset-0 z-[100] overflow-y-auto rounded bg-pink-500 p-1 text-xs text-white shadow-2xl print:hidden">
         <button className={buttonStylesForLinkElement} onClick={handleInitLayers}>
-          INIT LAYERS
+          LAYER AUS KARTE ÜBERNEHMEN (~5 Sekunden nach Seiten-Laden)
         </button>
       </div>
     )
@@ -187,7 +187,6 @@ ${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
           </strong>
           <Table className="my-3 w-full" aria-label="Result of ordering">
             <TableHeader>
-              <Column className="bg-white/40 text-left" />
               <Column isRowHeader className="bg-white/40 text-left">
                 layerKey
               </Column>
@@ -198,9 +197,6 @@ ${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
             <TableBody items={layerOrder}>
               {(item) => (
                 <Row>
-                  <Cell className="p-2">
-                    <Button slot="drag">≡</Button>
-                  </Cell>
                   <Cell className="py-2">
                     <code>{item.key}</code>
                   </Cell>
