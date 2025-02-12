@@ -127,9 +127,9 @@ const MapLayerOrderTable = () => {
 type LayerKey = string
 type BelowLayerKey = string | undefined
 export const beforeIdEntries: Array<{key: LayerKey, beforeId?: BelowLayerKey}> = [
-// BOTTOM LAYERS OF THE MAP
-${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
 // TOP LAYERS OF THE MAP
+${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
+// BOTTOM LAYERS OF THE MAP
 ]
 `
 
