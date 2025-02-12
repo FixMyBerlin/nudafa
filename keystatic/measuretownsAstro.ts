@@ -21,6 +21,7 @@ export const astroMeasuretownsDefinition = defineCollection({
           .array(
             z.object({
               image: image(),
+              description: z.string().optional(),
               imageCopyright: z.string().optional(),
               alt: z.string().optional(),
             }),

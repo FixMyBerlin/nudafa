@@ -66,6 +66,9 @@ export const keystaticMeasuretownsConfig = collection({
               directory: 'src/assets/measuretowns',
               publicPath: '/src/assets/measuretowns',
             }),
+            description: fields.text({
+              label: 'Bildbeschreibung unter dem Bild',
+            }),
             imageCopyright: fields.text({
               label: 'Copyright Bild',
             }),

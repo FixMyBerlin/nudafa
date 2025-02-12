@@ -52,15 +52,15 @@
     "widgetBilder": [
       {
         "image": "/src/assets/measuretowns/eichwalde/general/widgetBilder/0/image.jpg",
-        "imageCopyright": "Kopfsteinpflaster erfordert das Fahren auf dem Gehweg"
+        "description": "Kopfsteinpflaster erfordert das Fahren auf dem Gehweg"
       },
       {
         "image": "/src/assets/measuretowns/eichwalde/general/widgetBilder/1/image.jpg",
-        "imageCopyright": "Einige Gehwege sind nicht ausreichend breit bzw. befestigt."
+        "description": "Einige Gehwege sind nicht ausreichend breit bzw. befestigt."
       },
       {
         "image": "/src/assets/measuretowns/eichwalde/general/widgetBilder/2/image.jpg",
-        "imageCopyright": "Die Abstellanlagen am S-Bahnhof sind nicht mehr zeitgemäß"
+        "description": "Die Abstellanlagen am S-Bahnhof sind nicht mehr zeitgemäß"
       }
     ]
   },
