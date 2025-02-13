@@ -14,7 +14,7 @@ Das Update der Daten läuft so:
    - (Und händisch ranzoomen)
 2. Die Daten editieren
    - Es können Geometrien bearbeitet, gelöscht oder neu angelegt werden
-   - Jede Geometrie benötigt eine NUDAFA_ID (darauf achten, dass keine ID doppelt vergeben wird), die anderen Felder müssen nicht ausgefüllt werden.
+   - Jede Geometrie benötigt eine NUDAFA_ID (Es kann eine ID doppelt verwendet werden, wenn zwei Geometrien zu einer Maßnahmen gehören sollen), die anderen Felder müssen nicht ausgefüllt werden.
 4. Exportieren: File > Export > GeoJSON
    - Im Dialog zusätzlich "Intent & format" auswählen
    - Dateinamen ändern in: `geometry.json` (Hinweis: Die Änderung des Suffix von .geojson zu .json ist richtig)
