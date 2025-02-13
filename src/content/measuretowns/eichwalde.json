@@ -88,24 +88,24 @@
         "title": "Anteil der Haushalte mit Fahrrädern / Pedelec und Autos",
         "data": [
           {
-            "label": "Haushalte mit Fahrrad / Pedelec ",
+            "label": "Haushalte mit Fahrrad / Pedelec",
             "value": 96,
-            "color": "#960854"
+            "color": "#945c7a"
           },
           {
-            "label": "⌀ aller Kommunen <20.000",
+            "label": "im Vergleich: ⌀ aller Kommunen bis 20.000 EW",
             "value": 81,
             "color": "#adadad"
           },
           {
             "label": "Haushalte mit Auto",
             "value": 94,
-            "color": "#F37575"
+            "color": "f39e31"
           },
           {
             "label": "⌀ aller Kommunen <20.000",
             "value": 92,
-            "color": "#adadad"
+            "color": "f2c891"
           },
           {
             "label": " ",
