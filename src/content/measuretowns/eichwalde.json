@@ -198,7 +198,7 @@
         },
         {
           "number": 60,
-          "label": "Unfälle mit Fahrradbeteiligung in %",
+          "label": "% der Unfälle mit Fahrradbeteiligung",
           "color": "#f24d47"
         }
       ],
