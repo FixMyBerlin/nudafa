@@ -93,19 +93,19 @@
             "color": "#945c7a"
           },
           {
-            "label": "im Vergleich: ⌀ aller Kommunen bis 20.000 EW",
+            "label": "im Vergleich: Kommunen bis 20.000 EW",
             "value": 81,
             "color": "#adadad"
           },
           {
             "label": "Haushalte mit Auto",
             "value": 94,
-            "color": "f39e31"
+            "color": "#F37575"
           },
           {
-            "label": "⌀ aller Kommunen <20.000",
+            "label": "im Vergleich: Kommunen bis 20.000 EW",
             "value": 92,
-            "color": "f2c891"
+            "color": "f2aaaa"
           },
           {
             "label": " ",
