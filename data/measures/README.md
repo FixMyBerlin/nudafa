@@ -13,8 +13,8 @@ Das Update der Daten läuft so:
 1. Placemark Play aufrufen: https://play.placemark.io/?load=https://raw.githubusercontent.com/FixMyBerlin/nudafa/refs/heads/main/data/measures/geometry.json
    - (Und händisch ranzoomen)
 2. Die Daten editieren
-  - Es können Geometrien bearbeitet, gelöscht oder neu angelegt werden
-  - Jede Geometrie benötigt eine NUDAFA_ID (darauf achten, dass keine ID doppelt vergeben wird), die anderen Felder müssen nicht ausgefüllt werden.
+   - Es können Geometrien bearbeitet, gelöscht oder neu angelegt werden
+   - Jede Geometrie benötigt eine NUDAFA_ID (darauf achten, dass keine ID doppelt vergeben wird), die anderen Felder müssen nicht ausgefüllt werden.
 4. Exportieren: File > Export > GeoJSON
    - Im Dialog zusätzlich "Intent & format" auswählen
    - Dateinamen ändern in: `geometry.json` (Hinweis: Die Änderung des Suffix von .geojson zu .json ist richtig)
@@ -41,4 +41,4 @@ Hinweis: Bei neuen Geometrien muss eine entsprechende Maßnahme mit der NUDAFA I
 
 ## Test 2
 
-Werden unter https://www.nudafa.de/massnahmen/admin/geodata-check/ irgendwelche Fehler angezeigt? (Hier werden Maßnahmen ausgegeben, die in keystatic angelegt sind, aber keine Geometrie in in geometry.json haben.
+Werden unter https://www.nudafa.de/massnahmen/admin/geodata-check/ irgendwelche Fehler angezeigt? (Hier werden Maßnahmen ausgegeben, die in keystatic angelegt sind, aber keine Geometrie in in geometry.json haben.)
