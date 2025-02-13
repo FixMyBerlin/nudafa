@@ -93,24 +93,24 @@
             "color": "#945c7a"
           },
           {
-            "label": "im Vergleich: Kommunen bis 20.000 EW",
-            "value": 81,
-            "color": "#adadad"
-          },
-          {
             "label": "Haushalte mit Auto",
             "value": 94,
             "color": "#F37575"
           },
           {
-            "label": "im Vergleich: Kommunen bis 20.000 EW",
-            "value": 92,
-            "color": "f2aaaa"
-          },
-          {
-            "label": " ",
+            "label": " ⌀ in Kommunen >20.000 EW:",
             "value": 100,
             "color": "#fffefa"
+          },
+          {
+            "label": "Haushalte mit Fahrrad/Pedelec",
+            "value": 81,
+            "color": "#adadad"
+          },
+          {
+            "label": "Haushalte mit Autos",
+            "value": 92,
+            "color": "f2aaaa"
           }
         ],
         "dataUnit": "percent",
