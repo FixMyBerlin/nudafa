@@ -95,7 +95,7 @@
           {
             "label": "... mit Fahrrädern (bundesweit*)",
             "value": 81,
-            "color": "#947686"
+            "color": "#b5a0ab"
           },
           {
             "label": "... mit Autos",
@@ -105,7 +105,7 @@
           {
             "label": "... mit Autos (bundesweit*)",
             "value": 92,
-            "color": "#f2aeae"
+            "color": "#f2cece"
           },
           {
             "label": "* in Kommunen bis 20.000 EW",
