@@ -84,7 +84,7 @@
     },
     "widgetUnfaelle": {
       "title": "Unfälle",
-      "subText": "mit Fahrradbeteiligung, in den Jahren 2020, 2021 und 2022\n",
+      "subText": "mit Personenschaden und mit Fahrradbeteiligung, \nin den Jahren 2020, 2021 und 2022",
       "list": [
         {
           "number": 0,
@@ -103,8 +103,13 @@
         },
         {
           "number": 28,
-          "label": "in Summe (=85% aller Unfälle)",
+          "label": "% der Unfälle mit Fahrradbeteiligung",
           "color": "#f24d47"
+        },
+        {
+          "number": 33,
+          "label": "Unfälle mit und ohne Fahrradbeteiligung",
+          "color": "#000000"
         }
       ],
       "source": "Quelle: Unfallatlas.de"
