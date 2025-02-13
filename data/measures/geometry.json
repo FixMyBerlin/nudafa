@@ -1980,29 +1980,6 @@
                 "type": "LineString",
                 "coordinates": [
                     [
-                        13.593333,
-                        52.314675
-                    ],
-                    [
-                        13.59368,
-                        52.31493
-                    ]
-                ]
-            },
-            "properties": {
-                "Nr": null,
-                "Kommune": null,
-                "NUDAFA_ID": null,
-                "@id": "b2b62340-651e-11ef-927f-17a8eae6220d",
-                "@folder": null
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [
-                    [
                         13.637448,
                         52.324548
                     ],
@@ -3786,8 +3763,8 @@
                 "coordinates": [
                     [
                         [
-                            13.629453,
-                            52.31546
+                            13.629399,
+                            52.315495
                         ],
                         [
                             13.628985,
@@ -6474,6 +6451,40 @@
                 "NUDAFA_ID": "Wildau_1",
                 "@id": "67a7a121-5a2a-11ef-b265-69391af983ee",
                 "@folder": "67a7a120-5a2a-11ef-b265-69391af983ee"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "NUDAFA_ID": "Eichwalde_99",
+                "Kommune": "Eichwalde",
+                "Nr": ""
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        13.700704,
+                        52.369083
+                    ],
+                    [
+                        13.714586,
+                        52.355077
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "NUDAFA_ID": "Eichwalde_100"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.697988,
+                    52.357289
+                ]
             }
         }
     ]
