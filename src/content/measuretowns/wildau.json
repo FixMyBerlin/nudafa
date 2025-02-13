@@ -101,13 +101,13 @@
           "color": "#F59E0B"
         },
         {
-          "number": 116,
-          "label": "Unfälle mit und ohne Rad",
+          "number": 123,
+          "label": "Unfälle mit und ohne Fahrradbeteiligung",
           "color": "#000000"
         },
         {
           "number": 66,
-          "label": "Anteil der Unfälle mit Fahrradbeteiligung in %",
+          "label": "% der Unfälle mit Fahrradbeteiligung",
           "color": "#f24d47"
         }
       ],
