@@ -156,17 +156,17 @@
           "color": "#FF2E3B"
         },
         {
-          "number": 50,
+          "number": 32,
           "label": "Unfälle mit Leichtverletzten",
           "color": "#F59E0B"
         },
         {
-          "number": 123,
+          "number": 60,
           "label": "Unfälle mit und ohne Fahrradbeteiligung",
           "color": "#000000"
         },
         {
-          "number": 55,
+          "number": 62,
           "label": "% der Unfälle mit Fahrradbeteiligung",
           "color": "#f24d47"
         }
