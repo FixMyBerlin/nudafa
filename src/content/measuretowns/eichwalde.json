@@ -105,12 +105,12 @@
           {
             "label": "Haushalte mit Fahrrad/Pedelec",
             "value": 81,
-            "color": "#adadad"
+            "color": "#947686"
           },
           {
             "label": "Haushalte mit Autos",
             "value": 92,
-            "color": "f2aaaa"
+            "color": "#f2aeae"
           }
         ],
         "dataUnit": "percent",
