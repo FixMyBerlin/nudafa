@@ -88,17 +88,17 @@
         "title": "Anteil der Haushalte...",
         "data": [
           {
-            "label": "... mit Fahrrad / Pedelec",
+            "label": "... mit Fahrrädern (+ Pedelecs)",
             "value": 96,
             "color": "#945c7a"
           },
           {
-            "label": "... mit Fahrrad/Pedelec (bundesweit*)",
+            "label": "... mit Fahrrädern (bundesweit*)",
             "value": 81,
             "color": "#947686"
           },
           {
-            "label": "... mit Auto",
+            "label": "... mit Autos",
             "value": 94,
             "color": "#F37575"
           },
