@@ -102,14 +102,14 @@
           "color": "#F59E0B"
         },
         {
-          "number": 28,
-          "label": "% der Unfälle mit Fahrradbeteiligung",
-          "color": "#f24d47"
-        },
-        {
           "number": 33,
           "label": "Unfälle mit und ohne Fahrradbeteiligung",
           "color": "#000000"
+        },
+        {
+          "number": 28,
+          "label": "% der Unfälle mit Fahrradbeteiligung",
+          "color": "#f24d47"
         }
       ],
       "source": "Quelle: Unfallatlas.de"
