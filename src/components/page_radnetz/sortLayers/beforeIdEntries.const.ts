@@ -5,6 +5,7 @@ export const beforeIdEntries: Array<{ key: LayerKey; beforeId?: BelowLayerKey }>
   // BOTTOM LAYERS OF THE MAP
   { key: 'quellen-und-ziele-landuse-landuse_residential-commercial', beforeId: 'Satellite' },
   { key: 'quellen-und-ziele-landuse-landuse_residential-commercial -outlines', beforeId: 'Satellite' },
+  { key: 'base-boundaries-nudafa-boundaries-gemeinden', beforeId: 'watername_ocean' },
   { key: 'kontext-vorhandene-netze-Vorhandene-netze_uebergeordnet', beforeId: 'watername_ocean' },
   { key: 'quellen-und-ziele-barrier-areas-poibarriers_water_aerodrome', beforeId: 'watername_ocean' },
   { key: 'quellen-und-ziele-buildings-buildings-black', beforeId: 'watername_ocean' },
@@ -46,7 +47,6 @@ export const beforeIdEntries: Array<{ key: LayerKey; beforeId?: BelowLayerKey }>
   { key: 'einleitung-places-circle-place-circle', beforeId: 'roadname_minor' },
   { key: 'base-maskierung-dimmlayer-ZES-Betrachtungsraum' },
   { key: 'base-maskierung-Border-ZES-Betrachtungsraum' },
-  { key: 'base-boundaries-nudafa-boundaries-gemeinden' },
   { key: 'base-maskierung-boundary-nudafa-maskierung-boundary' },
   // TOP LAYERS OF THE MAP
 ]
