@@ -3,15 +3,9 @@ type LayerKey = string
 type BelowLayerKey = string | undefined
 export const beforeIdEntries: Array<{ key: LayerKey; beforeId?: BelowLayerKey }> = [
   // BOTTOM LAYERS OF THE MAP
-  { key: 'base-maskierung-dimmlayer-ZES-Betrachtungsraum' },
-  { key: 'base-maskierung-Border-ZES-Betrachtungsraum' },
-  { key: 'base-boundaries-nudafa-boundaries-gemeinden' },
-  { key: 'base-maskierung-boundary-nudafa-maskierung-boundary' },
-  { key: 'einleitung-places-circle-place-names', beforeId: 'roadname_minor' },
-  { key: 'einleitung-places-circle-place-circle', beforeId: 'roadname_minor' },
-  { key: 'kontext-vorhandene-netze-Vorhandene-netze_uebergeordnet', beforeId: 'watername_ocean' },
-  { key: 'quellen-und-ziele-landuse-landuse_residential-commercial -outlines', beforeId: 'Satellite' },
   { key: 'quellen-und-ziele-landuse-landuse_residential-commercial', beforeId: 'Satellite' },
+  { key: 'quellen-und-ziele-landuse-landuse_residential-commercial -outlines', beforeId: 'Satellite' },
+  { key: 'kontext-vorhandene-netze-Vorhandene-netze_uebergeordnet', beforeId: 'watername_ocean' },
   { key: 'quellen-und-ziele-barrier-areas-poibarriers_water_aerodrome', beforeId: 'watername_ocean' },
   { key: 'quellen-und-ziele-buildings-buildings-black', beforeId: 'watername_ocean' },
   { key: 'quellen-und-ziele-barrier-lines-railway-rail', beforeId: 'watername_ocean' },
@@ -48,5 +42,11 @@ export const beforeIdEntries: Array<{ key: LayerKey; beforeId?: BelowLayerKey }>
   { key: 'massnahmen-netzentwurf-nudafa-netzentwurf', beforeId: 'watername_ocean' },
   { key: 'massnahmen-massnahmen-massnahmen linien', beforeId: 'watername_ocean' },
   { key: 'massnahmen-massnahmen-massnahmen punkte', beforeId: 'watername_ocean' },
+  { key: 'einleitung-places-circle-place-names', beforeId: 'roadname_minor' },
+  { key: 'einleitung-places-circle-place-circle', beforeId: 'roadname_minor' },
+  { key: 'base-maskierung-dimmlayer-ZES-Betrachtungsraum' },
+  { key: 'base-maskierung-Border-ZES-Betrachtungsraum' },
+  { key: 'base-boundaries-nudafa-boundaries-gemeinden' },
+  { key: 'base-maskierung-boundary-nudafa-maskierung-boundary' },
   // TOP LAYERS OF THE MAP
 ]

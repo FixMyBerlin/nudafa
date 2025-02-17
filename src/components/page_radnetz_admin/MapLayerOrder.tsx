@@ -1,5 +1,6 @@
 import { buttonStylesForLinkElement } from '@components/links/styles'
 import { RadnetzMap } from '@components/page_radnetz/Map/RadnetzMap'
+import { ArrowsUpDownIcon } from '@heroicons/react/20/solid'
 import type { LayerSpecification } from 'maplibre-gl'
 import { useState } from 'react'
 import {
@@ -26,12 +27,14 @@ export const MapLayerOrder = () => {
   )
 }
 
+const ATLAS_SOURCE_STRING = 'https://radverkehrsatlas.de'
+
 const MapLayerOrderTable = () => {
   const [layers, setLayers] = useState<LayerSpecification[]>([])
   const { mainMap } = useMap()
 
   const handleInitLayers = () => {
-    const layers = mainMap?.getStyle()?.layers?.reverse()
+    const layers = mainMap?.getStyle()?.layers
     setLayers(layers || [])
   }
 
@@ -39,7 +42,7 @@ const MapLayerOrderTable = () => {
   const list = useListData<{ id: number; layerKey: string; source: string | undefined }>({
     initialItems: [],
   })
-  if (list.items.length === 0 && layers.length > 0 && layers.length > 0) {
+  if (list.items.length === 0 && layers.length > 0) {
     // Empty on first render…
     layers.forEach((layer, index) => {
       list.append({
@@ -89,7 +92,7 @@ const MapLayerOrderTable = () => {
       console.log('ERROR showBeforeId', 'Layer was missing or did not have a `source`', layer)
       return false
     }
-    return !layer.source.includes('https://radverkehrsatlas.de')
+    return !layer.source.includes(ATLAS_SOURCE_STRING)
   }
   const isMaptilerLayer = (layer: (typeof list.items)[number]) => {
     return validBeforeId(layer) || layer.source === undefined
@@ -97,7 +100,7 @@ const MapLayerOrderTable = () => {
 
   const layerOrder = list.items
     .map((listLayer, index) => {
-      const beforeListLayer = list.items[index - 1] // normall -1 but we list layers.reverse()
+      const beforeListLayer = list.items[index + 1]
 
       // Initialize the beforeId
       let beforeId: string | undefined =
@@ -105,10 +108,10 @@ const MapLayerOrderTable = () => {
           ? beforeListLayer.layerKey
           : undefined
 
-      // Search the last (openmaptiles) beforeId
+      // Search the next (openmaptiles) beforeId
       if (!beforeId) {
-        const reversedArray = list.items.slice(0, index)
-        for (const innerItem of reversedArray) {
+        const followingItems = list.items.slice(index + 1, list.items.length).reverse()
+        for (const innerItem of followingItems) {
           if (validBeforeId(innerItem)) {
             beforeId = innerItem.layerKey
           }
@@ -127,9 +130,9 @@ const MapLayerOrderTable = () => {
 type LayerKey = string
 type BelowLayerKey = string | undefined
 export const beforeIdEntries: Array<{key: LayerKey, beforeId?: BelowLayerKey}> = [
-// TOP LAYERS OF THE MAP
-${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
 // BOTTOM LAYERS OF THE MAP
+${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
+// TOP LAYERS OF THE MAP
 ]
 `
 
@@ -147,7 +150,7 @@ ${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
     <div className="border-xl absolute inset-0 z-[100] overflow-y-auto rounded bg-pink-500 p-1 text-xs text-white shadow-2xl print:hidden">
       <div className="grid gap-6 lg:grid-cols-2">
         <div>
-          <strong>TOP LAYER</strong>
+          <strong>BOTTOM LAYER</strong>
           <Table
             className="my-3 w-full"
             dragAndDropHooks={dragAndDropHooks}
@@ -156,6 +159,9 @@ ${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
             <TableHeader>
               <Column className="bg-white/40 text-left" />
               <Column isRowHeader className="bg-white/40 text-left">
+                index
+              </Column>
+              <Column isRowHeader className="bg-white/40 text-left">
                 layerKey
               </Column>
               <Column isRowHeader className="bg-white/40 text-left">
@@ -163,28 +169,40 @@ ${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
               </Column>
             </TableHeader>
             <TableBody items={list.items}>
-              {(item) => (
-                <Row>
-                  <Cell className="p-2">
-                    <Button slot="drag">≡</Button>
-                  </Cell>
-                  <Cell className="py-2">
-                    <code>{item.layerKey}</code>
-                  </Cell>
-                  <Cell className="py-2">
-                    <code className="text-white/50">{item.source}</code>
-                  </Cell>
-                </Row>
-              )}
+              {(item) => {
+                // We should only move our own layers, which all use the source URI as source name
+                // Maptiler layers need to be sorted in the Maptiler UI
+                const moveAllowed = item.source?.includes(ATLAS_SOURCE_STRING)
+                return (
+                  <Row className={moveAllowed ? 'group cursor-pointer' : ''}>
+                    <Cell className="p-2 group-hover:bg-white/10">
+                      {moveAllowed && (
+                        <Button slot="drag">
+                          <ArrowsUpDownIcon className="size-4" />
+                        </Button>
+                      )}
+                    </Cell>
+                    <Cell className="p-2 group-hover:bg-white/10">
+                      <div className="flex min-w-6 items-center justify-center rounded bg-white/20 px-0.5">
+                        {list.items.findIndex((i) => i.id === item.id)}
+                      </div>
+                    </Cell>
+                    <Cell className="py-2 group-hover:bg-white/10">
+                      <code>{item.layerKey}</code>
+                    </Cell>
+                    <Cell className="py-2 group-hover:bg-white/10">
+                      <code className="text-white/50">{item.source}</code>
+                    </Cell>
+                  </Row>
+                )
+              }}
             </TableBody>
           </Table>
-          <strong>BOTTOM LAYER</strong>
+          <strong>TOP LAYER</strong>
         </div>
 
         <div>
-          <strong>
-            <code>beforeId:undefined</code> is added on top in order of render
-          </strong>
+          <strong>BOTTOM LAYER</strong>
           <Table className="my-3 w-full" aria-label="Result of ordering">
             <TableHeader>
               <Column isRowHeader className="bg-white/40 text-left">
@@ -207,8 +225,13 @@ ${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
               )}
             </TableBody>
           </Table>
+          <strong>TOP LAYER</strong>
+          <br />
+          <strong>
+            <code>beforeId:undefined</code> is added on top in order of render
+          </strong>
           <textarea
-            className="my-3 h-full w-full rounded bg-gray-50 p-1 font-mono text-xs leading-5 text-black"
+            className="my-12 h-full w-full rounded bg-gray-50 p-1 font-mono text-xs leading-5 text-black"
             value={output}
             readOnly
           />
