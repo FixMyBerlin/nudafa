@@ -9,14 +9,19 @@ import { mdxComponentsKeystatic } from './components/mdxComponentsKeystatic'
 export const contentBaseMeasures = '/src/content/measures'
 export const keystaticMeasuresConfig = collection({
   label: 'Maßnahmen',
-  slugField: 'title',
+  slugField: 'nudafa_id',
   path: `${contentBaseMeasures}/*`,
   format: { contentField: 'content' },
   columns: ['title'],
   schema: {
-    title: fields.slug({
+    title: fields.text({
+      label: 'Titel',
+      // todo ggf validation function --> slugify regex
+      validation: { length: { min: 1, max: 80 } },
+    }),
+    nudafa_id: fields.slug({
       name: {
-        label: 'Titel',
+        label: 'Nudafa-ID',
         validation: { length: { min: 1, max: 80 } },
       },
       slug: {
@@ -25,11 +30,6 @@ export const keystaticMeasuresConfig = collection({
         label: 'Dateiname / URL-Teil',
         validation: { length: { min: 1, max: 80 } },
       },
-    }),
-    nudafa_id: fields.text({
-      label: 'Nudafa-ID',
-      // todo ggf validation function --> slugify regex
-      validation: { length: { min: 1, max: 80 } },
     }),
     geometry: fields.checkbox({
       label: 'Geometrie vorhanden',
