@@ -184,7 +184,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
       ) : (
         <ul>
           {fileterdMeasures.map((m) => (
-            <li className="list-none">
+            <li className="list-none" key={m.id}>
               <MeasureCard
                 key={m.id}
                 measureSlug={m.id}
