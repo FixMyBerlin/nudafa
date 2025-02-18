@@ -33,8 +33,8 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
             return null
           }
         })
-        .sort((a, b) => Number(a) - Number(b))
-        .filter(Boolean),
+        .filter((year): year is string => year !== null) // for some reason .filter(Booelan) leads to a type error
+        .sort((a, b) => Number(a) - Number(b)),
     ),
   ]
   const deadlineYearOptions = deadlineYears.map((year) => {
@@ -42,16 +42,8 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
   })
   deadlineYearOptions.unshift({ value: 'all', label: 'Alle' })
 
-  const topics = [
-    ...new Set(
-      measures
-        .map((m: Measure) => {
-          if (m.data.topics) return m.data.topics
-        })
-        .flat()
-        .filter(Boolean),
-    ),
-  ]
+  const topics = [...new Set(measures.flatMap((m: Measure) => m.data.topics || []).filter(Boolean))]
+
   const topicsOptions = topics.map((topic) => {
     return {
       value: topic,
@@ -184,7 +176,7 @@ export const MeasuresListAndMap = ({ measures, subTopics, townFilter }: Props) =
       ) : (
         <ul>
           {fileterdMeasures.map((m) => (
-            <li className="list-none">
+            <li className="list-none" key={m.id}>
               <MeasureCard
                 key={m.id}
                 measureSlug={m.id}
