@@ -48,7 +48,9 @@ export const MapDebugHelper = () => {
       if (url) {
         fetch(`${url}@2x.json?key=ECOoUBmpqklzSCASXxcu`)
           .then((response) => response.json())
+          // @ts-expect-error ignore "unkown" type
           .then((data) => setSprites(data))
+          // @ts-expect-error ignore "unkown" type
           .catch((error) => setSprites(error.toString()))
       }
     } catch (error) {
