@@ -22,11 +22,12 @@ export const keystaticMeasuresConfig = collection({
     nudafa_id: fields.slug({
       name: {
         label: 'Nudafa-ID',
+        description: 'In dem Format „Kommune_1“',
         validation: { length: { min: 1, max: 80 } },
       },
       slug: {
         description:
-          'Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
+          'In dem Format „kommune-1“. Bitte keine Änderungen nach initialem Speichern. Keine Großbuchstaben, Umlaute, Sonderzeichen oder Leerzeichen.',
         label: 'Dateiname / URL-Teil',
         validation: { length: { min: 1, max: 80 } },
       },
