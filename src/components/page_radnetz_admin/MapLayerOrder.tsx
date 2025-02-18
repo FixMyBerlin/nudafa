@@ -212,16 +212,13 @@ ${layerOrder.map((l) => JSON.stringify(l, undefined, 0)).join(',\n')}
                 beforeId
               </Column>
             </TableHeader>
-            {/* @ts-expect-error */}
             <TableBody items={layerOrder}>
               {(item) => (
                 <Row>
                   <Cell className="py-2">
-                    {/* @ts-expect-error */}
                     <code>{item.key}</code>
                   </Cell>
                   <Cell className="py-2">
-                    {/* @ts-expect-error */}
                     <code className="text-white/50">{item.beforeId}</code>
                   </Cell>
                 </Row>
