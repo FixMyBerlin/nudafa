@@ -24,7 +24,11 @@ const {
         <slot />
       </a>
     ) : (
-      <a href={href} class={classNameOverwrites || selectLinkStyle(button, className)}>
+      <a
+        href={href}
+        target={blank === false ? undefined : '_blank'}
+        class={classNameOverwrites || selectLinkStyle(button, className)}
+      >
         <slot />
       </a>
     )
