@@ -1,3 +1,4 @@
+import { keystaticDownloadLink } from './DownloadLink/keystatic.DownloadLink'
 import { keystaticImageDoubleConfig } from './ImageDouble/keystatic.ImageDouble.config'
 import { keystaticImageSingleHorizontalConfig } from './ImageSingleHorizontal/keystatic.ImageSingleHorizontal.config'
 import { keystaticImageSingleSquareConfig } from './ImageSingleSquare/keystatic.ImageSingleSquare.config'
@@ -11,5 +12,6 @@ export const mdxComponentsKeystatic = (imagePath: string) => {
     ImageSingleHorizontal: keystaticImageSingleHorizontalConfig(imagePath),
     ImageSingleSquare: keystaticImageSingleSquareConfig(imagePath),
     ImageDouble: keystaticImageDoubleConfig(imagePath),
+    DownloadLink: keystaticDownloadLink,
   }
 }

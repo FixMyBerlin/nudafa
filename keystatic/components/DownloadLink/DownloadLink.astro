@@ -1,0 +1,12 @@
+---
+import Link from '@components/links/Link.astro'
+import type { DownloadLinkType } from './keystatic.DownloadLink'
+
+type Props = DownloadLinkType
+
+const { display, button, href } = Astro.props
+---
+
+<Link button={button} blank href={href} className="not-prose">
+  {display}
+</Link>
