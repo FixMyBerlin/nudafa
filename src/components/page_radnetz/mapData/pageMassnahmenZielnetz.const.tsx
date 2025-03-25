@@ -5,7 +5,7 @@ export const pageMassnahmenZielnetz: MapDataAndLegend = {
   massnahmenZielnetz: {
     sources: {
       netzentwurf: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-netzentwurf',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-netzentwurf',
         layers: [
           {
             id: 'nudafa-netzentwurf',

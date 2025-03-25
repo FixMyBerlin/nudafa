@@ -5,7 +5,7 @@ export const pageBedarfe: MapDataAndLegend = {
   bedarfe: {
     sources: {
       combined: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-combined',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-combined',
         layers: [
           {
             id: 'bedarfstrecke',

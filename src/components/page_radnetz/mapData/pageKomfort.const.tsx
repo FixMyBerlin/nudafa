@@ -5,7 +5,7 @@ export const pageKomfort: MapDataAndLegend = {
   komfort: {
     sources: {
       roads: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-roads',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-roads',
         layers: [
           {
             filter: ['has', 'smoothness'],

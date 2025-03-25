@@ -4,7 +4,7 @@ export const pageInteraktiveKarte: MapDataAndLegend = {
   'interaktive-karte': {
     sources: {
       combined: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-combined',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-combined',
         layers: [],
       },
     },

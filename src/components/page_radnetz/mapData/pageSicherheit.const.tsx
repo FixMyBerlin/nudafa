@@ -6,7 +6,7 @@ export const pageSicherheit: MapDataAndLegend = {
   sicherheit: {
     sources: {
       schulwege: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-schulwege',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-schulwege',
         layers: [
           {
             id: 'nudafa-schulwege',
@@ -19,7 +19,7 @@ export const pageSicherheit: MapDataAndLegend = {
         ],
       },
       unfaelle: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-unfaelle',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-unfaelle',
         layers: [
           {
             id: 'nudafa-unfaelle',
@@ -44,7 +44,7 @@ export const pageSicherheit: MapDataAndLegend = {
         ],
       },
       gefahrenstellen: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-schulwege-gefahrstellen',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-schulwege-gefahrstellen',
         layers: [
           {
             id: 'nudafa-gefahrstellen',
@@ -60,7 +60,7 @@ export const pageSicherheit: MapDataAndLegend = {
         ],
       },
       poi: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-poi',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-poi',
         layers: formalEducation,
       },
     },

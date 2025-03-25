@@ -8,7 +8,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
     sources: {
       // Top entry here is bottom layer on the map
       buildings: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-buildings',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-buildings',
         layers: [
           {
             id: 'buildings-black',
@@ -21,7 +21,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
         ],
       },
       landuse: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-landuse',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-landuse',
         layers: [
           {
             id: 'landuse_residential-commercial -outlines',
@@ -65,7 +65,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
         ],
       },
       'barrier-areas': {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-barrier-areas',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-barrier-areas',
         layers: [
           {
             id: 'poibarriers_water_aerodrome',
@@ -87,7 +87,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
         ],
       },
       'barrier-lines': {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-barrier-lines',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-barrier-lines',
         layers: [
           {
             id: 'railway-rail',
@@ -146,11 +146,11 @@ export const pageQuelleZiele: MapDataAndLegend = {
         ],
       },
       places: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-places',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-places',
         layers: placesCirlce,
       },
       poi: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-poi',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-poi',
         layers: [
           {
             id: 'poiShopping-heatmap',
@@ -205,7 +205,7 @@ export const pageQuelleZiele: MapDataAndLegend = {
         ],
       },
       'public-transport': {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-public-transport',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-public-transport',
         layers: [
           {
             id: 'publicTransport',

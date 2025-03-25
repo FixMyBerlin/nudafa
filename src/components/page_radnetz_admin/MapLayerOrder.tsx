@@ -27,7 +27,7 @@ export const MapLayerOrder = () => {
   )
 }
 
-const ATLAS_SOURCE_STRING = 'https://radverkehrsatlas.de'
+const ATLAS_SOURCE_STRING = 'https://tilda-geo.de'
 
 const MapLayerOrderTable = () => {
   const [layers, setLayers] = useState<LayerSpecification[]>([])

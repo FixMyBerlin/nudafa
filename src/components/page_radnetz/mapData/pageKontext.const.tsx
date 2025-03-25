@@ -7,7 +7,7 @@ export const pageKontext: MapDataAndLegend = {
   kontext: {
     sources: {
       'vorhandene-netze': {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-netzvorschlaege-buergerinnen',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-netzvorschlaege-buergerinnen',
         layers: [
           {
             id: 'Vorhandene-netze_uebergeordnet',

@@ -5,7 +5,7 @@ export const pageBestand: MapDataAndLegend = {
   bestand: {
     sources: {
       roads: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-roads',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-roads',
         layers: [
           {
             id: 'Oberflaeche schlecht',
@@ -44,7 +44,7 @@ export const pageBestand: MapDataAndLegend = {
         ],
       },
       bikelanes: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-bikelanes',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-bikelanes',
         layers: [
           {
             id: 'nudafa-bikelanes-seperateinfra',

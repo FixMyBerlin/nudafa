@@ -5,7 +5,7 @@ export const pageStrassentypen: MapDataAndLegend = {
   strassentypen: {
     sources: {
       'roads-oneway': {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-roads',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-roads',
         layers: [
           {
             type: 'line',
@@ -44,7 +44,7 @@ export const pageStrassentypen: MapDataAndLegend = {
         ],
       },
       'roads-legacy': {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-roads-legacy',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-roads-legacy',
         layers: [
           {
             id: 'strassentyp',

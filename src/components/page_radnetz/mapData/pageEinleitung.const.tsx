@@ -5,7 +5,7 @@ export const pageEinleitung: MapDataAndLegend = {
   einleitung: {
     sources: {
       places: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-places',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-places',
         layers: placesCirlce,
       },
     },

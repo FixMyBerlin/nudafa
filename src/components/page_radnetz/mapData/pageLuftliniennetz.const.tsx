@@ -5,7 +5,7 @@ export const pageLuftliniennetz: MapDataAndLegend = {
   luftliniennetz: {
     sources: {
       netzentwurf: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-netzentwurf',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-netzentwurf',
         layers: [
           {
             id: 'nudafa-luftlininien',

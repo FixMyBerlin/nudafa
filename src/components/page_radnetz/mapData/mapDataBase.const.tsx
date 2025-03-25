@@ -2,7 +2,7 @@ import type { MapDataAndLegend } from './mapDataAndLegend.const'
 
 export const mapDataBase: MapDataAndLegend[number]['sources'] = {
   maskierung: {
-    pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-maskierung',
+    pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-maskierung',
     layers: [
       // Layer list, copied from Mapbox
       // Last item in list shows on the top of the layer stack
@@ -27,7 +27,7 @@ export const mapDataBase: MapDataAndLegend[number]['sources'] = {
     ],
   },
   boundaries: {
-    pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-boundaries',
+    pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-boundaries',
     layers: [
       {
         id: 'nudafa-boundaries-gemeinden',
@@ -42,7 +42,7 @@ export const mapDataBase: MapDataAndLegend[number]['sources'] = {
     ],
   },
   'maskierung-boundary': {
-    pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-maskierung-boundary',
+    pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-maskierung-boundary',
     layers: [
       {
         id: 'nudafa-maskierung-boundary',

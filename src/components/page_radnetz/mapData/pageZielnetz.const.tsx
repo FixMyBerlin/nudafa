@@ -5,7 +5,7 @@ export const pageZielnetz: MapDataAndLegend = {
   zielnetz: {
     sources: {
       roads: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/website-nudafa-roads',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/website-nudafa-roads',
         layers: [
           {
             id: 'Oberflaeche gut oder sehr gut',
@@ -24,7 +24,7 @@ export const pageZielnetz: MapDataAndLegend = {
         ],
       },
       netzentwurf: {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-netzentwurf',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-netzentwurf',
         layers: [
           {
             id: 'nudafa-netzentwurf',
@@ -81,7 +81,7 @@ export const pageZielnetz: MapDataAndLegend = {
         ],
       },
       'netzvorschlaege-buergerinnen': {
-        pmTilesUrl: 'https://radverkehrsatlas.de/api/uploads/nudafa-netzvorschlaege-buergerinnen',
+        pmTilesUrl: 'https://tilda-geo.de/api/uploads/nudafa-netzvorschlaege-buergerinnen',
         layers: [
           {
             id: 'nudafa-netzvorschlaege-buergerinnen',
