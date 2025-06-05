@@ -119,12 +119,119 @@
     "widgetMarkdown": "",
     "widgetPeople": "",
     "widgetInvestitionen": {
-      "title": "Ausgaben",
+      "title": "Finanzierung des Radverkehrs",
+      "tableTitle": "Höhe der im Haushalt eingestellten Mittel für den Radverkehr",
       "population": 9665,
-      "table": [],
+      "table": [
+        {
+          "label": "2022",
+          "ausgaben": 125000,
+          "eigenanteil": 0
+        },
+        {
+          "label": "2023",
+          "ausgaben": 350000,
+          "eigenanteil": 0
+        },
+        {
+          "label": "2024",
+          "ausgaben": 75000,
+          "eigenanteil": 0
+        },
+        {
+          "label": "2025*",
+          "ausgaben": 0,
+          "eigenanteil": 0
+        }
+      ],
       "chartHorizontal": {
-        "data": [],
-        "legend": []
+        "title": "Tatsächliche Ausgaben pro Kopf",
+        "data": [
+          {
+            "label": "NRVP-Ziel",
+            "values": [
+              {
+                "value": 30,
+                "color": "#737373"
+              },
+              {
+                "value": 10,
+                "color": "#959595"
+              }
+            ]
+          },
+          {
+            "label": "2022",
+            "values": [
+              {
+                "value": 1.01,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 0,
+                "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "2023",
+            "values": [
+              {
+                "value": 0.5,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 0,
+                "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "2024",
+            "values": [
+              {
+                "value": 6.55,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 0,
+                "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "2025",
+            "values": [
+              {
+                "value": 0,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 0,
+                "color": "#EFC865"
+              }
+            ]
+          }
+        ],
+        "legend": [
+          {
+            "text": "Gesamtausgaben pro Kopf",
+            "color": "#98AEF8"
+          },
+          {
+            "text": "Eigenanteil pro Kopf",
+            "color": "#EFC865"
+          },
+          {
+            "text": "Vorgabe des NRVP: Gesamtausgaben",
+            "color": "#737373"
+          },
+          {
+            "text": "Vorgabe des NRVP: Eigenanteil",
+            "color": "#959595"
+          }
+        ],
+        "source": "Quelle: Gemeinde Schulzendorf, NRVP 3.0 (S. 25). 2025* = geplant"
       }
     },
     "widgetFahrradklimatest": {
