@@ -118,11 +118,97 @@
     "widgetMarkdown": "",
     "widgetPeople": "",
     "widgetInvestitionen": {
-      "title": "Ausgaben",
+      "title": "Finanzierung des Radverkehrs",
+      "tableTitle": "Höhe der im Haushalt eingestellten Mittel für den Radverkehr",
       "population": 10.994,
-      "table": [],
+      "table": [
+        {
+          "label": "2022",
+          "ausgaben": 0,
+          "eigenanteil": 0
+        },
+        {
+          "label": "2023",
+          "ausgaben": 105550,
+          "eigenanteil": 84440
+        },
+        {
+          "label": "2024",
+          "ausgaben": 0,
+          "eigenanteil": 0
+        },
+        {
+          "label": "2025*",
+          "ausgaben": 8500,
+          "eigenanteil": 754425
+        }
+      ],
       "chartHorizontal": {
-        "data": [],
+        "title": "Tatsächliche Ausgaben pro Kopf",
+        "height": 150,
+        "data": [
+          {
+            "label": "NRVP-Ziel",
+            "values": [
+              {
+                "value": 30,
+                "color": "#737373"
+              },
+              {
+                "value": 10,
+                "color": "#959595"
+              }
+            ]
+          },
+          {
+            "label": "2022",
+            "values": [
+              {
+                "value": 0,
+                "color": "#98AEF8"
+              }
+            ]
+          },
+          {
+            "label": "2023",
+            "values": [
+              {
+                "value": 54961,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 5883,
+                "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "2024",
+            "values": [
+              {
+                "value": 44481,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 73455,
+                "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "2025",
+            "values": [
+              {
+                "value": 0,
+                "color": "#c6d1f7"
+              },
+              {
+                "value": 0,
+                "color": "#f0dba8"
+              }
+            ]
+          }
+        ],
         "legend": []
       }
     },
