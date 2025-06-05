@@ -146,6 +146,7 @@
       ],
       "chartHorizontal": {
         "title": "Tatsächliche Ausgaben pro Kopf",
+        "height": 150,
         "data": [
           {
             "label": "NRVP-Ziel",
