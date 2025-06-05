@@ -196,7 +196,7 @@
             ]
           },
           {
-            "label": "2025",
+            "label": "2025*",
             "values": [
               {
                 "value": 0,
@@ -209,7 +209,8 @@
             ]
           }
         ],
-        "legend": []
+        "legend": [],
+        "source": "Quelle: Stadt Wildau, NRVP 3.0 (S. 25). 2025* = geplant"
       }
     },
     "widgetFahrradklimatest": {
