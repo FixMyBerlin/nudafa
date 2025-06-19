@@ -1,6 +1,6 @@
 ---
 import FonaLogo from '@assets/logos/BMBF_FONA_Logo_rgb.png'
-import BmbfLogo from '@assets/logos/BMBF_gefoerdert_deutsch.png'
+import BmbfLogo from '@assets/logos/bmftr_logo.png'
 import { Picture } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import { clsx } from 'clsx'
@@ -20,27 +20,28 @@ const { footerNavigation } = Astro.props
   <div class="mb-12 mt-56 flex flex-col items-center justify-between gap-8 md:flex-row">
     <div class="flex w-full flex-shrink-0 md:w-auto">
       <Picture
-        class="w-40"
+        class="max-w-48"
         src={BmbfLogo}
         alt=""
-        width={160}
+        width={192}
         formats={['png', 'avif']}
         densities={[1.5, 2]}
       />
       <Picture
-        class="w-40"
+        class="max-w-48"
         src={FonaLogo}
         alt=""
-        width={160}
+        width={192}
         formats={['png', 'avif']}
         densities={[1.5, 2]}
       />
     </div>
     <p class="flex-shrink text-xs">
-      Das Bundesministerium für Bildung und Forschung (BMBF) fördert das Projekt NUDAFA im Rahmen
-      der Strategie „Forschung für Nachhaltigkeit“ (FONA, www.fona.de) im Förderschwerpunkt
-      Sozial-ökologische Forschung unter den Förderkennzeichen 01UV2124 (2020-2024) sowie 01UV2424
-      (2024-2026). Die Verantwortung für den Inhalt dieser Veröffentlichung liegt bei den Autoren.
+      Das Bundesministerium für Forschung, Technologie und Raumfahrt (BMFTR) fördert das Projekt
+      NUDAFA im Rahmen der Strategie „Forschung für Nachhaltigkeit“ (FONA, www.fona.de) im
+      Förderschwerpunkt Sozial-ökologische Forschung unter den Förderkennzeichen 01UV2124
+      (2020-2024) sowie 01UV2424 (2024-2026). Die Verantwortung für den Inhalt dieser
+      Veröffentlichung liegt bei den Autoren.
     </p>
   </div>
 </Section>
@@ -73,7 +74,7 @@ const { footerNavigation } = Astro.props
                 <a
                   href={seconItem[1]}
                   class={clsx(
-                    'pb-2 font-bold',
+                    'pb-2 font-bold'
                     // TODO Highlight when active page
                     // seconItem[1] === path && "font-bold"
                   )}
