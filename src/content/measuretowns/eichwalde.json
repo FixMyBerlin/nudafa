@@ -238,6 +238,16 @@
           "label": "2022",
           "ausgaben": 120000,
           "eigenanteil": 72000
+        },
+        {
+          "label": "2026",
+          "ausgaben": 144597,
+          "eigenanteil": 0
+        },
+        {
+          "label": "2027",
+          "ausgaben": 144597,
+          "eigenanteil": 0
         }
       ],
       "chartHorizontal": {
@@ -258,7 +268,7 @@
             ]
           },
           {
-            "label": "2023",
+            "label": "2022",
             "values": [
               {
                 "value": 5,
