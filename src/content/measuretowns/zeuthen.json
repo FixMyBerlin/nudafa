@@ -181,7 +181,28 @@
       "title": "Ausgaben",
       "tableTitle": "Höhe der im Haushalt eingestellten Mittel für den Radverkehr",
       "population": 11.578,
-      "table": [],
+      "table": [
+        {
+          "label": "2022",
+          "ausgaben": 490000,
+          "eigenanteil": 199700
+        },
+        {
+          "label": "2023",
+          "ausgaben": 76200,
+          "eigenanteil": 0
+        },
+        {
+          "label": "2024",
+          "ausgaben": 781000,
+          "eigenanteil": 0
+        },
+        {
+          "label": "2025",
+          "ausgaben": 1612000,
+          "eigenanteil": 1167900
+        }
+      ],
       "chartHorizontal": {
         "title": "Tatsächliche Ausgaben pro Kopf",
         "height": 150,
@@ -200,15 +221,50 @@
             ]
           },
           {
-            "label": "2024",
+            "label": "2022",
             "values": [
               {
-                "value": 10,
+                "value": 25,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 7,
+                "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "2023",
+            "values": [
+              {
+                "value": 22,
                 "color": "#98AEF8"
               },
               {
                 "value": 5,
                 "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "2024",
+            "values": [
+              {
+                "value": 27,
+                "color": "#98AEF8"
+              },
+              {
+                "value": 3,
+                "color": "#EFC865"
+              }
+            ]
+          },
+          {
+            "label": "2025",
+            "values": [
+              {
+                "value": 21,
+                "color": "#98AEF8"
               }
             ]
           }
@@ -231,7 +287,7 @@
             "color": "#737373"
           }
         ],
-        "source": "Quelle: Haushalt Gemeinde Zeuthen, NRVP 3.0 (S. 25). 2025 = geplant"
+        "source": "Quelle: Haushalt Gemeinde Zeuthen, NRVP 3.0 (S. 25). 2025 = geplant. Stand Juli 2025"
       }
     },
     "widgetFahrradklimatest": {
