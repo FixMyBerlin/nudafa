@@ -1,4 +1,6 @@
 import { astroBicyclenetworkpagesDefinition } from 'keystatic/bicyclenetworkPagesAstro'
+import { astroBookPageDefinition } from 'keystatic/bookAstro'
+import { astroClosingEventPageDefinition } from 'keystatic/closingEventAstro'
 import { homepageIntroAstro, homepageMainAstro } from 'keystatic/homepageAstro'
 import { astroImprintPageDefinition } from 'keystatic/imprintAstro'
 import { astroMeasuresDefinition } from 'keystatic/measuresAstro'
@@ -6,8 +8,6 @@ import { astroMeasuretownsDefinition } from 'keystatic/measuretownsAstro'
 import { astroMeasuretypesDefinition } from 'keystatic/measuretypesAstro'
 import { astroPartnerCommunesPageDefinition } from 'keystatic/partnercommunespageAstro'
 import { astroPersonsDefinition } from 'keystatic/personsAstro'
-import { astroBookPageDefinition } from 'keystatic/bookAstro'
-import { astroClosingEventPageDefinition } from 'keystatic/closingEventAstro'
 import { astroPressPageDefinition } from 'keystatic/pressAstro'
 import {
   astroProjectPartnerPageIntroDefinition,
