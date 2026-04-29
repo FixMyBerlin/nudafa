@@ -3,6 +3,12 @@ import { clsx } from 'clsx'
 import type { TNavigation } from './Navbar'
 import { NavigationDisclosureItemMobile } from './NavigationDisclosureItemMobile'
 
+function isSameNavPath(path: string, href: string) {
+  const h = href.replace(/\/$/, '') || '/'
+  const p = path.replace(/\/$/, '') || '/'
+  return p === h || p.startsWith(`${h}/`)
+}
+
 type Props = {
   mainNavigation: TNavigation
   path: string
@@ -14,14 +20,28 @@ export const NavigationMobile = ({ mainNavigation, path }: Props) => {
       as="div"
       className="absolute w-screen space-y-px bg-beige-50 pb-1 shadow-lg md:hidden"
     >
-      {Object.entries(mainNavigation.first).map(([title, menuChildrenItems]) => (
-        <NavigationDisclosureItemMobile
-          key={title}
-          path={path}
-          title={title}
-          menuChildrenItems={menuChildrenItems}
-        />
-      ))}
+      {Object.entries(mainNavigation.first).map(([title, item]) =>
+        typeof item === 'string' ? (
+          <a
+            key={title}
+            href={item}
+            className={clsx(
+              'relative w-full divide-y-2 divide-beige-100 bg-white',
+              'flex w-full items-center justify-between px-3 py-4 font-semibold',
+              isSameNavPath(path, item) && 'font-bold',
+            )}
+          >
+            {title}
+          </a>
+        ) : (
+          <NavigationDisclosureItemMobile
+            key={title}
+            path={path}
+            title={title}
+            menuChildrenItems={item}
+          />
+        ),
+      )}
       {Object.entries(mainNavigation.second).map((seconItem) => {
         if (typeof seconItem[1] === 'string') {
           return (

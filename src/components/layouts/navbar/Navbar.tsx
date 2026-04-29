@@ -9,7 +9,7 @@ import { NavbarMenuItem } from './NavbarMenuItem'
 import { NavigationMobile } from './NavigationMobile'
 
 export type TNavigation = {
-  first: Record<string, Record<string, string>>
+  first: Record<string, Record<string, string> | string>
   second: Record<string, string | Record<string, string>>
 }
 
@@ -22,6 +22,12 @@ type Props = {
 export const navHeightClass = 'h-16'
 export const navHeightClassAsNegativeMarginBottom = 'md:-mb-16'
 export const navHeightClassAsNegativeMarginTop = '-mt-16'
+
+function isSameNavPath(path: string, href: string) {
+  const h = href.replace(/\/$/, '') || '/'
+  const p = path.replace(/\/$/, '') || '/'
+  return p === h || p.startsWith(`${h}/`)
+}
 
 export const Navbar = ({ mainNavigation, path }: Props) => {
   return (
@@ -39,14 +45,29 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
               <div className="hidden md:ml-6 md:block">
                 <div className="flex gap-6 divide-x divide-solid divide-gray-900">
                   <div className="flex">
-                    {Object.entries(mainNavigation.first).map(([title, menuChildrenItems]) => (
-                      <NavbarMenuItem
-                        key={title}
-                        path={path}
-                        title={title}
-                        menuChildrenItems={menuChildrenItems}
-                      />
-                    ))}
+                    {Object.entries(mainNavigation.first).map(([title, item]) =>
+                      typeof item === 'string' ? (
+                        <a
+                          key={title}
+                          href={item}
+                          className={clsx(
+                            'ml-6 text-nowrap',
+                            isSameNavPath(path, item)
+                              ? selectedMenuButtonStylesForLinkElement
+                              : menuButtonStylesForLinkElement,
+                          )}
+                        >
+                          {title}
+                        </a>
+                      ) : (
+                        <NavbarMenuItem
+                          key={title}
+                          path={path}
+                          title={title}
+                          menuChildrenItems={item}
+                        />
+                      ),
+                    )}
                   </div>
 
                   <div className="flex">

@@ -6,6 +6,8 @@ import { astroMeasuretownsDefinition } from 'keystatic/measuretownsAstro'
 import { astroMeasuretypesDefinition } from 'keystatic/measuretypesAstro'
 import { astroPartnerCommunesPageDefinition } from 'keystatic/partnercommunespageAstro'
 import { astroPersonsDefinition } from 'keystatic/personsAstro'
+import { astroBookPageDefinition } from 'keystatic/bookAstro'
+import { astroClosingEventPageDefinition } from 'keystatic/closingEventAstro'
 import { astroPressPageDefinition } from 'keystatic/pressAstro'
 import {
   astroProjectPartnerPageIntroDefinition,
@@ -24,6 +26,8 @@ export const collections = {
   homepageintro: homepageIntroAstro,
   homepagemain: homepageMainAstro,
   presspage: astroPressPageDefinition,
+  closingeventpage: astroClosingEventPageDefinition,
+  bookpage: astroBookPageDefinition,
   researchpage: astroResearchPageDefinition,
   projectpartnerpageintro: astroProjectPartnerPageIntroDefinition,
   projectpartnerpagemain: astroProjectPartnerPageMainDefinition,

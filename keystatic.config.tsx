@@ -8,6 +8,8 @@ import { keystaticMeasuretownsConfig } from 'keystatic/measuretownsKeystatic'
 import { keystaticMeasuretypesConfig } from 'keystatic/measuretypesKeystatic'
 import { keystaticPartnerCommunesPageConfig } from 'keystatic/partnercommunespageKeystatic'
 import { keystaticPersonsConfig } from 'keystatic/personsKeystatic'
+import { keystaticBookPageConfig } from 'keystatic/bookKeystatic'
+import { keystaticClosingEventPageConfig } from 'keystatic/closingEventKeystatic'
 import { keystaticPressPageConfig } from 'keystatic/pressKeystatic'
 import {
   keystaticProjectPartnerPageIntroConfig,
@@ -45,6 +47,8 @@ export default config({
         'persons',
         'researchpage',
         'presspage',
+        'closingeventpage',
+        'bookpage',
       ],
       Teilprojekte: ['subprojects', 'subprojectstopics', 'communes', 'partners'],
       Radnetz: ['bicyclenetworkages'],
@@ -56,6 +60,8 @@ export default config({
     homepageintro: HomepageIntroKeystatic,
     homepagemain: HomepageMainKeystatic,
     presspage: keystaticPressPageConfig,
+    closingeventpage: keystaticClosingEventPageConfig,
+    bookpage: keystaticBookPageConfig,
     researchpage: keystaticResearchPageConfig,
     projectpartnerpageintro: keystaticProjectPartnerPageIntroConfig,
     projectpartnerpagemain: keystaticProjectPartnerPageMainConfig,

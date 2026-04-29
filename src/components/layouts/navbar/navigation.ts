@@ -26,11 +26,13 @@ measuretowns
 
 export const mainNavigation: TNavigation = {
   first: {
+    Buch: '/buch/',
     'Das Reallabor': {
       Start: '/',
       'Über uns': '/ueber-uns/',
       Begleitforschung: '/begleitforschung/',
       Presse: '/presse/',
+      Abschlussveranstaltung: '/abschlussveranstaltung/',
     },
     Teilprojekte: {
       ...subprojectsNavigation,
