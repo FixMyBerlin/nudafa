@@ -2,12 +2,7 @@ import { DisclosurePanel } from '@headlessui/react'
 import { clsx } from 'clsx'
 import type { TNavigation } from './Navbar'
 import { NavigationDisclosureItemMobile } from './NavigationDisclosureItemMobile'
-
-function isSameNavPath(path: string, href: string) {
-  const h = href.replace(/\/$/, '') || '/'
-  const p = path.replace(/\/$/, '') || '/'
-  return p === h || p.startsWith(`${h}/`)
-}
+import { isSameNavPath } from './navActivePath'
 
 type Props = {
   mainNavigation: TNavigation
@@ -26,9 +21,8 @@ export const NavigationMobile = ({ mainNavigation, path }: Props) => {
             key={title}
             href={item}
             className={clsx(
-              'relative w-full divide-y-2 divide-beige-100 bg-white',
-              'flex w-full items-center justify-between px-3 py-4 font-semibold',
-              isSameNavPath(path, item) && 'font-bold',
+              'relative flex w-full items-center justify-between divide-y-2 divide-beige-100 bg-white px-3 py-4',
+              isSameNavPath(path, item) ? 'font-bold' : 'font-semibold',
             )}
           >
             {title}
@@ -42,30 +36,28 @@ export const NavigationMobile = ({ mainNavigation, path }: Props) => {
           />
         ),
       )}
-      {Object.entries(mainNavigation.second).map((seconItem) => {
-        if (typeof seconItem[1] === 'string') {
+      {Object.entries(mainNavigation.second).map(([label, href]) => {
+        if (typeof href === 'string') {
           return (
             <a
-              key={seconItem[1]}
-              href={seconItem[1]}
+              key={href}
+              href={href}
               className={clsx(
-                'relative w-full divide-y-2 divide-beige-100 bg-white',
-                'flex w-full items-center justify-between px-3 py-4 font-semibold',
-                seconItem[1] === path && 'font-bold',
+                'relative flex w-full items-center justify-between divide-y-2 divide-beige-100 bg-white px-3 py-4',
+                isSameNavPath(path, href) ? 'font-bold' : 'font-semibold',
               )}
             >
-              {seconItem[0]}
+              {label}
             </a>
           )
         }
 
-        const [title, menuChildrenItems] = seconItem
         return (
           <NavigationDisclosureItemMobile
-            key={title}
+            key={label}
             path={path}
-            title={title}
-            menuChildrenItems={menuChildrenItems}
+            title={label}
+            menuChildrenItems={href}
           />
         )
       })}

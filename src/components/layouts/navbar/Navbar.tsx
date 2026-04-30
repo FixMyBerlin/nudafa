@@ -5,6 +5,7 @@ import {
 import { Disclosure, DisclosureButton } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { clsx } from 'clsx'
+import { isSameNavPath } from './navActivePath'
 import { NavbarMenuItem } from './NavbarMenuItem'
 import { NavigationMobile } from './NavigationMobile'
 
@@ -22,12 +23,6 @@ type Props = {
 export const navHeightClass = 'h-16'
 export const navHeightClassAsNegativeMarginBottom = 'md:-mb-16'
 export const navHeightClassAsNegativeMarginTop = '-mt-16'
-
-function isSameNavPath(path: string, href: string) {
-  const h = href.replace(/\/$/, '') || '/'
-  const p = path.replace(/\/$/, '') || '/'
-  return p === h || p.startsWith(`${h}/`)
-}
 
 export const Navbar = ({ mainNavigation, path }: Props) => {
   return (
@@ -71,34 +66,30 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
                   </div>
 
                   <div className="flex">
-                    {Object.entries(mainNavigation.second).map((secondItem) => {
-                      if (typeof secondItem[1] === 'string') {
-                        return (
-                          <a
-                            key={secondItem[1]}
-                            href={secondItem[1]}
-                            className={clsx(
-                              'ml-5 text-nowrap',
-                              path.startsWith(secondItem[1])
-                                ? selectedMenuButtonStylesForLinkElement
-                                : menuButtonStylesForLinkElement,
-                            )}
-                          >
-                            {secondItem[0]}
-                          </a>
-                        )
-                      }
-                      const [title, menuChildrenItems] = secondItem
-                      return (
+                    {Object.entries(mainNavigation.second).map(([label, href]) =>
+                      typeof href === 'string' ? (
+                        <a
+                          key={href}
+                          href={href}
+                          className={clsx(
+                            'ml-5 text-nowrap',
+                            isSameNavPath(path, href)
+                              ? selectedMenuButtonStylesForLinkElement
+                              : menuButtonStylesForLinkElement,
+                          )}
+                        >
+                          {label}
+                        </a>
+                      ) : (
                         <NavbarMenuItem
                           button
-                          key={title}
+                          key={label}
                           path={path}
-                          title={title}
-                          menuChildrenItems={menuChildrenItems}
+                          title={label}
+                          menuChildrenItems={href}
                         />
-                      )
-                    })}
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
