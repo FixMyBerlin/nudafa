@@ -1,6 +1,8 @@
 import { config } from '@keystatic/core'
 import { KEYSTATIC_STORAGE_KIND } from 'astro:env/client'
 import { bicyclenetworkpagesKeystatic } from 'keystatic/bicyclenetworkPagesKeystatic'
+import { keystaticBookPageConfig } from 'keystatic/bookKeystatic'
+import { keystaticClosingEventPageConfig } from 'keystatic/closingEventKeystatic'
 import { HomepageIntroKeystatic, HomepageMainKeystatic } from 'keystatic/homepageKeystatic'
 import { keystaticImprintPageConfig } from 'keystatic/imprintKeystatic'
 import { keystaticMeasuresConfig } from 'keystatic/measuresKeystatic'
@@ -8,8 +10,6 @@ import { keystaticMeasuretownsConfig } from 'keystatic/measuretownsKeystatic'
 import { keystaticMeasuretypesConfig } from 'keystatic/measuretypesKeystatic'
 import { keystaticPartnerCommunesPageConfig } from 'keystatic/partnercommunespageKeystatic'
 import { keystaticPersonsConfig } from 'keystatic/personsKeystatic'
-import { keystaticBookPageConfig } from 'keystatic/bookKeystatic'
-import { keystaticClosingEventPageConfig } from 'keystatic/closingEventKeystatic'
 import { keystaticPressPageConfig } from 'keystatic/pressKeystatic'
 import {
   keystaticProjectPartnerPageIntroConfig,
@@ -40,6 +40,7 @@ export default config({
     },
     navigation: {
       Home: ['homepageintro', 'homepagemain'],
+      Buch: ['bookpage'],
       'Das Reallabor': [
         'projectpartnerpageintro',
         'projectpartnerpagemain',
@@ -48,7 +49,6 @@ export default config({
         'researchpage',
         'presspage',
         'closingeventpage',
-        'bookpage',
       ],
       Teilprojekte: ['subprojects', 'subprojectstopics', 'communes', 'partners'],
       Radnetz: ['bicyclenetworkages'],
