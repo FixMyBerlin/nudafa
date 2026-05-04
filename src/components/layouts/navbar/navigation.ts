@@ -30,11 +30,13 @@ export const mainNavigation: TNavigation = {
       Start: '/',
       'Über uns': '/ueber-uns/',
       Begleitforschung: '/begleitforschung/',
+      Abschlussveranstaltung: '/abschlussveranstaltung/',
       Presse: '/presse/',
     },
     Teilprojekte: {
       ...subprojectsNavigation,
     },
+    'Zum Buch': '/buch/',
   },
   second: {
     'Zum Radnetz': '/radnetz/einleitung/',

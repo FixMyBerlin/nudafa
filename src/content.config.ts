@@ -1,4 +1,6 @@
 import { astroBicyclenetworkpagesDefinition } from 'keystatic/bicyclenetworkPagesAstro'
+import { astroBookPageDefinition } from 'keystatic/bookAstro'
+import { astroClosingEventPageDefinition } from 'keystatic/closingEventAstro'
 import { homepageIntroAstro, homepageMainAstro } from 'keystatic/homepageAstro'
 import { astroImprintPageDefinition } from 'keystatic/imprintAstro'
 import { astroMeasuresDefinition } from 'keystatic/measuresAstro'
@@ -24,6 +26,8 @@ export const collections = {
   homepageintro: homepageIntroAstro,
   homepagemain: homepageMainAstro,
   presspage: astroPressPageDefinition,
+  closingeventpage: astroClosingEventPageDefinition,
+  bookpage: astroBookPageDefinition,
   researchpage: astroResearchPageDefinition,
   projectpartnerpageintro: astroProjectPartnerPageIntroDefinition,
   projectpartnerpagemain: astroProjectPartnerPageMainDefinition,

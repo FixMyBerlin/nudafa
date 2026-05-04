@@ -5,11 +5,12 @@ import {
 import { Disclosure, DisclosureButton } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { clsx } from 'clsx'
+import { isSameNavPath } from './navActivePath'
 import { NavbarMenuItem } from './NavbarMenuItem'
 import { NavigationMobile } from './NavigationMobile'
 
 export type TNavigation = {
-  first: Record<string, Record<string, string>>
+  first: Record<string, Record<string, string> | string>
   second: Record<string, string | Record<string, string>>
 }
 
@@ -39,45 +40,56 @@ export const Navbar = ({ mainNavigation, path }: Props) => {
               <div className="hidden md:ml-6 md:block">
                 <div className="flex gap-6 divide-x divide-solid divide-gray-900">
                   <div className="flex">
-                    {Object.entries(mainNavigation.first).map(([title, menuChildrenItems]) => (
-                      <NavbarMenuItem
-                        key={title}
-                        path={path}
-                        title={title}
-                        menuChildrenItems={menuChildrenItems}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="flex">
-                    {Object.entries(mainNavigation.second).map((secondItem) => {
-                      if (typeof secondItem[1] === 'string') {
-                        return (
-                          <a
-                            key={secondItem[1]}
-                            href={secondItem[1]}
-                            className={clsx(
-                              'ml-5 text-nowrap',
-                              path.startsWith(secondItem[1])
-                                ? selectedMenuButtonStylesForLinkElement
-                                : menuButtonStylesForLinkElement,
-                            )}
-                          >
-                            {secondItem[0]}
-                          </a>
-                        )
-                      }
-                      const [title, menuChildrenItems] = secondItem
-                      return (
+                    {Object.entries(mainNavigation.first).map(([title, item]) =>
+                      typeof item === 'string' ? (
+                        <a
+                          key={title}
+                          href={item}
+                          className={clsx(
+                            'ml-6 text-nowrap',
+                            isSameNavPath(path, item)
+                              ? selectedMenuButtonStylesForLinkElement
+                              : menuButtonStylesForLinkElement,
+                          )}
+                        >
+                          {title}
+                        </a>
+                      ) : (
                         <NavbarMenuItem
-                          button
                           key={title}
                           path={path}
                           title={title}
-                          menuChildrenItems={menuChildrenItems}
+                          menuChildrenItems={item}
                         />
-                      )
-                    })}
+                      ),
+                    )}
+                  </div>
+
+                  <div className="flex">
+                    {Object.entries(mainNavigation.second).map(([label, href]) =>
+                      typeof href === 'string' ? (
+                        <a
+                          key={href}
+                          href={href}
+                          className={clsx(
+                            'ml-5 text-nowrap',
+                            isSameNavPath(path, href)
+                              ? selectedMenuButtonStylesForLinkElement
+                              : menuButtonStylesForLinkElement,
+                          )}
+                        >
+                          {label}
+                        </a>
+                      ) : (
+                        <NavbarMenuItem
+                          button
+                          key={label}
+                          path={path}
+                          title={label}
+                          menuChildrenItems={href}
+                        />
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
